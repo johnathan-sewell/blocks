@@ -74,6 +74,11 @@
 	@include spot();
 }
 
+//switch
+.switch {
+	@include switch();
+}
+
 // table
 .table {
 	@include table();
@@ -91,4 +96,102 @@
 // video
 .video {
 	@include video();
+}
+
+// Tactical Elements
+
+.ribbon {
+	&-corner {
+		&-blue {
+			@include tactical(#2980b9, "Oswald", #fff, 0 0 0 #fff);
+			.triangle { fill: darken(#2980b9, 25); }
+			&-shadow {
+				@extend .ribbon-corner-blue;
+				filter: drop-shadow(.1em .1em 1px darken(#2980b9, 30));
+			}
+		}
+	}
+	&-down {
+		&-red {
+			@include tactical(#d91f26, "Oswald", #fff, 0 .45em 0 darken(#d91f26, 25));
+			text { 
+				text-shadow: .1em .1em .5em rgba(0, 0, 0, .5);
+				fill: lighten(#da9f4d, 10);
+			}
+		}
+	}
+}
+
+.circle {
+	&-basic {
+		@include tactical(transparent, "Montserrat", #fff, 0 0 0 #fff);
+		.svg-text-large { letter-spacing: -2px; }
+	}
+	&-orange {
+		@include tactical(orange, "Oswald", #000, .5em .5em 3px rgba(0, 0, 0,.5));
+		.svg-text-small { font-weight: 400; }
+	}
+	&-purple {
+		@include tactical(purple, "Oswald", #fff, 0 0 0 #fff);
+	}
+}
+
+.poly {
+	&-blue {
+		@include tactical(#6DB5D5, "Montserrat", #fff, 0 0 0 #fff);
+		.svg-text-large { letter-spacing: -2px; }
+	}
+	&-blue-shadow {
+		@include tactical(#6DB5D5, "Montserrat", #fff, 2px 2px 1px darken(#6DB5D5, 40));
+		.svg-text-large { letter-spacing: -2px; }
+		.svg-text-small, .svg-text-large { text-shadow: 2px 2px 5px #000; }
+	}
+	&-red {
+		@include tactical(#BC2330, "Oswald", #fff, 0 0 0 #fff);
+		.svg-text-large { letter-spacing: -1px; }
+		.svg-text-micro	{ font-size: .5em; letter-spacing: initial; }
+		&-shadow {
+			@extend .poly-red;
+			filter: drop-shadow(.75em .5em 0 darken(#BC2330, 30));
+		}
+	}
+}
+
+.rect {
+	&-navy {
+		@include tactical(#00305F, "Montserrat", #fff, 0 0 0 #fff);
+	}
+	&-red {
+		@include tactical(#CB2647, "Montserrat", #fff, 0 0 0 #fff);
+	}
+}
+
+.speech {
+	&-left {
+		&-orange {
+			@include tactical(orange, "Oswald", #000, .5em .5em 0 #000);
+			.svg-text-small { font-weight: 400; }
+		}
+	}
+	&-right {
+		&-orange {
+			@include tactical(orange, "Oswald", #000, -.5em .5em 0 #000);
+			.svg-text-small { font-weight: 400; }
+		}
+	}
+}
+
+/* Test-Wrapper - For demo only */
+.tactical {
+	&-wrapper {
+		display: inline-block;
+		margin: 2em 2em 0 0;
+		width: 20%;
+		height: 20%;
+		
+		@include max("phone") {
+			width: 30%;
+			height: 30%;
+		}
+	}
 }

@@ -25,6 +25,9 @@
 		padding: nth(map-get($theme, "label-padding"), 1);
 		border-bottom: 1px solid map-get($theme, "mobile-border");
 		text-align: left;
+		a  {
+			text-decoration: none;
+		}
 		&:not(.no-panel)::after { 
 			content: map-get($theme, "mobile-expand");
 			float: right;

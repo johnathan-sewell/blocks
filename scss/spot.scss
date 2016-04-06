@@ -1,17 +1,19 @@
 ﻿/// Spot-block with multiple configurations
-/// - Version 1.1.3
-/// - Date last edited: 2016-03-31
+/// - Version 1.1.4
+/// - Date last edited: 2016-04-06
 /// @name spot
 /// @group blocks
 /// @author Mads Stoumann
 /// @param {String} $theme [$spot] - The theme-map to use
 /// @output class-module
+/// @link http://www.stoumann.dk/blocks/spot.html Demo
 /// @example scss
 ///   .spot( @include spot(); )
 
 @mixin spot($theme: $spot) {
 	$root: &;
-	font-size: map-get($theme, "font-root");
+	@include font-sizes(map-get($theme, "font-map"));
+	
 	display: flex;
 	color: map-get($theme, "color");
 	border: map-get($theme, "border");
@@ -133,7 +135,7 @@ $spot: (
 	"color": inherit,
 	"content-overlay-background": rgba(255, 255, 255, 0.9),
 	"details-max-height": 17.1em,
-	"font-root": 1rem,
+	"font-map": 0,
 	"inner-gutter": 1em,
 	"link-char-after": " \276F",
 	"link-text-align": right,

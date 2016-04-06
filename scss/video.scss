@@ -1,6 +1,6 @@
 /// Returns a video-wrapper with optional poster-image, label and play-overlay
-/// - Version 1.1.0
-/// - Date last edited: 2016-04-05
+/// - Version 1.1.2
+/// - Date last edited: 2016-04-06
 /// @name video
 /// @group blocks
 /// @author Mads Stoumann
@@ -19,9 +19,8 @@
 	cursor: pointer;
 	
 	@include hover {
-		&-label {
-			//@extend %transall;
-			opacity: .5;
+		#{$root}-label {
+			opacity: .85;
 		}
 	}
 	&-content {
@@ -33,6 +32,8 @@
 		font-size: 1.5em;
 		margin: map-get($theme, "label-margin");
 		padding: 0.75em 1.5em;
+		opacity: 1;
+		transition: all 0.3s ease;
 		color: map-get($theme, "label-color");
 		background: map-get($theme, "label-background");
 	}

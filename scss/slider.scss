@@ -1,23 +1,22 @@
-﻿////
+﻿/// CSS-driven slider-control
+/// - Version 1.2.1
+/// - Date last edited: 2016-04-06
 /// @name slider
 /// @group blocks
 /// @author Mads Stoumann
 /// @param {String} $theme [$slider] - The theme-map to use
 /// @output class-module
+/// @link http://www.stoumann.dk/blocks/slider.html Demo
 /// @example scss
 ///   .slider( @include slider(); )
-////
-
-/// - Version 1.2.0
-/// - Date last edited: 2016-03-29
 
 @mixin slider($theme: $slider) {
 	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
 	$max-img-count: 10;
 	
 	position: relative;
 	overflow: hidden;
-	font-size: map-get($theme, "font-root");	
 	text-align: center;
 	
 	&-label {
@@ -109,7 +108,7 @@ $slider: (
 	"caption-text-shadow": 1px 1px 1px rgba(0, 0, 0, 0.6),
 	"caption-color": #fff,
 	"caption-font-size": 1.5em,
-	"font-root": 1rem,
+	"font-map": 0,
 	"height": 25em,
 	"label-background": darkgrey,
 	"label-background-selected": deepskyblue,

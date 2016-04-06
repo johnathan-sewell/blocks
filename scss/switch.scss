@@ -1,56 +1,71 @@
-﻿/*
-- Document  : switch.scss
-- Version   : 1.0.0
-- Client    : Blocks!
-- Authors   : Mads Stoumann
-- Date edit : 2015-10-19
-*/
+﻿/// CSS-driven switch-control
+/// - Version 1.2.0
+/// - Date last edited: 2016-04-06
+/// @name switch
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$switch] - The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/switch.html Demo
+/// @example scss
+///   .switch( @include switch(); )
 
-@mixin switch($width, $background, $background_sel, $border, $border_sel, $border-width) {
+@mixin switch($theme: $switch) {
 	& + label {
 		display: inline-block;
 		position: relative;
+		@include font-sizes(map-get($theme, "font-map"));
 				
 		&::before {
 			content: "";
 			display: inline-block;
-		 	width: $width;
-	  		height: ($width / 2);
-			border-radius: ($width / 4);
-			background: $background;
-			border: $border-width solid $border;
+		 	width: map-get($theme, "width");
+	  		height: (map-get($theme, "width") / 2);
+			border-radius: (map-get($theme, "width") / 4);
+			background: map-get($theme, "background");
+			border: map-get($theme, "border-width") solid map-get($theme, "border-color");
 			margin: 0 1em 0 0;
 			vertical-align: middle;
 		}
 		&::after {
 			display: inline-block;
 			position: absolute;
-			top: $border-width;
+			top: map-get($theme, "border-width");
 			left: 0;
-			width: (($width / 2) - ($border-width * 2));
-			height: (($width / 2) - ($border-width * 2));
+			width: ((map-get($theme, "width") / 2) - (map-get($theme, "border-width") * 2));
+			height: ((map-get($theme, "width") / 2) - (map-get($theme, "border-width") * 2));
 			content: "";
-			background: $background;
+			background: map-get($theme, "background");
 			border-radius: 50%;
-			border: $border-width solid #ccc;
-			box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+			border: map-get($theme, "border-width") solid map-get($theme, "border-color");
+			box-shadow: map-get($theme, "box-shadow");
 			transition: all .3s ease-in-out;
 		}
   	}
   	&:checked + label {
   		&::before {
-  			background-color: $background_sel;
+  			background-color: map-get($theme, "background-selected");
   		}
   		&::after {
-  			left: $width;
-  			border-color: $border_sel;
+  			left: map-get($theme, "width");
+  			border-color: map-get($theme, "border-color-selected");
   			box-shadow: -1px 1px 1px rgba(0, 0, 0, .2);
   			transform: translateX(-100%);
     	}
   	}
 }
 
-.switch {
-	/* width, background-color, background-color_selected, border-color, border-color_selected, border-width */
-	@include switch(80px, #fff, #1e90ff, #ccc, #1e90ff, 1px);
-}
+/// Theme-map for switch-block
+/// @name switch
+/// @group settings
+
+$switch: (
+	"background": #fff,
+	"background-selected": #1e90ff,
+	"border-color": #ccc,
+	"border-color-selected": #1e90ff,
+	"border-width": 1px,
+	"box-shadow": 1px 1px 1px rgba(0, 0, 0, .2),
+	"font-map": ("phone": 1rem),
+	"width": 80px
+);

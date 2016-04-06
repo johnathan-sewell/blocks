@@ -1,11 +1,12 @@
 /// Returns a class-module for *tables*
-/// - Version 1.1.5
-/// - Date last edited: 2016-04-04
+/// - Version 1.1.6
+/// - Date last edited: 2016-04-06
 /// @name table
 /// @group blocks
 /// @author Mads Stoumann
 /// @param {String} $theme [$table] - The theme-map to use
 /// @output class-module
+/// @link http://www.stoumann.dk/blocks/table.html Demo
 /// @example scss
 ///   .table( @include table(); )
 
@@ -46,6 +47,9 @@
 		&:nth-child(even) td { 
 			background: map-get($theme, "tr-even-background");
 			color: map-get($theme, "tr-even-color");
+			&::before {
+				background: darken(map-get($theme, "th-background"), 20);
+			}
 		}
 	}
 	// Mobile layout
@@ -118,4 +122,4 @@ $table: (
 	"tr-even-color": #333,
 	"tr-odd-background": #fff,
 	"tr-odd-color": #333
-);	
+);

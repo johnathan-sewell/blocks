@@ -1,12 +1,18 @@
-/*
-- Document  : tactical.scss
-- Version   : 1.0.0
-- Client    : Blocks!
-- Authors   : Mads Stoumann
-- Date edit : 2016-02-08
-*/
+/// Sets fill-color, font and other styling for tactical elements, but notice, that most of the work here is done in the SVG itself
+/// - Version 1.1.0
+/// - Date last edited: 2016-04-05
+/// @name tactical
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $fill Fill Color
+/// @param {String} $font-family Font Family
+/// @param {String} $font-color Font Color
+/// @param {String} $shadow Shadow
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/tactical.html Demo
+/// @example scss
+///   .circle-basic( @include tactical(transparent, "Montserrat", #fff, 0 0 0 #fff); )
 
-/* SVG Tactical Mixin */
 @mixin tactical($fill, $font-family, $font-color, $shadow) {
 	filter: drop-shadow($shadow);
 	fill: $fill;
@@ -15,106 +21,9 @@
 }
 
 /* SVG Tactical Text */
-.text {
-	&-micro	{ font-size: .675em; }
-	&-small { font-size: .875em; }
-	&-medium{ font-size: 1.5em; }
-	&-large { font-size: 2.5em; }
-}
-
-/* Examples */
-.ribbon {
-	&-corner {
-		&-blue {
-			@include tactical(#2980b9, "Oswald", #fff, 0 0 0 #fff);
-			.triangle { fill: darken(#2980b9, 25); }
-			&-shadow {
-				@extend .ribbon-corner-blue;
-				filter: drop-shadow(.1em .1em 1px darken(#2980b9, 30));
-			}
-		}
-	}
-	&-down {
-		&-red {
-			@include tactical(#d91f26, "Oswald", #fff, 0 .45em 0 darken(#d91f26, 25));
-			text { 
-				text-shadow: .1em .1em .5em rgba(0, 0, 0, .5);
-				fill: lighten(#da9f4d, 10);
-			}
-		}
-	}
-}
-
-.circle {
-	&-basic {
-		@include tactical(transparent, "Montserrat", #fff, 0 0 0 #fff);
-		.text-large { letter-spacing: -2px; }
-	}
-	&-orange {
-		@include tactical(orange, "Oswald", #000, .5em .5em 3px rgba(0, 0, 0,.5));
-		.text-small { font-weight: 400; }
-	}
-	&-purple {
-		@include tactical(purple, "Oswald", #fff, 0 0 0 #fff);
-	}
-}
-
-.poly {
-	&-blue {
-		@include tactical(#6DB5D5, "Montserrat", #fff, 0 0 0 #fff);
-		.text-large { letter-spacing: -2px; }
-	}
-	&-blue-shadow {
-		@include tactical(#6DB5D5, "Montserrat", #fff, 2px 2px 1px darken(#6DB5D5, 40));
-		.text-large { letter-spacing: -2px; }
-		.text-small, .text-large { text-shadow: 2px 2px 5px #000; }
-	}
-	&-red {
-		@include tactical(#BC2330, "Oswald", #fff, 0 0 0 #fff);
-		.text-large { letter-spacing: -1px; }
-		.text-micro	{ font-size: .5em; letter-spacing: initial; }
-		&-shadow {
-			@extend .poly-red;
-			filter: drop-shadow(.75em .5em 0 darken(#BC2330, 30));
-		}
-	}
-}
-
-.rect {
-	&-navy {
-		@include tactical(#00305F, "Montserrat", #fff, 0 0 0 #fff);
-	}
-	&-red {
-		@include tactical(#CB2647, "Montserrat", #fff, 0 0 0 #fff);
-	}
-}
-
-.speech {
-	&-left {
-		&-orange {
-			@include tactical(orange, "Oswald", #000, .5em .5em 0 #000);
-			.text-small { font-weight: 400; }
-		}
-	}
-	&-right {
-		&-orange {
-			@include tactical(orange, "Oswald", #000, -.5em .5em 0 #000);
-			.text-small { font-weight: 400; }
-		}
-	}
-}
-
-/* Test-Wrapper - For demo only */
-.tactical {
-	&-wrapper {
-		display: inline-block;
-		margin: 2em 2em 0 0;
-		width: 20%;
-		height: 20%;
-		
-		@include max("phone") {
-			width: 30%;
-			height: 30%;
-		}
-	}
+.svg-text {
+	&-micro		{ font-size: .675em; }
+	&-small		{ font-size: .875em; }
+	&-medium	{ font-size: 1.5em; }
+	&-large		{ font-size: 2.5em; }
 }

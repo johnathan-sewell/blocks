@@ -6,11 +6,13 @@
 /// @author Mads Stoumann
 /// @param {String} $theme - The theme-map to use, default to $tabs
 /// @output class-module
+/// @link http://www.stoumann.dk/blocks/tabs.html Demo
 /// @example scss
 /// .tabs { @include tabs(); }
 
 @mixin tabs($theme: $tabs) {
 	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
 	&-label {
 		line-height: map-get($theme, "label-height");
 		display: inline-block;
@@ -67,7 +69,7 @@
 /// @group settings
 
 $tabs: (
-	"font-root": 1rem,
+	"font-map": 0,
 	"height": 18em,
 	"label-background": #eee,
 	"label-background-selected": #fff,
@@ -87,7 +89,7 @@ $tabs: (
 );
 
 $tabs-custom: (
-	"font-root": 1rem,
+	"font-map": 0,
 	"height": 18em,
 	"label-background": linear-gradient(#555, #111),
 	"label-background-selected": linear-gradient(darkgrey, #ccc),

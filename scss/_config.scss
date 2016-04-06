@@ -19,9 +19,9 @@ $fontrootsizes: (
 	"phone"			: 13px,
 	"phablet"		: 14px,
 	"tablet"		: 15px,
-	"desktop"		: 17px,
-	"desktop-large"	: 19px,
-	"desktop-xlarge": 21px
+	"desktop"		: 16px,
+	"desktop-large"	: 17px,
+	"desktop-xlarge": 18px
 ) !default;
 
 /// List of z-indices to use for the various blocks
@@ -37,6 +37,7 @@ $zindex: (
 	"overlay":	800,
 	"popup":	900,
 	"root":		0,
+	"select":	60,
 	"tabs":		200,
 	"video":	50
 );

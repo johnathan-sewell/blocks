@@ -8,7 +8,7 @@
 /// @output class-module
 /// @link http://www.stoumann.dk/blocks/accordion.html Demo
 /// @example scss
-///   .accordion( @include accordion(); )
+///   .accordion ( @include accordion(); )
 
 @mixin accordion($theme: $accordion) {
 	$root: &;
