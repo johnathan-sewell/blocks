@@ -1,0 +1,88 @@
+﻿// @name growX
+// @group animations
+// @author Mads Stoumann
+
+@keyframes growX {
+	0% {
+		display: none;
+		opacity: 0;
+		transform: scale(1,0);
+		transform-origin: -100% 0;
+	}
+	1% {
+		display: block;
+	}
+	100% {
+		opacity: 1;
+		transform-origin: 0 0;
+		transform: scale(1,1);
+	}
+}
+
+// @name fadeIn
+// @group animations
+// @author Mads Stoumann
+
+@keyframes fadeIn {
+	0% {
+		display: none; 
+		opacity: 0;
+	}
+	10% {
+		display: block; 
+		opacity: 0;
+	}
+	100% {		
+		opacity: 1;
+	}
+}
+
+// @name fadeOut
+// @group animations
+// @author Mads Stoumann
+
+@keyframes fadeOut {
+	0% {
+		display: block; 
+		opacity: .95;
+	}
+	15% {
+		opacity: .5;
+	}
+	100% {		
+		display: none;
+		opacity: 0;
+	}
+}
+
+// @name slideDown
+// @group animations
+// @author Mads Stoumann
+
+@keyframes slideDown {
+	0% {
+		max-height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	1% {
+		padding-top: inherit;
+		padding-bottom: inherit;
+	}
+	100% {
+		max-height: 50rem;
+	}
+}
+
+// @name spin
+// @group animations
+// @author Mads Stoumann
+
+@keyframes spin {
+	0% { 
+		transform: rotate(0deg);
+	}
+	100%  { 
+		transform: rotate(360deg); 
+	}	
+}

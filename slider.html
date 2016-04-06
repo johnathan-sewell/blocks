@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Slider</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Slider</h1>
+	<p class="blocks-section">
+		Uses the ImageGallery- and ImageObject-schemas. <br />
+		Max. 10 images allowed.
+	</p>
+
+	<!-- HTML Version: 1.1.0 -->
+	
+	<!--Backend: 
+		Count number of images (imgCount), add this value to the root-class, ie. "slider slider-5", where "5" is the value of imgCount.
+		Use two loops, one for states + navigation, and one for the images themselves.
+		
+		The <input type="radio"> must have unique id's as well as a unique "name"-attribute per module-instance.
+		The first label below an <input type="radio"> must have the input's id as it's for-attribute.
+		For next-label for-attributes: #(id) + (i + 1 >= imgCount ? 1 : i + 1)"
+		For prev-labels for-attributes:	#(id) + (i === 1 ? imgCount : i - 1)"
+	-->
+	
+	<section class="slider slider-6" itemscope itemtype="http://schema.org/ImageGallery">
+		
+		<!-- First loop -->
+		<input type="radio" id="slide1" name="slider" checked="" class="state">
+		<label for="slide1" class="slider-label"></label>
+		<label for="slide5" class="slider-nav-prev"></label>
+		<label for="slide2" class="slider-nav-next"></label>
+		
+        <input type="radio" id="slide2" name="slider" class="state">
+        <label for="slide2" class="slider-label"></label>
+        <label for="slide1" class="slider-nav-prev"></label>
+        <label for="slide3" class="slider-nav-next"></label>
+        
+        <input type="radio" id="slide3" name="slider" class="state">
+        <label for="slide3" class="slider-label"></label>
+        <label for="slide2" class="slider-nav-prev"></label>
+        <label for="slide4" class="slider-nav-next"></label>
+        
+        <input type="radio" id="slide4" name="slider" class="state">
+        <label for="slide4" class="slider-label"></label>
+        <label for="slide3" class="slider-nav-prev"></label>
+        <label for="slide5" class="slider-nav-next"></label>
+        
+        <input type="radio" id="slide5" name="slider" class="state">
+        <label for="slide5" class="slider-label"></label>
+        <label for="slide4" class="slider-nav-prev"></label>
+        <label for="slide6" class="slider-nav-next"></label>
+
+        <input type="radio" id="slide6" name="slider" class="state">
+        <label for="slide6" class="slider-label"></label>
+        <label for="slide5" class="slider-nav-prev"></label>
+        <label for="slide1" class="slider-nav-next"></label>
+    	<!-- / End First loop -->
+    	
+		<div class="slider-wrapper">
+			
+			<!-- Second loop -->
+			<figure class="slider-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="img/g1.jpg" alt="" itemprop="contentUrl" />
+				<figcaption itemprop="caption description" class="slider-slide-caption text-top-right">“Say my Name. Heisenberg.”</figcaption>
+			</figure>
+			
+			<figure class="slider-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="img/g2.jpg" alt="" itemprop="contentUrl" />
+				<figcaption itemprop="caption description" class="slider-slide-caption text-top-center">“In a hole in the ground there lived a hobbit.”</figcaption>
+			</figure>
+			
+			<figure class="slider-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="img/g3.jpg" alt="" itemprop="contentUrl" />
+				<figcaption itemprop="caption description" class="slider-slide-caption text-bottom-left">Winter is Coming</figcaption>
+			</figure>
+			
+			<figure class="slider-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="img/g4.jpg" alt="" itemprop="contentUrl" />
+				<figcaption itemprop="caption description" class="slider-slide-caption text-bottom-right">Long image 4 description</figcaption>
+			</figure>
+
+			<figure class="slider-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="img/g5.jpg" alt="" itemprop="contentUrl" />
+				<figcaption itemprop="caption description" class="slider-slide-caption text-bottom-center">Long image 5 description</figcaption>
+			</figure>
+
+			<figure class="slider-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="img/g6.jpg" alt="" itemprop="contentUrl" />
+				<figcaption itemprop="caption description" class="slider-slide-caption text-top-left">Long image 6 description</figcaption>
+			</figure>
+			<!-- /End Second loop -->
+			
+		</div>
+	</section>	
+	<!-- / HTML Version -->
+
+</body>
+</html>

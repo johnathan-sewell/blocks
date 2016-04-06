@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Microtemplating</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Templating</h1>
+	<p class="blocks-section">
+		Using HTML5 template-tag;
+	</p>
+	
+	<h2>Moustache</h2>
+	<pre>
+		<code>
+var price = { value: 500 };
+var str = "The price is {{price.value}}$"
+var result = moustache(str, price);
+		</code>	
+	</pre>
+	
+	<h2>HTML5 Templating</h2>
+	<pre>
+		<code>
+&lt;template class="search-item"&gt;
+  &lt;h2&gt;Search result&lt;/h2&gt;
+  &lt;!-- 
+  data = data.result;
+  for (var i in data) { --&gt;
+    &lt;article&gt;
+      &lt;h3&gt;!--#data[i].title--&lt;/h3&gt;
+      &lt;span&gt;&lt;!--#data[i].pubdate--&gt;&lt;/span&gt;
+    &lt;/article&gt;
+  &lt;!--}--&gt;
+&lt;/template&gt;			
+		</code>	
+	</pre>
+	
+	<script src="js/templating.js"></script>
+	
+</body>
+</html>

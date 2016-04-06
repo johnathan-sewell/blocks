@@ -1,0 +1,53 @@
+﻿/*
+- Document  : carousel.scss
+- Version   : 1.0.0
+- Client    : Blocks!
+- Authors   : Mads Stoumann
+- Date edit : 2015-11-18
+*/
+
+.carousel {
+	overflow: hidden;
+	width: 400px;
+	max-width: 100%;
+	margin: 0 auto;
+	white-space: nowrap;
+	
+	&-arrow {
+		&-left,
+		&-right {
+			position: absolute;
+			top: 40%;
+			display: none;
+			width: 10%;
+			height: 10%;
+			cursor: pointer;
+			@include for("desktop") { display: inline-block; }
+		}	
+		&-left { left: 0; }
+		&-right { right: 0;	}
+	}
+	&-nav {
+		margin: 2.5% 0;
+		
+		input:checked + label {
+			background-color: lightgrey;	
+		}
+		label {
+			display: inline-block;
+			width: .75rem;
+			height: .75rem;
+			border-radius: 50%;
+			background-color: deepskyblue;
+			margin: 0 .5rem 0 0;
+		}
+	}
+	&-slide {
+		display: inline-block;
+	}
+	&-wrapper {
+		position: relative;
+		text-align: center;
+		font-style: italic;
+	}
+}

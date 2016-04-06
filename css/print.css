@@ -1,0 +1,92 @@
+/*
+- Document  : print.scss
+- Version   : 1.0.0
+- Date edit : 2016-04-05
+*/
+@page {
+  size: A4;
+  margin: 1.5cm 1.5cm 1.5cm 2.5cm;
+}
+
+a[href^=http]:after {
+  content: " <" attr(href) "> ";
+}
+
+body {
+  font: 12px "Georgia", serif;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  background: #fff;
+}
+
+h1, h2, h3, h4, h5 {
+  page-break-after: avoid;
+}
+
+img {
+  max-width: 100% !important;
+  page-break-inside: avoid;
+}
+
+nav, video {
+  display: none;
+}
+
+table, figure {
+  page-break-inside: avoid;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table caption {
+  margin: 0.5em 0;
+  font-weight: bold;
+}
+
+table td, table th {
+  border: 1px solid #222;
+  padding: 0.5em;
+}
+
+u {
+  text-decoration: none;
+}
+
+.state {
+  display: none;
+}
+
+/* Module Specific Print-Styles */
+/*
+- Document  : _print-modules.scss
+- Version   : 1.0.0
+- Date edit : 2016-04-05
+*/
+.accordion-label {
+  font-weight: bold;
+}
+
+.accordion-panel {
+  margin: 1em 0 2em 0;
+}
+
+.spot * {
+  color: #000;
+}
+
+.spot-content-close {
+  display: none;
+}
+
+.spot-img {
+  display: none;
+  /* todo */
+}
+
+/*# sourceMappingURL=print.css.map */

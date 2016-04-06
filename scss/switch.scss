@@ -1,0 +1,56 @@
+﻿/*
+- Document  : switch.scss
+- Version   : 1.0.0
+- Client    : Blocks!
+- Authors   : Mads Stoumann
+- Date edit : 2015-10-19
+*/
+
+@mixin switch($width, $background, $background_sel, $border, $border_sel, $border-width) {
+	& + label {
+		display: inline-block;
+		position: relative;
+				
+		&::before {
+			content: "";
+			display: inline-block;
+		 	width: $width;
+	  		height: ($width / 2);
+			border-radius: ($width / 4);
+			background: $background;
+			border: $border-width solid $border;
+			margin: 0 1em 0 0;
+			vertical-align: middle;
+		}
+		&::after {
+			display: inline-block;
+			position: absolute;
+			top: $border-width;
+			left: 0;
+			width: (($width / 2) - ($border-width * 2));
+			height: (($width / 2) - ($border-width * 2));
+			content: "";
+			background: $background;
+			border-radius: 50%;
+			border: $border-width solid #ccc;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+			transition: all .3s ease-in-out;
+		}
+  	}
+  	&:checked + label {
+  		&::before {
+  			background-color: $background_sel;
+  		}
+  		&::after {
+  			left: $width;
+  			border-color: $border_sel;
+  			box-shadow: -1px 1px 1px rgba(0, 0, 0, .2);
+  			transform: translateX(-100%);
+    	}
+  	}
+}
+
+.switch {
+	/* width, background-color, background-color_selected, border-color, border-color_selected, border-width */
+	@include switch(80px, #fff, #1e90ff, #ccc, #1e90ff, 1px);
+}

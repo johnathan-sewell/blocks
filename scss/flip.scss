@@ -1,0 +1,59 @@
+/*	
+-	Document	:	flip.scss
+-	Version		:	1.0.0
+-	Client		:	Blocks!
+-	Authors		:	Mads Stoumann
+-	Date edit	:	04-02-2016
+*/
+
+.flip {
+	&-back {
+		transform: rotateY(180deg);
+	}
+	&-back, &-front {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		backface-visibility: hidden;
+		background-color: #fff;
+	}
+	&-content {
+		transition: 0.6s;
+		transform-style: preserve-3d;
+		position: relative;
+	}
+	&-front {
+		z-index: 2;
+		transform: rotateY(0deg);
+	}
+	&-wrapper {
+		perspective: 1000;
+		.state:checked ~ .flip-content {
+			transform: rotateY(180deg);	
+		}
+	}
+}
+
+.flip-content {
+	width: 320px;
+	height: 480px;
+	border: 1px solid gray;
+}
+
+.label-circle {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    padding: .5em;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: #333;
+	
+	svg {
+		display: inline-block;
+		vertical-align: absmiddle;
+		fill: white;
+	}
+}

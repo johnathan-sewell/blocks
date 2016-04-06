@@ -1,0 +1,78 @@
+/// Filter, simulating Isotope
+/// - Version 1.2.0
+/// - Date last edited: 2016-04-05
+/// @name filter
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {Length} $num-filters Number of filters
+/// @param {String} $box-animation
+/// @param {String} $all-animation
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/filter.html Demo
+/// @example scss
+///     .filter { @include filter(5, box-animation, all-animation); }
+
+@mixin filter($num-filters, $box-animation: box-animation, $all-animation: all-animation) {
+	$root: &;
+	
+	&-box { 
+		display: none;
+		img {
+			width: 100%;
+			object-fit: cover;
+		}		
+	}
+	
+	&-content {
+		clear: both;
+	}
+
+	input[data-filter="all"]:checked ~ .filter-content &-box {  
+		display: block;
+		animation: $all-animation .3s forwards; 
+	}
+		
+	@for $i from 1 through $num-filters {
+		input[data-filter="#{$i}"]:checked {
+			& ~ .filter-content [data-filter="#{$i}"] {  
+				display: block;
+				animation: $box-animation .3s forwards; 
+			}
+		}
+	}
+}
+
+// @name box-animation
+// @group animations
+
+@keyframes box-animation {
+	0% {
+		opacity: 0;
+		transform: scale(.1);
+	}
+  	70% {	
+    	opacity: 1;
+    }
+  	100% {
+  		opacity: 1;
+    	transform: scale(1);
+	}
+}
+
+// @name all-animation
+// @group animations
+
+@keyframes all-animation {
+	0% {
+		display: none;
+		opacity: 0;
+		transform: scale(.1);
+	}
+  	70% {	
+    	opacity: 1;
+    }
+  	100% {
+  		opacity: 1;
+    	transform: scale(1);
+	}
+}

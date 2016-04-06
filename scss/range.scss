@@ -1,0 +1,88 @@
+/*
+- Document  : range.scss
+- Version   : 1.0.0
+- Client    : Blocks!
+- Authors   : Mads Stoumann
+- Date edit : 2016-02-16
+*/
+
+/// @author Mads Stoumann
+
+@mixin thumb($rootsize, $handlecolor) {
+	margin-top: -($rootsize*0.7);
+	padding: ($rootsize/2);
+	width: ($rootsize*2);
+	height: ($rootsize*2);
+	border: 0;
+	border-radius: 50%;
+	cursor: ew-resize;
+	background: $handlecolor;
+}
+
+@mixin track($rootsize) {
+	box-sizing: border-box;
+	height: ($rootsize*0.75);
+	border-radius: ($rootsize*0.375);
+	background: transparent;
+}
+
+@mixin range($width, $rootsize, $trackcolor, $highcolor, $handlecolor, $labelcolor) {
+	position: relative;
+	outline: 0;
+	width: $width;
+	background-color: $trackcolor;
+	color: $highcolor;
+	height: ($rootsize*0.75);
+	font-size: $rootsize;
+	cursor: pointer;
+	border-radius: ($rootsize*0.375);
+	
+	&, 
+  	&::-webkit-slider-runnable-track, 
+  	&::-webkit-slider-thumb {
+    	appearance: none;
+	}
+	&::-webkit-slider-runnable-track {
+    	@include track($rootsize);
+  	}
+  	&::-moz-range-track {
+    	@include track($rootsize);
+  	}
+  	&::-ms-track {
+    	@include track($rootsize);
+    	color: transparent;
+  	}
+  	&::-webkit-slider-thumb {
+    	@include thumb($rootsize, $handlecolor);
+  	}
+  	&::-moz-range-thumb {
+    	@include thumb($rootsize/1.5, $handlecolor);
+  	}
+  	&::-ms-thumb {
+    	@include thumb($rootsize/1.5, $handlecolor);
+  	}
+  	&::-ms-fill-lower, 
+  	&::-ms-tooltip {
+    	display: none;
+  	}
+	&::after,
+	&::before {
+		position: absolute;
+		display: inline-block;
+		font-size: ($rootsize*0.675);
+		color: $labelcolor;
+	}
+	&::after {
+		content: attr(value) "/" attr(max);
+		bottom: -1.3rem;
+		right: 0;
+	}
+	&::before {
+		content: attr(min);
+		bottom: -1.3rem;
+	}
+}
+
+/// @example
+.range-blue { @include range(25rem, 1rem, lightgrey, deepskyblue, darkgrey, #aaa); }
+.range-orange { @include range(25rem, 1rem, lightgrey, orange, darkgrey, #aaa); }

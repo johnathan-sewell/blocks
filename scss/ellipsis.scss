@@ -1,0 +1,53 @@
+﻿/*
+- Document  : ellipsis.scss
+- Version   : 1.0.0
+- Client    : Blocks!
+- Authors   : Mads Stoumann
+- Date edit : 2016-02-14
+*/
+
+/// @author Mads Stoumann
+
+@mixin ellipsis($background-color, $height, $line-height, $ellipsis-width) {
+	line-height: $line-height;
+	overflow: hidden;
+	height: $height;
+	background-color: $background-color;
+	
+	&:before {
+		float: left;
+		width: 5px;
+		height: $height;
+		content: "";
+	}
+
+	& > *:first-child {
+		float: right;
+		width: 100%;
+		margin-left: -5px;
+	}
+	
+	&:after {
+		box-sizing: content-box;
+		position: relative;
+	    top: -$line-height;
+	    left: 100%;
+	    float: right;
+	    width: $ellipsis-width;
+	    margin-left: -$ellipsis-width;
+	    padding-right: 5px;
+	    content: "\02026";  
+	    text-align: right;
+	    background-color: inherit;
+	}
+	
+	p { 
+		margin: 0; 
+		& + p { 
+			margin-top: $line-height; 
+		}
+	}
+}
+
+/// @example scss - Basic usage with fixed heights:
+.ellipsis {	@include ellipsis(orange, 11em, 1.6em, 1em); }

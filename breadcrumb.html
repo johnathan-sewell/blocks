@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Breadcrumbs</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Breadcrumbs</h1>
+	<p class="blocks-section">
+		<strong>Using data-vocabulary.org/Breadcrumb:</strong> (View Source for structure)
+	</p>
+	
+	<nav itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="breadcrumb">
+		<div class="breadcrumb-inner">
+			<a href="http://www.example.com" itemprop="url">
+				<span itemprop="title">Home</span>
+			</a>
+			<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://www.example.com/products" itemprop="url">
+					<span itemprop="title">Products and services</span>
+				</a>
+				<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+					<a href="http://www.example.com/products/item" itemprop="url">
+						<span itemprop="title">Browse our complete range</span>
+					</a>
+				</span>
+			</span>
+		</div>
+	</nav>
+
+	<p class="blocks-section">
+		<strong>Using schema.org/BreadcrumbList:</strong> (View source for structure)
+	</p>
+	
+	<nav itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb">
+		<div class="breadcrumb-inner">
+			<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a itemprop="item" href="https://example.com"><span itemprop="name">Home</span></a>
+				<meta itemprop="position" content="1" />
+			</span>
+			<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a itemprop="item" href="https://example.com/products"><span itemprop="name">Products</span></a>
+				<meta itemprop="position" content="2" />
+			</span>
+			<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a itemprop="item" href="https://example.com/products/item"><span itemprop="name">Item</span></a>
+				<meta itemprop="position" content="3" />
+			</span>
+		</div>
+	</nav>
+
+</body>
+</html>

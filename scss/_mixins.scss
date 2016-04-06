@@ -1,0 +1,294 @@
+﻿/// - Extension to include the *clearfix-hack*
+/// @name clearfix
+/// @group extensions
+/// @example scss
+///    @extend %clearfixFX;
+
+%clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+/// - Extension to include a pseudo-element for link-hovering (underline)
+/// @name hoverFX
+/// @group extensions
+/// @author Mads Stoumann
+/// @example scss
+///    @extend %hoverFX;
+
+%hoverFX {
+	position: relative;
+	&::before {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		content: "";
+		transition: transform .3s ease;
+		background: currentColor;
+	}
+}
+
+/// - Sets equal width and height for an element, based on *$width*
+/// @name equal
+/// @group mixins
+/// @author Mads Stoumann
+/// @param {Length} $width
+
+@mixin equal($width) {
+	width: $width;
+	height: $width;
+}
+
+/// Responsive root-fonts from a font-map
+/// @name font-sizes
+/// @group mixins
+/// @author Mads Stoumann
+/// @param {List} $rootsizes
+
+@mixin font-sizes($rootsizes) {
+	@if type-of($rootsizes) == number { $rootsizes: $fontrootsizes; } 
+	@each $rootsize in $rootsizes {
+		$breakpoint: nth($rootsize, 1);
+		
+		@if map-has-key($breakpoints, $breakpoint) {
+			@include for($breakpoint) {
+				font-size: nth($rootsize, 2);
+			}
+		}
+	}
+}
+
+/// @name for
+/// @group mixins
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint
+/// @content Content to include when breakpoint matches media-query
+
+@mixin for($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media (min-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	}
+}
+
+/// - Media Query for adding hover-states - for browsers supporting *hover*
+/// @name hover
+/// @group mixins
+/// @author Mads Stoumann
+/// @content hover-content for selected element
+/// @example scss
+///    @include hover { background-color: red; };
+
+@mixin hover {
+	@media (hover) {
+        &:hover { @content; }
+	}
+}
+
+/// - Animates an underline below a link *on hover*, from the center towards it's edges
+/// @name hoverFX-center
+/// @group mixins
+/// @author Mads Stoumann
+/// @example scss
+///    @include hoverFX-center;
+
+@mixin hoverFX-center {
+	@extend %hoverFX;
+	&::before {
+		transform: scaleX(0);
+	}
+	@include hover { 
+		&::before { transform: scaleX(1); }	
+	}
+}
+
+/// - Animates an underline below a link *on hover*, from left to right
+/// @name hoverFX-left
+/// @group mixins
+/// @author Mads Stoumann
+/// @example scss
+///    @include hoverFX-left;
+
+@mixin hoverFX-left {
+	@extend %hoverFX;
+	&::before {
+		transform: translateX(-100%);
+	}
+	@include hover { 
+		&::before { transform: translateX(0); }	
+	}
+}
+
+/// @name linear-gradient
+/// @group mixins
+/// @author Hugo Giraudel
+/// @param {String} $direction
+/// @param {Array} $color-stops
+
+@mixin linear-gradient($direction, $color-stops...) {
+	$legacy-direction : top;
+	@if $direction == to right {
+		$legacy-direction: left;
+	} 
+	background: nth(nth($color-stops, 1), 1);
+	background: -webkit-linear-gradient($legacy-direction, $color-stops);
+	background: linear-gradient($direction, $color-stops);
+}
+
+/// - Adds horizontal ellipsis to a text-block
+/// @name line-overflow
+/// @group mixins
+/// @author Mads Stoumann
+/// @param {Length} $maxwidth - The max-length of the content
+/// @param {Boolean} $multiline [true] - Defaults to multi-line
+
+@mixin line-overflow($maxwidth, $multiline: true) {
+	max-width: $maxwidth;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	@if $multiline == false { white-space: nowrap; }
+}
+
+/// @name max
+/// @group mixins
+/// @author Mads Stoumann
+/// @param {String} $breakpoint
+/// @content Content to include when breakpoint matches media-query
+
+@mixin max($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media (max-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	}
+}
+
+/// Mixin to use, if specifically targetting older versions of IE
+/// @name max
+/// @group mixins
+/// @author Jake Archibald
+
+@mixin old-ie {
+	@if $old-ie {
+		@content;
+	}
+}
+
+/// @name overlay
+/// @group mixins
+/// @author Mads Stoumann
+/// @param {String} $bg-color
+/// @param {Length} $z-index
+
+@mixin overlay($background : rgba(0, 0, 0, 0.75), $z-index : z("overlay")) {
+	@include fixed(top 0 right 0 bottom 0 left 0);
+	background: $background;
+	z-index: $z-index;
+}
+
+/// @name position
+/// @group mixins
+/// @author Hugo Giraudel
+/// @param {String} $position
+/// @param {String} $args
+
+@mixin position($position, $args: ()) {
+	$offsets: top right bottom left;
+	position: $position;
+	@each $offset in $offsets {
+		$index: index($args, $offset);
+		@if $index {
+			@if $index == length($args) {
+				#{$offset}: 0;
+			}
+			@else {
+				$next: nth($args, $index + 1);
+        		@if is-valid-length($next) {
+          			#{$offset}: $next;
+        		}
+        		@else if index($offsets, $next) {
+					#{$offset}: 0;
+        		}
+      		}
+    	}
+	}
+}
+
+/// - Part of *position*-mixin
+/// @name absolute
+/// @group mixins
+/// @author Hugo Giraudel
+@mixin absolute($args: ()) {
+	@include position(absolute, $args);
+}
+
+///  - Part of *position*-mixin
+/// @name fixed
+/// @group mixins
+/// @author Hugo Giraudel 
+@mixin fixed($args: ()) {
+	@include position(fixed, $args);
+}
+ 
+///  - Part of *position*-mixin
+/// @name relative
+/// @group mixins
+/// @author Hugo Giraudel
+@mixin relative($args: ()) {
+	@include position(relative, $args);
+}
+
+/// @name print
+/// @group mixins
+/// @author Mads Stoumann
+/// @content Content to include for print
+
+@mixin print() {
+	@media only print {	@content; }
+}
+
+/// @name targetIE
+/// @group mixins
+/// @author Mads Stoumann 
+
+@mixin targetIE {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+/// Nice underlines for text links
+/// @name underline
+/// @group mixins
+/// @author Mads Stoumann
+
+@mixin underline($link-color, $background-color, $hover-color) {
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, lighten($link-color, 20%) 50%);
+	background-position: 0 93%;
+	background-repeat: repeat-x;
+	background-size: 100% 0.15rem;
+	text-shadow: 0.1rem 0 $background-color, 0.15rem 0 $background-color, -0.1rem 0 $background-color, -0.15rem 0 $background-color;
+	&:hover, &:active, &:focus {
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, lighten($hover-color, 20%) 50%);
+	}
+}
+
+/// @name vertical-center
+/// @group mixins
+/// @author Mads Stoumann
+
+@mixin vertical-center {
+	&::before {
+		content: "";
+		display: inline-block;
+		margin-right: -0.01em;
+		height: 100%;
+		vertical-align: middle;
+	}
+}

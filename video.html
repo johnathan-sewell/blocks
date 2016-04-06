@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Video</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Video</h1>
+	<p class="blocks-section">
+		Video-frame with optional poster-image, label and play-icon.<br />
+		Use <em>js/video.js</em> for hiding the poster and play-icon on click, and add autoplay-parameter to video.
+	</p>
+	
+	<section itemscope itemtype="http://schema.org/VideoObject" class="video">
+		<meta itemprop="duration" content="T01M42S" />
+		<meta itemprop="copyrightHolder" content="Logifront" />
+		<meta itemprop="isFamilyFriendly" content="true" />
+		<meta itemprop="thumbnailURL" content="http://thumbnail.jpg" />
+		<meta itemprop="name" content="Logifront" />
+		<meta itemprop="description" content="A frontend-toolbox for creating forms" />
+		<meta itemprop="uploadDate" content="2014-01-01" />
+		<meta itemprop="embedURL" content="https://www.youtube.com/embed/vJMvLUxJw4s" />
+
+		<figure class="video-poster">
+			<img src="img/g3.jpg" class="video-poster-image" alt="Poster image" />
+			<svg viewBox="0 0 48 48" class="video-play">
+				<path class="path1" d="M9 0v48l30-23.965-30-24.035z"></path>
+			</svg>
+			<figcaption class="video-label">Logifront &mdash; Front-End Toolbox</figcaption>
+		</figure>
+		
+		<iframe class="video-content" src="https://www.youtube.com/embed/vJMvLUxJw4s" allowfullscreen></iframe>
+	</section>
+	
+	<script src="js/video.js"></script>
+</body>
+</html>

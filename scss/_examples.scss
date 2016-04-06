@@ -1,0 +1,94 @@
+// accordion
+.accordion { 
+	@include accordion();
+	&-label { font-weight: 400; &::after { font-weight: 300; } }
+	.custom-accordion & { @include accordion($accordion-custom); }
+}
+
+// app
+.app { 
+	@include app();
+	&-panel-header {
+		padding-bottom: .5em;
+	}
+}
+
+// breadcrumbs
+.breadcrumb { 
+	@include breadcrumb();
+}
+
+// filter
+.filter { 
+	@include filter(5);
+	@include button-group($form, "material", false);
+	&-content {	margin-top: 1rem; }
+}
+
+// form
+.form {
+	@include form($num-steps: 4);
+	.material & {
+		@include form($form, "material", 4); 
+	}
+}
+
+// grid
+.grid {
+	@include grid(1rem, 22rem);
+	background: #aaa;
+	.block { 
+		padding: 1rem;
+		background-color: #eee; 
+	}
+}
+
+// menu
+.menu {
+	@include menu();
+}
+
+// popup
+.popup {
+	@include popup();
+}
+
+// rating
+.rating {
+	@include rating();
+}
+
+// select
+.select { 
+	@include select($select); 
+	&-label { font-weight: 400; &::after { font-weight: 300; } }
+}
+
+// slider
+.slider {
+	@include slider();
+}
+
+// spot
+.spot {
+	@include spot();
+}
+
+// table
+.table {
+	@include table();
+}
+
+// tabs
+.tabs {
+	@include tabs($tabs); 
+	&-panel-header { 
+		padding-bottom: 1em;
+	}
+}
+.custom-tabs .tabs { @include tabs($tabs-custom); }
+
+// video
+.video {
+	@include video();
+}

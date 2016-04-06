@@ -1,0 +1,105 @@
+/// Returns a class-module for popup overlays
+/// - Version 1.2.6
+/// - Date last edited: 2016-04-05
+/// @name popup
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$popup] - The theme-map to use
+/// @output class-module
+/// @example scss
+///   .popup( @include popup(); )
+
+@mixin popup($theme: $popup) {
+	$left-translate: map-get($theme, "content-position-left");
+	$top-translate: map-get($theme, "content-position-top");
+	
+	&-close {
+		@include absolute(top 0.4em right 0.4em);
+		@include equal(1em);
+		font-size: map-get($theme, "close-font-size");
+		line-height: 0.85em;
+		text-align: center;
+		color: map-get($theme, "close-color");
+		border-radius: map-get($theme, "close-border-radius");
+		background: map-get($theme, "close-background");
+		@include hover {
+			background: map-get($theme, "close-background-hover");
+		}	
+	}
+	&-content {
+		@include fixed(top map-get($theme, "content-position-top") left map-get($theme, "content-position-left"));
+		font-size: map-get($theme, "font-root");
+  		z-index: -1;
+		width: auto;
+		max-width: nth(map-get($theme, "content-max-width"), 1);
+		max-height: nth(map-get($theme, "content-max-height"), 1);
+		min-width: nth(map-get($theme, "content-min-width"), 1);
+		min-height: nth(map-get($theme, "content-min-height"), 1);
+		padding: map-get($theme, "content-padding");
+		transition: transform .3s ease-in, opacity .3s linear;
+		transition-delay: .4s;
+		
+		@if $left-translate == 50% { $left-translate: -50%; } @else { $left-translate: 0; }
+		@if $top-translate == 50% { $top-translate: -50%; } @else { $top-translate: 0; }
+		transform: translate($left-translate, $top-translate);
+		
+		opacity: 0;
+		border: map-get($theme, "content-border");
+		border-radius: map-get($theme, "content-border-radius");
+		background: map-get($theme, "content-background");
+		background-clip: padding-box;
+		box-shadow: map-get($theme, "content-box-shadow");
+		&:target {
+			z-index: z("popup");
+			opacity: 1;
+			box-shadow: 0 0 0 999em map-get($theme, "overlay-target-background");
+		}
+		@include for("desktop") { 
+			max-width: nth(map-get($theme, "content-max-width"), 2);
+			max-height: nth(map-get($theme, "content-max-height"), 2);
+			min-width: nth(map-get($theme, "content-min-width"), 2);
+			min-height: nth(map-get($theme, "content-min-height"), 2);
+		}
+		@include for("desktop-large") { 
+			max-width: nth(map-get($theme, "content-max-width"), 3);
+			max-height: nth(map-get($theme, "content-max-height"), 3);
+			min-width: nth(map-get($theme, "content-min-width"), 3);
+			min-height: nth(map-get($theme, "content-min-height"), 3);
+		}
+	}
+	&-overlay {
+		@include overlay(map-get($theme, "overlay-background"), -1);
+		opacity: 0;
+		transition: opacity 0.3s linear;
+	}
+	.state:checked ~ &-content { opacity: 1; z-index: z("popup")+1; }
+	.state:checked ~ &-overlay { opacity: 0.8; z-index: z("popup"); }
+}
+	
+/// Theme-map for popup
+/// @name popup
+/// @group settings
+
+$popup: (
+	"close-background": lightgrey,
+	"close-background-hover": #333,
+	"close-border-radius": 50%,
+	"close-color": #fff,
+	"close-font-size": 2em,
+	"content-background" : #fff,
+	"content-box-shadow": 0 .25em .5em rgba(0, 0, 0, 0.3),
+	"content-border": 1px solid rgba(0, 0, 0, 0.3),
+	"content-border-radius": 0.5em,
+	
+	// List-order: mobile, desktop, desktopXL
+	"content-max-height": (100% 90% 80%),
+	"content-max-width": (100% 90% 80%),
+	"content-min-height": (15em, 20em, 25em),
+	"content-min-width": (90%, 65%, 50%),
+	"content-padding": 1em,
+	"content-position-top": 10%,
+	"content-position-left": 50%,
+	"font-root": 1rem,
+	"overlay-background" : #000,
+	"overlay-target-background": rgba(0, 0, 0, 0.8)
+);

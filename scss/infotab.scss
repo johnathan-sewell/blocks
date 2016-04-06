@@ -1,0 +1,51 @@
+/*	
+-	Document	:	infotab.scss
+-	Version		:	1.0.0
+-	Client		:	Blocks!
+-	Authors		:	Mads Stoumann
+-	Date edit	:	04-02-2016
+*/
+
+$border-color: #eee;
+$indicator-color: #e82d00;
+
+.infotab {
+	overflow: hidden;
+	position: relative;
+	padding: 5%;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	
+	&-label {
+		display: block;		
+		width: 25%;
+		border-right: 1px solid $border-color;
+		
+		span { 
+			line-height: 2rem;
+		}
+	}
+
+	&-panel {
+		position: absolute;
+	    top: 0;
+	    left: 25%;
+	
+	    width: 75%;
+	    margin-top: -100%;
+	    padding: 5%;
+	
+	    transition: all .6s ease-in-out;
+	    opacity: 0;
+	}
+	
+	.state:checked + label {
+		border-right: 3px solid $indicator-color;
+		transition: all .2s ease-in-out;
+
+		& + .infotab-panel {
+			margin-top: 2rem;
+			opacity: 1;
+		}
+	}
+}

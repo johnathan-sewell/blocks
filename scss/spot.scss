@@ -1,0 +1,140 @@
+﻿/// Spot-block with multiple configurations
+/// - Version 1.1.3
+/// - Date last edited: 2016-03-31
+/// @name spot
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$spot] - The theme-map to use
+/// @output class-module
+/// @example scss
+///   .spot( @include spot(); )
+
+@mixin spot($theme: $spot) {
+	$root: &;
+	font-size: map-get($theme, "font-root");
+	display: flex;
+	color: map-get($theme, "color");
+	border: map-get($theme, "border");
+	background: map-get($theme, "background");
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	
+	&-content {
+		margin: map-get($theme, "inner-gutter") 0;
+		padding: 0 map-get($theme, "inner-gutter");
+		&-close {
+			@include equal(map-get($theme, "close-font-size") * 1.5);
+			font-size: map-get($theme, "close-font-size");
+			line-height: map-get($theme, "close-font-size") * 1.5;
+			display: inline-block;
+			margin: 0 0 map-get($theme, "inner-gutter") 0;
+			text-align: center;
+			color: map-get($theme, "close-color");
+			border-radius: map-get($theme, "close-border-radius");
+			background: map-get($theme, "close-background");
+			@include hover {
+				background: map-get($theme, "close-background-hover");
+			}
+		}
+		&-details {
+			display: none;
+			text-align: right;
+		}
+		&-link {
+			display: inline-block;
+			float: map-get($theme, "link-text-align");
+			a { text-decoration: none; }
+			&::after { content: map-get($theme, "link-char-after"); }
+			@include hoverFX-center;
+		}
+		&-overflow {
+			@include ellipsis(transparent, map-get($theme, "details-max-height"), 1.6em, 1em);
+			text-align: left;
+		}
+	}
+	&-img {
+		object-fit: cover;
+		&-wrapper {	overflow: hidden; }
+	}
+	[class*="-1-2"] > & {
+		flex-flow: row nowrap;
+		#{$root} {
+			&-img {
+				height: 100%;
+				object-position: 0 0;
+				&-wrapper {
+					max-width: calc(50% - #{map-get($theme, "inner-gutter")/2});
+					min-width: calc(50% - #{map-get($theme, "inner-gutter")/2});
+				}
+			}
+		}
+		&#{$root}-center  {
+			font-size: 145%;
+		}
+	}
+	.state:checked {
+		& ~ #{$root}-content #{$root}-content-intro, 
+		& ~ #{$root}-img-wrapper { display: none; }
+		& ~ #{$root}-content #{$root}-content-details { display: block; }
+	}
+	&#{$root}-center {
+		position: relative;
+		#{$root}-content {
+			@extend .vertical-center;
+			&-intro {
+				text-align: center;
+			}
+		}
+	}
+	&#{$root}-full {
+		display: block;
+		position: relative;
+		#{$root}-content {
+			@include absolute (top 0 left 0);
+			margin: map-get($theme, "inner-gutter");
+			padding: map-get($theme, "inner-gutter");
+			background: map-get($theme, "content-overlay-background");
+			z-index: z("root")+1;
+			&.no-box {
+				width: 100%;
+				margin: 0;
+				background: none;
+			}
+		}
+		#{$root}-img {
+			@include absolute (top 0 left 0);
+			height: 100%;
+			width: 100%; 
+			&-wrapper {
+				& + #{$root}-content {
+					top: auto;
+					bottom: 0;
+				}
+				& + #{$root}-content-link {
+					@include absolute (bottom map-get($theme, "inner-gutter") right map-get($theme, "inner-gutter"));	
+				}
+			}
+		}
+	}
+}
+
+/// Theme-map for spot-block
+/// @name spot
+/// @group settings
+
+$spot: (
+	"background": linear-gradient(#ddd, #fff),
+	"border": none,
+	"close-background": lightgrey,
+	"close-background-hover": #333,
+	"close-border-radius": 50%,
+	"close-color": #fff,
+	"close-font-size": 1em,
+	"color": inherit,
+	"content-overlay-background": rgba(255, 255, 255, 0.9),
+	"details-max-height": 17.1em,
+	"font-root": 1rem,
+	"inner-gutter": 1em,
+	"link-char-after": " \276F",
+	"link-text-align": right,
+);

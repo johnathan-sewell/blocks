@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Popup</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Popup</h1>
+	<p class="blocks-section">
+		<strong>popup</strong> use either CSS:target and hash-fragments, or the checkbox-hack and labels.
+	</p>
+	
+	<p class="blocks-section">
+		<a href="#popup-login" class="form-button">Open using :target</a>
+	</p>
+
+	<section class="popup-content" id="popup-login">
+		<a href="#" class="popup-close">&#215;</a>
+		<h2>Open popup</h2>
+	</section>
+
+	<section class="popup">
+		<input type="checkbox" class="state" id="modal" />
+		<label for="modal" class="popup-open form-button">Open using checkbox</label>
+		<label for="modal" class="popup-overlay"></label>
+		<div class="popup-content">
+			<label for="modal" class="popup-close">&#215;</label>
+			<h2>Open popup</h2>
+		</div>
+	</section>
+
+</body>
+</html>

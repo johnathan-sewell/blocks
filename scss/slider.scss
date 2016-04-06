@@ -1,0 +1,118 @@
+﻿////
+/// @name slider
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$slider] - The theme-map to use
+/// @output class-module
+/// @example scss
+///   .slider( @include slider(); )
+////
+
+/// - Version 1.2.0
+/// - Date last edited: 2016-03-29
+
+@mixin slider($theme: $slider) {
+	$root: &;
+	$max-img-count: 10;
+	
+	position: relative;
+	overflow: hidden;
+	font-size: map-get($theme, "font-root");	
+	text-align: center;
+	
+	&-label {
+		@include equal(1em);
+		position: relative;
+		top: calc(#{map-get($theme, "height")} - 1em);
+		display: inline-block;
+		border-radius: 50%;
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		background:	map-get($theme, "label-background");
+
+		.state:checked + & {
+			background:	map-get($theme, "label-background-selected");
+			& + #{$root}-nav-prev, 
+			& + #{$root}-nav-prev + #{$root}-nav-next  { 
+				display: block; 
+			}
+		}
+	}
+	&-nav {
+		&-next,
+		&-prev {
+			display: none;
+			@include absolute(top 50% right 0);
+			@include equal(4em);
+			background-color: rgba(255, 255, 255, 0.5);
+			background-image: url(map-get($theme, "nav-next-image"));
+			background-repeat: no-repeat;
+			background-size: 100% 75%;
+			background-position: center center;
+			transform: translateY(-50%);
+			@include hover {
+				background-color: rgba(255, 255, 255, 0.8);
+			}
+		}
+		&-prev {
+			left: 0;
+			right: auto;
+			background-image: url(map-get($theme, "nav-prev-image"));
+		}
+	}
+	&-slide {
+		height: map-get($theme, "height");
+		float: left;
+		&-caption {
+			display: none;
+			font-size: map-get($theme, "caption-font-size");
+			background: map-get($theme, "caption-background");
+			color: map-get($theme, "caption-color");
+			text-shadow: map-get($theme, "caption-text-shadow");
+		}
+		img { 
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	&-wrapper {
+		transition: all 800ms cubic-bezier(0.77, 0, 0.175, 1);
+	}
+	
+	@for $j from 2 through $max-img-count {
+		&#{$root}-#{$j} {
+			#{$root}-slide {
+				width: 100 / $j * 1%;	
+			}
+			#{$root}-wrapper {
+				width: $j * 100%;		
+			};
+		}
+	}
+	
+	@for $i from 0 through $max-img-count - 1 {
+		.state:nth-of-type(#{$i+1}):checked ~ #{$root}-wrapper { 
+			margin-left: #{-$i * 100%}; 
+			#{$root}-slide:nth-of-type(#{$i+1}) #{$root}-slide-caption {
+				display: block;
+			}
+		}
+	}
+}
+
+/// Theme-map for slider-block
+/// @name slider
+/// @group settings
+
+$slider: (
+	"caption-background": transparent,
+	"caption-text-shadow": 1px 1px 1px rgba(0, 0, 0, 0.6),
+	"caption-color": #fff,
+	"caption-font-size": 1.5em,
+	"font-root": 1rem,
+	"height": 25em,
+	"label-background": darkgrey,
+	"label-background-selected": deepskyblue,
+	"nav-next-image": "../svg/next.svg",
+	"nav-prev-image": "../svg/prev.svg"
+);

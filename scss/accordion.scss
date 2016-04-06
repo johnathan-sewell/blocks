@@ -1,0 +1,106 @@
+﻿/// Accordion-module, can either toggle (by using checkboxes in the HTML) or collapse (by using radio-buttons)
+/// - Version 1.2.4
+/// - Date last edited: 2016-04-05
+/// @name accordion
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$accordion]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/accordion.html Demo
+/// @example scss
+///   .accordion( @include accordion(); )
+
+@mixin accordion($theme: $accordion) {
+	$root: &;
+	font-size: map-get($theme, "font-root");
+	
+	&-header {
+		padding: 1.75% 0;
+		font-weight: 300;
+	} 
+	&-label {
+		font-size: map-get($theme, "label-font-size");
+		display: block;
+		margin-top: -1px;
+		padding: map-get($theme, "padding");
+		color: map-get($theme, "label-color");
+		border: 1px solid map-get($theme, "border-color");
+		background: map-get($theme, "label-background");
+		&::after {
+			font-size: map-get($theme, "toggle-font-size"); 
+			float: right;
+			width: map-get($theme, "toggle-font-size"); 
+			margin: map-get($theme, "toggle-margin"); 
+			content: map-get($theme, "toggle-contract"); 
+			color: currentColor;
+		}
+	}
+	&-panel {
+		position: relative;
+		overflow: hidden;
+		transition: max-height 0.2s ease 0s;
+		max-height: 0;
+  		height: auto;
+  		background: map-get($theme, "text-background");
+  		&-text {
+  			padding: map-get($theme, "padding");
+			color: map-get($theme, "text-color");
+			border: 1px solid map-get($theme, "border-color");
+			border-top-color: transparent;
+			
+		}
+	}
+	
+	$root-string: str-replace(unquote("#{$root}"), " .", ".");
+	$root-class: str-split(unquote("#{$root}"), " .");
+	
+	@at-root {
+		#{$root-string} .state:checked + #{$root-class}-label {
+			&::after { content: map-get($theme, "toggle-expand"); }
+			+ #{$root}-panel { 
+				max-height: map-get($theme, "panel-max-height");
+				transition-duration: 0.7s;
+				& > #{$root}-panel-text {
+					max-height: map-get($theme, "panel-max-height");
+  					overflow: auto;
+				}
+			}
+		}
+	}
+}
+
+/// Theme-map for accordion-block
+/// @name accordion-theme
+/// @group settings
+
+$accordion: (
+	"border-color": #aaa,
+	"font-root": 1rem,
+	"label-background": linear-gradient(to bottom, #ddd, #eee),
+	"label-color": #333,
+	"label-font-size": 1.125em,
+	"padding": 1em,
+	"panel-max-height": 50em,
+	"text-background": "#fff",
+	"text-color": "#222",
+	"toggle-contract": "\002B",
+	"toggle-expand": "\2212",
+	"toggle-font-size": 2rem,
+	"toggle-margin": -0.6rem 0 0 0
+);
+
+$accordion-custom: (
+	"border-color": darken(firebrick, 20),
+	"font-root": 1rem,
+	"label-background": linear-gradient(to bottom, darken(firebrick, 3), firebrick),
+	"label-color": #fff,
+	"label-font-size": 1.125em,
+	"padding": 1em,
+	"panel-max-height": 150px,
+	"text-background": linear-gradient(to right, #eee, #fff),
+	"text-color": "#000",
+	"toggle-contract": "\25B8",
+	"toggle-expand": "\25BE",
+	"toggle-font-size": 2rem,
+	"toggle-margin": -0.6rem 0 0 0
+);

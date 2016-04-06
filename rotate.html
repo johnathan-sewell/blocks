@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Rotate</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Rotate</h1>
+	<p class="blocks-section">
+		Gallery with auto-rotate done in CSS only.
+	</p>	
+	
+	<section class="rotate rotate-4">
+		<figure><img src="img/g1.jpg" alt="" /></figure>
+		<figure><img src="img/g2.jpg" alt="" /></figure>
+		<figure><img src="img/g3.jpg" alt="" /></figure>
+		<figure><img src="img/g4.jpg" alt="" /></figure>
+	</section>
+	
+	<p class="blocks-section">
+		Gallery with auto-rotate done in JS.
+	</p>
+	
+	<section class="rotate rotate-js" data-interval="4000">
+		<figure><img src="img/g1.jpg" alt="" /></figure>
+		<figure><img src="img/g2.jpg" alt="" /></figure>
+		<figure><img src="img/g3.jpg" alt="" /></figure>
+		<figure><img src="img/g4.jpg" alt="" /></figure>
+	</section>
+	
+	<script src="js/rotate.js"></script>
+	<script>rotate(document.querySelector(".rotate-js"));</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Datalist</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+	<link href="css/awesomplete.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Datalist</h1>
+	<p class="blocks-section">
+		To allow for quick selections in dropdowns, use an input and associate it with a datalist.
+	</p>
+	
+	<h2>Basic use:</h2>
+<pre>
+<code>
+&lt;label for="country-select"&gt;Select country:&lt;/label&gt;
+&lt;input type="text" id="country-select" list="country-select-datalist" /&gt;
+
+&lt;datalist id="country-select-datalist"&gt;
+  &lt;option&gt;Armenia&lt;/option&gt;
+  ...
+&lt;/datalist&gt;
+</code>	
+</pre>	
+	<p>
+		<label for="country-select">Select country:</label>
+		<input type="text" id="country-select" list="country-select-datalist" />
+	</p>
+	
+	<h2>Use with Awesomplete, for compability with Safari and others:</h2>
+<pre>
+<code>
+&lt;input type="text" id="country-select" list="country-select-datalist" class="awesomplete" /&gt;
+</code>	
+</pre>	
+	<p>
+		<label for="country-select-awesomplete">Select country:</label>
+		<input type="text" id="country-select-awesomplete" list="country-select-datalist" class="awesomplete" />
+	</p>
+			
+	<datalist id="country-select-datalist" itemscope="" itemtype="http://schema.org/ListItem">
+		<option itemprop="name" value="armenia">Armenia</option>
+		<option itemprop="name" value="bahrain">Bahrain</option>
+		<option itemprop="name" value="botswana">Botswana</option>
+		<option itemprop="name" value="cameroon">Cameroun</option>
+		<option itemprop="name" value="central_african_republic">République Centrafricaine</option>
+		<option itemprop="name" value="cote_divoire">Côte d'Ivoire</option>
+		<option itemprop="name" value="egypt">Egypt</option>
+		<option itemprop="name" value="guinea_bissau">Guinea-Bissau</option>
+		<option itemprop="name" value="guinea">Guinée</option>
+		<option itemprop="name" value="equatorial_guinea">Guinée Equatoriale</option>
+		<option itemprop="name" value="india">India</option>
+		<option itemprop="name" value="israel">Israel</option>
+		<option itemprop="name" value="jordan">Jordan</option>
+		<option itemprop="name" value="kenya">Kenya</option>
+		<option itemprop="name" value="kuwait">Kuwait</option>
+		<option itemprop="name" value="madagascar">Madagascar</option>
+		<option itemprop="name" value="mali">Mali</option>
+		<option itemprop="name" value="morocco">Maroc</option>
+		<option itemprop="name" value="mauritius">Maurice</option>
+		<option itemprop="name" value="mozambique">Mozambique</option>
+		<option itemprop="name" value="niger">Niger</option>
+		<option itemprop="name" value="nigeria">Nigeria</option>
+		<option itemprop="name" value="oman">Oman</option>
+		<option itemprop="name" value="qatar">Qatar</option>
+		<option itemprop="name" value="saudi_arabia">Saudi Arabia</option>
+		<option itemprop="name" value="senegal">Sénégal</option>
+		<option itemprop="name" value="south_africa">South Africa</option>
+		<option itemprop="name" value="tunisia">Tunisie</option>
+		<option itemprop="name" value="uganda">Uganda</option>
+		<option itemprop="name" value="united_arab_emirates">United Arab Emirates</option>
+		<option itemprop="name" value="australia">Australia</option>
+		<option itemprop="name" value="china">中国</option>
+		<option itemprop="name" value="hong_kong">Hong Kong (English)</option>
+		<option itemprop="name" value="hong_kong">香港</option>
+		<option itemprop="name" value="indonesia">Indonesia</option>
+		<option itemprop="name" value="japan">日本</option>
+		<option itemprop="name" value="south_korea">대한민국</option>
+		<option itemprop="name" value="malaysia">Malaysia</option>
+		<option itemprop="name" value="new_zealand">New Zealand</option>
+		<option itemprop="name" value="philippines">Philippines</option>
+		<option itemprop="name" value="singapore">Singapore</option>
+		<option itemprop="name" value="taiwan">台灣</option>
+		<option itemprop="name" value="thailand">ไทย</option>
+		<option itemprop="name" value="vietnam">Vietnam</option>
+		<option itemprop="name" value="belgium">België</option>
+		<option itemprop="name" value="belgium">Belgique</option>
+		<option itemprop="name" value="bulgaria">България</option>
+		<option itemprop="name" value="czech_republic">Česká republika</option>
+		<option itemprop="name" value="denmark">Danmark</option>
+		<option itemprop="name" value="germany">Deutschland</option>
+		<option itemprop="name" value="estonia">Eesti</option>
+		<option itemprop="name" value="spain">España</option>
+		<option itemprop="name" value="france">France</option>
+		<option itemprop="name" value="greece">Ελλάδα</option>
+		<option itemprop="name" value="croatia">Hrvatska</option>
+		<option itemprop="name" value="ireland">Ireland</option>
+		<option itemprop="name" value="italy">Italia</option>
+		<option itemprop="name" value="latvia">Latvija</option>
+		<option itemprop="name" value="liechtenstein">Liechtenstein</option>
+		<option itemprop="name" value="lithuania">Lietuva</option>
+		<option itemprop="name" value="luxembourg">Luxembourg</option>
+		<option itemprop="name" value="macedonia">Macedonia</option>
+		<option itemprop="name" value="hungary">Magyarország</option>
+		<option itemprop="name" value="malta">Malta</option>
+		<option itemprop="name" value="moldova">Moldova</option>
+		<option itemprop="name" value="montenegro">Montenegro</option>
+		<option itemprop="name" value="netherlands">Nederland</option>
+		<option itemprop="name" value="norway">Norge</option>
+		<option itemprop="name" value="austria">Österreich</option>
+		<option itemprop="name" value="poland">Polska</option>
+		<option itemprop="name" value="portugal">Portugal</option>
+		<option itemprop="name" value="romania">România</option>
+		<option itemprop="name" value="russia">Россия</option>
+		<option itemprop="name" value="slovak_republic">Slovensko</option>
+		<option itemprop="name" value="slovenia">Slovenia</option>
+		<option itemprop="name" value="switzerland">Schweiz</option>
+		<option itemprop="name" value="switzerland">Suisse</option>
+		<option itemprop="name" value="finland">Suomi</option>
+		<option itemprop="name" value="sweden">Sverige</option>
+		<option itemprop="name" value="turkey">Türkiye</option>
+		<option itemprop="name" value="united_kingdom">UK</option>
+		<option itemprop="name" value="anguilla">Anguilla</option>
+		<option itemprop="name" value="antigua">Antigua &amp; Barbuda</option>
+		<option itemprop="name" value="argentina">Argentina</option>
+		<option itemprop="name" value="barbados">Barbados</option>
+		<option itemprop="name" value="belize">Belize</option>
+		<option itemprop="name" value="bermuda">Bermuda</option>
+		<option itemprop="name" value="bolivia">Bolivia</option>
+		<option itemprop="name" value="brazil">Brasil</option>
+		<option itemprop="name" value="british_virgin_islands">British Virgin Islands</option>
+		<option itemprop="name" value="cayman_islands">Cayman Islands</option>
+		<option itemprop="name" value="chile">Chile</option>
+		<option itemprop="name" value="colombia">Colombia</option>
+		<option itemprop="name" value="costa_rica">Costa Rica</option>
+		<option itemprop="name" value="dominica">Dominica</option>
+		<option itemprop="name" value="dominican_republic">República Dominicana</option>
+		<option itemprop="name" value="ecuador">Ecuador</option>
+		<option itemprop="name" value="el_salvador">El Salvador</option>
+		<option itemprop="name" value="grenada">Grenada</option>
+		<option itemprop="name" value="guatemala">Guatemala</option>
+		<option itemprop="name" value="guyana">Guyana</option>
+		<option itemprop="name" value="honduras">Honduras</option>
+		<option itemprop="name" value="jamaica">Jamaica</option>
+		<option itemprop="name" value="mexico">México</option>
+		<option itemprop="name" value="montserrat">Montserrat</option>
+		<option itemprop="name" value="nicaragua">Nicaragua</option>
+		<option itemprop="name" value="panama">Panamá</option>
+		<option itemprop="name" value="paraguay">Paraguay</option>
+		<option itemprop="name" value="peru">Perú</option>
+		<option itemprop="name" value="st_kitts_nevis">St. Kitts &amp; Nevis</option>
+		<option itemprop="name" value="st_lucia">St. Lucia</option>
+		<option itemprop="name" value="st_vincent">St. Vincent &amp; The Grenadines</option>
+		<option itemprop="name" value="suriname">Suriname</option>
+		<option itemprop="name" value="bahamas">The Bahamas</option>
+		<option itemprop="name" value="trinidad">Trinidad &amp; Tobago</option>
+		<option itemprop="name" value="turks_caicos">Turks &amp; Caicos</option>
+		<option itemprop="name" value="uruguay">Uruguay</option>
+		<option itemprop="name" value="venezuela">Venezuela</option>
+		<option itemprop="name" value="canada">Canada</option>
+		<option itemprop="name" value="puerto_rico">Puerto Rico</option>
+		<option itemprop="name" value="usa">United States</option>
+	</datalist>
+	
+	<script src="js/awesomplete.min.js" async></script>
+</body>	
+</html>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Carousel</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Carousel</h1>
+	<p class="blocks-section">
+		Uses the ImageGallery-, ImageObject- and SiteNavigation-schemas.
+	</p>
+	
+	<section class="carousel-wrapper" itemscope itemtype="http://schema.org/ImageGallery">
+		<svg class="carousel-arrow-left"><use xlink:href="svg/icons.svg#ico_prev"></use></svg>
+		<div class="carousel">
+			<figure class="carousel-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="http://store.storeimages.cdn-apple.com/4774/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone6s/gold/iphone6s-gold-select-2015?wid=470&hei=556&fmt=png-alpha&qlt=95&.v=1441814195016" alt="Gold" itemprop="contentUrl" />
+				<figcaption itemprop="caption description">Long image 1 description</figcaption>
+			</figure>
+			
+			<figure class="carousel-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="http://store.storeimages.cdn-apple.com/4774/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone6s/gray/iphone6s-gray-select-2015?wid=470&hei=556&fmt=png-alpha&qlt=95&.v=1441814518766" alt="Gray" itemprop="contentUrl" />
+				<figcaption itemprop="caption description">Long image 2 description</figcaption>
+			</figure>
+			
+			<figure class="carousel-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="http://store.storeimages.cdn-apple.com/4774/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone6s/silver/iphone6s-silver-select-2015?wid=470&hei=556&fmt=png-alpha&qlt=95&.v=1441814772464" alt="Silver" itemprop="contentUrl" />
+				<figcaption itemprop="caption description">Long image 3 description</figcaption>
+			</figure>
+			
+			<figure class="carousel-slide" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img src="http://store.storeimages.cdn-apple.com/4774/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone6s/rosegold/iphone6s-rosegold-select-2015?wid=470&hei=556&fmt=png-alpha&qlt=95&.v=1441815515948" alt="Rose Gold" itemprop="contentUrl" />
+				<figcaption itemprop="caption description">Long image 4 description</figcaption>
+			</figure>
+		</div>
+		
+		<svg class="carousel-arrow-right"><use xlink:href="svg/icons.svg#ico_next"></use></svg>
+		
+		<nav class="carousel-nav" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+			<input type="radio" name="grp-car" class="state" id="car-0" data-slide="0" checked>
+			<label for="car-0" itemprop="name">&nbsp;</label>
+			
+			<input type="radio" name="grp-car" class="state" id="car-1" data-slide="1">
+			<label for="car-1" itemprop="name">&nbsp;</label>
+			
+			<input type="radio" name="grp-car" class="state" id="car-2" data-slide="2">
+			<label for="car-2" itemprop="name">&nbsp;</label>
+			
+			<input type="radio" name="grp-car" class="state" id="car-3" data-slide="3">
+			<label for="car-3" itemprop="name">&nbsp;</label>
+		</nav>
+	</section>
+
+	<script src="js/carousel.js"></script>
+	<script>
+		new carousel(
+			document.querySelector(".carousel"), 
+			document.querySelectorAll(".carousel-nav input"), 
+			document.querySelector(".carousel-arrow-left"), 
+			document.querySelector(".carousel-arrow-right"), 
+			400);
+	</script>
+</body>
+</html>

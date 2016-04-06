@@ -1,0 +1,67 @@
+///	Returns a rating-control
+/// - Version 1.1.0
+/// - Date last edited: 2016-03-31
+/// @name rating
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$rating] - The theme-map to use
+/// @output class-module
+/// @example scss
+///   .rating( @include rating(); )
+
+@mixin rating($theme: $rating) {
+	$root: &;
+	font-size: map-get($theme, "font-root");
+	position: relative;
+	max-width: map-get($theme, "max-width");
+	text-align: center;
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	
+	&-description {
+		font-size: 0.75em;
+		display: none;
+		width: 100%;
+		color: map-get($theme, "description-color");
+	}
+	&-label {
+		font-size: 2em;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+		width: 1em;
+		text-shadow: map-get($theme, "label-text-shadow");
+		&::before { 
+			content: "\2605";
+			color: map-get($theme, "label-color")
+		}
+		@include hover {
+			&::before, & ~ label::before { 
+				color: map-get($theme, "label-color-hover")
+			}
+		}
+	}
+	.state:checked + &-label + &-description { 
+		display: block; 
+		float: right;
+		clear: both;
+	}
+	.state:checked + &-label::before,
+	.state:checked ~ &-label::before { 
+		color: map-get($theme, "label-color-selected")
+	}
+}
+
+/// Theme-map for rating-block
+/// @name rating
+/// @group settings
+
+$rating: (
+	"font-root": 1rem,
+	"description-color": cornflowerblue,
+	"label-color": lightgrey,
+	"label-color-hover": gold,
+	"label-color-selected": gold,
+	"label-text-shadow": 1px 1px 1px rgba(0, 0, 0, 0.8),
+	"max-width": auto
+);

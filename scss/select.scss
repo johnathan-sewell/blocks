@@ -1,0 +1,67 @@
+/// @name select
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme - The theme-map to use
+/// @param {String} $prop ["default"] - The property in the theme-map to use, defaults to "default"
+/// @param {String} $expand ["\002B"] - Expand symbol
+/// @param {String} $contract ["\2212"] - Contract symbol
+/// @param {Length} $label-fontsize [1rem] - Label fontsize
+/// @param {Length} $toggle-fontsize [2rem] - Toggle fontsize
+/// @output class-module
+/// version 1.0.0
+/// 2016-02-21
+
+/// @example scss
+/// .select { @include select($select); }
+
+@mixin select($theme, $prop : "default", $expand: "\002B", $contract: "\2212", $toggle-fontsize: 2rem, $toggle-margin: -0.6rem 0 0 0 ) {
+	position: relative;
+	&-label {
+		font-size: inherit;
+		display: block;
+		margin-top: -1px;
+		padding: 1rem;
+		color: theme($theme, $prop, "label-color");
+		border: 1px solid theme($theme, $prop, "border-color");
+		background: theme($theme, $prop, "background");
+		&::after {
+			font-size: $toggle-fontsize;
+			float: right;
+			width: $toggle-fontsize;
+			margin: $toggle-margin;
+			content: $expand;
+			color: currentColor;
+		}
+	}
+	&-panel {
+		@include absolute(top 0);
+		width: 100%;
+	}
+		
+	&-text {
+		display: block;
+		background: theme($theme, $prop, "text-background");
+		border: 1px solid theme($theme, $prop, "border-color");
+		border-top-color: transparent;
+		padding: 1rem;
+		color: theme($theme, $prop, "text-color");
+		//todo z-index stack
+		.state:checked + & { background: red; }
+	}
+	.state:checked + &-label::after { content: $contract; }
+	// todo move down 
+}
+
+/// Theme-map for select-block
+/// @name select-theme
+/// @group settings
+
+$select: (
+	"default": (
+		"background": linear-gradient(to bottom, #ddd, #eee),
+		"border-color": #aaa,
+		"label-color": #333,
+		"text-background": "#fff",
+		"text-color": "#222"
+	)
+);

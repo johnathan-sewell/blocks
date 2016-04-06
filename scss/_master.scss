@@ -1,0 +1,161 @@
+﻿*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border-color: inherit;
+}
+
+a {
+	color: currentColor;
+	//text-decoration: none;
+}
+
+a[download]::before {
+	content: "\2913"; 
+	margin-right: 0.5em; 
+}
+
+a[href^="tel:"]::before { 
+	content: "\260e"; 
+	margin-right: 0.5em; 
+}
+
+body { 
+	line-height: 1.6; 
+}
+
+b, strong {
+	font-weight: 500;
+}
+
+button,
+label {
+	cursor: pointer;
+	user-select: none; 
+	-webkit-user-select: none;
+	// NB! "touch-action" requires either "width=device-width" or "user-scalable=no" in meta
+	touch-action: manipulation;
+}
+
+h1, h2, h3 {
+	// todo: use SassLine or MegaType
+	line-height: 1.3;
+	padding-bottom: 0.5em;
+}
+
+hr {
+	height: 1px; 
+	border: 0;
+}
+
+img {
+	max-width: 100%;
+	min-height: 4rem;
+	height: auto;
+	&::before {  
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgb(230, 230, 230);
+		border: 0.15em solid white;
+	}
+	&::after {  
+		content: "\1F517" " Broken Image of " attr(alt);
+		display: block;
+		color: rgb(100, 100, 100);
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0.5em 1em;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+u {
+	/* Todo */
+	text-decoration: none;
+	text-decoration-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Styles for examples */
+.blocks {
+	font: 300 16px "Roboto", sans-serif;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	@include for("desktop-large") {
+		background: #eee;
+	} 
+ 	& > body {
+		min-height: 100vh;
+		width: 100%;
+		min-width: 320px;
+		max-width: 1440px;
+		padding: 2.5%;
+		margin: 0 auto;
+		background-color: #fff;
+		box-shadow: 0 20px 20px rgba(0, 0, 0, .5);
+		-webkit-touch-callout: none;
+	}
+	pre {
+		font-size: small;
+		padding: 1em;
+		tab-size: 2;
+		background-color: #242424;
+		color: #32aea4;	
+		em { color: #d5875c; }
+	}
+	h1, h2, h3, h4 {
+		font-weight: 300; 
+		font-family: inherit;
+	}
+	&-section {
+		margin: 1.5% 0 2.5% 0;
+		line-height: 1.6rem;
+	}
+}
+
+/* Misc. global classes */
+.hide {
+	display: none;
+	&-overflow {
+		overflow: hidden;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+	}
+}
+.icon {
+	@include equal(1em);
+	display: inline-block;
+	fill: currentColor;
+}
+.state {
+	position: absolute;
+	left: -10000px;
+}
+.text {
+	&-bottom {
+		&-center { @include absolute(bottom 2em left 50%); transform: translateX(-50%);	}
+		&-left	{ @include absolute(bottom 2em left 3em); }
+		&-right { @include absolute(bottom 2em right 3em); }
+	}
+	&-top {
+		&-center { @include absolute(top 3em left 50%); transform: translateX(-50%); }
+		&-left	{ @include absolute(top 3em left 3em); }
+		&-right { @include absolute(top 3em right 3em); }
+	}	
+	&-upper {
+		text-transform: uppercase;	
+	}
+}
+.vertical-center {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}

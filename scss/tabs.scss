@@ -1,0 +1,107 @@
+﻿/// Returns a class-module for *tabs*
+/// - Version 1.3.5
+/// - Date last edited: 2016-04-03
+/// @name tabs
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme - The theme-map to use, default to $tabs
+/// @output class-module
+/// @example scss
+/// .tabs { @include tabs(); }
+
+@mixin tabs($theme: $tabs) {
+	$root: &;
+	&-label {
+		line-height: map-get($theme, "label-height");
+		display: inline-block;
+		height: map-get($theme, "label-height");
+		padding: map-get($theme, "label-padding");
+		transition: background 0.5s ease;
+		font-weight: map-get($theme, "label-font-weight");
+		color: map-get($theme, "label-color");
+		border: map-get($theme, "label-border");
+		border-radius: map-get($theme, "label-border-radius");
+		background: map-get($theme, "label-background");
+	}
+	&-panel {
+		@include absolute(top map-get($theme, "label-height"));
+		display: none;
+		width: 100%;
+		height: calc(100% - #{map-get($theme, "label-height")});
+		border: map-get($theme, "panel-border");
+		border-radius: map-get($theme, "panel-border-radius");
+		background: map-get($theme, "panel-background");
+		&-content {
+			padding: map-get($theme, "panel-padding");
+			max-height: 100%;
+  			overflow: auto;
+		}
+	}
+
+	$root-string: str-replace(unquote("#{$root}"), " .", ".");
+	$root-class: str-split(unquote("#{$root}"), " .");
+	
+	@at-root {
+		#{$root-string} {
+			height: map-get($theme, "height");
+			font-size: map-get($theme, "font-root");
+			position: relative;	
+		}
+		#{$root-string} .state:checked + #{$root-class}-label {
+			@include relative(top 1px);
+			z-index: map-get($theme, "label-zindex-selected");
+			height: map-get($theme, "label-height");
+			color: map-get($theme, "label-color-selected");
+			border: map-get($theme, "label-border-selected");
+			border-bottom-width: 0;
+			background: map-get($theme, "label-background-selected");
+			& + #{$root}-panel {
+				display: block;
+			}
+		}
+	}
+}
+
+/// Theme-map for tabs-block
+/// @name tabs
+/// @group settings
+
+$tabs: (
+	"font-root": 1rem,
+	"height": 18em,
+	"label-background": #eee,
+	"label-background-selected": #fff,
+	"label-border": none,
+	"label-border-selected": 1px solid #ddd,
+	"label-border-radius": 5px 5px 0 0,
+	"label-color": #333,
+	"label-color-selected": #333,
+	"label-font-weight": 400,
+	"label-height": 3em,
+	"label-padding": 0 1em,
+	"label-zindex-selected": z("tabs"),
+	"panel-padding" : 1.5rem,
+	"panel-background": #fff,
+	"panel-border": 1px solid #ddd,
+	"panel-border-radius": 0 5px 5px 5px
+);
+
+$tabs-custom: (
+	"font-root": 1rem,
+	"height": 18em,
+	"label-background": linear-gradient(#555, #111),
+	"label-background-selected": linear-gradient(darkgrey, #ccc),
+	"label-border": none,
+	"label-border-selected": 1px solid darkgrey,
+	"label-border-radius": 5px 5px 0 0,
+	"label-color": #fff,
+	"label-color-selected": #333,
+	"label-font-weight": 400,
+	"label-height": 3em,
+	"label-padding": 0 1em,
+	"label-zindex-selected": z("tabs"),
+	"panel-padding" : 1.5rem,
+	"panel-background": linear-gradient(#ccc, #fff),
+	"panel-border": 1px solid darkgrey,
+	"panel-border-radius": 0 5px 5px 5px
+);

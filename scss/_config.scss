@@ -1,0 +1,64 @@
+/// @name breakpoints
+/// @group config
+
+$breakpoints: (
+	"phone"			: 0,
+	"phablet"		: 640px,
+	"tablet"		: 768px,
+	"desktop"		: 1024px,
+	"desktop-large"	: 1280px,
+	"desktop-xlarge": 1600px
+) !default;
+
+/// Font-root-sizes - used by the font-sizes-mixin, if a default font-map hasn't been provided
+/// - Number of $fontrootsizes must match number of $breakpoints.
+/// @name fontrootsizes
+/// @group config
+
+$fontrootsizes: (
+	"phone"			: 13px,
+	"phablet"		: 14px,
+	"tablet"		: 15px,
+	"desktop"		: 17px,
+	"desktop-large"	: 19px,
+	"desktop-xlarge": 21px
+) !default;
+
+/// List of z-indices to use for the various blocks
+/// - A single block might use up to 10 z-indices, so keep a minimum distance of 10 between blocks
+/// @name zindex
+/// @group config
+
+$zindex: (
+	"app": 		100,
+	"dropdown":	500,
+	"flip":		600,
+	"menu":		700,
+	"overlay":	800,
+	"popup":	900,
+	"root":		0,
+	"tabs":		200,
+	"video":	50
+);
+
+/// @name bodytype
+/// @group typography
+
+$bodytype: (
+  font-family: "Georgia, serif",
+  regular: 400,
+  bold: 700
+) !default;
+
+/// @name headingtype
+/// @group typography
+
+$headingtype: (
+  font-family: "Roboto, sans-serif",
+  regular: 400,
+  bold: 300
+) !default;
+
+/// @name old-ie
+/// @group config
+$old-ie: false !default;

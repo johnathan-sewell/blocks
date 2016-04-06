@@ -1,0 +1,91 @@
+﻿/// Returns app-panels as well as a navigation-bar in mobile view.
+/// - Version 1.3.0
+/// - Date last edited: 2016-03-23
+/// @name app
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$app]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/app.html Demo
+/// @example scss
+///   .app( @include app(); )
+
+@mixin app($theme: $app) {
+	$root: &;
+    @include fixed(bottom 0 left 0);
+    font-size: map-get($theme, "font-root");
+    z-index: map-get($theme, "z-index");
+    display: flex;
+    width: 100vw;
+    height: map-get($theme, "nav-height");
+    background: map-get($theme, "nav-background");
+    justify-content: center;
+		
+	&-label {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		justify-content: center;
+		& >	&-icon {
+			@include equal(map-get($theme, "nav-icon-size"));
+			margin: 0 auto;
+			fill: map-get($theme, "nav-icon-color");
+		}
+		.state:checked + & {
+			+ #{$root}-panel {
+				display: block;
+			}
+			& > #{$root}-label-icon {
+				fill: map-get($theme, "nav-icon-color-active");
+			}
+		}
+	}
+	&-panel {
+		@include fixed(top 0 left 0 right 0 bottom map-get($theme, "nav-height"));
+		display: none;
+		height: calc(100vh-map-get($theme, "nav-height"));
+		overflow-y: auto;
+		padding: map-get($theme, "panel-padding");
+		background: map-get($theme, "panel-background");
+	}
+	.android & { 
+		top: 0; 
+		&-panel {
+			@include fixed(top map-get($theme, "nav-height") bottom 0);
+		}
+	}
+
+	@include for("tablet") {
+		position: static;
+		display: block;
+		width: auto;
+		background: none;
+		&-label {
+			display: none;
+		}
+		&-panel {
+			position: static;
+			display: block;
+			margin: map-get($theme, "panel-margin");
+			border: map-get($theme, "panel-border-desktop");
+		}
+	}
+}
+
+/// Theme-map for app-block
+/// @name app
+/// @group settings
+
+$app: (
+	"font-root": 1rem,
+	"nav-background": linear-gradient(#222, #444),
+	"nav-height": 4em,
+	"nav-icon-color": grey,
+	"nav-icon-color-active": deepskyblue,
+	"nav-icon-size": 2em,
+	"panel-background": linear-gradient(#eee, #fff),
+	"panel-border-desktop": 1px solid #ccc,
+	"panel-margin": 0 0 1.5em 0,
+	"panel-padding": 1.5em,
+	"z-index": z("app")
+);

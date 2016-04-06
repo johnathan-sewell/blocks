@@ -1,0 +1,53 @@
+/*
+- Document  : rotate.scss
+- Version   : 1.0.0
+- Client    : Blocks!
+- Authors   : Mads Stoumann
+- Date edit : 2016-02-18
+*/
+
+@mixin aniloop($name, $start, $end, $time) {
+	@for $i from $start through $end {
+		&:nth-child(#{$i}) { animation: $name #{$end*$time}s #{($i - 1)*$time}s infinite normal forwards; }
+	}
+}
+
+@mixin rotate($selector, $it-time) {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	& > #{$selector} {
+		@include absolute();
+		width: inherit;
+		height: 100%;
+		opacity: 0;
+		& > * {
+			width: inherit;
+			transform: translateY(-25%); 
+		}
+	}
+	&-2 { #{$selector}:nth-child(2) { animation: ao-2 #{2*$it-time}s #{0*$it-time}s infinite normal forwards; }	}
+	&-3 { #{$selector} { @include aniloop(ao-3, 2, 3, $it-time); } }
+	&-4 { #{$selector} { @include aniloop(ao-4, 2, 4, $it-time); } }
+	&-2, &-3, &-4 {	& > #{$selector}:first-of-type { opacity: 1; } }
+}
+
+@mixin rotate-js($it-time) {
+	& > * { transition: opacity #{$it-time}s ease; }
+	& .rotate-js-inner { opacity: 1; }
+}
+
+@keyframes ao-2 { 50% { opacity:1; } 100% { opacity:0; } }
+@keyframes ao-3 { 33% { opacity:1; }  66% { opacity:0; } }
+@keyframes ao-4 { 25% { opacity:1; }  50% { opacity:0; } }
+
+/// @example
+.rotate {	
+	@include rotate(figure, 4);
+	height: 25rem;	
+	@include for("tablet") { height: 25rem; }
+	@include for("desktop") { height: 35rem; }
+}
+.rotate-js {
+	@include rotate-js(4);
+}

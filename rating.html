@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Rating</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<h1 class="blocks-header">Rating</h1>
+	<p class="blocks-section">
+		A rating-control, created with radio-buttons and CSS.<br />
+		In the tracking-example, a <em>data-productid</em>-attribute need to be added to the (wrapper-) form of the rating-control.
+	</p>
+	
+<pre><code><em>/* Tracking Example, requires "Generic GTM" */</em>
+document.querySelector(".rating").addEventListener("change", function(e) { 
+	try { window._gtmEV("Click", "Rating", this.dataset.productid, e.target.value);} catch(err){}
+}, false);	
+</code></pre>
+	
+	<br />
+	<form class="rating" method="post" action="#" data-productid="PROD123">
+		<input type="radio" class="state" id="rating5" name="rating" value="5" /><label for="rating5" class="rating-label"></label><div class="rating-description">I LOVED IT</div>
+		<input type="radio" class="state" id="rating4" name="rating" value="4" /><label for="rating4" class="rating-label"></label><div class="rating-description">This is awesome</div>
+		<input type="radio" class="state" id="rating3" name="rating" value="3" /><label for="rating3" class="rating-label"></label><div class="rating-description">OK, I guess</div>
+		<input type="radio" class="state" id="rating2" name="rating" value="2" /><label for="rating2" class="rating-label"></label><div class="rating-description">Not worth it</div>
+		<input type="radio" class="state" id="rating1" name="rating" value="1" /><label for="rating1" class="rating-label"></label><div class="rating-description">I hated it</div>
+	</form>
+	
+	<script>
+		/* Tracking Example */
+		document.querySelector(".rating").addEventListener("change", function(e) { 
+			try { window._gtmEV("Click", "Rating", this.dataset.productid, e.target.value);} catch(err){}
+		}, false);
+	</script>
+
+</body>
+</html>		

@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html class="blocks">
+<head>
+	<title>Blocks! Products</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:300,700,400" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<h1 class="blocks-header">Products</h1>
+	<p class="blocks-section">
+		Product Cart-grid, divisible by 1, 2, 3, 4 and 6.<br />
+		Also includes <strong>Tactical Elements</strong> and <strong>Flip</strong>.
+	</p>
+
+	<main class="product-list">
+	<!-- TODO: FILTERS + FIX VALIDATION ERROS-->
+		
+		<!-- Product -->	
+		<div itemscope itemtype="http://schema.org/Product" class="product">
+			<input type="checkbox" class="state" id="prd1" />
+			<div class="product-inner">
+				
+				<!-- Frontface Content, main product info -->
+				<section class="product-front">
+					<figure	class="product-image-wrapper">
+						<label for="prd1">
+							<img itemprop="image" alt="Den blå Lotus" src="img/BlaaLotus-t.jpg" class="product-image" />
+							
+							<!-- Optional: Product Ribbon -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="product-ribbon ribbon-corner-blue">
+						<polygon points="60,0 100,0 0,100 0,60" />
+			<polygon points="100,0 100,10 90,10" class="triangle" />
+			<polygon points="0,100 10,100 10,90" class="triangle" />
+			<text x="45" y="50" transform="rotate(-45 38, 50)" text-anchor="middle">Supernyhed!</text>
+							</svg>
+							
+							<!-- End Product Ribbon -->
+							
+							<!-- Optional: Product Spot -->
+							<svg viewBox="0 0 100 100" class="product-spot circle-orange">
+								<circle cx="50" cy="50" r="50" />
+								<text x="50" y="25" text-anchor="middle" class="text-small">SPAR</text>
+								<text x="55" y="68" text-anchor="middle" class="text-large">29,-</text>
+								<text x="50" y="85" text-anchor="middle" class="text-micro">I februar</text>
+							</svg>
+							<!-- End Product Spot -->
+							
+						</label>
+					</figure>
+					
+					<h2	class="product-header">
+						<a href="#" itemprop="url"><span itemprop="name">Den blå Lotus</span></a>
+					</h2>
+					
+					<div class="product-info">
+						
+						<!-- Rating and review-count -->
+						<div itemscope itemprop="aggregateRating"	itemtype="http://schema.org/AggregateRating">
+							<span itemprop="ratingValue" content="3" class="product-rating"></span>
+							<meta itemprop="reviewCount" content="0" />
+						</div>
+										
+						<!-- The current retail price -->
+						<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+							<meta itemprop="itemCondition" content="NewCondition" />
+							<link itemprop="availability" href="http://schema.org/InStock" />
+							<meta itemprop="price" content="70.00" />
+							<meta itemprop="pricecurrency" content="DKK" />
+							
+							<!-- Optional: Price period -->
+							<meta itemprop="validFrom" content="2016-02-01" />
+							<meta itemprop="validThrough" content="2016-02-08" />
+						</span>
+					
+						<div class="product-price-retail">Normalpris: 
+							<span class="product-price-retail-price">128,00 kr</span>
+							<span class="product-price-retail-save">SPAR 20%</span>
+						</div>
+						<div class="product-price">99,00 kr</div>
+						<div class="product-availability in-stock">På lager</div>
+					
+					</div>
+				</section>
+				
+				<!-- Backface Content, ie gallery etc. -->
+				<aside class="product-back">
+					<label for="prd1">Back content</label>
+				</aside>
+				
+			</div>
+			<button	itemprop="productID" class="product-buy" content="987654321">Læg i kurv</button>
+		</div>
+		<!-- / End Product -->
+		
+		<!-- Product -->	
+		<div itemscope itemtype="http://schema.org/Product" class="product">
+			<input type="checkbox" class="state" id="prd2" />
+			<div class="product-inner">
+				
+				<!-- Frontface Content, main product info -->
+				<section class="product-front">
+					<figure	class="product-image-wrapper">
+						<label for="prd2">
+							<img itemprop="image" alt="Castafiores Juveler" src="img/CastafioresJuveler-t.jpg" class="product-image" />
+						</label>
+					</figure>
+					
+					<h2	class="product-header">
+						<a href="#" itemprop="url"><span itemprop="name">Castafiores Juveler</span></a>
+					</h2>
+					
+					<div class="product-info">
+						
+						<!-- Rating and review-count -->
+						<div itemscope itemprop="aggregateRating"	itemtype="http://schema.org/AggregateRating">
+							<span itemprop="ratingValue" content="2" class="product-rating"></span>
+							<meta itemprop="reviewCount" content="0" />
+						</div>
+
+						<!-- The current retail price -->
+						<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+							<meta itemprop="itemCondition" content="NewCondition" />
+							<link itemprop="availability" href="http://schema.org/InStock" />
+							<meta itemprop="price" content="70.00" />
+							<meta itemprop="pricecurrency" content="DKK" />
+						</span>
+					
+						<div class="product-price">99,00 kr</div>
+						<div class="product-availability in-stock">På lager</div>
+					
+					</div>
+				</section>
+				
+				<!-- Backface Content, ie gallery etc. -->
+				<aside class="product-back">
+					<label for="prd2">Back content</label>
+				</aside>
+				
+			</div>
+			<button	itemprop="productID" class="product-buy" content="987654321">Læg i kurv</button>
+		</div>
+		<!-- / End Product -->
+			
+		<!-- Product -->	
+		<div itemscope itemtype="http://schema.org/Product" class="product">
+			<input type="checkbox" class="state" id="prd3" />
+			<div class="product-inner">
+				
+				<!-- Frontface Content, main product info -->
+				<section class="product-front">
+					<figure	class="product-image-wrapper">
+						<label for="prd3">
+							<img itemprop="image" alt="De første skridt på Månen" src="img/DeFoersteSkridt-t.jpg" class="product-image" />
+							
+							<!-- Optional: Product Ribbon -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="product-ribbon ribbon-down-red">
+								<polygon points="10,0 40,0 40,100 25,92 10,100" />
+								<text x="40" y="47" transform="rotate(-90 35, 50)" text-anchor="middle">COLLECTORS</text>
+							</svg>
+							<!-- End Product Ribbon -->
+							
+						</label>
+					</figure>
+					
+					<h2	class="product-header">
+						<a href="#" itemprop="url"><span itemprop="name">De første skridt på Månen</span></a>
+					</h2>
+					
+					<div class="product-info">
+						
+						<!-- Rating and review-count -->
+						<div itemscope itemprop="aggregateRating"	itemtype="http://schema.org/AggregateRating">
+							<span itemprop="ratingValue" content="4" class="product-rating"></span>
+							<meta itemprop="reviewCount" content="0" />
+						</div>
+
+						<!-- The current retail price -->
+						<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+							<meta itemprop="itemCondition" content="NewCondition" />
+							<link itemprop="availability" href="http://schema.org/InStock" />
+							<meta itemprop="price" content="70.00" />
+							<meta itemprop="pricecurrency" content="DKK" />
+						</span>
+					
+						<div class="product-price">99,00 kr</div>
+						<div class="product-availability in-stock">På lager</div>
+					
+					</div>
+				</section>
+				
+				<!-- Backface Content, ie gallery etc. -->
+				<aside class="product-back">
+					<label for="prd3">Back content</label>
+				</aside>
+				
+			</div>
+			<button	itemprop="productID" class="product-buy" content="987654321">Læg i kurv</button>
+		</div>
+		<!-- / End Product -->	
+			
+	</main>
+
+</body>
+</html>
