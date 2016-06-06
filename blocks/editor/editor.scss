@@ -1,0 +1,254 @@
+/// @name editor
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme - The theme-map to use
+/// @output class-module
+/// version 1.2.0
+/// 2016-04-23
+
+@mixin editor($theme: $editor) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	@if type-of(map-get($theme, "font")) == list { @include get-font(map-get($theme, "font")...); }
+	
+	/* States */
+	@for $i from 1 through 5 {
+		& > .state:nth-of-type(#{$i}):checked {
+			& ~ #{$root}-main #{$root}-panel:nth-of-type(#{$i}) { display: block; }
+			& ~ #{$root}-nav #{$root}-nav-label:nth-of-type(#{$i}) > #{$root}-nav-label-icon {
+				fill: map-get($theme, "nav-icon-color-active");
+			}
+		}
+	}
+	
+	&-aside {
+		@if type-of(map-get($theme, "font-panel")) == list { @include get-font(map-get($theme, "font-panel")...); }
+		@include fixed(top 0 right 0 bottom 0 left 0);
+		z-index: map-get($theme, "z-index");
+		width: 100%;
+		height: 100%;
+		padding: 1em;
+		color: map-get($theme, "panel-color");	
+		background-color: map-get($theme, "panel-background");	
+
+		&-panel { 
+			font-size: 1em;
+			position: absolute;
+			top: 5em;
+			display: none;
+			overflow-y: auto;
+			height: calc(98% - 5em);
+			margin: 0 1em 0 0;
+		}
+		&-tab {
+			font-size: 1em;
+			display: block;
+			float: left;
+			width: map-get($theme, "panel-tab-width");
+			padding: 0.5em 0.5em;
+			text-align: center;
+			border-width: 1px 0 1px 1px;
+			border-style: solid;
+			border-color: map-get($theme, "panel-color");
+			&:last-of-type { 
+				border-right-width: 1px; 
+			}
+			.state:checked + & { 
+				background-color: map-get($theme, "panel-color"); 
+				color: map-get($theme, "panel-background");
+				& + #{$root}-aside-panel {
+					display: block;
+				}	
+			}
+		}
+		@include for("tablet") {
+			left: auto;
+			width: map-get($theme, "panel-width");
+			&-panel,
+			&-tab {
+				font-size: 0.75em;
+			}
+		}
+	}
+	
+	&-insert {
+		display: block;
+		width: 23%;
+		background: #333;
+		color: #fff;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+		padding: 1em;
+		margin: 1%;
+		float: left;
+		user-select: none;
+		cursor: pointer;
+		& > * { 
+			pointer-events: none;
+		}
+		&-icon {
+			@include equal(2em);
+			fill: orange;
+		}
+
+	}
+	
+	&-main {
+		@include fixed(top 0 right 0 bottom 0 left 0);
+		z-index: map-get($theme, "z-index")+1;
+		
+			
+		height: calc(100% - 4em);
+	
+		transition: right 0.5s ease-in;
+		background: map-get($theme, "main-background");
+		padding: map-get($theme, "main-padding");
+		overflow-y: auto;
+		
+		@include for("tablet") {
+			height: 100%;
+			left: map-get($theme, "nav-width");
+		}
+	}
+	&-nav {
+		@include fixed(bottom 0);
+		z-index: map-get($theme, "z-index")+2;
+		width: 100%;
+		height: map-get($theme, "nav-width");
+		background: map-get($theme, "nav-background");
+		text-align: center;
+		 
+		&-label {
+			margin: 0 2%;
+			& >	&-icon {
+				@include equal(map-get($theme, "nav-icon-size"));
+				margin: 1em 0.5em 0 0;
+				fill: map-get($theme, "nav-icon-color");
+			}
+		}
+		
+		@include for("tablet") {
+			height: 100%;
+			width: map-get($theme, "nav-width"); 
+			top: 0;
+			left: 0;
+		}
+	}
+	&-panel {
+		
+		display: none;
+		padding: map-get($theme, "panel-padding");
+		
+	}
+	&-toggle {
+		&-close {
+			@extend .editor-nav-label;
+			//TODO!!!
+			//margin: 0 0 2% 0;
+			display: none;
+			text-align: right;
+			@include for("tablet") { display: none; }
+		}
+		&-contract,
+		&-expand {
+			float: right;
+			display: none;
+			//text-align: right;
+			svg {
+				@include equal(map-get($theme, "nav-icon-size"));
+			}
+		}
+		@include for("tablet") { 
+		&-contract {
+			display: inline-block;
+		}
+	}
+	}
+
+	
+		
+#tgl-sidebar:checked {
+	@include max("tablet") {
+	& ~ .editor-aside { 
+		z-index: map-get($theme, "z-index")+2; 
+		.editor-aside-inner {
+				width: 100%;
+			}
+		}
+	
+
+}
+	@include for("tablet") {
+	& ~ .editor-main { 
+		right: map-get($theme, "panel-width");
+		.editor-toggle-contract { display: none; }
+		.editor-toggle-expand { display: inline-block; }
+	}
+}
+	& ~ .editor-nav .editor-toggle-mobile > #{$root}-nav-label-icon { fill: orange; }
+}
+
+
+}
+
+
+.form-editor {
+	input,
+	label,
+	select { 
+		font-size: x-small;
+		height: 2.5em;
+		display: block;
+		float: left;
+		border-style: solid;
+		border-color: #333;
+		outline: none;
+	}
+	label {
+		font-size: x-small;
+		font-weight: 700;
+		padding: 0.5em 0 0 0;
+		width: 35%;
+		text-indent: 0.5em;
+		border-width: 0 0 1px 1px;
+		color: #333;
+		background-color: #e8e8e8;
+	}
+	input, 
+	select {
+		width: 64%;
+		padding: 0 0.75em;
+		border-width: 0 1px 1px 1px;
+		&:focus { background-color: #FAFAD2; }
+	}
+}
+
+
+/// Theme-map for editor
+/// @name editor-theme
+/// @group settings
+
+$editor: (
+	"font": ($poster-type, "light"),
+	"font-panel": ($heading-type, "regular"),
+	"font-map": 0,
+	
+	"main-background": #fff,
+	"main-padding": 2%,
+	
+	"nav-background": #333,
+	"nav-icon-color": #fff,
+	"nav-icon-color-active": deepskyblue,
+	"nav-icon-size": 2em,
+	"nav-width": 4em,
+	
+	"panel-background": #333,
+	"panel-color": #fff,
+	"panel-padding-phone": 2%,
+	"panel-padding-tablet": 1%,
+	"panel-tab-width": 33.333333%,
+	"panel-width": 18em,
+	
+	"z-index": z("editor")
+);

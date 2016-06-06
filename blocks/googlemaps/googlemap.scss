@@ -1,0 +1,88 @@
+/// Google Maps
+/// - Version 1.0.0
+/// - Date last edited: 2016-05-02
+/// @name Google Maps
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$googlemaps]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/googlemaps/index.html Demo
+/// @example scss
+///   .google-map ( @include googlemap(); )
+
+@mixin googlemap($theme: $googlemap) {
+	$root: &;
+	
+	&-content {
+		height: map-get($theme, "map-height");
+		width: map-get($theme, "map-width");
+		border-width: 0 1px 1px 1px;
+		border-style: dotted;
+		border-color: #222;
+	}
+	&-filter { 
+		font-family: inherit;
+		padding: 1em;
+		width: 100%;
+		border: 1px solid #222;
+		border-radius: 3px;
+		outline: none;
+		&-label { 
+			font-family: "AvantGarde-Demi", "Muli", "Arial", "Verdana", sans-serif; 
+			font-weight: bold;
+			display: block;
+			margin-right: 1em;
+			text-transform: uppercase;
+			& + #{$root}-filter {
+				margin: 0 1em 1em 0;
+			}
+			&:last-of-type + #{$root}-filter {
+				margin-bottom: 0;
+			}
+		}
+		&-wrapper {
+			font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", "Arial", sans-serif;
+			font-size: 1em;
+			padding: 1em;
+			border: 1px solid #222;
+			background-color: #cfbc9d;
+			color: #222;
+		}
+	}
+	&-marker {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none; 			
+	}
+	
+	@include for("tablet") {
+		&-filter { 
+			width: 65%;
+			&-label {
+				display: inline-block;
+				width: 30%;
+			}
+		}
+	}
+	@include for("desktop") {
+		&-filter { 
+			width: auto;
+			&-label {
+				display: inline;
+				& + #{$root}-filter {
+					margin: 0 1em 0 0;
+				}	
+			}
+		}
+	}
+}
+
+/// Theme-map for Google maps
+/// @name googlemap
+/// @group settings
+
+$googlemap: (
+	"map-height": 450px,
+	"map-width": 100%
+);

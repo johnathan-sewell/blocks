@@ -9,6 +9,30 @@
     or (index(auto initial inherit 0, $value) != false);
 }
 
+/// - Returns a dark or light color based on input (background) color
+/// @name colorText
+/// @group functions
+/// @author Mads Stoumann
+/// @param {String} $color
+
+@function colorText($color) {
+	@if (lightness($color) > 50) {
+		@return #222;
+	} @else {
+		@return #eee;
+	}
+}
+
+/// - Returns a random color
+/// @name randomColor
+/// @group functions
+/// @author Mads Stoumann
+
+@function randomColor() {
+	// @return rgb(random(256)-1, random(256)-1, random(256)-1);
+	@return hsl(random(361)-1, 50%, 75%);
+}
+
 /// - Replace $search with $replace in $string
 /// @name str-replace
 /// @group functions

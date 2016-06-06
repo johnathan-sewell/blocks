@@ -1,0 +1,63 @@
+/// Infotab-module, using radio-buttons to toggle state
+/// - Version 1.1.0
+/// - Date last edited: 2016-05-12
+/// @name infotab
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$infotab]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/infotab/ Demo
+/// @example scss
+///   .infotab ( @include infotab(); )
+
+@mixin infotab($theme: $infotab) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+	overflow: hidden;
+	position: relative;
+	padding: 5%;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	
+	&-label {
+		display: block;		
+		width: 25%;
+		border-right: 1px solid map-get($theme, "border-color");
+		
+		span { 
+			line-height: 2rem;
+		}
+		
+		.state:checked + & {
+			border-right: 3px solid map-get($theme, "indicator-color");
+			transition: all .2s ease-in-out;
+
+			& + #{$root}-panel {
+				margin-top: 2rem;
+				opacity: 1;
+			}
+		}
+	}
+
+	&-panel {
+		position: absolute;
+	    top: 0;
+	    left: 25%;
+	    width: 75%;
+	    margin-top: -100%;
+	    padding: 5%;
+	    transition: all .6s ease-in-out;
+	    opacity: 0;
+	}
+}
+
+/// Theme-map for infomap-block
+/// @name infomap-theme
+/// @group settings
+
+$infotab: (
+	"border-color": #eee,
+	"font-map": 0,
+	"indicator-color": #e82d00
+);

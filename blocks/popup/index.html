@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Popup</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<h1 class="blocks-header">Popup</h1>
+	<p class="blocks-section">
+		<strong>popup</strong> use either CSS:target and hash-fragments, or the checkbox-hack and labels.
+	</p>
+	
+	<p class="blocks-section">
+		<a href="#popup-login" class="form-button">Open using :target</a>
+	</p>
+
+	<section class="popup-content" id="popup-login">
+		<a href="#" class="popup-close" aria-hidden="true" title="Close Popup">&#215;</a>
+		<h2>Open popup</h2>
+	</section>
+	<br />
+	<section class="popup">
+		<input type="checkbox" class="state" aria-hidden="true" id="modal-1" />
+		<label for="modal-1" class="popup-open form-button">Open using checkbox</label>
+		
+		<label for="modal-1" class="popup-overlay"></label>
+		<div class="popup-content">
+			<label for="modal-1" class="popup-close" aria-hidden="true" title="Close Popup">&#215;</label>
+			<h2>Open popup</h2>
+		</div>
+	</section>
+
+</body>
+</html>

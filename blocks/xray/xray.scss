@@ -1,0 +1,51 @@
+/// X-ray, compare 2 images
+/// - Version 1.0.0
+/// - Date last edited: 2016-05-18
+/// @name xray
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$xray]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/xray/ Demo
+/// @example scss
+///   .xray ( @include xray(); )
+
+@mixin xray($theme: $xray) {
+	$root: &;
+	
+	@extend %clearfix;
+	position: relative;
+	border: map-get($theme, "border");
+	cursor: col-resize;
+	
+	&-divider {
+		@include absolute(top 0 left calc(50% - #{map-get($theme, "divider-width") / 2}));
+		width: map-get($theme, "divider-width");
+		height: 100%;
+		background-color: map-get($theme, "divider-color");
+	}
+	
+	&-back {
+		display: block;
+		width: 100%;
+	}
+	
+	&-front {
+		@include absolute(top 0 left 0);
+		width: 50%;
+		height: 100%;
+		max-height: 100%;
+		background-size: cover;
+		object-fit: fill;
+	}
+}
+
+/// Theme-map for xray-block
+/// @name xray
+/// @group settings
+
+$xray: (
+	"border": 1px solid #555,
+	"divider-color":  deepskyblue,
+	"divider-width": 10px
+);

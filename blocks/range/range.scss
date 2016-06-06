@@ -1,0 +1,121 @@
+/// Range-slider
+/// - Version 1.2.1
+/// - Date last edited: 2016-05-12
+/// @name range
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$range]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/range/
+/// @example scss
+///   .range ( @include range(); )
+
+@mixin range($theme: $range) {
+	position: relative;
+	outline: 0;
+	width: map-get($theme, "width");
+	background-color: map-get($theme, "track-color");
+	color: map-get($theme, "highlight-color");
+	height: (map-get($theme, "root-size")*0.75);
+	font-size: map-get($theme, "root-size");
+	cursor: pointer;
+	border-radius: (map-get($theme, "root-size")*0.375);
+	
+	&, 
+  	&::-webkit-slider-runnable-track, 
+  	&::-webkit-slider-thumb {
+    	appearance: none;
+	}
+	&::-webkit-slider-runnable-track {
+    	@include track(map-get($theme, "root-size"));
+  	}
+  	&::-moz-range-track {
+    	@include track(map-get($theme, "root-size"));
+  	}
+  	&::-ms-track {
+    	height: (map-get($theme, "root-size")*0.75);
+    	color: transparent;
+    	background-color: transparent;
+    	border-color: transparent;
+    	border-width: map-get($theme, "root-size") 0;
+  	}
+  	&::-webkit-slider-thumb {
+    	@include thumb(map-get($theme, "root-size"), map-get($theme, "handle-color"));
+  	}
+  	&::-moz-range-thumb {
+    	@include thumb(map-get($theme, "root-size"), map-get($theme, "handle-color"));
+  	}
+  	&::-ms-thumb {
+    	@include thumb(map-get($theme, "root-size"), map-get($theme, "handle-color"));
+    	margin-top: 0;
+  	}
+  	&::-ms-fill-lower {
+  		background-color: map-get($theme, "highlight-color");
+    	border-radius: (map-get($theme, "root-size")*0.375);
+  	} 
+  	&::-ms-fill-upper,
+  	&::-ms-tooltip {
+    	background-color: map-get($theme, "track-color");
+    	border-radius: (map-get($theme, "root-size")*0.375);
+  	}
+	&::after,
+	&::before {
+		position: absolute;
+		display: inline-block;
+		font-size: (map-get($theme, "root-size")*0.675);
+		color: map-get($theme, "label-color");
+	}
+	&::after {
+		content: attr(value) "/" attr(max);
+		bottom: -1.3rem;
+		right: 0;
+	}
+	&::before {
+		content: attr(min);
+		bottom: -1.3rem;
+	}
+}
+
+/// Helper-mixin for range, outputs range thumb
+/// @name thumb
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {Length} $rootsize
+/// @param {String} $handlecolor
+
+@mixin thumb($rootsize, $handlecolor) {
+	margin-top: -($rootsize*0.7);
+	padding: ($rootsize/2);
+	width: ($rootsize*2);
+	height: ($rootsize*2);
+	border: 0;
+	border-radius: 50%;
+	cursor: ew-resize;
+	background: $handlecolor;
+}
+
+/// Helper-mixin for range, outputs track
+/// @name track
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {Length} $rootsize
+
+@mixin track($rootsize) {
+	box-sizing: border-box;
+	height: ($rootsize*0.75);
+	border-radius: ($rootsize*0.375);
+	background: transparent;
+}
+
+/// Theme-map for range-block
+/// @name range
+/// @group settings
+
+$range: (
+	"handle-color": darken(orange, 20),
+	"highlight-color": orange,
+	"label-color": #aaa,
+	"root-size": 1rem,
+	"track-color": lightgrey,
+	"width": 100%
+);

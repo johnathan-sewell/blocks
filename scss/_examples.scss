@@ -18,20 +18,55 @@
 	@include breadcrumb();
 }
 
+// calculator
+.calculator { 
+	@include calculator();
+}
+
+// circular
+.circular { 
+	@include circular();
+}
+
+// curtain
+.curtain { 
+	@include curtain();
+}
+
+// editor
+.editor { 
+	@include editor();
+}
+
+// facets: facet list
+.facet-list { 
+	@include facets($facet-list);
+}
+.facet { 
+	@include facets();
+}
+
 // filter
 .filter { 
 	@include filter(5);
-	@include button-group($form, "material", false);
+	@include button-group($form_material, false);
 	&-content {	margin-top: 1rem; }
+}
+
+// flexory
+.flexory { 
+	@include flexory();
 }
 
 // form
 .form {
 	@include form($num-steps: 4);
 	.material & {
-		@include form($form, "material", 4); 
+		@include form($form_material, 4); 
 	}
 }
+
+.google-map { @include googlemap(); }
 
 // grid
 .grid {
@@ -41,6 +76,11 @@
 		padding: 1rem;
 		background-color: #eee; 
 	}
+}
+
+// infotab
+.infotab { 
+	@include infotab();
 }
 
 // menu
@@ -53,9 +93,34 @@
 	@include popup();
 }
 
+// product
+.product {
+	@include product();
+}
+
+//radial
+.radial-progress {
+	@include radial(200px, 1rem, #dedede, lighten(#ad87c4, 10), #ad87c4, #826296, #501a71 );
+}
+
+// range
+.range {
+	@include range();
+}
+
 // rating
 .rating {
 	@include rating();
+}
+
+// search
+.search {
+	@include search();
+	margin: 1em 0 0 0;
+	&-toggle {
+		display: block;
+		text-align: right;
+	}
 }
 
 // select
@@ -64,9 +129,23 @@
 	&-label { font-weight: 400; &::after { font-weight: 300; } }
 }
 
+// sitemap
+.sitemap {
+	@include sitemap();
+}
+
 // slider
 .slider {
 	@include slider();
+}
+
+// spinners
+.spinner-overlay {
+	@include spinner(60px, 8px, #aaa, 0.75s);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -30px;
 }
 
 // spot
@@ -98,6 +177,10 @@
 	@include video();
 }
 
+// xray
+.xray { 
+	@include xray();
+}
 // Tactical Elements
 
 .ribbon {
@@ -194,4 +277,13 @@
 			height: 30%;
 		}
 	}
+}
+
+@for $i from 1 through 25 {
+	$bg-color: randomColor();
+	$color: colorText($bg-color);
+	.random-#{$i} { 
+		color: $color;
+		background-color: $bg-color;
+	}	
 }

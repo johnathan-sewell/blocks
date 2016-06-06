@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Rating</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<h1 class="blocks-header">Rating</h1>
+
+	<form class="rating" method="post" action="#" data-productid="PROD123">
+		<input type="radio" class="state" aria-hidden="true" id="rating5" name="rating" value="5" /><label for="rating5" class="rating-label"></label><div class="rating-description">I LOVED IT</div>
+		<input type="radio" class="state" aria-hidden="true" id="rating4" name="rating" value="4" /><label for="rating4" class="rating-label"></label><div class="rating-description">This is awesome</div>
+		<input type="radio" class="state" aria-hidden="true" id="rating3" name="rating" value="3" /><label for="rating3" class="rating-label"></label><div class="rating-description">OK, I guess</div>
+		<input type="radio" class="state" aria-hidden="true" id="rating2" name="rating" value="2" /><label for="rating2" class="rating-label"></label><div class="rating-description">Not worth it</div>
+		<input type="radio" class="state" aria-hidden="true" id="rating1" name="rating" value="1" /><label for="rating1" class="rating-label"></label><div class="rating-description">I hated it</div>
+	</form>
+	
+	<script>
+		/* Tracking Example */
+		document.querySelector(".rating").addEventListener("change", function(e) { 
+			try { window._gtmEV("Click", "Rating", this.dataset.productid, e.target.value);} catch(err){}
+		}, false);
+	</script>
+
+</body>
+</html>		

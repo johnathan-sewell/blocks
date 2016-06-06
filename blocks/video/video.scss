@@ -1,0 +1,78 @@
+/// Returns a video-wrapper with optional poster-image, label and play-overlay
+/// - Version 1.1.2
+/// - Date last edited: 2016-04-06
+/// @name video
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$video]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/video.html Demo
+/// @example scss
+///   .video( @include video(); )
+
+@mixin video($theme: $video) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	@if type-of(map-get($theme, "font")) == list { @include get-font(map-get($theme, "font")...); }
+	
+	position: relative; 
+	height: map-get($theme, "height"); 
+	cursor: pointer;
+	
+	@include hover {
+		#{$root}-label {
+			opacity: .85;
+		}
+	}
+	&-content {
+		height: 100%;
+		width: 100%;
+	}
+	&-label {
+		@include absolute(map-get($theme, "label-position"));
+		font-size: 1.5em;
+		margin: map-get($theme, "label-margin");
+		padding: 0.75em 1.5em;
+		opacity: 1;
+		transition: all 0.3s ease;
+		color: map-get($theme, "label-color");
+		background: map-get($theme, "label-background");
+	}
+	&-play {
+		@include absolute(top 50% left 50%);
+		@include equal(map-get($theme, "play-icon-size"));
+		margin: auto auto;
+		transform: translate(-50%, -50%);
+		opacity: map-get($theme, "play-icon-opacity");
+		fill: map-get($theme, "play-icon-fill");
+		pointer-events: none;
+	}
+	&-poster {
+		@include absolute();
+		width: 100%;
+		height: 100%;
+		&-image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			pointer-events: none;
+		}		
+	}
+}
+
+/// Theme-map for video
+/// @name video
+/// @group settings
+
+$video: (
+	"font": ($poster-type, "light"),
+	"font-map": 0,
+	"height": 400px,
+	"label-background": darken(cornflowerblue, 40),
+	"label-color": white,
+	"label-margin": 0 0 0 1em,
+	"label-position": top auto right 1em bottom 1em,
+	"play-icon-opacity": 0.6,
+	"play-icon-fill": darkslategrey,
+	"play-icon-size": 6em
+);

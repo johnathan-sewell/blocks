@@ -1,0 +1,83 @@
+﻿/// Curtain
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-05
+/// @name curtain
+/// @group blocks
+/// @author Mads Stoumann, inspired by Geoff Graham
+/// @param {String} $theme [$curtain]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/curtain/ Demo
+/// @example scss
+///   .curtain( @include curtain(); )
+
+@mixin curtain($theme: $curtain) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+  	overflow: hidden;
+  	width: map-get($theme, "width");
+  	height: map-get($theme, "height");
+  	text-align: center;
+  	
+ 	&-content {
+ 		position: relative;
+ 		display: block;
+ 		padding: map-get($theme, "content-padding");
+ 		color: map-get($theme, "content-color");
+ 		background: map-get($theme, "content-background");
+ 		&::after,
+ 		&::before {
+ 			@include absolute(top 0 bottom 0);
+ 			font-size: map-get($theme, "curtain-font-size");
+			width: 50%;
+			padding-top: 10%;
+			white-space: nowrap;
+			transition: all 1s ease-out;
+			transform: translateX(0);
+			background: map-get($theme, "curtain-background");
+		}
+		&::before {
+			left: 0;
+			padding-right: .1em;
+			content: attr(data-panel-left);
+			text-align: right;
+		}
+		&::after {
+			right: 0;
+			padding-left: .1em;
+			content: attr(data-panel-right);
+			text-align: left;
+		}
+		&-header {
+			display: block;
+			font-size: map-get($theme, "curtain-font-size");
+		}
+		&-image {
+			width: 20%; /* TMP */
+		}
+		.state:checked + & {
+			&::after {
+				transform: translateX(100%);
+			}
+			&::before {
+				transform: translateX(-100%);
+			}
+		}
+	}
+}
+
+/// Theme-map for curtain
+/// @name curtain
+/// @group settings
+
+$curtain: (
+	"content-background": #333,
+	"content-color": #fff,
+	"content-padding": 1em,
+	"curtain-background": orange,
+	"curtain-font-size": 2em,
+	"font-map": 0,
+	"height": 30em,
+	"width": 100%,
+	"z-index": 100
+);

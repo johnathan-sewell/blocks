@@ -1,0 +1,62 @@
+/// Returns a masonry-like structure
+/// - Version 1.0.0
+/// - Date last edited: 2016-04-29
+/// @name circular
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$flexory]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/flexory.html Demo
+/// @example scss
+///   .flexory( @include flexory(); )
+
+@mixin flexory($theme: $flexory) {
+	$root: &;
+	column-count: 0;
+	column-gap: 0;
+
+	& > &-item, &-group {
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+	&-item {
+		border-radius: map-get($theme, "item-border-radius");
+		padding: map-get($theme, "item-padding");
+		margin: map-get($theme, "gutter") 0 0 0;
+	}
+	&-group {
+		display: flex;
+		flex-flow: row nowrap;
+		#{$root}-item { flex: 1; }
+		
+		& > #{$root}-item:first-of-type {
+			margin-right: map-get($theme, "gutter");
+		}
+		& > #{$root}-column + #{$root}-item {
+			margin-left: map-get($theme, "gutter");
+			margin-right: 0;
+		}
+	}
+	&-column {
+		display: flex;
+		flex-flow: column nowrap;
+		flex: 0 1 calc(50% - #{map-get($theme, "gutter")/2});
+	}
+	@include for("tablet") {
+		column-count: 2;
+		column-gap: map-get($theme, "gutter");
+	}
+	@include for("desktop") { column-count: 3; }
+	@include for("desktop-xlarge") { column-count: 4; }
+}
+
+/// Theme-map for flexory
+/// @name flexory
+/// @group settings
+
+$flexory: (
+	"gutter": 1em,
+	"item-border-radius": 1em,
+	"item-padding": 1em
+)

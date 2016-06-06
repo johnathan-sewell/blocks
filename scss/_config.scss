@@ -1,6 +1,36 @@
+// Typography
+@import url(//fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(//fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(//fonts.googleapis.com/css?family=Questrial);
+
+/// @name body-type
+/// @group typography
+$body-type: (
+	font-family: "Georgia, serif",
+	bold: 700,
+	regular: 400
+);
+
+/// @name headingtype
+/// @group typography
+$heading-type: (
+	font-family: #{"Roboto", sans-serif},
+	light: 300,
+	regular: 400
+);
+
+/// @name poster-type
+/// @group typography
+$poster-type: (
+	font-family: unquote("Oswald, sans-serif"),
+	bold: 700,
+	light: 300,
+	regular: 400
+);
+
 /// @name breakpoints
 /// @group config
-
 $breakpoints: (
 	"phone"			: 0,
 	"phablet"		: 640px,
@@ -14,7 +44,6 @@ $breakpoints: (
 /// - Number of $fontrootsizes must match number of $breakpoints.
 /// @name fontrootsizes
 /// @group config
-
 $fontrootsizes: (
 	"phone"			: 13px,
 	"phablet"		: 14px,
@@ -28,37 +57,21 @@ $fontrootsizes: (
 /// - A single block might use up to 10 z-indices, so keep a minimum distance of 10 between blocks
 /// @name zindex
 /// @group config
-
 $zindex: (
 	"app": 		100,
 	"dropdown":	500,
+	"editor":	10,
 	"flip":		600,
 	"menu":		700,
 	"overlay":	800,
 	"popup":	900,
 	"root":		0,
+	"search":	710,
 	"select":	60,
 	"tabs":		200,
+	"tooltip":	750,
 	"video":	50
 );
-
-/// @name bodytype
-/// @group typography
-
-$bodytype: (
-  font-family: "Georgia, serif",
-  regular: 400,
-  bold: 700
-) !default;
-
-/// @name headingtype
-/// @group typography
-
-$headingtype: (
-  font-family: "Roboto, sans-serif",
-  regular: 400,
-  bold: 300
-) !default;
 
 /// @name old-ie
 /// @group config

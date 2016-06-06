@@ -1,0 +1,125 @@
+/// Returns a class-module for *tables*
+/// - Version 1.1.6
+/// - Date last edited: 2016-04-06
+/// @name table
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$table] - The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/table.html Demo
+/// @example scss
+///   .table( @include table(); )
+
+@mixin table($theme: $table) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+	width: map-get($theme, "table-width");
+	table-layout: map-get($theme, "table-layout");
+	border-collapse: map-get($theme, "table-border-collapse");
+	
+	caption {
+		@extend h2;
+		font-size: 1.5em;
+		white-space: nowrap;
+		text-align: left;
+	}
+	td { 
+		padding: map-get($theme, "td-padding");
+		border-color: map-get($theme, "td-border-color");
+		border-style: map-get($theme, "td-border-style");
+		border-width: map-get($theme, "td-border-width");
+	}
+	th {
+		padding: map-get($theme, "td-padding");
+		font-weight: map-get($theme, "th-font-weight");
+		border-color: map-get($theme, "td-border-color");
+		border-style: map-get($theme, "td-border-style");
+		border-width: map-get($theme, "td-border-width");
+		background: map-get($theme, "th-background");
+		color: map-get($theme, "th-color");		
+	}
+	tr {
+		&:nth-child(odd) td { 
+			background: map-get($theme, "tr-odd-background");
+			color: map-get($theme, "tr-odd-color");
+		}
+		&:nth-child(even) td { 
+			background: map-get($theme, "tr-even-background");
+			color: map-get($theme, "tr-even-color");
+			&::before {
+				background: darken(map-get($theme, "th-background"), 20);
+			}
+		}
+	}
+	// Mobile layout
+	@include max("phablet") {
+		@if $old-ie == false {
+			& tbody > tr:first-of-type > td:first-of-type { 
+				border-top: map-get($theme, "td-border-width") map-get($theme, "td-border-style") map-get($theme, "td-border-color");
+				&::before {
+					top: unquote("-#{map-get($theme, "td-border-width")}");
+					height: calc(100% + #{map-get($theme, "td-border-width")*2});
+					border-top: map-get($theme, "td-border-width") map-get($theme, "td-border-style") map-get($theme, "td-border-color");
+				}
+			}
+			&, thead, tbody, tfoot, tr, td	{
+				display: block;
+			}
+			td { 
+				position: relative;
+				left: 30%;
+				width: 70%;
+				border-width: 0 map-get($theme, "td-border-width") map-get($theme, "td-border-width") map-get($theme, "td-border-width");
+				&::before {
+					@include absolute(top 0 left -43%);
+					display: block;
+					width: 43%;
+					height: calc(100% + #{map-get($theme, "td-border-width")});
+					content: "";
+					border-width: 0 0 map-get($theme, "td-border-width") map-get($theme, "td-border-width");
+					border-style: map-get($theme, "td-border-style");
+					border-color:  map-get($theme, "td-border-color");
+					background: map-get($theme, "th-background");
+				}
+				&::after {
+					@include absolute(left -40%);
+					display: inline-block;
+					overflow: hidden;
+					width: 30%;
+					height: 1.5em;
+					font-weight: map-get($theme, "th-font-weight");
+					color: map-get($theme, "th-color");	
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					content: attr(data-th)" ";
+				}
+			}
+			th {
+				display: none; 
+			}
+		}
+	}
+}
+
+/// Theme-map for table-block
+/// @name table
+/// @group settings
+
+$table: (
+	"font-map": 0,
+	"table-border-collapse": collapse,
+	"table-layout": auto,
+	"table-width": 100%,
+	"td-border-color": #bbb,
+	"td-border-style": solid,
+	"td-border-width": 1px,
+	"td-padding": 0.75em,
+	"th-background": darken(slategray, 20), 
+	"th-color": #fff,
+	"th-font-weight": 400,
+	"tr-even-background": #ddd,
+	"tr-even-color": #333,
+	"tr-odd-background": #fff,
+	"tr-odd-color": #333
+);

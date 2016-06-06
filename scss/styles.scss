@@ -1,7 +1,7 @@
 ﻿/*
 - Document  : styles.scss
-- Version   : 1.1.0
-- Date edit : 2016-04-05
+- Version   : 1.4.0
+- Date edit : 2016-06-06
 */
 
 /* Root */
@@ -12,33 +12,42 @@
 @import "_master";
 
 /* Modules */
-@import "accordion";
-@import "app";
-@import "breadcrumb";
-@import "carousel";
-@import "ellipsis";
-@import "facets";
-@import "filter";
-@import "flip";
-@import "form";
-@import "grid";
-@import "infotab";
-@import "menu";
-@import "popup";
-@import "products";
-@import "radial";
-@import "range";
-@import "rating";
-@import "rotate";
-@import "select";
-@import "slider";
-@import "spinner";
-@import "spot";
-@import "switch";
-@import "table";
-@import "tabs";
-@import "tactical";
-@import "video";
+@import "../blocks/accordion/accordion";
+@import "../blocks/breadcrumb/breadcrumb";
+@import "../blocks/calculator/calculator";
+@import "../blocks/carousel/carousel";
+@import "../blocks/circular/circular";
+@import "../blocks/curtain/curtain";
+@import "../blocks/editor/editor";
+@import "../blocks/ellipsis/ellipsis";
+@import "../blocks/facets/facets";
+@import "../blocks/filter/filter";
+@import "../blocks/flexory/flexory";
+@import "../blocks/flip/flip";
+@import "../blocks/form/form";
+@import "../blocks/googlemaps/googlemap";
+@import "../blocks/grid/grid";
+@import "../blocks/infotab/infotab";
+@import "../blocks/menu/menu";
+@import "../blocks/panels/panels";
+@import "../blocks/popup/popup";
+@import "../blocks/product/product";
+@import "../blocks/radial/radial";
+@import "../blocks/range/range";
+@import "../blocks/rating/rating";
+@import "../blocks/rotate/rotate";
+@import "../blocks/search/search";
+@import "../blocks/select/select";
+@import "../blocks/sitemap/sitemap";
+@import "../blocks/slider/slider";
+@import "../blocks/spinners/spinners";
+@import "../blocks/spot/spot";
+@import "../blocks/switch/switch";
+@import "../blocks/table/table";
+@import "../blocks/tabs/tabs";
+@import "../blocks/tactical/tactical";
+@import "../blocks/video/video";
+@import "../blocks/xray/xray";
 
 /* Examples */
 @import "_examples";

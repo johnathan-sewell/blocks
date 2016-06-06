@@ -1,0 +1,36 @@
+﻿/*
+- Document  : radial.scss
+- Version   : 1.0.0
+- Client    : Blocks!
+- Authors   : Mads Stoumann
+- Date edit : 2015-11-23
+*/
+@mixin radial($size, $strokewidth, $color-bg, $strokes...) {
+    transform: rotate(270deg);
+    width: $size;
+    height: $size;
+    stroke: $color-bg;
+    stroke-width: $strokewidth;
+	
+	& > circle { 
+		fill: transparent;
+	}
+	
+	@each $stroke in $strokes {
+    $i: index($strokes, $stroke);
+	    &-#{$i} { 
+			stroke: $stroke;
+	    }
+	}
+
+	&-inner {
+		transform: translate(-50%, -50%);
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+	&-wrapper {
+		display: inline-block;
+		position: relative;
+	}
+}

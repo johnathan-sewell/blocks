@@ -1,0 +1,17 @@
+﻿/*
+- Document  : spinner.scss
+- Version   : 1.0.0
+- Client    : Blocks!
+- Authors   : Mads Stoumann
+- Date edit : 2015-11-16
+*/
+
+@mixin spinner($size, $thickness, $color, $speed) {
+	animation: spin $speed linear 0s infinite;
+	width: $size;
+	height: $size;
+	border: $thickness solid $color;
+	border-right-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+}

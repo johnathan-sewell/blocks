@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Blocks! Editor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+
+<!-- Templates -->
+
+<template id="tmpl-action-list">
+	<!--for(var O in frm.Actions){-->
+		<option value="<!--#O-->"><!--#frm.Actions[O].name--></option>
+	<!--}-->
+</template>
+
+<template id="tmpl-actions">
+	<h2><!--#data.name--></h2>
+	<select class="form-input" id="wrp-action-list"></select>
+</template>
+
+<template id="tmpl-attributes">
+	<!--for(var i = 0;i < data.length; i++) {-->
+	<label for="a_<!--#data[i][0]-->"><!--#data[i][0]--></label>
+	<!--if (data[i][1]) {-->
+	<select id="a_<!--#data[i][0]-->"><!--#lf.createOptions(data[i][1])--></select>
+	<!--} else {-->
+	<input type="text" id="a_<!--#data[i][0]-->" value="<!--#data[i][2]-->" />
+	<!--}-->
+	<!--}-->
+</template>
+
+<template id="tmpl-elements">
+	<h2><!--#data.name--></h2>
+	<!--data = data.data;-->
+	<!--for (var i = 0; i < data.length; i++) {-->
+	<div class="editor-insert" data-pr="<!--#data[i].template-->" data-fn="lf.insertElement">
+		<svg class="editor-insert-icon"><use xlink:href="<!--#data[i].icon-->"></use></svg>
+		<div><!--#data[i].name--></div>
+	</div>
+	<!--}-->
+</template>
+
+<template id="tmpl-design">
+	<label for="tgl-sidebar" class="editor-toggle-contract"><svg><use xlink:href="<!--#data.iconContract-->"></use></svg></label>
+	<label for="tgl-sidebar" class="editor-toggle-expand"><svg><use xlink:href="<!--#data.iconExpand-->"></use></svg></label>
+	<h2><!--#data.name--></h2>
+	
+	<form class="form" id="frm-edit" data-clientid="" data-instanceid="">
+		<input type="radio" name="form-state" class="state" id="fs-1" data-progress="0" checked />
+		<fieldset class="form-fieldset">
+			<legend class="form-legend">Blank form</legend>
+			<ul class="form-ul"></ul>
+		</fieldset>
+	</form>
+</template>
+
+<template id="tmpl-main">
+	<!--data = data.data;-->
+	<!--for (var i = 0; i < data.length; i++) {-->
+		<!--if (i===4){-->
+		<input type="radio" name="edn" id="<!--#data[i].id-->" class="state" checked />
+		<!--} else {-->
+		<input type="radio" name="edn" id="<!--#data[i].id-->" class="state" />
+		<!--}-->
+	<!--}-->
+	<input type="checkbox" id="tgl-sidebar" class="state" checked />
+	<nav class="editor-nav">
+	<!--for (i = 0; i < data.length; i++) {-->
+		<label for="<!--#data[i].id-->" class="editor-nav-label"><svg class="editor-nav-label-icon"><use xlink:href="<!--#data[i].icon-->"></use></svg></label>
+	<!--}-->
+	<label for="tgl-sidebar" class="editor-nav-label editor-toggle-mobile"><svg class="editor-nav-label-icon"><use xlink:href="svg/editor.svg#icon-properties"></use></svg></label>
+	</nav>
+</template>
+
+<template id="tmpl-trigger-list">
+	<!--for(var O in frm.Triggers){-->
+	<option value="<!--#O-->"><!--#frm.Triggers[O].name--></option>
+	<!--}-->
+</template>
+
+<template id="tmpl-triggers">
+	<h2><!--#data.name--></h2>
+	<input class="form-input" type="text" id="wrp-trigger-element" placeholder="this" />
+	<input class="form-input" type="text" id="wrp-trigger-attribute" placeholder="value" />
+	<select class="form-input" id="wrp-trigger-list"></select>
+	<input class="form-input" type="text" id="wrp-trigger-value" />
+</template>
+
+<!-- End Templates -->
+
+<!-- Elements -->
+
+<template id="template-checkbox">
+	<li class="form-li form-checkbox-wrapper">
+		<input type="checkbox" id="{{id}}" name="{{name}}" class="form-checkbox" {{required}} />
+		<label for="{{id}}" class="form-label-checkbox">{{label}}</label>
+	</li>
+</template>
+
+<template id="template-email">
+	<li class="form-li">
+	    <div class="form-label-wrapper">
+	    	<label for="<!--#data.id-->" class="form-label" data-valid="true" data-invalid-text="<!--#data.validationtext-->"><!--#data.label--></label>
+	    	<span class="form-label-help" data-tooltip="<!--#data.tooltip-->"><!--#data.tooltiplabel--></span></div>
+	    <input type="email" id="<!--#data.id-->" name="<!--#data.name-->" class="form-input" placeholder="<!--#data.placeholder-->" data-bool="<!--#data.required-->" />
+	    <hr />
+    </li>
+</template>
+
+<template id="template-number">
+	<li class="form-li">
+		<label for="{{id}}" class="form-label">{{label}}</label>
+		<input type="number" id="{{id}}" min="{{min}}" max="{{max}}" step="{{step}}" class="form-input" />
+	</li>
+</template>
+
+<template id="template-range">
+	<li class="form-li clear">
+		<label for="{{id}}" class="form-label">{{label}}</label>
+		<input type="range" id="{{id}}" min="{{min}}" max="{{max}}" step="{{step}}" class="form-range" />
+	</li>
+</template>
+<!-- TODO:ADD Tooltip etc.-->
+<template id="template-text">
+	<li class="form-li">
+	    <label for="<!--#data.id-->" class="form-label" data-valid="true" data-invalid-text="<!--#data.validationtext-->"><!--#data.label--></label>
+	    <input type="text" id="<!--#data.id-->" name="<!--#data.name-->" placeholder="<!--#data.placeholder-->" class="form-input" data-bool="<!--#data.required-->" />
+	</li>	
+</template>
+
+<!-- End Elements -->
+
+<main class="editor" id="wrp-main">
+	<article class="editor-main">
+		<section class="editor-panel" id="wrp-design"></section>
+		<section class="editor-panel" id="wrp-elements"></section>	
+		<section class="editor-panel" id="wrp-widgets"></section>
+		<section class="editor-panel" id="wrp-triggers"></section>
+		<section class="editor-panel" id="wrp-actions"></section>
+	</article>
+	
+	<!-- Sidebar Panel -->
+	<aside class="editor-aside">
+		<!-- TODO: FIX CLOSE BUTTON -->
+		<label for="tgl-sidebar" class="editor-toggle-close"><svg class="editor-nav-label-icon"><use xlink:href="svg/editor.svg#icon-close"></use></svg></label>
+		
+		<!-- Small Tabs -->
+		<input type="radio" class="state" name="edt-panel" id="edt-panel-basic" checked />
+		<label for="edt-panel-basic" class="editor-aside-tab">BASIC</label>
+		
+		<div class="editor-aside-panel">
+		
+		Text on label:<br />
+		<input type="text" id="input-label" name="input-label" class="form-input" required="" value="Name"><br /><br />
+		
+		Placeholder:<br />
+		<input type="text" id="input-label" name="input-label" class="form-input" required="" value="Your full name"><br /><br />
+		
+		Help header:<br />
+		<input type="text" id="input-label" name="input-label" class="form-input" required="" value="Why are we asking this?"><br /><br />
+		
+		Help text:<br />
+		<textarea id="input-label" name="input-label" class="form-input" required="">We will never share your personal information with any other company.</textarea><br /><br />
+		
+			<p class="form-checkbox-wrapper"><input type="checkbox" class="form-checkbox" id="switch_2" checked><label for="switch_2">Required</label></p>
+			<br />
+			<p class="form-checkbox-wrapper"><input type="checkbox" class="form-checkbox" id="switch_3" ><label for="switch_3">Line-break after</label></p>
+			<br /><br />
+		<form style="width:21em;">
+		<ul>
+		<li class="form-li">
+			
+			<label for="testrange" class="form-labels">Width</label>
+			<input type="range" id="testrange" min="0" max="100" value="50" step="25" class="form-range" />
+			<br />&nbsp;<br />
+			
+		</li>
+		</ul>
+	</form>
+		</div>
+
+		
+		<input type="radio" class="state" name="edt-panel" id="edt-panel-logic" />
+		<label for="edt-panel-logic" class="editor-aside-tab">LOGIC</label>
+		<div class="editor-aside-panel" style="width:90%">
+			<h3>Triggers</h3>
+			<ol>
+				<li style="display:block;background:hotpink;padding:0.5em;">Validate password</li>
+				<li style="display:block;background:LightSeaGreen;padding:0.5em;">Run trigger 5</li>
+			</ol>
+			<br />
+			<h3>Actions</h3>
+			<ol>
+				<li style="display:block;background:hotpink;padding:0.5em;">Proceed to step 2</li>
+			</ol>
+		</div>
+
+		<input type="radio" class="state" name="edt-panel" id="edt-panel-advanced" />
+		<label for="edt-panel-advanced" class="editor-aside-tab">ADVANCED</label>
+		<div class="editor-aside-panel">
+			<form class="form-editor" id="wrp-attributes" data-assign-fn="updateAttribute" data-tp="change"></form>		
+		</div>
+
+	</aside>
+</main>
+	
+<script src="../range/js/range.js"></script>
+<script src="../../../micro/micro-min.js"></script>
+<script src="../../../micro/frm_settings.js"></script>
+
+<script>
+var lf = (function() {
+	"use strict";
+	var createOptions = function(aOpt) {
+		var 
+		i,
+		sOut = "<option>- - -</option>";
+		for(i = 0; i < aOpt.length; i++) sOut+= "<option>" + aOpt[i] + "</option>";
+		return sOut;
+	};
+
+	var init = function() {
+		var
+		aEvents = document.querySelectorAll("[data-tp]"),
+		i = aEvents.length,
+		oObj;
+	
+		for (oObj in LF) {
+			if (LF.hasOwnProperty(oObj)) {
+				fn.render(LF[oObj], document.getElementById(LF[oObj].template), document.getElementById(LF[oObj].wrapper), 1)
+			}
+		}
+	
+		fn.render(frm.Actions, document.getElementById("tmpl-action-list"), document.getElementById("wrp-action-list"), 1);
+		fn.render(frm.Triggers, document.getElementById("tmpl-trigger-list"), document.getElementById("wrp-trigger-list"), 1);
+		
+		
+		/*
+		for (i = 0; i < aEvents.length; i++) {
+			aEvents[i].addEventListener("change", function(e) {
+				console.log("change")
+				//aEvents[i].dataset.tp
+				//lf[this.dataset.assignFn](e);
+			});
+		}
+		*/
+		
+		document.getElementById("wrp-attributes").addEventListener("change", function(e) {
+    		lf[this.dataset.assignFn](e);
+		}, false);
+		
+		document.getElementById("frm-edit").addEventListener("click", function(e) {
+			lf.selectElement(e);
+		}, false);
+	
+		document.addEventListener("click", function(e) {
+			var oElm = e.target;
+			if (oElm.hasAttribute("data-fn")) {
+				evt.run.call(oElm, 0);
+			}	
+		}, false);
+	};
+	
+	var insertElement = function(sTemplate){
+		var
+		oID = fn.randomID("e"),
+		oObj = {
+			id: oID,
+			name: oID,
+			placeholder: "text",
+			label: "Label",
+			required: "",
+			tooltip: "Text",
+			tooltiplabel: "Why are we asking this?",
+			validationtext: "Invalid field"
+		}
+		fn.render(oObj, document.getElementById(sTemplate), document.querySelector(".form-ul"), 2);
+		//TODO
+		document.getElementById("edn-design").checked = true;
+	};
+	
+	var selectElement = function(e) {
+		e.preventDefault();
+		var 
+		oElm = e.target,
+		oH5D = h5d.info(oElm),
+		oList = oElm.parentNode;
+		
+		while (oList.tagName.toLowerCase()!=="li") oList = oList.parentNode;
+		fn.render(oH5D.Attributes, document.getElementById("tmpl-attributes"), document.getElementById("wrp-attributes"), 0);
+	};
+	
+	var updateAttribute = function(e) {
+		console.log(e.target["value"])
+	};
+
+    return {
+    	createOptions: createOptions,
+    	init: init,
+    	insertElement: insertElement,
+    	selectElement: selectElement,
+    	updateAttribute: updateAttribute
+    };
+})();
+	
+	
+//document.addEventListener("DOMContentLoaded", function(event) {
+	lf.init();
+//});
+
+// TODO: Create datalist with "#" + all form elements with an id
+</script>
+</body>
+</html>

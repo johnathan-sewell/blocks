@@ -1,0 +1,42 @@
+/// Sitemap
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-03
+/// @name sitemap
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$sitemap]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/sitemap/ Demo
+/// @example scss
+///   .sitemap( @include sitemap(); )
+
+@mixin sitemap($theme: $sitemap) {
+	background: map-get($theme, "background");
+	padding: map-get($theme, "padding");
+	&-header {
+		clear: both;
+	}
+	&-inner {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+	&-nav {
+		flex: 1;
+		background: map-get($theme, "nav-background");
+		padding: map-get($theme, "nav-padding");
+		&-link {
+			display: block;
+		}
+	}
+}
+
+/// Theme-map for sitemap-block
+/// @name sitemap
+/// @group settings
+
+$sitemap: (
+	"background": lightgrey,
+	"nav-background": transparent,
+	"nav-padding": 0 1em 0 0,
+	"padding": 1em
+);

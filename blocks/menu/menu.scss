@@ -1,0 +1,266 @@
+﻿/// Menu
+/// - Version 1.6.5
+/// - Date last edited: 2016-06-02
+/// @name menu
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$menu]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/menu/ Demo
+/// @example scss
+///   .menu ( @include menu(); )
+
+@mixin menu($theme: $menu) {
+	$root: &;
+	$mobile-width-offset: (0 - map-get($theme, "mobile-width"));
+	$mobile-width-rest: (100 - map-get($theme, "mobile-width"));
+	
+	%menu-label {
+		color: map-get($theme, "label-color");
+		background: map-get($theme, "label-background");
+	}
+	
+	&-label {
+		@extend %menu-label;
+		position: relative;
+		z-index: map-get($theme, "z-index")+3;
+		display: block;
+		margin: nth(map-get($theme, "label-margin"), 1);
+		padding: nth(map-get($theme, "label-padding"), 1);
+		border-bottom: 1px solid map-get($theme, "mobile-border");
+		text-align: left;
+		a  {
+			text-decoration: none;
+		}
+		&:not(.no-panel)::after { 
+			content: map-get($theme, "mobile-expand");
+			float: right;
+		}
+		.state:checked + & {
+			z-index: map-get($theme, "z-index");
+			color: map-get($theme, "label-checked-color-mobile");
+			background: map-get($theme, "label-checked-background-mobile");
+			&::after { content: map-get($theme, "mobile-contract"); }
+			+ #{$root}-panel { 
+				position: relative;
+				z-index: map-get($theme, "z-index")+2;
+				display: block;
+				width: 100%;
+				animation: growX 0.4s ease-out forwards;
+				#{$root}-sub > * {
+					@extend %menu-label;
+					display: block;
+					padding: nth(map-get($theme, "label-padding"), 1);
+					border-bottom: 1px solid map-get($theme, "mobile-border");
+					text-align: left;
+				}
+			}
+		}
+	}
+	&-overlay {
+		@include overlay(transparent, map-get($theme, "z-index")+1);
+		@if map-get($theme, "mobile-direction") == "right" {
+			left: $mobile-width-rest;
+		}
+		@else {
+			right: $mobile-width-rest;
+		}
+		display: none;
+		&-mobile {	
+			@include overlay(rgba(0, 0, 0, 0.2), map-get($theme, "z-index")+1);	
+			display: none;
+		}
+	}	
+	&-panel {
+		display: none;
+	}
+	&-toggle {
+		&:not(:checked) {
+			& + #{$root}-overlay { display: block; }
+		}
+		&-mobile {
+			display: none;
+			&:checked {
+				& ~ #{$root}-wrapper {
+					#{map-get($theme, "mobile-direction")}: 0;
+				}
+				& ~ #{$root}-overlay-mobile {
+					display: block;
+					@include for("tablet") { display: none; }
+				}
+			}
+			&-icon {
+				font-size: 2em;
+				@include for("tablet") { display: none; }
+			}
+		}
+	}
+	&-wrapper {
+		@include fixed(top map-get($theme, "service-menu-height-mobile") map-get($theme, "mobile-direction") $mobile-width-offset bottom 0);
+		font-size: nth(map-get($theme, "font-root"), 1);
+		z-index: map-get($theme, "z-index")+1;
+		overflow-y: scroll;
+		width: map-get($theme, "mobile-width");
+		transition: all 0.3s ease;
+		background-color: map-get($theme, "mobile-background");
+	}
+
+/* Tablet / Desktop */	
+
+	@include for("tablet") {
+		
+		@if map-get($theme, "use-flex") == true {
+			display: flex;
+  			justify-content: center;
+		}
+		
+		font-size: 1.1em;
+		position: relative;
+		max-width: map-get($theme, "menu-inner-width");
+		height: map-get($theme, "menu-height");
+		margin: 0 auto;
+		text-align: center;
+		&-label {
+			@include hover { 
+				color: map-get($theme, "label-hover-color");
+				background: map-get($theme, "label-hover-background") ;
+				border-bottom-color: map-get($theme, "label-hover-border");
+			}
+			display: inline-block;
+			height: 100%;
+			margin: nth(map-get($theme, "label-margin"), 2);
+			padding: nth(map-get($theme, "label-padding"), 2);
+			border-bottom: .2em solid transparent;
+			text-align: center; 
+			&::after { display: none; }
+			
+			@if map-get($theme, "use-flex") == true {
+				display: flex;
+				flex: 0 1 auto;
+				text-overflow: ellipsis;
+    			overflow: hidden;
+				justify-content: center;
+				flex-direction: column;
+  			}
+  			@else { @include vertical-center; }
+  			
+			.state:focus + & {
+				border-bottom-color: map-get($theme, "label-checked-border");
+			}
+			.state:checked + & {
+				@include hover { border-bottom-color: transparent; }
+				color: map-get($theme, "label-checked-color");
+				background: map-get($theme, "label-checked-background");
+				+ #{$root}-panel {
+					@include absolute(top map-get($theme, "menu-height") left 0);
+					font-size: inherit;
+					min-height: map-get($theme, "panel-min-height");
+					padding: map-get($theme, "panel-padding");
+					text-align: left;
+					background: map-get($theme, "panel-background");
+					box-shadow: map-get($theme, "panel-box-shadow");
+					#{$root}-sub {
+						animation: growX 0.6s ease-out forwards;
+						float: left;
+						& > * { 
+							padding: 0;
+							border-bottom: 0;
+						}
+						@if map-get($theme, "panel-sub-auto-width") == true {
+							width: 25%;
+							&:nth-last-child(2):first-child, 
+							&:nth-last-child(2):first-child ~ #{$root}-sub {
+								width: 50%;
+							}
+							&:nth-last-child(3):first-child, 
+							&:nth-last-child(3):first-child ~ #{$root}-sub {
+								width: 33.333333%;
+							}
+						}
+					}
+				}
+			}
+		}
+		&-overlay {
+			left: 0;
+			right: 0;
+		}
+		&-wrapper {
+			position: nth(map-get($theme, "wrapper-position"), 1);
+			top: nth(map-get($theme, "wrapper-position"), 2);
+			right: nth(map-get($theme, "wrapper-position"), 3);
+			bottom: nth(map-get($theme, "wrapper-position"), 4);
+			left: nth(map-get($theme, "wrapper-position"), 5);
+			font-size: nth(map-get($theme, "font-root"), 2);
+			display: block; 
+			overflow-y: visible;
+			width: 100%;
+			background: map-get($theme, "menu-background");
+		}
+	}
+	@include for("desktop") {
+		&-label {
+			font-size: 1.2em;
+			margin: nth(map-get($theme, "label-margin"), 3);
+			padding: nth(map-get($theme, "label-padding"), 3);
+		}
+		&-wrapper {
+			font-size: nth(map-get($theme, "font-root"), 3);
+		}
+	}
+	@include for("desktop-large") {
+		&-label {
+			margin: nth(map-get($theme, "label-margin"), 4);
+			padding: nth(map-get($theme, "label-padding"), 4);
+		}
+	}
+}
+
+/// Theme-map for menu
+/// @name menu-theme
+/// @group settings
+
+$menu: (
+	"button-background" : #2980b9,
+	
+	/* List-order: mobile, tablet, desktop */
+	"font-root": (1rem, 1.65vw, 0.9rem),
+	
+	"label-background": transparent,
+	"label-color": #222,
+	"label-checked-background": #fff,
+	"label-checked-border": darken(deepskyblue, 20),
+	"label-checked-color": #222,
+	"label-checked-background-mobile": deepskyblue,
+	"label-checked-color-mobile": #fff,
+	"label-hover-background": transparent,
+	"label-hover-border": deepskyblue,
+	"label-hover-color": inherit,
+	
+	/* List-order: mobile, tablet, desktop, desktop-large */
+	"label-margin": (0, 0, 0 0.15em, 0 0.5em),
+	"label-padding": (.8em 1.3em, 0 0.6em, 0 0.6em, 0 0.8em),
+	
+	"menu-background": linear-gradient(to bottom, #ddd, #eee 75%, #ddd),
+	"menu-height": 4.5em,
+	"menu-inner-width": 1440px,
+	"mobile-background": #fff,
+	"mobile-border": #eee,
+	"mobile-contract": "\2212",
+	"mobile-direction": right,
+	"mobile-expand": "\002B",
+	"mobile-width": 75%,
+	"panel-background": #fff,
+	"panel-box-shadow": 0 .35em .5em 0 rgba(0, 0, 0, .35),
+	"panel-min-height": 10em,
+	"panel-padding": 1em 5em,
+	"panel-sub-auto-width": true,
+	"service-menu-height": 0,
+	"service-menu-height-mobile": 0,
+	"use-flex": true,
+	
+	/* List-order: position, top, right, bottom, left */
+	"wrapper-position": (absolute, 12rem, auto, auto, 0),
+
+	"z-index": z("menu")
+);

@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Facets Drop-Downs</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<h1 class="blocks-header">Facets Drop-Downs</h1>
+	
+	<!--Version 1.2.0: Facet List -->
+	
+	<!-- Toggle All Facets: Mobile view -->
+	<input type="checkbox" id="facet-toggle" class="state" aria-hidden="true">
+	<label for="facet-toggle" class="facet-list-toggle facet-list-label">Adjust filters</label>
+	
+	<form class="facet-list">
+		<input type="radio" id="facet-overlay" name="facet" class="state" aria-hidden="true" checked />
+		<label for="facet-overlay" class="facet-list-overlay"></label>
+		
+		<!-- BEGIN FACET: BRAND -->
+		<input type="radio" id="facet-1" name="facet" class="state" aria-hidden="true" />
+		<fieldset class="facet-list-fieldset">
+			<label for="facet-1" class="facet-list-label">
+				Brands
+			</label>	
+			<nav class="facet-list-select" itemscope="" itemtype="http://schema.org/ItemList">
+				<input type="checkbox" id="brand-1" name="facet-brand" class="state" aria-hidden="true" value="Apple" />
+				<label for="brand-1" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="1" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Apple</span>
+						</span>
+					</span>
+				</label>
+
+				<input type="checkbox" id="brand-2" name="facet-brand" class="state" aria-hidden="true" value="Blackberry" />
+				<label for="brand-2" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="2" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Blackberry</span>
+						</span>
+					</span>
+				</label>
+				
+				<input type="checkbox" id="brand-3" name="facet-brand" class="state" aria-hidden="true" value="Google" />
+				<label for="brand-3" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="3" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Google</span>
+						</span>
+					</span>
+				</label>
+
+				<input type="checkbox" id="brand-4" name="facet-brand" class="state" aria-hidden="true" value="HTC" />
+				<label for="brand-4" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="4" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">HTC</span>
+						</span>
+					</span>
+				</label>
+
+				<input type="checkbox" id="brand-5" name="facet-brand" class="state" aria-hidden="true" value="Huawei" />
+				<label for="brand-5" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="5" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Huawei</span>
+						</span>
+					</span>
+				</label>
+
+				<input type="checkbox" id="brand-6" name="facet-brand" class="state" aria-hidden="true" value="LG" />
+				<label for="brand-6" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="6" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">LG</span>
+						</span>
+					</span>
+				</label>			
+
+				<input type="checkbox" id="brand-7" name="facet-brand" class="state" aria-hidden="true" value="Microsoft" />
+				<label for="brand-7" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="7" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Microsoft</span>
+						</span>
+					</span>
+				</label>
+
+				<input type="checkbox" id="brand-8" name="facet-brand" class="state" aria-hidden="true" value="Motorola" />
+				<label for="brand-8" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="8" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Motorola</span>
+						</span>
+					</span>
+				</label>
+
+				<input type="checkbox" id="brand-9" name="facet-brand" class="state" aria-hidden="true" value="Nokia" />
+				<label for="brand-9" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="9" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Nokia</span>
+						</span>
+					</span>
+				</label>
+
+				<input type="checkbox" id="brand-10" name="facet-brand" class="state" aria-hidden="true" value="Samsung" />
+				<label for="brand-10" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="10" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Samsung</span>
+						</span>
+					</span>
+				</label>																											
+
+				<input type="checkbox" id="brand-11" name="facet-brand" class="state" aria-hidden="true" value="Sony" />
+				<label for="brand-11" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="11" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Sony</span>
+						</span>
+					</span>
+				</label>																											
+
+				<input type="checkbox" id="brand-12" name="facet-brand" class="state" aria-hidden="true" value="Xiaomi" />
+				<label for="brand-12" class="facet-list-select-label" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					<meta itemprop="position" content="12" />
+					<span itemprop="item" itemscope itemtype="http://schema.org/Product">
+						<meta itemprop="name" content="facet" />
+						<span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+							<meta itemprop="name" content="Brand">
+							<span itemprop="value">Xiaomi</span>
+						</span>
+					</span>
+				</label>																											
+			</nav>
+		</fieldset>		
+	<!-- END FACET -->
+		
+		<!-- BEGIN FACET: COLOR -->
+		<input type="radio" id="facet-2" name="facet" class="state" aria-hidden="true" />	
+		<fieldset class="facet-list-fieldset">	
+			<label for="facet-2" class="facet-list-label">
+				Colors
+			</label>
+			<nav class="facet-list-select">
+				<input type="checkbox" id="color-1" name="facet-color" class="state" aria-hidden="true" data-val="Color 1" />
+				<label for="color-1" class="facet-list-select-label">Color 1</label>
+				
+				<input type="checkbox" id="color-2" name="facet-color" class="state" aria-hidden="true" data-val="Color 2" />
+				<label for="color-2" class="facet-list-select-label">Color 2</label>
+			</nav>
+		</fieldset>
+		<!-- END FACET -->
+		
+		<button type="reset" class="facet-list-label facet-list-reset">Reset filters</button>
+		
+		<nav class="facet-list-apply">
+			<label for="facet-toggle" class="facet-list-apply-cancel facet-list-label">Cancel</label>
+			<label for="facet-toggle" class="facet-list-apply-filter facet-list-label">Apply filters</label>
+		</nav>
+	</form>
+	
+</body>
+</html>

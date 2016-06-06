@@ -33,6 +33,42 @@
 	}
 }
 
+/// - Creates the correct aspect-ratio from pseudo-elements
+/// @name aspect-ratio
+/// @group mixins
+/// @author CSS-Tricks
+/// @param {Length} $width
+/// @param {Length} $height
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+/// - Background-grid
+/// @name bg-grid
+/// @group mixins
+/// @author Mads Stoumann
+/// @param {String} $background-color
+/// @param {Length} $grid-size
+
+@mixin bg-grid($background-color, $grid-size) {
+	background-color: $background-color;
+	background-image: linear-gradient(0deg, transparent 24%,rgba(255,255,255,0.3) 25%,rgba(255,255,255,0.3) 26%,transparent 27%,transparent 74%,rgba(255,255,255,0.3) 75%,rgba(255,255,255,0.3) 76%,transparent 77%,transparent),linear-gradient(90deg, transparent 24%,rgba(255,255,255,0.3) 25%,rgba(255,255,255,0.3) 26%,transparent 27%,transparent 74%,rgba(255,255,255,0.3) 75%,rgba(255,255,255,0.3) 76%,transparent 77%,transparent);
+	background-size: $grid-size $grid-size;	
+}
+
 /// - Sets equal width and height for an element, based on *$width*
 /// @name equal
 /// @group mixins
@@ -75,6 +111,20 @@
 			@content;
 		}
 	}
+}
+
+/// Get font-family and weight from map
+/// @name get-font
+/// @group mixins
+/// @author Mads Stoumann
+/// @param {String} [$font-map]
+/// @param {String} [$font-weight]
+/// @param {Length} [$font-size]
+
+@mixin get-font($font-map: inherit, $font-weight: inherit, $font-size: inherit) {
+	font-family: map-get($font-map, "font-family");
+	font-weight: map-get($font-map, $font-weight);
+	font-size: map-get($font-map, $font-size);
 }
 
 /// - Media Query for adding hover-states - for browsers supporting *hover*

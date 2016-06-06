@@ -1,0 +1,575 @@
+/// Returns a button-group
+/// version 1.4.0
+/// 2016-04-04
+/// @name button
+/// @group form
+/// @author Mads Stoumann
+/// @param {String} $theme - The theme-map to use
+/// @param {String} $prop ["default"] - The property in the theme-map to use, defaults to "default"
+/// @param {Boolean} $noMinWidth [true] - No default min-width specified, else take min-width from current theme
+/// @output class-module
+
+@mixin button ($theme, $minWidth : true) {
+	font: map-get($theme, "button-font");
+	padding: map-get($theme, "button-padding");
+	cursor: pointer;
+	text-align: center;
+	text-transform: map-get($theme, "button-text-transform");
+	color: map-get($theme, "button-color");
+	border: 1px solid map-get($theme, "button-border-color");
+	border-radius: map-get($theme, "button-border-radius");
+	background: map-get($theme, "button-background");
+	outline: 0;
+	&:focus {
+		background: map-get($theme, "button-hover-background");
+	}
+	@include hover {
+		background: map-get($theme, "button-hover-background");
+		color: map-get($theme, "button-hover-color");
+	}
+	@include for("phablet") {
+		@if $minWidth == true { min-width: map-get($theme, "button-minwidth"); }
+	}
+}
+
+/// Returns a button-group
+/// version 1.2.2
+/// 2016-04-04
+/// @name button-group
+/// @group form
+/// @author Mads Stoumann
+/// @param {String} $theme - The theme-map to use
+/// @param {String} $prop ["default"] - The property in the theme-map to use, defaults to "default"
+/// @param {Boolean} $table [true] - Use table-based layout, table-layout: fixed
+/// @output class-module
+
+@mixin button-group($theme, $table : true) {
+	@if $table == true {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+		white-space: nowrap;
+		[type="radio"] { display: none; }
+		&-nav {	display: table-row; }
+		.form-label { margin: map-get($theme, "button-group-label-margin") }
+	}
+	label {
+		@if $table == true { @include button($theme, false); display: table-cell; } @else { @include button($theme, true); float: left; }
+		border-right-width: 0;
+		border-radius: 0;
+		@if $theme == $form { border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); }
+		&:first-of-type { border-radius: map-get($theme, "button-group-first-border-radius"); }
+		&:last-of-type { border-right-width: 1px; border-radius: map-get($theme, "button-group-last-border-radius"); }	
+	}
+	.state:checked + label {
+		background: map-get($theme, "button-hover-background");
+		color: map-get($theme, "button-hover-color");
+	}	
+}
+
+/// @name form
+/// @group form
+/// @author Mads Stoumann
+/// @param {String} $theme - The theme-map to use, defaults to $form
+/// @param {Length} $num-steps
+/// @output class-module
+/// version 1.6.0
+/// 2016-04-07
+
+/// @example scss
+/// .form { @include form(); }
+
+@mixin form($theme: $form, $num-steps: 10) {
+	$root: &;
+		
+	:disabled, [disabled], [aria-disabled="true"] {
+    	cursor: not-allowed;
+	}
+	:required, :required:valid, :focus:required:invalid {
+		background-position: right 1em center;
+		background-repeat: no-repeat;
+		background-size: 1em 1em; 
+		padding-right: 3em;
+	}
+	
+	margin: 1.5%;
+
+	&-button {
+		@include button($theme);
+		&-group {
+			@include button-group($theme);
+		}
+	}
+	&-checkbox,
+	&-radio {
+		position: absolute;
+		clip: rect(0,0,0,0);
+		& + label {
+			display: block;
+			position: relative;
+			left: (map-get($theme, "label-font-size")*3);
+			width: 85%;
+			font-size: map-get($theme, "label-font-size");
+			font-weight: 400;
+			
+			
+			&::after {
+				position: absolute;
+				display: inline-block;
+				top: 0;
+				left: -(map-get($theme, "label-font-size")*3);
+				height: 100%;
+				width: (map-get($theme, "label-font-size")*2);
+				content: "";
+				background: transparent;
+			}
+			&::before {
+				position: absolute;
+				left: -(map-get($theme, "label-font-size")*3);
+				top: 50%;
+				transform: translateY(-50%);
+				display: inline-block;
+				width: (map-get($theme, "label-font-size")*2);
+				height: (map-get($theme, "label-font-size")*2);
+				margin: 0 map-get($theme, "label-font-size") 0 0;	
+				content: "\a0";
+				text-align: center;
+				vertical-align: middle;
+				border: 2px solid map-get($theme, "check-border-color");
+				border-radius: 50%;
+			}
+		}
+		&:focus + label {
+			text-decoration: underline solid map-get($theme, "check-background");
+		}
+	}
+	&-checkbox {
+		& + label::before { 
+			border-radius: .25em; 
+		}
+		&:checked + label::before {
+			padding-top: 1px; 
+			content: "\2713"; 
+			color: map-get($theme, "check-color");
+			border-color: map-get($theme, "check-background");
+			background: map-get($theme, "check-background");
+		}
+	}
+	&-radio {
+		&:checked + label {
+			&::before { 
+				border-color: map-get($theme, "check-background");
+				background: map-get($theme, "check-background");
+				box-shadow: inset 0 0 0 .25rem #fff;
+			}
+		}
+	}	
+	&-fieldset {
+		display: none;
+		min-height: 10em;
+		padding-bottom: 2.5%;
+		margin: 2.5% 0;
+		border: map-get($theme, "fieldset-border-width") solid map-get($theme, "fieldset-border-color");
+		border-radius: map-get($theme, "fieldset-border-radius");
+		background: map-get($theme, "fieldset-background");
+	}
+	&-input {
+		font: map-get($theme, "form-font");
+		font-size: map-get($theme, "input-font-size");
+		width: 100%;
+		margin: map-get($theme, "input-margin");
+		padding: map-get($theme, "input-padding");
+		border: 1px solid map-get($theme, "input-border-color");
+		border-radius: map-get($theme, "input-border-radius");
+		outline: none;
+		
+		& + label {
+			@include absolute(top 0);
+			display: block;
+			& + hr {
+				width: 100%;
+				position: relative;
+				border-bottom: 1px solid map-get($theme, "hr-color");
+				margin: 0;
+				&:before,
+				&:after {
+					@include absolute(bottom 0);
+					content: "";
+					height: 1px;
+					width: 0%;
+					background: map-get($theme, "label-focus");
+					transition: all .3s;
+				}
+				&::after { right: 50%; }
+				&::before {	left: 50%; }
+			}
+		}
+		&::-ms-input-placeholder { color: map-get($theme, "placeholder-color"); }
+		&::-moz-placeholder { color: map-get($theme, "placeholder-color"); }
+		&::-webkit-input-placeholder { color: map-get($theme, "placeholder-color"); }
+		&:focus {
+			box-shadow: map-get($theme, "input-focus");
+			&::-ms-input-placeholder { color: map-get($theme, "placeholder-color-focus"); }
+			&::-moz-placeholder { color: map-get($theme, "placeholder-color-focus"); }
+			&::-webkit-input-placeholder { color: map-get($theme, "placeholder-color-focus"); }
+			& + label {
+				color: map-get($theme, "label-focus");
+				& + hr {
+			 		border-bottom-width: 0;
+					&::after,
+					&::before {
+						width: 50%;
+					}
+				}
+			}
+		}	
+	}
+	select#{$root}-input{
+		-webkit-appearance: menulist-button;
+		line-height: 1.6;
+	}
+	&-label  {
+		display: block;
+		margin: map-get($theme, "label-margin");
+		cursor: pointer;
+		font-weight: 400;
+		font-size: map-get($theme, "label-font-size");
+		color: map-get($theme, "label-color");
+		&[data-valid="false"]::after {
+			font-size: small;
+			display: block;
+			margin: 0 0 1.5% 0;
+			padding: 0.5rem;	
+			content: attr(data-invalid-text);
+			color: #fff;
+			border-radius: .5rem;
+			background-color: map-get($theme, "validation-invalid");
+		}
+		/* WIP */
+		&-wrapper {
+			.form-label, .form-label-help  { width: 50%; display: inline-block;  }
+			.form-label-help { 
+				font-size: 0.875em; text-align: right; position: relative; 
+			}
+		
+		}
+	}
+	&-legend {
+		font: inherit;
+		font-size: map-get($theme, "legend-font-size");
+		margin: map-get($theme, "legend-margin");
+		padding: map-get($theme, "input-padding");
+		color: map-get($theme, "legend-color");
+		border-radius: map-get($theme, "input-border-radius");
+		background: map-get($theme, "legend-background");
+	}
+	&-li {
+		position: relative;
+		float: left;
+		width: 100%;
+		list-style-type: none;
+		padding: map-get($theme, "list-padding");
+		margin: map-get($theme, "list-margin");
+		
+		&.clear { clear: both; }
+		&#{$root}-checkbox-wrapper { 
+			padding-top: map-get($theme, "wrapper-check-padding-top"); 
+		}
+		&#{$root}-radio-wrapper { 
+			padding-top: map-get($theme, "wrapper-radio-padding-top"); 
+		}
+		
+		&.w25 { width: 50%;  @include for("tablet") { width: 25%; } }
+		&.w33 { width: 50%;  @include for("tablet") { width: 33%; } }
+		&.w50 { width: 100%; @include for("tablet") { width: 50%; } }
+		&.w66 { width: 100%; @include for("tablet") { width: 66%; } }
+		&.w75 { width: 100%; @include for("tablet") { width: 75%; } }
+		
+	}
+	&-nav {
+		&-next {
+			float: right;
+		}
+		&-prev {
+			float: left;
+		}
+		&-submit {
+			background-color: map-get($theme, "validation-valid-background");
+			color: map-get($theme, "validation-valid-color");
+  			float: right;
+		}
+		&-next, &-prev, &-submit {
+			width: 47.5%;
+			margin: 2.5% 0;	
+			@include for("phablet") {
+				width: auto;
+				min-width: map-get($theme, "button-minwidth");
+				margin: 1.25% 0;
+			}
+		}
+	}
+	&-range { 
+		@include range(
+		(
+			"handle-color": map-get($theme, "range-handle-color"),
+			"highlight-color": map-get($theme, "range-highlight-color"),
+			"label-color": map-get($theme, "range-label-color"),
+			"root-size": map-get($theme, "label-font-size"), 
+			"track-color": map-get($theme, "range-track-color"),
+			"width": 100%
+		)
+		); 
+	}
+	&-step {
+		font-weight: 400;
+		counter-reset: steps;
+		&-label {
+			display: block;
+			margin: 1.25% 0;
+			padding: 0 2.5% 0 0;
+			pointer-events: none;
+			&::before {
+				line-height: 2em;
+				display: inline-block;
+				width: 2em;
+				height: 2em;
+				margin-right: .5em;
+				content: counter(steps);
+				counter-increment: steps;
+				text-align: center;
+				border-radius: 50%;
+				background-color: map-get($theme, "step-unselected");
+			}
+			&.selected::before {
+				background-color: map-get($theme, "step-selected");
+			}
+			
+			@include for("tablet") {
+				display: inline-block;
+			}
+		}
+		&-progress {
+			appearance: none;
+			clear: both;
+			width: 100%;
+			color: map-get($theme, "step-selected");
+			border: none; 
+			&::-webkit-progress-bar {
+				background: #eee;
+				box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset;
+				border-radius: 3px;
+			}
+			&::-webkit-progress-value {
+			    background-color: map-get($theme, "step-selected");
+			    border-radius: 3px;
+			    transition: all 0.25s linear;
+			}
+			&::-moz-progress-bar {
+				background-color: map-get($theme, "step-selected");
+			}	
+		}
+	}
+	
+	$root-string: str-replace(unquote("#{$root}"), " .", ".");
+	$root-class: str-split(unquote("#{$root}"), " .");
+
+	@at-root {
+		@keyframes border-pulsate {
+		    0%   { 
+		    	border-color: map-get($theme, "validation-valid-background");
+		    }
+		    100% { 
+		    	border-color: inherit;
+		    }
+		}
+		#{$root-string} { 
+			font: map-get($theme, "form-font");
+			@include font-sizes(map-get($theme, "font-map"));
+			
+			:focus:required:invalid {
+				background-image: url(#{map-get($theme, "svg-invalid")});
+				outline-color: map-get($theme, "validation-valid-background");;
+			}
+			:required {
+				background-image: url(#{map-get($theme, "svg-required")});
+			}
+			:required:valid { /* WIP: Maybe remove svg-valid-completed */
+				background-image: url(#{map-get($theme, "svg-valid-complete")});
+				/*
+				background-image: none;
+				background-color: deepskyblue;
+				mask-image: url(#{map-get($theme, "svg-valid-complete")});
+				mask-size: 3em;
+				mask-repeat: no-repeat;
+				*/
+				border-color: inherit;
+				outline-color: map-get($theme, "validation-valid-background");
+				animation: border-pulsate 2s ease-in;
+			}
+		}
+
+		#{$root-string} .state {
+			@for $i from 1 through $num-steps {
+				&:nth-of-type(#{$i}):checked {
+					& ~ #{$root-class}-step > label:nth-of-type(#{$i}) {
+						color: map-get($theme, "step-selected");
+						&::before {
+							background: map-get($theme, "step-selected");
+							color: #fff;
+						}
+					}
+					& ~ .form-fieldset:nth-of-type(#{$i}) {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+
+/// Theme-map for form
+/// @name form
+/// @group settings
+
+$form: (
+	"button-background" : darken(#2980b9, 10),
+	"button-border-color": transparent,
+	"button-border-radius": 0.5rem,
+	"button-color": #fff,
+	"button-font": #{400 1.25em "Oswald", sans-serif},
+	"button-group-label-margin": 0 0 0.35rem 0,
+	"button-group-first-border-radius": .5rem 0 0 .5rem,
+	"button-group-last-border-radius": 0 .5rem .5rem 0,
+	"button-hover-background": deepskyblue,
+	"button-hover-color" : #fff,
+	"button-minwidth": 10rem,
+	"button-padding": .65em .75em,
+	"button-text-transform": none,
+	
+	"check-border-color": #a8a8a8,
+	"check-background": deepskyblue,
+	"check-color": #fff,
+	
+	"fieldset-background": linear-gradient(to bottom, #f0f0f0, #fff),
+	"fieldset-border-color": #a8a8a8,
+	"fieldset-border-radius" : 0.5rem,
+	"fieldset-border-width": 1px,
+	
+	"font-map": 0,
+	"form-font": #{300 1em "Oswald", sans-serif},
+	"hr-color": #ccc,
+	
+	"input-border-color": #a8a8a8,
+	"input-border-radius": 0.5rem,
+	"input-focus":  0 0 0.5rem #ccc,
+	"input-font-size": 1em,
+	"input-margin": 0,
+	"input-padding": .75em 1em,
+	
+	"label-color": #333,
+	"label-focus": transparent,
+	"label-font-size": 1em,
+	"label-margin": 0 0 0.35em 0,
+	
+	"legend-background" : #444,
+	"legend-color": #fff,
+	"legend-font-size": 1.25em,
+	"legend-margin": 0 0 0 2.5%,
+	
+	"list-margin": 1% 0,
+	"list-padding": 0 2.5%,
+	
+	"placeholder-color": #ccc,
+	"placeholder-color-focus" : #ccc,
+
+	"range-track-color": lightgrey,
+	"range-highlight-color": deepskyblue,
+	"range-handle-color": #2980b9,
+	"range-label-color": #ccc,
+	
+	"step-selected": deepskyblue,
+	"step-unselected": #ccc,
+	
+	"svg-invalid": "../svg/invalid.svg",
+	"svg-required": "../svg/required.svg",
+	"svg-valid": "../svg/valid.svg",
+	"svg-valid-complete": "../svg/valid-complete.svg",
+	
+	"validation-invalid": #d94a39,
+	"validation-valid-background": #196533,
+	"validation-valid-color": #fff,
+	
+	"wrapper-check-padding-top": 1em,
+	"wrapper-radio-padding-top": 2.5em
+);
+
+$form_material: (
+	"button-background" : #fff,
+	"button-border-color": #923222, 
+	"button-border-radius": 0,
+	"button-color": #923222,
+	"button-font": #{400 0.875em "Roboto", sans-serif},
+	"button-group-label-margin": 0 0 1rem 0,
+	"button-group-first-border-radius": 0,
+	"button-group-last-border-radius": 0,
+	"button-hover-background": #923222,
+	"button-hover-color" : #fff,
+	"button-minwidth": 10rem,
+	"button-padding" : .75em 1rem,
+	"button-text-transform": uppercase,
+	
+	"check-border-color": #ccc,
+	"check-background": #923222,
+	"check-color": #fff,
+	
+	"fieldset-background": #fff,
+	"fieldset-border-color": transparent,
+	"fieldset-border-radius" : 0,
+	"fieldset-border-width": 0,
+	
+	"font-map": 0,
+	"form-font": #{300 1em "Roboto", sans-serif},
+	"hr-color": #ccc,
+	
+	"input-border-color": transparent,
+	"input-border-radius": 0,
+	"input-focus": none,
+	"input-font-size": 1rem,
+	"input-margin": 1rem 0 0 0,
+	"input-padding": .75rem 0,
+	
+	"label-color": #333,
+	"label-focus": #923222,
+	"label-font-size": 0.875rem,
+	"label-margin": 0,
+	
+	"legend-background" : transparent,
+	"legend-color": #923222,
+	"legend-margin": 0 0 0 1.25%,
+	"legend-font-size": 1.5rem,
+	
+	"list-margin": 1% 0,
+	"list-padding": 0 1.25%,
+	
+	"placeholder-color": #ddd,
+	"placeholder-color-focus" : transparent,
+
+	"range-track-color": #ddd,
+	"range-highlight-color": #aaa,
+	"range-handle-color": #923222,
+	"range-label-color": #ccc,
+	
+	"step-selected": #923222,
+	"step-unselected": #ccc,
+	
+	"svg-invalid": none,
+	"svg-required": none,
+	"svg-valid": none,
+	
+	"validation-invalid": #d94a39,
+	"validation-valid-background": #196533,
+	"validation-valid-color": #fff,
+	
+	"wrapper-check-padding": 0.25rem,
+	"wrapper-radio-padding": 1rem
+);

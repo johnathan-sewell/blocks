@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<h1 class="blocks-header">Form</h1>
+	<p class="blocks-section">
+		Text &hellip;
+	</p>
+	
+	<form class="material form" novalidate>
+		
+		<!-- States, for multi-step form -->
+		<input type="radio" name="grp_fs" class="state" id="fls-1" data-progress="25" checked />
+		<input type="radio" name="grp_fs" class="state" id="fls-2" data-progress="50" />
+		<input type="radio" name="grp_fs" class="state" id="fls-3" data-progress="75" />
+		<input type="radio" name="grp_fs" class="state" id="fls-4" data-progress="100" />
+		
+		<nav class="form-step">
+			<label for="fls-1" class="form-step-label">Billing Address</label>
+			<label for="fls-2" class="form-step-label">Shipping Address</label>
+			<label for="fls-3" class="form-step-label">Payment</label>
+			<label for="fls-4" class="form-step-label">Thanks</label>
+			<progress max="100" value="25" class="form-step-progress">%</progress>
+		</nav>
+		
+		<fieldset class="form-fieldset">
+			<legend class="form-legend">Billing Address</legend>
+			<ul>
+				<li class="form-li">
+				    <input type="text" id="billing-name" name="name" class="form-input" placeholder="Your full name" autocomplete="billing name" pattern=".{10,}" required autofocus />
+				    <label for="billing-name" class="form-label" data-valid="true" data-invalid-text="Min. 10 chars">Name</label>
+				    <hr />
+	    		</li>
+	    		<li class="form-li">
+				    <input type="text" id="billing-street" name="street" class="form-input" placeholder="Street address" autocomplete="billing street-address" pattern=".{5,}" required />
+				    <label for="billing-street" class="form-label" data-valid="true" data-invalid-text="Required field, minimum 5 chars.">Address</label>
+				    <hr />
+			    </li>
+			    <li class="form-li w25">
+				    <input type="text" id="billing-zipcode" name="zipcode" class="form-input" placeholder="1431" autocomplete="billing postal-code" pattern=".{4,}" required />
+				    <label for="billing-zipcode" class="form-label" data-valid="true" data-invalid-text="Required field">Zipcode</label>
+				    <hr />
+			    </li>
+			    <li class="form-li w75">
+				    <input type="text" id="billing-city" name="city" class="form-input" placeholder="City" autocomplete="billing address-level2" required />
+				    <label for="billing-city" class="form-label" data-valid="true" data-invalid-text="Required field">City</label>
+				    <hr />
+			    </li>
+			    <li class="form-li w50">
+				    <input type="email" id="billing-email" name="email" class="form-input" placeholder="email@domain.com" autocomplete="billing email" required />
+				    <label for="billing-email" class="form-label" data-valid="true" data-invalid-text="A valid email is required">Email</label>
+				    <hr />
+			    </li>
+			    <li class="form-li w50">
+				    <input type="tel" id="billing-phone" name="phone" class="form-input" placeholder="44553322" autocomplete="billing tel" pattern="\d{8}" required />
+				    <label for="billing-phone" class="form-label" data-valid="true" data-invalid-text="8 digits">Phone</label>
+				    <hr />
+			    </li>
+			    <li class="form-li w50">
+					<select id="country" class="form-input"><option>Denmark</option></select>
+					<label for="country" class="form-label">Country</label>
+				    <hr />
+			    </li>
+				<li class="form-li w25 radio-wrapper">
+				    <input type="radio" id="radio1" name="radiotest" class="form-radio" />
+				    <label for="radio1" class="form-label-radio">Male</label>
+			    </li>
+			    <li class="form-li w25 radio-wrapper">
+					<input type="radio" id="radio2" name="radiotest" class="form-radio" />
+				    <label for="radio2" class="form-label-radio">Female</label>
+			    </li>	
+			    <li class="form-li checkbox-wrapper">
+				    <input type="checkbox" id="accept" name="phone" class="form-checkbox" required />
+				    <label for="accept" class="form-label-checkbox">Accept Conditions</label>
+			    </li>
+			    <li class="form-li form-button-group w50">
+			    	<div class="form-label">Select an option</div>
+			    	<nav class="form-button-group-nav">
+						<input type="radio"	class="state" id="id1" name="grp-btn" checked />
+						<label for="id1">First</label>
+						<input type="radio"	class="state" id="id2" name="grp-btn" />
+						<label for="id2">Second</label>
+						<input type="radio"	class="state" id="id3" name="grp-btn" />
+						<label for="id3">Third</label>
+						<input type="radio"	class="state" id="id4" name="grp-btn" />
+						<label for="id4">Fourth</label>
+					</nav>
+				</li>
+				<li class="form-li clear w50">
+					<label for="testrange" class="form-label">Select range</label>
+					<input type="range" id="testrange" min="0" max="100" value="50" step="5" class="form-range" />
+				</li>
+				<li class="form-li w50">
+					<label for="testrange2" class="form-label">Select range</label>
+					<input type="range" id="testrange2" min="0" max="100" value="50" step="5" class="form-range" />
+				</li>							    
+			    <li class="form-li form-nav">
+			    	<label for="fls-2" class="form-button form-nav-next">Next</label>
+			    </li>
+		    </ul>	 
+	    </fieldset>
+	
+		<fieldset class="form-fieldset">
+			<legend>Shipping Address</legend>
+			<ul>
+				<li>
+					<label for="use-billing">Same as billing address?</label>
+				    <input type="checkbox" id="use-billing" name="use-billing" data-tg="1" data-tgp="this" data-ac="1+4" data-acp="#var1+this,red" />
+				</li>
+				<li>
+				    <label for="shipping-name" data-valid="true" data-invalid-text="Min. 10 chars">Name</label>
+				    <input type="text" id="shipping-name" name="name" placeholder="Your full name" autocomplete="shipping name" pattern=".{10,}" required />
+	    		</li>
+	    		<li>
+				    <label for="shipping-street" data-valid="true" data-invalid-text="Required field, minimum 5 chars.">Address</label>
+				    <input type="text" id="shipping-street" name="street" placeholder="Street address" autocomplete="shipping street-address" pattern=".{5,}" required />
+			    </li>
+			    <li class="w25">
+				    <label for="shipping-zipcode" data-valid="true" data-invalid-text="Required field">Zipcode</label>
+				    <input type="text" id="shipping-zipcode" name="zipcode" placeholder="1431" autocomplete="shipping postal-code" pattern=".{4,}" required />
+			    </li>
+			    <li class="w75">
+				    <label for="shipping-city" data-valid="true" data-invalid-text="Required field">City</label>
+				    <input type="text" id="shipping-city" name="city" placeholder="City" autocomplete="shipping address-level2" required />
+			    </li>			
+				<li class="lf-nav">
+					<label for="fls-1" class="lf-nav-prev">Previous</label>
+			    	<button type="submit" class="lf-nav-next">Next</button>
+			    </li>
+			</ul>
+		</fieldset>
+		
+		<fieldset class="form-fieldset">
+			<legend>Payment</legend>
+			<ul>
+				<li class="w50">
+					<label for="card-num" data-valid="true" data-invalid-text="Invalid entry">Card number</label>
+					<input type="text" id="card-num" name="card-num" autocomplete="cc-number" pattern="\d{16}" maxlength="16" inputmode="numeric" required />
+				</li>
+				<li class="w50">
+					<label for="card-name" data-valid="true" data-invalid-text="Invalid entry">Name on card</label>
+					<input type="text" id="card-name" name="card-name" placeholder="Name on card" autocomplete="cc-name" inputmode="latin-name" required />
+				</li>
+				<li class="w25">
+					<label for="card-exp-month" data-valid="true" data-invalid-text="Invalid entry">Expiry month</label>
+					<input type="text" id="card-exp-month" name="card-exp-month" placeholder="01" autocomplete="cc-exp-month" pattern="\d{2}" maxlength="2" inputmode="numeric" required />
+				</li>
+				<li class="w25">
+					<label for="card-exp-year" data-valid="true" data-invalid-text="Invalid entry">Expiry year</label>
+					<input type="text" id="card-exp-year" name="card-exp-year" placeholder="15" autocomplete="cc-exp-year" pattern="\d{2}" maxlength="2" inputmode="numeric" required />
+				</li>
+				<li class="w25">
+					<label for="card-csc" data-valid="true" data-invalid-text="Invalid entry">CVC</label>
+					<input type="number" id="card-csc" name="card-csc" placeholder="345" autocomplete="cc-csc" pattern="\d{3}" maxlength="3" inputmode="numeric" required />
+				</li>
+				
+				<li class="lf-nav">
+					<label for="fls-2" class="lf-nav-prev">Previous</label>
+					<button type="submit" class="lf-nav-submit">Submit order</button>
+				</li>
+			</ul>
+		</fieldset>
+	
+		<fieldset class="form-fieldset">
+			<legend>Thanks</legend>
+			<!--
+			<ul>
+				<li class="w50">
+					<label for="user-pass" data-valid="true" data-invalid-text="A password is required">Password</label>
+	    			<input type="password" id="user-pass" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" required />
+				</li>
+				<li class="w25 lf-clear">
+					<label for="user-year"  data-valid="true" data-invalid-text="Must be between 1960 and 2000">Year of birth</label>
+					<input type="number" id="user-year" name="year" placeholder="1985" min="1960" max="2000" required />
+				</li>
+				<li class="lf-nav">
+					<label for="fls-3" class="lf-nav-prev">Previous</label>
+					
+				</li>
+			</ul>
+			-->
+		</fieldset>
+	</form>
+	<script src="../range/js/range.js"></script>
+</body>
+</html>	

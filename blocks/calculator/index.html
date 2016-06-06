@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Calculator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+			
+	<h1 class="blocks-header">Calculator</h1>
+	<p class="blocks-section">
+		Text&hellip;
+	</p>
+	
+	<form class="calculator">
+		<input type="text" class="calculator-display" value="0"/>
+		
+		<button type="button" class="calculator-button-input">7</button>
+		<button type="button" class="calculator-button-input">8</button>
+		<button type="button" class="calculator-button-input">9</button>
+		<button type="button" class="calculator-button-modifier">&#215;</button>
+
+		<button type="button" class="calculator-button-input">4</button>
+		<button type="button" class="calculator-button-input">5</button>
+		<button type="button" class="calculator-button-input">6</button>
+		<button type="button" class="calculator-button-modifier">&#8722;</button>
+
+		<button type="button" class="calculator-button-input">1</button>
+		<button type="button" class="calculator-button-input">2</button>
+		<button type="button" class="calculator-button-input">3</button>
+		<button type="button" class="calculator-button-modifier">&#43;</button>
+
+		<button type="button" class="calculator-button-input">0</button>
+		<button type="button" class="calculator-button-input">0</button>
+		<button type="button" class="calculator-button-input">,</button>
+		<button type="submit" class="calculator-button-modifier">&#61;</button>
+	</form>
+	
+	<script>
+		(function() {
+			var
+			aBtns, 
+			aCalc = document.querySelectorAll(".calculator"),
+			nLen = aCalc.length,
+			oDisplay;
+			
+			while(nLen--) {
+				aBtns = aCalc[nLen].querySelectorAll("[type=\"button\"]");
+				
+				aBtns.forEach(function(oBtn){oBtn.addEventListener("click", setDisplay, false)});	
+			}
+			
+			function setDisplay() {
+				console.log(this.innerText);
+			}
+				
+		})();
+		
+	</script>
+	<!--
+	<script src="js/setaccesskeys.js"></script>	
+	-->
+	
+</body>
+</html>	

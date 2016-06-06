@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Google Maps</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<h1 class="blocks-header">Google Maps</h1>
+	<p class="blocks-section">TODO: Create list-alternative for accesibility</p>
+
+	<!-- Template for marker-infoWindow -->
+	<template id="google-map-marker">
+		<article class="google-map-marker">
+			<strong><!--#data.name--></strong>
+			<div><!--#data.address.streetAddress--></div>
+			<div><!--#data.address.postalCode--> <!--#data.address.addressLocality--></div>
+			<div><!--#data.address.addressCountry--></div>
+			<div><!--#data.telephone--></div>
+			<!-- if (data.openingHours) {-->
+			<div><strong>Opening hours:</strong><br /><!--#data.openingHours--></div>
+			<!--}-->
+		</article>			
+	</template>
+	
+	&nbsp;<br />
+	<!-- Map Example, Advanced Config -->
+	<div class="google-map" data-json="oMapJSON" data-config="mapConfig" data-template="google-map-marker">
+		<div class="google-map-filter-wrapper">
+			<label for="gmap-filter1" class="google-map-filter-label">Select city:</label>
+			<select id="gmap-filter1" class="google-map-filter" data-json-key="address.addressLocality" data-first-option="Choose below" data-fit-bounds="true" data-search-type="json-equals"></select>
+			
+			<label for="gmap-filter2" class="google-map-filter-label">Select country:</label>
+			<select id="gmap-filter2" class="google-map-filter" data-json-key="address.addressCountry" data-first-option="Choose below"  data-search-type="geocode"></select>
+			
+			<label for="gmap-filter3" class="google-map-filter-label">Search address:</label>
+			<input id="gmap-filter3" type="text" class="google-map-filter" data-json-key="address.streetAddress" data-fit-bounds="true" data-search-type="json-contains" />
+		</div>
+		<div class="google-map-content" tabindex="-1"></div>
+	</div>
+
+	&nbsp;<br />
+	<!-- Map Example, Simple/default Config -->
+	<div class="google-map" data-json="oMapJSON" data-template="google-map-marker">
+		<div class="google-map-filter-wrapper">
+			<label for="gmap-filter4" class="google-map-filter-label">Select city:</label>
+			<select id="gmap-filter4" class="google-map-filter" data-json-key="address.addressLocality" data-first-option="Choose below" data-fit-bounds="true" data-reset="true" data-search-type="json-equals"></select>
+			
+			<label for="gmap-filter5" class="google-map-filter-label">Select country:</label>
+			<select id="gmap-filter5" class="google-map-filter" data-json-key="address.addressCountry" data-first-option="Choose below" data-reset="true" data-search-type="geocode"></select>
+			
+			<label for="gmap-filter6" class="google-map-filter-label">Search address:</label>
+			<input id="gmap-filter6" type="text" class="google-map-filter" data-json-key="address.streetAddress" data-fit-bounds="true" data-search-type="json-contains" />
+		</div>
+		<div class="google-map-content" tabindex="-1"></div>
+	</div>
+	
+	<!-- Download newest version from: https://github.com/googlemaps/js-marker-clusterer/blob/gh-pages/src/markerclusterer_compiled.js -->
+	<script src="js/gmap_cluster.js"></script> 
+	
+	<!-- Replace this with inline JSON-Object -->
+	<script src="js/gmap_data.js"></script> 
+	
+	<!-- Fill out/modify the config-function(s) -->
+	<script src="js/gmap_config.js"></script>
+	
+	<!-- Include main script -->
+	<script src="js/gmap.js"></script>
+	
+	<!-- Replace API-KEY in script-string below -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJUbHZoSsc5D-XFU7QWY3dKpC4eX3H48w&libraries=geometry&callback=gmap.init" async defer></script>	
+	
+</body>
+</html>

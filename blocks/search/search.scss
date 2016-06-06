@@ -1,0 +1,70 @@
+/// Search
+/// - Version 1.2.1
+/// - Date last edited: 2016-05-31
+/// @name search
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$search]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/search/ Demo
+/// @example scss
+///   .search ( @include search(); )
+
+@mixin search($theme: $search) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	&-advanced {
+		font-size: small;
+	}
+	&-fieldset {
+		position: relative;
+		display: flex;
+		padding: map-get($theme, "fieldset-padding");
+		border: map-get($theme, "fieldset-border");
+		border-radius: map-get($theme, "fieldset-border-radius");
+		background: map-get($theme, "fieldset-background");	
+	}	
+	&-input {
+		font-size: 1em;
+		padding: map-get($theme, "input-padding");
+		vertical-align: middle;
+		border: map-get($theme, "input-border");
+		border-radius: map-get($theme, "input-border-radius");
+		outline: 0;
+		flex: 1 0 3em;
+		&:valid::-ms-clear,
+		&:valid::-webkit-search-cancel-button {
+            cursor: pointer;
+        }
+	}
+	&-submit {
+		margin: 0 0 0 .5em;
+		border: map-get($theme, "submit-border");
+		background: map-get($theme, "submit-background");
+		flex: 0 0 auto;
+	}
+	&-submit-svg {
+		@include equal(map-get($theme, "submit-svg-size"));
+		vertical-align: middle;
+		fill:  map-get($theme, "submit-svg-fill");		
+	}
+}
+
+/// Theme-map for search-block
+/// @name search
+/// @group settings
+
+$search: (
+	"fieldset-background": #555,
+	"fieldset-border": 0,
+	"fieldset-border-radius": 0.5em,
+	"fieldset-padding": 0.5em,
+	"font-map": 0,
+	"input-border": 1px solid #555,
+	"input-border-radius": 0.5em,
+	"input-padding": 0.5em,
+	"submit-background": none,
+	"submit-border": 0,
+	"submit-svg-fill": #fff,
+	"submit-svg-size": 3em
+);
