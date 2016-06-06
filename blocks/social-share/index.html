@@ -5,6 +5,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
 	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+	
+	<!-- OpenGraph Meta Tags used for sharing -->
+	<meta property="og:url" content="http://www.stoumann.dk/examples/blocks/social-share" />
+	<meta property="og:title" content="Blocks! Social Share" />
+	<meta property="og:description" content="How to use OpenGraph meta-tags to share content." />
+	<meta property="og:site_name" content="Blocks!" />
+	<meta property="og:image" content="http://www.stoumann.dk/img/g1.jpg" />
+	<meta property="og:fb:app_id" content="1618787191706004" />
+	
 </head>
 <body>
 	<!-- Google Tag Manager -->
@@ -13,6 +22,43 @@
 	<!-- End Google Tag Manager -->
 	
 	<h1 class="blocks-header">Social Share</h1>
+
+	<!-- Version -->
+	<section class="social-links" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+		<h2 class="social-links-header">Social Share</h2>
+		<div class="social-links-inner">
+			<nav class="social-links-nav">
+				
+				<a href="https://www.facebook.com/sharer.php?u=" class="social-links-link" itemprop="url" title="Facebook" data-social-action="Share">
+					<meta itemprop="name" content="Facebook" />
+					<svg class="social-links-icon br-facebook"><use xlink:href="../../svg/social.svg#icon-facebook"></use></svg>
+				</a>
+				
+				<a href="https://www.linkedin.com/shareArticle?mini=true&url=" class="social-links-link" itemprop="url" title="LinkedIn" data-social-action="Share">
+					<meta itemprop="name" content="LinkedIn" />
+					<svg class="social-links-icon br-linkedin"><use xlink:href="../../svg/social.svg#icon-linkedin"></use></svg>
+				</a>
+				
+				<a href="https://plus.google.com/share?url=" class="social-links-link" itemprop="url" title="Google Plus" data-social-action="Share">
+					<meta itemprop="name" content="Google Plus" />
+					<svg class="social-links-icon br-googleplus"><use xlink:href="../../svg/social.svg#icon-google-plus"></use></svg>
+				</a>			
+
+				<a href="https://pinterest.com/pin/create/button/?url=&media=" class="social-links-link" itemprop="url" title="Pinterest" data-social-action="Share">
+					<meta itemprop="name" content="Pinterest" />
+					<svg class="social-links-icon br-pinterest"><use xlink:href="../../svg/social.svg#icon-pinterest"></use></svg>
+				</a>
+
+				<a href="https://twitter.com/home?status=" class="social-links-link" itemprop="url" title="Twitter" data-social-action="Share">
+					<meta itemprop="name" content="Twitter" />
+					<svg class="social-links-icon br-twitter"><use xlink:href="../../svg/social.svg#icon-twitter"></use></svg>
+				</a>
+								
+			</nav>
+		</div>
+	</section>	
+	<!-- Version -->
 	
+	<script src="js/socialshare.js"></script>
 </body>
 </html>

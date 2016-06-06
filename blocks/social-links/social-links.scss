@@ -1,0 +1,50 @@
+/// Social Links
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-06
+/// @name social-links
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$social-links]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/social-links/ Demo
+/// @example scss
+///   .social-links ( @include social-links(); )
+
+@mixin social-links($theme: $social-links) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+	&-icon {
+		width: map-get($theme, "icon-width");
+		height: map-get($theme, "icon-height");
+	}
+	
+	&-link {
+		text-decoration: none;
+		margin: map-get($theme, "link-margin");
+	}
+}
+
+/* Brand Color */
+.br-apple { fill: #aaaaaa; @include hover { fill: darken(#aaaaaa, 10); } }
+.br-android { fill: #a4c639; @include hover { fill: darken(#a4c639, 10); } }
+.br-facebook { fill: #3b5998; @include hover { fill: lighten(#3b5998, 10); } }
+.br-googleplus { fill: #c63d2d; @include hover { fill: darken(#c63d2d, 10); } }
+.br-instagram { fill: #4e433c; @include hover { fill: lighten(#4e433c, 10); } }
+.br-linkedin { fill: #4875b4; @include hover { fill: darken(#4875b4, 10); } }
+.br-pinterest { fill: #bd081c; @include hover { fill: darken(#bd081c, 10); } }
+.br-skype { fill: #12a5f4; @include hover { fill: darken(#12a5f4, 10); } }
+.br-twitter { fill: #33ccff; @include hover { fill: darken(#33ccff, 10); } }
+.br-windows { fill: #00bcf2; @include hover { fill: darken(#00bcf2, 10); } }
+.br-youtube { fill: #cd201f; @include hover { fill: darken(#cd201f, 10); } }
+
+/// Theme-map for social-links-block
+/// @name social-links
+/// @group settings
+
+$social-links: (
+	"font-map": 0,
+	"icon-width": 2em,
+	"icon-height": 2em,
+	"link-margin": 0 0.5em 0 0
+);

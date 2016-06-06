@@ -139,6 +139,11 @@
 	@include slider();
 }
 
+// social-links
+.social-links {
+	@include social-links();
+}
+
 // spinners
 .spinner-overlay {
 	@include spinner(60px, 8px, #aaa, 0.75s);

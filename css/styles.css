@@ -870,6 +870,106 @@ span[aria-hidden] {
   opacity: 1;
 }
 
+/* Brand Color */
+.br-apple {
+  fill: #aaaaaa;
+}
+@media (hover) {
+  .br-apple:hover {
+    fill: #919191;
+  }
+}
+
+.br-android {
+  fill: #a4c639;
+}
+@media (hover) {
+  .br-android:hover {
+    fill: #839e2e;
+  }
+}
+
+.br-facebook {
+  fill: #3b5998;
+}
+@media (hover) {
+  .br-facebook:hover {
+    fill: #4c70ba;
+  }
+}
+
+.br-googleplus {
+  fill: #c63d2d;
+}
+@media (hover) {
+  .br-googleplus:hover {
+    fill: #9c3024;
+  }
+}
+
+.br-instagram {
+  fill: #4e433c;
+}
+@media (hover) {
+  .br-instagram:hover {
+    fill: #6b5c52;
+  }
+}
+
+.br-linkedin {
+  fill: #4875b4;
+}
+@media (hover) {
+  .br-linkedin:hover {
+    fill: #395d90;
+  }
+}
+
+.br-pinterest {
+  fill: #bd081c;
+}
+@media (hover) {
+  .br-pinterest:hover {
+    fill: #8c0615;
+  }
+}
+
+.br-skype {
+  fill: #12a5f4;
+}
+@media (hover) {
+  .br-skype:hover {
+    fill: #0986ca;
+  }
+}
+
+.br-twitter {
+  fill: #33ccff;
+}
+@media (hover) {
+  .br-twitter:hover {
+    fill: deepskyblue;
+  }
+}
+
+.br-windows {
+  fill: #00bcf2;
+}
+@media (hover) {
+  .br-windows:hover {
+    fill: #0094bf;
+  }
+}
+
+.br-youtube {
+  fill: #cd201f;
+}
+@media (hover) {
+  .br-youtube:hover {
+    fill: #a11918;
+  }
+}
+
 /*
 - Document  : spinner.scss
 - Version   : 1.0.0
@@ -4787,6 +4887,45 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
   display: block;
 }
 
+@media (min-width: 0) {
+  .social-links {
+    font-size: 13px;
+  }
+}
+@media (min-width: 640px) {
+  .social-links {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .social-links {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1024px) {
+  .social-links {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .social-links {
+    font-size: 17px;
+  }
+}
+@media (min-width: 1600px) {
+  .social-links {
+    font-size: 18px;
+  }
+}
+.social-links-icon {
+  width: 2em;
+  height: 2em;
+}
+.social-links-link {
+  text-decoration: none;
+  margin: 0 0.5em 0 0;
+}
+
 .spinner-overlay {
   -webkit-animation: spin 0.75s linear 0s infinite;
           animation: spin 0.75s linear 0s infinite;
@@ -5600,127 +5739,127 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-1 {
   color: #222;
-  background-color: #d29fdf;
+  background-color: #df9fa5;
 }
 
 .random-2 {
   color: #222;
-  background-color: #dadf9f;
+  background-color: #df9fc5;
 }
 
 .random-3 {
   color: #222;
-  background-color: #dfb19f;
+  background-color: #9fdfb0;
 }
 
 .random-4 {
   color: #222;
-  background-color: #df9fca;
+  background-color: #bcdf9f;
 }
 
 .random-5 {
   color: #222;
-  background-color: #9fbcdf;
+  background-color: #df9fcd;
 }
 
 .random-6 {
   color: #222;
-  background-color: #9fd6df;
+  background-color: #dfb59f;
 }
 
 .random-7 {
   color: #222;
-  background-color: #bedf9f;
+  background-color: #dfbe9f;
 }
 
 .random-8 {
   color: #222;
-  background-color: #9fdfae;
+  background-color: #9fdfb1;
 }
 
 .random-9 {
   color: #222;
-  background-color: #dfc09f;
+  background-color: #df9fd9;
 }
 
 .random-10 {
   color: #222;
-  background-color: #9fbddf;
+  background-color: #9fd2df;
 }
 
 .random-11 {
   color: #222;
-  background-color: #df9fbe;
+  background-color: #9fdfdd;
 }
 
 .random-12 {
   color: #222;
-  background-color: #b79fdf;
+  background-color: #dfb39f;
 }
 
 .random-13 {
   color: #222;
-  background-color: #9fbfdf;
+  background-color: #9fdfb0;
 }
 
 .random-14 {
   color: #222;
-  background-color: #d8df9f;
+  background-color: #d59fdf;
 }
 
 .random-15 {
   color: #222;
-  background-color: #af9fdf;
+  background-color: #d1df9f;
 }
 
 .random-16 {
   color: #222;
-  background-color: #df9fb0;
+  background-color: #dfcc9f;
 }
 
 .random-17 {
   color: #222;
-  background-color: #dfa29f;
+  background-color: #9fabdf;
 }
 
 .random-18 {
   color: #222;
-  background-color: #df9fce;
+  background-color: #a0df9f;
 }
 
 .random-19 {
   color: #222;
-  background-color: #9fdfc1;
+  background-color: #d2df9f;
 }
 
 .random-20 {
   color: #222;
-  background-color: #df9fc4;
+  background-color: #9fdfae;
 }
 
 .random-21 {
   color: #222;
-  background-color: #df9fa4;
+  background-color: #9fdfa9;
 }
 
 .random-22 {
   color: #222;
-  background-color: #df9fad;
+  background-color: #a2df9f;
 }
 
 .random-23 {
   color: #222;
-  background-color: #a99fdf;
+  background-color: #dfca9f;
 }
 
 .random-24 {
   color: #222;
-  background-color: #b79fdf;
+  background-color: #df9fd7;
 }
 
 .random-25 {
   color: #222;
-  background-color: #ca9fdf;
+  background-color: #dfcb9f;
 }
 
 /*# sourceMappingURL=styles.css.map */
