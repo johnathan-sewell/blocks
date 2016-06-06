@@ -1,4 +1,4 @@
-#Accordion  &mdash; Collapse
+#Accordion
 Accordion, with collapse-logic controlled by radio-buttons.
 
 Accesskeys-decoration set by the *setaccesskeys.js*-script.
