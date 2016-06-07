@@ -17,7 +17,7 @@
 		Text &hellip;
 	</p>
 	
-	<form class="form" id="frmId" novalidate>
+	<form class="form multi-step" id="frmId" novalidate>
 		
 		<!-- States, for multi-step form -->
 		<input type="radio" name="grp_fs" class="state" id="fls-1" data-progress="25" checked />
@@ -111,7 +111,7 @@
 		    </ul>	 
 	    </fieldset>
 	
-		<fieldset class="form-fieldset">
+		<fieldset class="form-fieldset" data-for="fls-2" data-next="fls-3">
 			<legend class="form-legend">Shipping Address</legend>
 			<ul>
 				<li class="form-li form-checkbox-wrapper">
@@ -136,7 +136,7 @@
 			    </li>			
 				<li class="form-li form-nav">
 					<label for="fls-1" class="form-button form-nav-prev">Previous</label>
-			    	<label for="fls-3" class="form-button form-nav-next">Next</label>
+			    	<label for="fls-3" data-active="fls-2" class="form-button form-nav-next">Next</label>
 			    </li>
 			</ul>
 		</fieldset>

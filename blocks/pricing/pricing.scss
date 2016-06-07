@@ -1,0 +1,97 @@
+/// pricing
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-07
+/// @name pricing
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$pricing]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/pricing/ Demo
+/// @example scss
+///   .pricing ( @include pricing(); )
+
+@mixin pricing($theme: $pricing) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+	&-content {
+		display: block;
+		float: left;
+		width: 50%;	
+		height: 40em;
+		background: linear-gradient(to bottom, #ddd 0%, #eee 100%);
+		text-align: center;
+		
+		border-style: solid;
+		border-color: #aaa;
+		border-width: 1px 1px 1px 0;
+		
+		em {
+			display: block;
+			font-style: normal;
+		}
+		
+		&-header {
+			font-size: 2em;
+		}	
+		
+		&-line {
+			
+			padding: .75em;
+			border-bottom: 1px dashed #ccc;
+			
+			&:nth-child(even) {
+				background-color: #fff;
+				color: #111;
+			}
+			&:nth-child(odd) {
+	   			background-color: #fff;
+	   			color: #111;
+	   		}
+	   	}
+	   	&-price {
+	   		font-size: 1.25em;
+			color: cornflowerblue;
+		}
+	}
+	
+	&-header {
+		font-size: 2em;
+		margin: 0 0 1em 0;
+	}
+	
+	&-label {
+		span:first-of-type  { 
+			border-left-width: 1px;
+		}
+	}
+	
+
+	
+	.state:checked + &-label {
+		& > #{$root}-content {
+			background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+		}
+	}
+	
+	@include for("tablet") {
+		&-content {
+			width: 25%;
+		}
+		.state:checked + &-label {
+			& > #{$root}-content {
+				transform: scale(1.05);
+				box-shadow: 0 0 .25em rgba(0, 0, 0, .5);
+			}
+		}
+	}
+}
+
+/// Theme-map for pricing
+/// @name pricing
+/// @group settings
+
+$pricing: (
+	"font-map": 0,
+	"num-items": 4
+);

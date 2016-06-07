@@ -1,6 +1,6 @@
 #About Blocks!
 
-Blocks! is a collection of small, stand-alone UI-components and HTML-patterns.
+**Blocks!** is a collection of small, stand-alone UI-components and HTML-patterns.
 
 A *block!* must live up to the following criteria:
 

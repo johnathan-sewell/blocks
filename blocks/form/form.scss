@@ -165,7 +165,6 @@
 		}
 	}	
 	&-fieldset {
-		display: none;
 		min-height: 10em;
 		padding-bottom: 2.5%;
 		margin: 2.5% 0;
@@ -367,6 +366,12 @@
 			&::-moz-progress-bar {
 				background-color: map-get($theme, "step-selected");
 			}	
+		}
+	}
+	
+	&.multi-step {
+		#{$root}-fieldset {
+			display: none;	
 		}
 	}
 	

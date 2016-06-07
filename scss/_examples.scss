@@ -93,6 +93,11 @@
 	@include popup();
 }
 
+// pricing
+.pricing {
+	@include pricing();
+}
+
 // product
 .product {
 	@include product();
