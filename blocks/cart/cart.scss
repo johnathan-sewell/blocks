@@ -1,0 +1,55 @@
+/// Cart
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-07
+/// @name cart
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$cart]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/cart/ Demo
+/// @example scss
+///   .cart( @include cart(); )
+
+@mixin cart($theme: $cart) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+	tablet-layout: fixed;
+	border-collapse: collapse;
+	
+	&-header {
+		text-align: left;
+		font-size: 2em;
+	}
+	
+	&-item {
+		&-image {
+			
+		}	
+		&-line {}
+		&-name {}
+		&-price { text-align: right; }
+		&-qnt {
+			
+		}
+	}
+	&-total {
+		&-price { 
+			text-align: right;
+		}
+	}
+	
+	td { 
+		border: 1px solid #ccc; 
+		padding: .5em;
+	}
+}
+
+
+/// Theme-map for cart-block
+/// @name cart
+/// @group settings
+
+$cart: (
+	"font-map": 0
+);

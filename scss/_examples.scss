@@ -23,6 +23,11 @@
 	@include calculator();
 }
 
+// cart
+.cart { 
+	@include cart();
+}
+
 // circular
 .circular { 
 	@include circular();

@@ -2,7 +2,7 @@
 /*
 - Document  : styles.scss
 - Version   : 1.4.0
-- Date edit : 2016-06-06
+- Date edit : 2016-06-07
 */
 /* Root */
 @import url(//fonts.googleapis.com/css?family=Roboto:400,300);
@@ -1368,6 +1368,55 @@ span[aria-hidden] {
   outline: none;
   text-align: right;
   background: #222;
+}
+
+.cart {
+  tablet-layout: fixed;
+  border-collapse: collapse;
+}
+@media (min-width: 0) {
+  .cart {
+    font-size: 13px;
+  }
+}
+@media (min-width: 640px) {
+  .cart {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .cart {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1024px) {
+  .cart {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .cart {
+    font-size: 17px;
+  }
+}
+@media (min-width: 1600px) {
+  .cart {
+    font-size: 18px;
+  }
+}
+.cart-header {
+  text-align: left;
+  font-size: 2em;
+}
+.cart-item-price {
+  text-align: right;
+}
+.cart-total-price {
+  text-align: right;
+}
+.cart td {
+  border: 1px solid #ccc;
+  padding: .5em;
 }
 
 .circular {
@@ -5903,127 +5952,127 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-1 {
   color: #222;
-  background-color: #cadf9f;
+  background-color: #dfc19f;
 }
 
 .random-2 {
   color: #222;
-  background-color: #9fd1df;
+  background-color: #d8df9f;
 }
 
 .random-3 {
   color: #222;
-  background-color: #9fdfc0;
+  background-color: #d29fdf;
 }
 
 .random-4 {
   color: #222;
-  background-color: #df9fa0;
+  background-color: #df9f9f;
 }
 
 .random-5 {
   color: #222;
-  background-color: #df9fa2;
+  background-color: #9fa5df;
 }
 
 .random-6 {
   color: #222;
-  background-color: #df9fc0;
+  background-color: #b5df9f;
 }
 
 .random-7 {
   color: #222;
-  background-color: #b8df9f;
+  background-color: #9fabdf;
 }
 
 .random-8 {
   color: #222;
-  background-color: #bedf9f;
+  background-color: #d89fdf;
 }
 
 .random-9 {
   color: #222;
-  background-color: #9fa4df;
+  background-color: #cfdf9f;
 }
 
 .random-10 {
   color: #222;
-  background-color: #9fdfca;
+  background-color: #9fd8df;
 }
 
 .random-11 {
   color: #222;
-  background-color: #dcdf9f;
+  background-color: #9fdfbe;
 }
 
 .random-12 {
   color: #222;
-  background-color: #dfca9f;
+  background-color: #dfd09f;
 }
 
 .random-13 {
   color: #222;
-  background-color: #9fa8df;
+  background-color: #bc9fdf;
 }
 
 .random-14 {
   color: #222;
-  background-color: #c59fdf;
+  background-color: #df9fa3;
 }
 
 .random-15 {
   color: #222;
-  background-color: #c99fdf;
+  background-color: #dfd99f;
 }
 
 .random-16 {
   color: #222;
-  background-color: #cddf9f;
+  background-color: #dfd79f;
 }
 
 .random-17 {
   color: #222;
-  background-color: #df9fa4;
+  background-color: #df9fc6;
 }
 
 .random-18 {
   color: #222;
-  background-color: #d9df9f;
+  background-color: #dfa79f;
 }
 
 .random-19 {
   color: #222;
-  background-color: #df9fce;
+  background-color: #c79fdf;
 }
 
 .random-20 {
   color: #222;
-  background-color: #dd9fdf;
+  background-color: #9fdfd5;
 }
 
 .random-21 {
   color: #222;
-  background-color: #dfcb9f;
+  background-color: #9fdfcd;
 }
 
 .random-22 {
   color: #222;
-  background-color: #dfb89f;
+  background-color: #dfc09f;
 }
 
 .random-23 {
   color: #222;
-  background-color: #bfdf9f;
+  background-color: #df9fa8;
 }
 
 .random-24 {
   color: #222;
-  background-color: #cf9fdf;
+  background-color: #9fbedf;
 }
 
 .random-25 {
   color: #222;
-  background-color: #9fdfc4;
+  background-color: #c0df9f;
 }
 
 /*# sourceMappingURL=styles.css.map */
