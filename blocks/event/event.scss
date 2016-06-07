@@ -14,26 +14,33 @@
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
+	background: map-get($theme, "background");
+	padding: map-get($theme, "padding");
+	border-radius:  map-get($theme, "border-radius");
+	box-shadow: map-get($theme, "box-shadow");
+	
 	&-date {
 		&-icon {
 			@include equal(1em);
-			fill: #666;
+			fill: map-get($theme, "date-icon-fill");
 		}
 	}
 	&-description {
 		font-style: italic;	
 	}
-	&-header {}
+	&-header {
+		font-size: 2em;	
+	}
 	&-image {
-		width: auto;
-		height: 100px;	
+		width: map-get($theme, "image-width");
+		height: map-get($theme, "image-height");
 	}
 	&-offer {
 		&-price {
-			color: maroon;
+			color: map-get($theme, "offer-color");
 		}
 		&-url {
-			color: darken(cornflowerblue, 20);
+			color: map-get($theme, "url-color");
 		}
 	}
 	&-performers {
@@ -46,12 +53,12 @@
 		font-size: 1.15em;
 	}
 	&-time {
-		color: maroon;	
+		color: map-get($theme, "offer-color");
 	}
 	&-url {
 		display: inline-block;
 		
-		color: darken(cornflowerblue, 20);
+		color: map-get($theme, "url-color");
 	}
 	&-venue {
 		&-address {}	
@@ -64,5 +71,14 @@
 /// @group settings
 
 $event: (
-	"font-map": 0
+	"background": linear-gradient(to bottom, #eee, #fff),
+	"border-radius": 0.25em,
+	"box-shadow": 0 0 .5em rgba(0, 0, 0, .5),
+	"date-icon-fill": #666,
+	"font-map": 0,
+	"image-height": auto,
+	"image-width": 100px,
+	"offer-color": maroon,
+	"padding": 1.5em,
+	"url-color": darken(cornflowerblue, 20)
 );

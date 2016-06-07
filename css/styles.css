@@ -1858,6 +1858,12 @@ span[aria-hidden] {
   fill: orange;
 }
 
+.event {
+  background: linear-gradient(to bottom, #eee, #fff);
+  padding: 1.5em;
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+}
 @media (min-width: 0) {
   .event {
     font-size: 13px;
@@ -1896,9 +1902,12 @@ span[aria-hidden] {
 .event-description {
   font-style: italic;
 }
+.event-header {
+  font-size: 2em;
+}
 .event-image {
-  width: auto;
-  height: 100px;
+  width: 100px;
+  height: auto;
 }
 .event-offer-price {
   color: maroon;
@@ -5894,127 +5903,127 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-1 {
   color: #222;
-  background-color: #df9fd3;
+  background-color: #cadf9f;
 }
 
 .random-2 {
   color: #222;
-  background-color: #b8df9f;
+  background-color: #9fd1df;
 }
 
 .random-3 {
   color: #222;
-  background-color: #9fdddf;
+  background-color: #9fdfc0;
 }
 
 .random-4 {
   color: #222;
-  background-color: #df9fcc;
+  background-color: #df9fa0;
 }
 
 .random-5 {
   color: #222;
-  background-color: #cd9fdf;
+  background-color: #df9fa2;
 }
 
 .random-6 {
   color: #222;
-  background-color: #9facdf;
+  background-color: #df9fc0;
 }
 
 .random-7 {
   color: #222;
-  background-color: #c19fdf;
+  background-color: #b8df9f;
 }
 
 .random-8 {
   color: #222;
-  background-color: #9fdfae;
+  background-color: #bedf9f;
 }
 
 .random-9 {
   color: #222;
-  background-color: #9fa5df;
+  background-color: #9fa4df;
 }
 
 .random-10 {
   color: #222;
-  background-color: #9fa7df;
+  background-color: #9fdfca;
 }
 
 .random-11 {
   color: #222;
-  background-color: #9fdfab;
+  background-color: #dcdf9f;
 }
 
 .random-12 {
   color: #222;
-  background-color: #df9fa5;
+  background-color: #dfca9f;
 }
 
 .random-13 {
   color: #222;
-  background-color: #9fd7df;
+  background-color: #9fa8df;
 }
 
 .random-14 {
   color: #222;
-  background-color: #9fdfbc;
+  background-color: #c59fdf;
 }
 
 .random-15 {
   color: #222;
-  background-color: #df9fcf;
+  background-color: #c99fdf;
 }
 
 .random-16 {
   color: #222;
-  background-color: #b49fdf;
+  background-color: #cddf9f;
 }
 
 .random-17 {
   color: #222;
-  background-color: #df9fd8;
+  background-color: #df9fa4;
 }
 
 .random-18 {
   color: #222;
-  background-color: #be9fdf;
+  background-color: #d9df9f;
 }
 
 .random-19 {
   color: #222;
-  background-color: #9fdfdb;
+  background-color: #df9fce;
 }
 
 .random-20 {
   color: #222;
-  background-color: #dfb09f;
+  background-color: #dd9fdf;
 }
 
 .random-21 {
   color: #222;
-  background-color: #cb9fdf;
+  background-color: #dfcb9f;
 }
 
 .random-22 {
   color: #222;
-  background-color: #9fdfc9;
+  background-color: #dfb89f;
 }
 
 .random-23 {
   color: #222;
-  background-color: #a79fdf;
+  background-color: #bfdf9f;
 }
 
 .random-24 {
   color: #222;
-  background-color: #b6df9f;
+  background-color: #cf9fdf;
 }
 
 .random-25 {
   color: #222;
-  background-color: #9fdfbc;
+  background-color: #9fdfc4;
 }
 
 /*# sourceMappingURL=styles.css.map */
