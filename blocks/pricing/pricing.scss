@@ -60,13 +60,9 @@
 		margin: 0 0 1em 0;
 	}
 	
-	&-label {
-		span:first-of-type  { 
-			border-left-width: 1px;
-		}
+	&-label:first-of-type > span  { 
+		border-left-width: 1px;
 	}
-	
-
 	
 	.state:checked + &-label {
 		& > #{$root}-content {

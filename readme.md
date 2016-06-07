@@ -11,4 +11,4 @@ A *block!* must live up to the following criteria:
 - It should have **Google Tag Manager** or other tracking enabled and, if using GTM, verified through GTM's Preview/Debug-panel
 - If it contains **JavaScript**, it must be verified on [jshint.com](jshint.com) **and** have proper [jsDoc](https://github.com/jsdoc3/jsdoc)-syntax for documentation
 - It should have a **readme.md** with basic instructions on how-to-use
-- It should have a **HTML5 template** with micro-templating for backend-use
+- Ideally, it should have a **HTML5 template** and sample **json** with micro-templating - for either xhr-apps or backend-implementation
