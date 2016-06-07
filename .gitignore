@@ -48,6 +48,8 @@ Temporary Items
 
 # Custom Ignore
 _tmp/
+blocks/editor
+blocks/shop
 node_modules/
 gulpfile.js
 package.json
