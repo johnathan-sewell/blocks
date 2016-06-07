@@ -12,3 +12,17 @@ A *block!* must live up to the following criteria:
 - If it contains **JavaScript**, it must be verified on [jshint.com](jshint.com) **and** have proper [jsDoc](https://github.com/jsdoc3/jsdoc)-syntax for documentation
 - It should have a **readme.md** with basic instructions on how-to-use
 - Ideally, it should have a **HTML5 template** and sample **json** with micro-templating - for either xhr-apps or backend-implementation
+
+##Getting started
+Clone or download (and extract) to a webserver-folder
+Navigate to that folder: /blocks
+
+##Structure
+Each block is in the subfolder *blocks*, having it's own folder including it's assets:
+
+- index.html
+- [blockname].scss
+- readme.md 
+- optional js-, image- or other assets
+
+For blocks utilizing other block's styles, there will be no .scss-file.

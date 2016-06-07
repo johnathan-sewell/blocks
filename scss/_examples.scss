@@ -38,6 +38,11 @@
 	@include editor();
 }
 
+// event
+.event { 
+	@include event();
+}
+
 // facets: facet list
 .facet-list { 
 	@include facets($facet-list);

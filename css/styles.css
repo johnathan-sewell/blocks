@@ -1858,6 +1858,71 @@ span[aria-hidden] {
   fill: orange;
 }
 
+@media (min-width: 0) {
+  .event {
+    font-size: 13px;
+  }
+}
+@media (min-width: 640px) {
+  .event {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .event {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1024px) {
+  .event {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .event {
+    font-size: 17px;
+  }
+}
+@media (min-width: 1600px) {
+  .event {
+    font-size: 18px;
+  }
+}
+.event-date-icon {
+  width: 1em;
+  height: 1em;
+  fill: #666;
+}
+.event-description {
+  font-style: italic;
+}
+.event-image {
+  width: auto;
+  height: 100px;
+}
+.event-offer-price {
+  color: maroon;
+}
+.event-offer-url {
+  color: #185bd3;
+}
+.event-performers {
+  margin: 0 0 1em 0;
+  list-style-position: inside;
+}
+.event-subheader {
+  display: block;
+  margin: 1em 0 0 0;
+  font-size: 1.15em;
+}
+.event-time {
+  color: maroon;
+}
+.event-url {
+  display: inline-block;
+  color: #185bd3;
+}
+
 .facet-list {
   font-family: Oswald, sans-serif;
   font-weight: 300;
@@ -5829,127 +5894,127 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-1 {
   color: #222;
-  background-color: #df9fbc;
+  background-color: #df9fd3;
 }
 
 .random-2 {
   color: #222;
-  background-color: #dfa69f;
+  background-color: #b8df9f;
 }
 
 .random-3 {
   color: #222;
-  background-color: #a2df9f;
+  background-color: #9fdddf;
 }
 
 .random-4 {
   color: #222;
-  background-color: #9faedf;
+  background-color: #df9fcc;
 }
 
 .random-5 {
   color: #222;
-  background-color: #9fa4df;
+  background-color: #cd9fdf;
 }
 
 .random-6 {
   color: #222;
-  background-color: #a9df9f;
+  background-color: #9facdf;
 }
 
 .random-7 {
   color: #222;
-  background-color: #9fdfa3;
+  background-color: #c19fdf;
 }
 
 .random-8 {
   color: #222;
-  background-color: #dfb79f;
+  background-color: #9fdfae;
 }
 
 .random-9 {
   color: #222;
-  background-color: #b19fdf;
+  background-color: #9fa5df;
 }
 
 .random-10 {
   color: #222;
-  background-color: #9fb1df;
+  background-color: #9fa7df;
 }
 
 .random-11 {
   color: #222;
-  background-color: #b5df9f;
+  background-color: #9fdfab;
 }
 
 .random-12 {
   color: #222;
-  background-color: #df9fc8;
+  background-color: #df9fa5;
 }
 
 .random-13 {
   color: #222;
-  background-color: #9fdfb1;
+  background-color: #9fd7df;
 }
 
 .random-14 {
   color: #222;
-  background-color: #df9faf;
+  background-color: #9fdfbc;
 }
 
 .random-15 {
   color: #222;
-  background-color: #d39fdf;
+  background-color: #df9fcf;
 }
 
 .random-16 {
   color: #222;
-  background-color: #a0df9f;
+  background-color: #b49fdf;
 }
 
 .random-17 {
   color: #222;
-  background-color: #df9fc1;
+  background-color: #df9fd8;
 }
 
 .random-18 {
   color: #222;
-  background-color: #9fdfcb;
+  background-color: #be9fdf;
 }
 
 .random-19 {
   color: #222;
-  background-color: #b6df9f;
+  background-color: #9fdfdb;
 }
 
 .random-20 {
   color: #222;
-  background-color: #a09fdf;
+  background-color: #dfb09f;
 }
 
 .random-21 {
   color: #222;
-  background-color: #9fd2df;
+  background-color: #cb9fdf;
 }
 
 .random-22 {
   color: #222;
-  background-color: #9fdfa9;
+  background-color: #9fdfc9;
 }
 
 .random-23 {
   color: #222;
-  background-color: #9fdfa5;
+  background-color: #a79fdf;
 }
 
 .random-24 {
   color: #222;
-  background-color: #9fc5df;
+  background-color: #b6df9f;
 }
 
 .random-25 {
   color: #222;
-  background-color: #bb9fdf;
+  background-color: #9fdfbc;
 }
 
 /*# sourceMappingURL=styles.css.map */

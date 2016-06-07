@@ -1,0 +1,68 @@
+/// event
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-07
+/// @name event
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$event]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/event/ Demo
+/// @example scss
+///   .event ( @include event(); )
+
+@mixin event($theme: $event) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+	&-date {
+		&-icon {
+			@include equal(1em);
+			fill: #666;
+		}
+	}
+	&-description {
+		font-style: italic;	
+	}
+	&-header {}
+	&-image {
+		width: auto;
+		height: 100px;	
+	}
+	&-offer {
+		&-price {
+			color: maroon;
+		}
+		&-url {
+			color: darken(cornflowerblue, 20);
+		}
+	}
+	&-performers {
+		margin: 0 0 1em 0;
+		list-style-position: inside; 
+	}
+	&-subheader {
+		display: block;
+		margin: 1em 0 0 0;	
+		font-size: 1.15em;
+	}
+	&-time {
+		color: maroon;	
+	}
+	&-url {
+		display: inline-block;
+		
+		color: darken(cornflowerblue, 20);
+	}
+	&-venue {
+		&-address {}	
+		&-name {}
+	}
+}
+
+/// Theme-map for event
+/// @name event
+/// @group settings
+
+$event: (
+	"font-map": 0
+);

@@ -14,5 +14,44 @@
 	
 	<h1 class="blocks-header">Event</h1>
 	
+	<article class="event" itemscope itemtype="http://schema.org/Event">
+		<img src="js.jpg" class="event-image" itemprop="image" alt="You Might Not Need jQuery" />
+		<h2 class="event-header" itemprop="name">You Might Not Need jQuery</h2>
+		
+		<div class="event-date" itemprop="startDate" content="2016-06-14T12:00">
+			<svg class="event-date-icon"><use xlink:href="../../svg/icons.svg#icon-calendar"></use></svg>
+			Tuesday June 14th, <span class="event-time">12:00</span>
+		</div>
+		
+		<div class="event-description" itemprop="description">An introduction to Vanilla JS</div>
+		
+		<meta itemprop="endDate" content="2016-06-14T13:00" />
+		
+		<strong class="event-subheader">Presenters</strong>
+		<ul class="event-performers" itemprop="performer">
+			<li itemscope itemtype="http://schema.org/Person"><span itemprop="name">Mads Stoumann</span></li>
+			<li itemscope itemtype="http://schema.org/Person"><span itemprop="name">Jesper Thorning</span></li>
+		</ul>
+		
+		<strong class="event-subheader">Website</strong>
+		<a class="event-url" itemprop="url" href="http://youmightnotneedjquery.com/">youmightnotneedjquery.com</a>
+		
+		<strong class="event-subheader">Location</strong>
+		<div class="event-venue" itemprop="location" itemscope itemtype="http://schema.org/Place">
+			<span class="event-venue-name" itemprop="name">Valtech Denmark</span>
+			<div class="event-venue-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				<span itemprop="streetAddress">Kanonb&aring;svej 2</span><br>
+				<span itemprop="postalCode">1437</span>
+				<span itemprop="addressLocality">K&oslash;benhavn</span>
+			</div>
+		</div>
+		
+		<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">Price: 
+			<span class="event-offer-price" itemprop="price" content="0.00">Free</span><br />
+			<meta itemprop="priceCurrency" content="DKD" />
+			<a class="event-offer-url" itemprop="url" href="http://www.stoumann.dk">Tickets</a>
+		</div>
+	</article>
+	
 </body>
 </html>
