@@ -1370,6 +1370,88 @@ span[aria-hidden] {
   background: #222;
 }
 
+.calendar {
+  border-collapse: collapse;
+  text-align: center;
+}
+@media (min-width: 0) {
+  .calendar {
+    font-size: 13px;
+  }
+}
+@media (min-width: 640px) {
+  .calendar {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .calendar {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1024px) {
+  .calendar {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .calendar {
+    font-size: 17px;
+  }
+}
+@media (min-width: 1600px) {
+  .calendar {
+    font-size: 18px;
+  }
+}
+.calendar tbody td {
+  width: 2.5em;
+}
+.calendar tbody td a {
+  display: inline-block;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #222;
+  background: transparent;
+}
+.calendar tbody td a::before {
+  display: inline-block;
+  content: "";
+  height: 100%;
+  vertical-align: middle;
+}
+.calendar tbody td a:focus {
+  color: #fff;
+  background: #ff3b30;
+  outline: none;
+}
+@media (hover) {
+  .calendar tbody td a:hover {
+    color: #fff;
+    background: #666;
+  }
+}
+.calendar tbody th {
+  padding: 0.5em;
+  color: #222;
+  background: #fff;
+}
+.calendar tbody td, .calendar tbody th {
+  border-color: #ccc;
+  border-style: dashed;
+  border-width: 0 0 1px 0;
+}
+.calendar thead th {
+  padding: 0.5em;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0;
+  color: #fff;
+  background: #555;
+}
+
 .cart {
   tablet-layout: fixed;
   border-collapse: collapse;
@@ -5952,127 +6034,127 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-1 {
   color: #222;
-  background-color: #dfc19f;
+  background-color: #c4df9f;
 }
 
 .random-2 {
   color: #222;
-  background-color: #d8df9f;
+  background-color: #dfc89f;
 }
 
 .random-3 {
   color: #222;
-  background-color: #d29fdf;
+  background-color: #b59fdf;
 }
 
 .random-4 {
   color: #222;
-  background-color: #df9f9f;
+  background-color: #df9fbb;
 }
 
 .random-5 {
   color: #222;
-  background-color: #9fa5df;
+  background-color: #c2df9f;
 }
 
 .random-6 {
   color: #222;
-  background-color: #b5df9f;
+  background-color: #bedf9f;
 }
 
 .random-7 {
   color: #222;
-  background-color: #9fabdf;
+  background-color: #c2df9f;
 }
 
 .random-8 {
   color: #222;
-  background-color: #d89fdf;
+  background-color: #dfb89f;
 }
 
 .random-9 {
   color: #222;
-  background-color: #cfdf9f;
+  background-color: #dfd89f;
 }
 
 .random-10 {
   color: #222;
-  background-color: #9fd8df;
+  background-color: #d09fdf;
 }
 
 .random-11 {
   color: #222;
-  background-color: #9fdfbe;
+  background-color: #9fc0df;
 }
 
 .random-12 {
   color: #222;
-  background-color: #dfd09f;
+  background-color: #d59fdf;
 }
 
 .random-13 {
   color: #222;
-  background-color: #bc9fdf;
+  background-color: #b3df9f;
 }
 
 .random-14 {
   color: #222;
-  background-color: #df9fa3;
+  background-color: #a09fdf;
 }
 
 .random-15 {
   color: #222;
-  background-color: #dfd99f;
+  background-color: #dfcf9f;
 }
 
 .random-16 {
   color: #222;
-  background-color: #dfd79f;
+  background-color: #9fafdf;
 }
 
 .random-17 {
   color: #222;
-  background-color: #df9fc6;
+  background-color: #9fa6df;
 }
 
 .random-18 {
   color: #222;
-  background-color: #dfa79f;
+  background-color: #9fa2df;
 }
 
 .random-19 {
   color: #222;
-  background-color: #c79fdf;
+  background-color: #9fdfb5;
 }
 
 .random-20 {
   color: #222;
-  background-color: #9fdfd5;
+  background-color: #dfa29f;
 }
 
 .random-21 {
   color: #222;
-  background-color: #9fdfcd;
+  background-color: #dfb69f;
 }
 
 .random-22 {
   color: #222;
-  background-color: #dfc09f;
+  background-color: #a29fdf;
 }
 
 .random-23 {
   color: #222;
-  background-color: #df9fa8;
+  background-color: #dfb69f;
 }
 
 .random-24 {
   color: #222;
-  background-color: #9fbedf;
+  background-color: #dfc89f;
 }
 
 .random-25 {
   color: #222;
-  background-color: #c0df9f;
+  background-color: #9fbadf;
 }
 
 /*# sourceMappingURL=styles.css.map */

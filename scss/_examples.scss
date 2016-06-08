@@ -23,6 +23,11 @@
 	@include calculator();
 }
 
+// calendar
+.calendar { 
+	@include calendar();
+}
+
 // cart
 .cart { 
 	@include cart();
