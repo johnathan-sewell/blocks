@@ -17,6 +17,11 @@
 	width: 100%;
 	border-collapse: collapse;
 	
+	&-checkout {
+		margin: 0.5em 0;
+		width: 100%;
+	}
+	
 	&-header {
 		text-align: left;
 		font-size: 2em;
@@ -27,8 +32,10 @@
 			th {
 				font-weight: 300;
 				text-align: right;
-				padding: 0.75em 0.25em 0.25em 0.25em;
+				padding: 0.5em;
 				border-bottom: 1px solid #ccc;
+				border-top: 1px solid #ccc;
+				background: linear-gradient(to bottom, #eee, #fff);
 			}
 		}
 		&-image {
@@ -59,6 +66,7 @@
 			text-align: right;
 			[type="number"] {
 				border: 1px solid #ccc;
+				border-radius: .25em;
 				padding: .5em 0 .5em 1em;
 			}
 		}

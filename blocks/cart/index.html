@@ -18,9 +18,11 @@
 	<table class="cart">
 		<caption class="cart-header">Your basket</caption>
 		<thead class="cart-item-head">
-			<th colspan="2"></th>
-			<th>Price</th>
-			<th>Quantity</th>
+			<tr>
+				<th colspan="2"></th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>				
 		</thead>
 		<tbody>
 			<tr class="cart-item-line">
@@ -52,11 +54,19 @@
 				<td colspan="3" class="cart-shipping-price">39,00</td>
 			</tr>
 			<tr>
+				<td class="cart-tax">Tax</td>
+				<td colspan="3" class="cart-tax-price">84,60</td>
+			</tr>
+			<tr>
 				<td class="cart-total">Total</td>
 				<td colspan="3" class="cart-total-price">423,00</td>
 			</tr>
 		</tfoot>
+		
+					
+		
 	</table>
+	<button class="form-button cart-checkout">Checkout</button>
 	<!-- /Version -->
 	
 </body>

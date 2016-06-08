@@ -1486,6 +1486,10 @@ span[aria-hidden] {
     font-size: 18px;
   }
 }
+.cart-checkout {
+  margin: 0.5em 0;
+  width: 100%;
+}
 .cart-header {
   text-align: left;
   font-size: 2em;
@@ -1493,8 +1497,10 @@ span[aria-hidden] {
 .cart-item-head th {
   font-weight: 300;
   text-align: right;
-  padding: 0.75em 0.25em 0.25em 0.25em;
+  padding: 0.5em;
   border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  background: linear-gradient(to bottom, #eee, #fff);
 }
 .cart-item-image {
   min-width: 50px;
@@ -1521,6 +1527,7 @@ span[aria-hidden] {
 }
 .cart-item-qnt [type="number"] {
   border: 1px solid #ccc;
+  border-radius: .25em;
   padding: .5em 0 .5em 1em;
 }
 .cart td {
@@ -2709,7 +2716,7 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 }
 .form-button {
   font: 400 1.25em Oswald, sans-serif;
-  padding: 0.65em 0.75em;
+  padding: 0.5em 0.75em;
   cursor: pointer;
   text-align: center;
   text-transform: none;
@@ -2750,7 +2757,7 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 }
 .form-button-group label {
   font: 400 1.25em Oswald, sans-serif;
-  padding: 0.65em 0.75em;
+  padding: 0.5em 0.75em;
   cursor: pointer;
   text-align: center;
   text-transform: none;
@@ -6081,127 +6088,127 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-1 {
   color: #222;
-  background-color: #9fdfaf;
+  background-color: #dfac9f;
 }
 
 .random-2 {
   color: #222;
-  background-color: #9fa5df;
+  background-color: #dfaf9f;
 }
 
 .random-3 {
   color: #222;
-  background-color: #dfbd9f;
+  background-color: #be9fdf;
 }
 
 .random-4 {
   color: #222;
-  background-color: #9fc9df;
+  background-color: #c5df9f;
 }
 
 .random-5 {
   color: #222;
-  background-color: #9fdfcf;
+  background-color: #dfa49f;
 }
 
 .random-6 {
   color: #222;
-  background-color: #da9fdf;
+  background-color: #9fdfd8;
 }
 
 .random-7 {
   color: #222;
-  background-color: #dfb39f;
+  background-color: #dfd99f;
 }
 
 .random-8 {
   color: #222;
-  background-color: #9fa6df;
+  background-color: #c9df9f;
 }
 
 .random-9 {
   color: #222;
-  background-color: #9fabdf;
+  background-color: #9fdfa8;
 }
 
 .random-10 {
   color: #222;
-  background-color: #df9fde;
+  background-color: #9fdfaf;
 }
 
 .random-11 {
   color: #222;
-  background-color: #9fa3df;
+  background-color: #9fdfa9;
 }
 
 .random-12 {
   color: #222;
-  background-color: #9fa9df;
+  background-color: #dfc79f;
 }
 
 .random-13 {
   color: #222;
-  background-color: #9fa0df;
+  background-color: #9fa3df;
 }
 
 .random-14 {
   color: #222;
-  background-color: #9fdfb7;
+  background-color: #9fdfd8;
 }
 
 .random-15 {
   color: #222;
-  background-color: #9fc8df;
+  background-color: #9facdf;
 }
 
 .random-16 {
   color: #222;
-  background-color: #df9fd1;
+  background-color: #9fdfc7;
 }
 
 .random-17 {
   color: #222;
-  background-color: #9fb0df;
+  background-color: #cc9fdf;
 }
 
 .random-18 {
   color: #222;
-  background-color: #9fdfd8;
+  background-color: #be9fdf;
 }
 
 .random-19 {
   color: #222;
-  background-color: #dfbe9f;
+  background-color: #b3df9f;
 }
 
 .random-20 {
   color: #222;
-  background-color: #9fdfdf;
+  background-color: #bc9fdf;
 }
 
 .random-21 {
   color: #222;
-  background-color: #9fbadf;
+  background-color: #d0df9f;
 }
 
 .random-22 {
   color: #222;
-  background-color: #a99fdf;
+  background-color: #dfd79f;
 }
 
 .random-23 {
   color: #222;
-  background-color: #9fdfc5;
+  background-color: #9fdfbd;
 }
 
 .random-24 {
   color: #222;
-  background-color: #a39fdf;
+  background-color: #bcdf9f;
 }
 
 .random-25 {
   color: #222;
-  background-color: #9fdfc5;
+  background-color: #a49fdf;
 }
 
 /*# sourceMappingURL=styles.css.map */
