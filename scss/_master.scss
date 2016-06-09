@@ -126,6 +126,11 @@ span[aria-hidden] { display: none; }
 		margin: 1.5% 0 2.5% 0;
 		line-height: 1.6rem;
 	}
+	&-schema {
+		font-size: small;
+		color: orange;
+		margin: 0 1em;
+	}
 }
 
 /* Misc. global classes */
@@ -206,3 +211,17 @@ span[aria-hidden] { display: none; }
 		content: "";
 	}
 }
+
+
+/* Dummy Text */
+@font-face {
+	font-family: "BLOKKNeue-Regular";
+	src: url("../webfonts/BLOKKNeue-Regular.eot");
+}
+
+@font-face {
+    font-family: "BLOKKNeue-Regular";
+    src: url("../webfonts/BLOKKNeue-Regular.woff") format("woff"),
+    url("../webfonts/BLOKKNeue-Regular.svg#BLOKKNeue-Regular") format("svg");
+}
+.dummy { font-family: "BLOKKNeue-Regular", serif; color: #888; }

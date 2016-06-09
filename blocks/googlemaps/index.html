@@ -13,7 +13,7 @@
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
 	
-	<h1 class="blocks-header">Google Maps</h1>
+	<h1 class="blocks-header">Google Maps &mdash; Work-In-Progress</h1>
 	<p class="blocks-section">TODO: Create list-alternative for accesibility</p>
 
 	<!-- Template for marker-infoWindow -->
@@ -32,7 +32,9 @@
 	
 	&nbsp;<br />
 	<!-- Map Example, Advanced Config -->
-	<div class="google-map" data-json="oMapJSON" data-config="mapConfig" data-template="google-map-marker">
+	<div class="google-map" itemscope itemprop="hasMap" itemtype="http://schema.org/Map" data-json="oMapJSON" data-config="mapConfig" data-template="google-map-marker">
+		<!-- Allowed values: ParkingMap, SeatingMap, TransitMap, VenueMap -->
+		<link itemprop="mapType" href="http://schema.org/TransitMap" />
 		<div class="google-map-filter-wrapper">
 			<label for="gmap-filter1" class="google-map-filter-label">Select city:</label>
 			<select id="gmap-filter1" class="google-map-filter" data-json-key="address.addressLocality" data-first-option="Choose below" data-fit-bounds="true" data-search-type="json-equals"></select>
@@ -48,7 +50,8 @@
 
 	&nbsp;<br />
 	<!-- Map Example, Simple/default Config -->
-	<div class="google-map" data-json="oMapJSON" data-template="google-map-marker">
+	<div class="google-map"" itemscope itemprop="hasMap" itemtype="http://schema.org/Map" data-json="oMapJSON" data-template="google-map-marker">
+		<link itemprop="mapType" href="http://schema.org/VenueMap" />
 		<div class="google-map-filter-wrapper">
 			<label for="gmap-filter4" class="google-map-filter-label">Select city:</label>
 			<select id="gmap-filter4" class="google-map-filter" data-json-key="address.addressLocality" data-first-option="Choose below" data-fit-bounds="true" data-reset="true" data-search-type="json-equals"></select>
