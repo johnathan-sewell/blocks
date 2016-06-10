@@ -11,6 +11,9 @@
 ///   .sitemap( @include sitemap(); )
 
 @mixin sitemap($theme: $sitemap) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+		
 	background: map-get($theme, "background");
 	padding: map-get($theme, "padding");
 	&-header {

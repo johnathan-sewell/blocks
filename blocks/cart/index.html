@@ -12,61 +12,87 @@
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
 	
-	<h1 class="blocks-header">Cart &mdash; Work-In-Progress</h1>
-	TODO: https://schema.org/Order
+	<h1 class="blocks-header">Cart</h1>
+	
 	<!-- Version -->
-	<table class="cart">
-		<caption class="cart-header">Your basket</caption>
-		<thead class="cart-item-head">
-			<tr>
-				<th colspan="2"></th>
-				<th>Price</th>
-				<th>Quantity</th>
-			</tr>				
-		</thead>
-		<tbody>
-			<tr class="cart-item-line">
-				<td class="cart-item-image"><img src="../../img/prod1_front.jpg" alt="Tintin: Den bl&aring; Lotus" /></td>
-				<td class="cart-item-name">Tintin: Den bl&aring; Lotus<span class="cart-item-remove">&#215; Remove</span></td>
-				<td class="cart-item-price">128,00</td>
-				<td class="cart-item-qnt"><label><input type="number" size="2" min="1" max="99" value="1" /></label></td>
-			</tr>
-			<tr class="cart-item-line">
-				<td class="cart-item-image"><img src="../../img/prod2_front.jpg" alt="Tintin: Castafoires juveler" /></td>
-				<td class="cart-item-name">Tintin: Castafoires juveler<span class="cart-item-remove">&#215; Remove</span></td>
-				<td class="cart-item-price">128,00</td>
-				<td class="cart-item-qnt"><label><input type="number" size="2" min="1" max="99" value="1" /></label></td>
-			</tr>
-			<tr class="cart-item-line">
-				<td class="cart-item-image"><img src="../../img/prod3_front.jpg" alt="Tintin: De f&oslash;rste skridt p&aring; M&aring;nen" /></td>
-				<td class="cart-item-name">Tintin: De f&oslash;rste skridt p&aring; M&aring;nen<span class="cart-item-remove">&#215; Remove</span></td>
-				<td class="cart-item-price">128,00</td>
-				<td class="cart-item-qnt"><label><input type="number" size="2" min="1" max="99" value="1" /></label></td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td class="cart-subtotal">Subotal</td>
-				<td colspan="3" class="cart-subtotal-price">384,00</td>
-			</tr>
-			<tr>
-				<td class="cart-shipping">Shipping</td>
-				<td colspan="3" class="cart-shipping-price">39,00</td>
-			</tr>
-			<tr>
-				<td class="cart-tax">Tax</td>
-				<td colspan="3" class="cart-tax-price">84,60</td>
-			</tr>
-			<tr>
-				<td class="cart-total">Total</td>
-				<td colspan="3" class="cart-total-price">423,00</td>
-			</tr>
-		</tfoot>
-		
-					
-		
-	</table>
-	<button class="form-button cart-checkout">Checkout</button>
+	<div class="cart-wrapper" itemscope itemtype="http://schema.org/Table">
+		<table class="cart">
+			<caption class="cart-header" itemprop="about">Your basket</caption>
+			<thead class="cart-item-head">
+				<tr>
+					<th colspan="2"></th>
+					<th>Price</th>
+					<th>Quantity</th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr class="cart-item-line" itemscope itemtype="http://schema.org/Product">
+					<td class="cart-item-image">
+						<img itemprop="image" src="../../img/prod1_front.jpg" alt="Tintin: Den bl&aring; Lotus" />
+					</td>
+					<td class="cart-item-name">
+						<meta itemprop="productID" content="987654321" />
+						<a href="#prod1" itemprop="name">Tintin: Den bl&aring; Lotus</a>
+						<span class="cart-item-remove">&#215; Remove</span>
+					</td>
+					<td class="cart-item-price">128,00</td>
+					<td class="cart-item-qnt">
+						<label for="qnt1" aria-hidden="true">Quantity</label>
+						<input id="qnt1" type="number" size="2" min="1" max="99" value="1" />
+					</td>
+				</tr>
+				<tr class="cart-item-line" itemscope itemtype="http://schema.org/Product">
+					<td class="cart-item-image">
+						<img itemprop="image" src="../../img/prod2_front.jpg" alt="Tintin: Castafoires juveler" />
+					</td>
+					<td class="cart-item-name">
+						<meta itemprop="productID" content="987654322" />
+						<a href="#prod2" itemprop="name">Tintin: Castafoires juveler</a>
+						<span class="cart-item-remove">&#215; Remove</span>
+					</td>
+					<td class="cart-item-price">128,00</td>
+					<td class="cart-item-qnt">
+						<label for="qnt2" aria-hidden="true">Quantity</label>
+						<input id="qnt2" type="number" size="2" min="1" max="99" value="1" />
+					</td>
+				</tr>
+				<tr class="cart-item-line" itemscope itemtype="http://schema.org/Product">
+					<td class="cart-item-image">
+						<img itemprop="image" src="../../img/prod3_front.jpg" alt="Tintin: De f&oslash;rste skridt p&aring; M&aring;nen" />
+					</td>
+					<td class="cart-item-name">
+						<meta itemprop="productID" content="987654323" />
+						<a href="#prod3" itemprop="name">Tintin: De f&oslash;rste skridt p&aring; M&aring;nen</a>
+						<span class="cart-item-remove">&#215; Remove</span>
+					</td>
+					<td class="cart-item-price">128,00</td>
+					<td class="cart-item-qnt">
+						<label for="qnt3" aria-hidden="true">Quantity</label>
+						<input id="qnt3" type="number" size="2" min="1" max="99" value="1" />
+					</td>
+				</tr>
+			</tbody>
+			<tfoot class="cart-foot">
+				<tr>
+					<td class="cart-subtotal">Subotal</td>
+					<td colspan="3" class="cart-subtotal-price">384,00</td>
+				</tr>
+				<tr>
+					<td class="cart-shipping">Shipping</td>
+					<td colspan="3" class="cart-shipping-price">39,00</td>
+				</tr>
+				<tr>
+					<td class="cart-tax">Tax</td>
+					<td colspan="3" class="cart-tax-price">84,60</td>
+				</tr>
+				<tr>
+					<td class="cart-total">Total</td>
+					<td colspan="3" class="cart-total-price">423,00</td>
+				</tr>
+			</tfoot>
+		</table>
+		<button class="form-button cart-checkout">Checkout</button>
+	</div>
 	<!-- /Version -->
 	
 </body>

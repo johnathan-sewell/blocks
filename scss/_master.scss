@@ -129,7 +129,19 @@ span[aria-hidden] { display: none; }
 	&-schema {
 		font-size: small;
 		color: orange;
-		margin: 0 1em;
+		margin: 0 .5em;
+	}
+	&-wcag {
+		color: green;
+		margin-right: .25em;
+	}
+	&-wcag-ac {
+		color: darken(cornflowerblue, 20);
+		margin-right: .25em;
+	}
+	&-wcag-err {
+		color: #ff3b30;
+		margin-right: .25em;
 	}
 }
 

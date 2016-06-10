@@ -38,6 +38,11 @@
 	@include circular();
 }
 
+// contact
+.contact { 
+	@include contact();
+}
+
 // curtain
 .curtain { 
 	@include curtain();
@@ -101,6 +106,11 @@
 // menu
 .menu {
 	@include menu();
+}
+
+// pagination
+.pagination {
+	@include pagination();
 }
 
 // popup

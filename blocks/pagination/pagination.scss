@@ -1,0 +1,27 @@
+/// Pagination
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-10
+/// @name pagination
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$pagination]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/pagination/ Demo
+/// @example scss
+///   .pagination( @include pagination(); )
+
+@mixin pagination($theme: $pagination) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+	em[aria-hidden] { display: none; }
+	
+}
+
+/// Theme-map for pagination-block
+/// @name pagination
+/// @group settings
+
+$pagination: (
+	"font-map": 0,
+);

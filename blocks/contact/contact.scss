@@ -1,0 +1,62 @@
+/// Contact
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-10
+/// @name contact
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$contact]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/contact/ Demo
+/// @example scss
+///   .contact( @include contact(); )
+
+@mixin contact($theme: $contact) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	
+	&-address {}
+	&-email {
+		&::before {	content: "\1F4E7"; }
+	}
+	&-email, &-phone, &-url {
+		&::before { 
+			display: inline-block; 
+			margin: 0 0.5em 0 0; 
+			text-decoration: none; 
+		}
+	}
+	&-icon {
+		@include equal(map-get($theme, "icon-size"));
+	}
+	&-icons {
+		margin: 1em 0;
+		#{$root}-icon { margin-right: 0.5em; }	
+	}
+	&-image {
+		width: map-get($theme, "image-size");
+		height: map-get($theme, "image-size");
+		-webkit-clip-path: circle((map-get($theme, "image-size")/2) at center);
+		clip-path: circle((map-get($theme, "image-size")/2) at center);
+	}
+	&-name {}
+	&-phone {}
+	&-postal {
+		margin: 1em 0;	
+	}
+	&-sameas {
+		text-decoration: none;
+	}
+	&-url {
+		&::before {	content: "\1F517"; }	
+	}
+}
+
+/// Theme-map for contact-block
+/// @name contact
+/// @group settings
+
+$contact: (
+	"font-map": 0,
+	"icon-size": 2em,
+	"image-size": 110px
+);

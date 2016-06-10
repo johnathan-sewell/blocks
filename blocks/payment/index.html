@@ -13,10 +13,7 @@
 	<!-- End Google Tag Manager -->
 	
 	<h1 class="blocks-header">Payment &mdash; Work-In-Progress</h1>
-	TODO:<br />
-	https://schema.org/CreditCard<br />
-	https://schema.org/PaymentMethod<br />
-	https://schema.org/PayAction
+
 	<style>
 		
 		[autocomplete="cc-number"] { 
@@ -28,30 +25,38 @@
 	</style>
 	
 	<form class="form">
-		<fieldset class="form-fieldsets">
+		<fieldset class="form-fieldset">
 			<legend class="form-legend">Payment</legend>
 			<ul>
-				<li class="form-li">
-					<label for="nameoncard" class="form-label">Name on Card</label>
-					<input type="text" id="nameoncard" name="nameoncard" class="form-input" autocomplete="cc-name">
+				<li class="form-li w50">
+					<label for="cctype" class="form-label">Credit Card Type</label>
+					<select id="cctype" class="form-input" itemscope itemtype="http://schema.org/CreditCard">
+						<option itemprop="name">Visa</option>
+						<option itemprop="name">PayPal</option>
+					</select>
 				</li>
 				<li class="form-li">
 					<label for="ccnumber" class="form-label">Credit Card Number</label>
 					<input type="text" id="ccnumber" name="ccnumber" class="form-input" autocomplete="cc-number" inputmode="numeric" placeholder="4571 5141 1515 7624">
 				</li>
-	<li class="form-li">	
-		<label for="cc-exp-month">Expiration Month</label>
-		<input type="number" id="cc-exp-month" name="cc-exp-month" autocomplete="cc-exp-month">
-		</li>
-	<li class="form-li">
-		<label for="cc-exp-year">Expiration Year</label>
-		<input type="number" id="cc-exp-year" name="cc-exp-year" autocomplete="cc-exp-year">
-		</li>
-	<li class="form-li">
-		<label for="cvv2">CVV</label>
-		<input type="text" id="cvv2" name="cvv2" autocomplete="cc-csc">
-		</li>
-	</ul>
+				<li class="form-li">
+					<label for="nameoncard" class="form-label">Name on Card</label>
+					<input type="text" id="nameoncard" name="nameoncard" class="form-input" autocomplete="cc-name">
+				</li>
+				<li class="form-li w33">
+					<label for="cc-exp-month" class="form-label">Expiration Month</label>
+					<input type="number" id="cc-exp-month" name="cc-exp-month" autocomplete="cc-exp-month" class="form-input">
+				</li>
+				<li class="form-li w33">
+					<label for="cc-exp-year" class="form-label">Expiration Year</label>
+					<input type="number" id="cc-exp-year" name="cc-exp-year" autocomplete="cc-exp-year" class="form-input">
+				</li>
+				<li class="form-li w33">
+					<label for="cvv2" class="form-label">CVV</label>
+					<input type="number" id="cvv2" name="cvv2" autocomplete="cc-csc" class="form-input">
+				</li>
+			</ul>
+		</fieldset>
 	</form>
 </body>
 </html>
