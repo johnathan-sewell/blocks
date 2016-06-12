@@ -1,8 +1,8 @@
 (function initVideo() {
-	var aVideo = document.querySelectorAll(".video-poster");
-	aVideo.forEach(function(oVideo, nIdx){
-		aVideo[nIdx].addEventListener("click", playVideo, false);	
-	});
+	var aVideo = document.querySelectorAll(".video-poster"), n = aVideo.length;
+	while (n--) {
+		aVideo[n].addEventListener("click", playVideo, false);	
+	};
 	
 	function playVideo() {
 		var oVideo = this.parentNode.querySelector(".video-content");

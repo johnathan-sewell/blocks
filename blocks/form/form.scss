@@ -223,9 +223,13 @@
 			}
 		}	
 	}
-	select#{$root}-input{
-		-webkit-appearance: menulist-button;
+	select#{$root}-input { /* Hack for Safari */
+		-webkit-appearance: textfield;
 		line-height: 1.6;
+		background-image: url(#{map-get($theme, "svg-select")});
+		background-repeat: no-repeat;
+		background-position: center right;
+		background-size: 1.5em;
 	}
 	&-label  {
 		display: block;
@@ -497,6 +501,7 @@ $form: (
 	
 	"svg-invalid": "../svg/invalid.svg",
 	"svg-required": "../svg/required.svg",
+	"svg-select": "../svg/select.svg",
 	"svg-valid": "../svg/valid.svg",
 	"svg-valid-complete": "../svg/valid-complete.svg",
 	
@@ -569,6 +574,7 @@ $form_material: (
 	
 	"svg-invalid": none,
 	"svg-required": none,
+	"svg-select": none,
 	"svg-valid": none,
 	
 	"validation-invalid": #d94a39,

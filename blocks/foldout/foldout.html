@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<title>Video API&rsquo;s and fold-out blocks</title>
+<!--[if lt IE 9]>
+<script>document.createElement("header");document.createElement("nav");document.createElement("section");document.createElement("article");document.createElement("aside");document.createElement("footer");</script>
+<style>header,nav,section,article,aside,footer{display:block;}</style>
+<![endif]-->
+</head>
+<body>
+  <h1>Video API&rsquo;s and fold-out blocks</h1>
+    
+  <section class="fold-out-overview">
+    <article class="fold-out-teaser">
+      <h2>Read an article</h2>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae velit ligula. Nam ac ipsum odio. Vivamus id commodo mi. Aliquam ac turpis risus. Etiam et nulla sit amet mauris pharetra tempus et nec sem. Etiam ullamcorper urna massa, nec cursus urna feugiat eget.<br />
+      <a href="#foldoutlink1" class="fold-out-link">Read the article</a>
+    </article>
+      
+    <article class="fold-out-teaser">
+      <h2>Watch a Vimeo video</h2>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae velit ligula. Nam ac ipsum odio. Vivamus id commodo mi. Aliquam ac turpis risus. Etiam et nulla sit amet mauris pharetra tempus et nec sem. Etiam ullamcorper urna massa, nec cursus urna feugiat eget.<br />
+      <a href="#foldoutlink2" class="fold-out-link">Watch the video</a>
+    </article>
+  
+    <div class="fold-out-block" id="foldoutlink1">
+      <nav class="fold-out-nav">
+        <a href="#" class="close-button"></a>
+        <ul><li><a class="share-link twitter" href="">Twitter</a><a class="share-link facebook" href="">Facebook</a><a class="share-link googleplus" href="">Google+</a></li></ul>
+      </nav>
+      <article>
+        <h1>A very interesting article in latin</h1>
+        <div class="two-columns">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae velit ligula. Nam ac ipsum odio. Vivamus id commodo mi. Aliquam ac turpis risus. Etiam et nulla sit amet mauris pharetra tempus et nec sem. Etiam ullamcorper urna massa, nec cursus urna feugiat eget. In sagittis non tellus eu porta. Suspendisse porta mi nec velit semper, quis fermentum lorem bibendum. Morbi efficitur fermentum ipsum sit amet feugiat.</p>
+          <h2>Ego ipse Custodes custodio</h2>
+          <p>Mauris molestie molestie urna id sagittis. Donec condimentum est et posuere tristique. Nulla facilisi. Phasellus nec eleifend mauris. Mauris sem odio, bibendum eu dolor et, egestas auctor augue. Ut imperdiet, est nec tempus euismod, ex leo eleifend nisl, nec vehicula diam augue a metus. Vivamus fermentum, arcu eget sagittis dignissim, sapien magna ultricies erat, ac rhoncus erat mauris in leo. Sed mollis mi ullamcorper, pulvinar neque sit amet, tristique urna. Fusce magna velit, scelerisque at luctus at, vehicula eu ligula.</p>
+          <p>Suspendisse potenti. Integer risus tortor, gravida a lobortis sit amet, pellentesque at est. Donec ut faucibus purus. Mauris consectetur cursus magna. Vestibulum mauris ex, ultricies pharetra pharetra ut, vehicula a nibh. Donec quis odio ac metus euismod imperdiet in nec leo. Etiam bibendum ac sapien eu tincidunt. Aenean orci nulla, imperdiet in eleifend ac, sodales ut sapien. Suspendisse faucibus sem lectus, at interdum mauris aliquam non.</p>
+          <p>Vestibulum sed odio nec ipsum molestie tristique. Etiam imperdiet maximus ligula, vitae hendrerit massa pharetra ut. Phasellus ac fringilla turpis, eget sagittis mi. Pellentesque in felis eu purus aliquet lacinia. Nullam eget malesuada metus, eu pharetra enim. Curabitur quis quam nisl. Nullam sit amet vehicula sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur eros tortor, dictum non ullamcorper vitae, porta vel ante. Sed pellentesque, nunc sed imperdiet maximus, tellus odio sollicitudin purus, eu mollis lacus tortor ac erat.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="fold-out-block" id="foldoutlink2" data-video-provider="vimeo" data-video-id="27855315" data-video-widescreen="true">
+      <nav class="fold-out-nav">
+        <a href="#" class="close-button"></a>
+        <ul><li><a class="share-link twitter" href="">Twitter</a><a class="share-link facebook" href="">Facebook</a><a class="share-link googleplus" href="">Google+</a></li></ul>
+      </nav>
+      <h1>Vimeo Example</h1>
+      <div>Video description text here&hellip;</div>
+    </div>
+  </section>
+
+  <section class="fold-out-overview">
+    <article class="fold-out-teaser">
+      <h2>Watch a YouTube video</h2>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae velit ligula. Nam ac ipsum odio. Vivamus id commodo mi. Aliquam ac turpis risus. Etiam et nulla sit amet mauris pharetra tempus et nec sem. Etiam ullamcorper urna massa, nec cursus urna feugiat eget.<br />
+      <a href="#foldoutlink3" class="fold-out-link">Watch the video</a>
+    </article>
+
+    <article class="fold-out-teaser">
+      <h2>Watch a YouKu video</h2>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae velit ligula. Nam ac ipsum odio. Vivamus id commodo mi. Aliquam ac turpis risus. Etiam et nulla sit amet mauris pharetra tempus et nec sem. Etiam ullamcorper urna massa, nec cursus urna feugiat eget.<br />
+      <a href="#foldoutlink4" class="fold-out-link">Watch the video</a>
+    </article>
+          
+    <div class="fold-out-block" id="foldoutlink3" data-video-provider="youtube" data-video-id="vJMvLUxJw4s" data-video-widescreen="true">
+      <nav class="fold-out-nav">
+        <a href="#" class="close-button"></a>
+        <ul><li><a class="share-link twitter" href="">Twitter</a><a class="share-link facebook" href="">Facebook</a><a class="share-link googleplus" href="">Google+</a></li></ul>
+      </nav>
+      <h1>Youtube Example</h1>
+      <div>Video description text here&hellip;</div>
+    </div>
+
+    <div class="fold-out-block" id="foldoutlink4" data-video-provider="youku" data-video-id="XNjgzNDg0MDI0" data-video-widescreen="true">
+      <nav class="fold-out-nav">
+        <a href="#" class="close-button"></a>
+        <ul><li><a class="share-link twitter" href="">Twitter</a><a class="share-link facebook" href="">Facebook</a><a class="share-link googleplus" href="">Google+</a></li></ul>
+      </nav>
+      <h1>Youku Example</h1>
+      <div>Video description text here&hellip;</div>
+    </div>
+  </section>
+  <script src="coblox.video.js"></script>
+</body>
+</html>
