@@ -181,6 +181,7 @@
 		border: 1px solid map-get($theme, "input-border-color");
 		border-radius: map-get($theme, "input-border-radius");
 		outline: none;
+		background-color: map-get($theme, "input-background-color");
 		
 		& + label {
 			@include absolute(top 0);
@@ -468,6 +469,7 @@ $form: (
 	"form-font": #{300 1em "Oswald", sans-serif},
 	"hr-color": #ccc,
 	
+	"input-background-color": #fff,
 	"input-border-color": #a8a8a8,
 	"input-border-radius": 0.5rem,
 	"input-focus":  0 0 0.25rem deepskyblue,
@@ -541,6 +543,7 @@ $form_material: (
 	"form-font": #{300 1em "Roboto", sans-serif},
 	"hr-color": #ccc,
 	
+	"input-background-color": inherit,
 	"input-border-color": transparent,
 	"input-border-radius": 0,
 	"input-focus": none,

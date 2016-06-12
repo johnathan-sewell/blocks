@@ -78,6 +78,11 @@
 	@include flexory();
 }
 
+// flexory
+.foldout { 
+	@include foldout();
+}
+
 // form
 .form {
 	@include form($num-steps: 4);

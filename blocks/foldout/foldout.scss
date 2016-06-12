@@ -1,0 +1,95 @@
+﻿/// Foldout
+/// - Version 1.2.0
+/// - Date last edited: 2016-06-12
+/// @name foldout
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$foldout]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/blocks/foldout/ Demo
+/// @example scss
+///   .foldout ( @include foldout(); )
+
+@mixin foldout($theme: $foldout) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+
+	&-block {
+	    overflow: hidden;
+	    width: 100%;
+	    max-height: 0;
+	    margin: 0 0 0 map-get($theme, "gutter");
+	    padding-right: map-get($theme, "gutter");
+	    transition: max-height 0.2s ease 0s;
+	    
+	    &:target {
+	    	max-height: 100em;
+	    	margin-bottom: map-get($theme, "gutter");
+	    	transition-duration: 0.7s;
+	    }
+	    
+	    &-close {
+	    	display: inline-block;
+	    	float: right;
+	    }
+	    &-content {}
+	    &-header {
+	    	font-size: 3em;	
+	    }
+	    
+	    .two-columns { /* Sample styles for 2-column layout */
+			text-align: justify;
+			column-count: 2;
+			column-gap: 3em;
+			column-rule: 1px dotted #4a4a4a;	
+			h1, h2, h3, h4 {
+				margin: 1em 0 .5em 0;
+			}
+			p {
+				-webkit-column-break-inside: avoid;
+				-moz-column-break-inside: avoid;
+				column-break-inside: avoid;
+			}
+			p:last-child::after {
+    			font-size: 150%;
+    			display: block;
+    			text-align: right;
+			    content: "\25A3";
+			    color: inherit;
+			}
+		}
+	}
+	&-teaser {
+		padding: 1em;
+		background: map-get($theme, "teaser-background");
+		
+		&-header {}
+		&-link {}
+		&-text {}
+		&-wrapper {
+			flex: 1;
+			padding: map-get($theme, "gutter") 0 map-get($theme, "gutter") map-get($theme, "gutter");
+		}
+	}
+	@include for("tablet") {
+		display: flex;
+		flex-flow: row wrap;
+		margin-top: -(map-get($theme, "gutter"));
+		margin-left: -(map-get($theme, "gutter"));
+		margin-bottom: 0;
+		margin-right: 0;
+		&-block {
+			padding-right: 0;
+		}
+	}
+}
+
+/// Theme-map for foldout-block
+/// @name foldout-theme
+/// @group settings
+
+$foldout: (
+	"font-map": 0,
+	"gutter": 1em,
+	"teaser-background": lightgrey,
+);
