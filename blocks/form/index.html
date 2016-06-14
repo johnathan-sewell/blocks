@@ -17,10 +17,10 @@
 	<form class="form multi-step" id="frmId" novalidate>
 		
 		<!-- States, for multi-step form -->
-		<input type="radio" name="grp_fs" class="state" id="fls-1" data-progress="25" checked />
-		<input type="radio" name="grp_fs" class="state" id="fls-2" data-progress="50" />
-		<input type="radio" name="grp_fs" class="state" id="fls-3" data-progress="75" />
-		<input type="radio" name="grp_fs" class="state" id="fls-4" data-progress="100" />
+		<input type="radio" name="grp_fs" class="state" aria-hidden="true" id="fls-1" data-progress="25" checked />
+		<input type="radio" name="grp_fs" class="state" aria-hidden="true" id="fls-2" data-progress="50" />
+		<input type="radio" name="grp_fs" class="state" aria-hidden="true" id="fls-3" data-progress="75" />
+		<input type="radio" name="grp_fs" class="state" aria-hidden="true" id="fls-4" data-progress="100" />
 		
 		<nav class="form-step">
 			<label for="fls-1" class="form-step-label">Billing Address</label>
@@ -70,15 +70,15 @@
 				    <hr />
 			    </li>
 			     <li class="form-li w25 form-radio-wrapper">
-				    <input type="radio" id="radio1" name="radiotest" class="form-radio" />
+				    <input type="radio" id="radio1" name="radiotest" class="form-radio" aria-hidden="true" />
 				    <label for="radio1" class="form-label-radio">Male</label>
 			    </li>
 			     <li class="form-li w25 form-radio-wrapper">
-				    <input type="radio" id="radio2" name="radiotest" class="form-radio" />
+				    <input type="radio" id="radio2" name="radiotest" class="form-radio" aria-hidden="true" />
 				    <label for="radio2" class="form-label-radio">Female</label>
 			    </li>	
 			    <li class="form-li form-checkbox-wrapper">
-				    <input type="checkbox" id="accept" name="accept" class="form-checkbox" required />
+				    <input type="checkbox" id="accept" name="accept" class="form-checkbox" aria-hidden="true" required />
 				    <label for="accept" class="form-label-checkbox">Accept Conditions*</label>
 			    </li>
 			    <li class="form-li form-button-group w50">

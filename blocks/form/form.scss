@@ -450,7 +450,7 @@ $form: (
 	"button-group-label-margin": 0 0 0.35rem 0,
 	"button-group-first-border-radius": .5rem 0 0 .5rem,
 	"button-group-last-border-radius": 0 .5rem .5rem 0,
-	"button-hover-background": deepskyblue,
+	"button-hover-background": darken(deepskyblue, 10),
 	"button-hover-color" : #fff,
 	"button-minwidth": 10rem,
 	"button-padding": .5em .75em,
@@ -498,7 +498,7 @@ $form: (
 	"range-handle-color": #2980b9,
 	"range-label-color": #ccc,
 	
-	"step-selected": deepskyblue,
+	"step-selected": darken(deepskyblue, 20),
 	"step-unselected": #ccc,
 	
 	"svg-invalid": "../svg/invalid.svg",
