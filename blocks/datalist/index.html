@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
 	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="css/awesomplete.css" rel="stylesheet" type="text/css" media="screen">
+	<style>.awesomplete{width:100%;}</style>
 </head>
 <body>
 	<!-- Google Tag Manager -->
@@ -12,37 +14,16 @@
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
 	
-	<h1 class="blocks-header">Datalist &mdash; Work-In-Progress</h1>
-	<p class="blocks-section">
-		To allow for quick selections in dropdowns, use an input and associate it with a datalist.
-	</p>
-	
-	<h2>Basic use:</h2>
-<pre>
-<code>
-&lt;label for="country-select"&gt;Select country:&lt;/label&gt;
-&lt;input type="text" id="country-select" list="country-select-datalist" /&gt;
+	<h1 class="blocks-header">Datalist &mdash; Regular, and using <em>Awesomplete</em></h1>
 
-&lt;datalist id="country-select-datalist"&gt;
-  &lt;option&gt;Armenia&lt;/option&gt;
-  ...
-&lt;/datalist&gt;
-</code>	
-</pre>	
-	<p>
-		<label for="country-select">Select country:</label>
-		<input type="text" id="country-select" list="country-select-datalist" />
+	<p class="form-li w50">
+		<label for="country-select" class="form-label">Select country:</label>
+		<input type="text" id="country-select" list="country-select-datalist" class="form-input" />
 	</p>
 	
-	<h2>Use with Awesomplete, for compability with Safari and others:</h2>
-<pre>
-<code>
-&lt;input type="text" id="country-select" list="country-select-datalist" class="awesomplete" /&gt;
-</code>	
-</pre>	
-	<p>
-		<label for="country-select-awesomplete">Select country:</label>
-		<input type="text" id="country-select-awesomplete" list="country-select-datalist" class="awesomplete" />
+	<p class="form-li w50 clear">
+		<label for="country-select-awesomplete" class="form-label">Select country:</label>
+		<input type="text" id="country-select-awesomplete" list="country-select-datalist" class="awesomplete form-input" />
 	</p>
 			
 	<datalist id="country-select-datalist" itemscope="" itemtype="http://schema.org/ListItem">
