@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Video Content</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<style>
+		html { font: 18px "Arial", sans-serif; text-align: center; color: white; background-color: cornflowerblue; }
+		a { color: white; text-decoration: none; }
+	</style>
+</head>
+<body>
+
+<h1>Video Content</h1>
+<script>
+	var aURL = window.location.href.split("#"), oLink;
+	if (aURL[1]) {
+		oLink = document.createElement("A");
+		oLink.href = aURL[1];
+		oLink.innerHTML = " &#9654;&nbsp;Click here to reload";
+		document.body.appendChild(oLink);
+	}
+</script>
+</body>
+</html>

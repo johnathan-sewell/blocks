@@ -276,12 +276,6 @@
 		margin: map-get($theme, "list-margin");
 		
 		&.clear { clear: both; }
-		&#{$root}-checkbox-wrapper { 
-			padding-top: map-get($theme, "wrapper-check-padding-top"); 
-		}
-		&#{$root}-radio-wrapper { 
-			padding-top: map-get($theme, "wrapper-radio-padding-top"); 
-		}
 		
 		&.w25 { width: 50%;  @include for("tablet") { width: 25%; } }
 		&.w33 { width: 50%;  @include for("tablet") { width: 33%; } }
@@ -376,7 +370,8 @@
 	
 	&.multi-step {
 		#{$root}-fieldset {
-			display: none;	
+			display: none;
+			padding-bottom: 0;
 		}
 	}
 	
@@ -433,6 +428,13 @@
 					}
 				}
 			}
+		}
+		
+		#{$root}-checkbox-wrapper { 
+			padding-top: map-get($theme, "wrapper-check-padding-top"); 
+		}
+		#{$root}-radio-wrapper { 
+			padding-top: map-get($theme, "wrapper-radio-padding-top"); 
 		}
 	}
 }
@@ -575,15 +577,10 @@ $form_material: (
 	"step-selected": #923222,
 	"step-unselected": #ccc,
 	
-	"svg-invalid": none,
-	"svg-required": none,
-	"svg-select": none,
-	"svg-valid": none,
-	
 	"validation-invalid": #d94a39,
 	"validation-valid-background": #196533,
 	"validation-valid-color": #fff,
 	
-	"wrapper-check-padding": 0.25rem,
-	"wrapper-radio-padding": 1rem
+	"wrapper-check-padding-top": 0.25rem,
+	"wrapper-radio-padding-top": 2em
 );

@@ -2,7 +2,7 @@
 * @function foldoutVideo
 * @description Adds hashchange-listener and enabled video-playback
 */ 
-(function foldoutVideo(){
+(function foldoutVideo(sLoadSrc){
 	/*jshint bitwise: false*/
 	
 	/**
@@ -33,7 +33,7 @@
 	*/	
 	function stopVideo(){
 		if (window["__video-playing"]) {
-			window["__video-playing"].src = "";
+			window["__video-playing"].src = (window["__video-playing"].getAttribute("data-load-src") || "");
 			window["__video-playing"] = "";
 		}	
 	}
@@ -44,13 +44,9 @@
 	/**	@type {number} */
 	n = aFrames.length;
 	
-	while (n--) {
-		if (~aFrames[n].src.indexOf("ooyala")) aFrames[n].setAttribute("data-src", aFrames[n].src + "&options[autoplay]=true");
-		if (~aFrames[n].src.indexOf("vimeo")) aFrames[n].setAttribute("data-src", aFrames[n].src + "?autoplay=1");
-		if (~aFrames[n].src.indexOf("youku")) aFrames[n].setAttribute("data-src", aFrames[n].src + "&autoplay=1");
-		if (~aFrames[n].src.indexOf("youtube")) aFrames[n].setAttribute("data-src", aFrames[n].src + "&autoplay=1");
-	}
+	while (n--) aFrames[n].setAttribute("data-load-src", aFrames[n].src);
 	window.addEventListener("hashchange", playVideo, false);
 	window["__video-playing"] = "";
 	playVideo();
+	
 })();

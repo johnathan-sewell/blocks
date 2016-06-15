@@ -3220,12 +3220,6 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 .form-li.clear {
   clear: both;
 }
-.form-li.form-checkbox-wrapper {
-  padding-top: 1em;
-}
-.form-li.form-radio-wrapper {
-  padding-top: 2.5em;
-}
 .form-li.w25 {
   width: 50%;
 }
@@ -3430,6 +3424,7 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 }
 .form.multi-step .form-fieldset {
   display: none;
+  padding-bottom: 0;
 }
 @-webkit-keyframes border-pulsate {
   0% {
@@ -3542,6 +3537,14 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 }
 .form .state:nth-of-type(4):checked ~ .form-fieldset:nth-of-type(4) {
   display: block;
+}
+
+.form-checkbox-wrapper {
+  padding-top: 1em;
+}
+
+.form-radio-wrapper {
+  padding-top: 2.5em;
 }
 .material .form {
   margin: 1.5%;
@@ -3767,7 +3770,7 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
   /* Hack for Safari */
   -webkit-appearance: textfield;
   line-height: 1.6;
-  background-image: url(none);
+  background-image: url();
   background-repeat: no-repeat;
   background-position: center right;
   background-size: 1.5em;
@@ -4024,6 +4027,7 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 }
 .material .form.multi-step .material .form-fieldset {
   display: none;
+  padding-bottom: 0;
 }
 @keyframes border-pulsate {
   0% {
@@ -4067,11 +4071,11 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
   }
 }
 .material.form :focus:required:invalid {
-  background-image: url(none);
+  background-image: url();
   outline-color: #196533;
 }
 .material.form :required {
-  background-image: url(none);
+  background-image: url();
 }
 .material.form :required:valid {
   /* WIP: Maybe remove svg-valid-completed */
@@ -4128,6 +4132,14 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 }
 .material.form .state:nth-of-type(4):checked ~ .form-fieldset:nth-of-type(4) {
   display: block;
+}
+
+.material .form-checkbox-wrapper {
+  padding-top: 0.25rem;
+}
+
+.material .form-radio-wrapper {
+  padding-top: 2em;
 }
 
 .google-map-content {
@@ -6374,127 +6386,127 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-1 {
   color: #222;
-  background-color: #b3df9f;
+  background-color: #d6df9f;
 }
 
 .random-2 {
   color: #222;
-  background-color: #df9fba;
+  background-color: #df9fc0;
 }
 
 .random-3 {
   color: #222;
-  background-color: #b8df9f;
+  background-color: #addf9f;
 }
 
 .random-4 {
   color: #222;
-  background-color: #dfd19f;
+  background-color: #9fdfaf;
 }
 
 .random-5 {
   color: #222;
-  background-color: #a79fdf;
+  background-color: #a5df9f;
 }
 
 .random-6 {
   color: #222;
-  background-color: #dfb09f;
+  background-color: #dfbc9f;
 }
 
 .random-7 {
   color: #222;
-  background-color: #9fdfba;
+  background-color: #9fdfac;
 }
 
 .random-8 {
   color: #222;
-  background-color: #9fa7df;
+  background-color: #df9fc1;
 }
 
 .random-9 {
   color: #222;
-  background-color: #9fb9df;
+  background-color: #9fdfbb;
 }
 
 .random-10 {
   color: #222;
-  background-color: #dfc89f;
+  background-color: #df9fc2;
 }
 
 .random-11 {
   color: #222;
-  background-color: #9fdfa3;
+  background-color: #df9fcf;
 }
 
 .random-12 {
   color: #222;
-  background-color: #a69fdf;
+  background-color: #df9fb7;
 }
 
 .random-13 {
   color: #222;
-  background-color: #d19fdf;
+  background-color: #df9f9f;
 }
 
 .random-14 {
   color: #222;
-  background-color: #9fdfde;
+  background-color: #df9fb6;
 }
 
 .random-15 {
   color: #222;
-  background-color: #df9fc5;
+  background-color: #dfb19f;
 }
 
 .random-16 {
   color: #222;
-  background-color: #dadf9f;
+  background-color: #df9fab;
 }
 
 .random-17 {
   color: #222;
-  background-color: #df9fbf;
+  background-color: #bd9fdf;
 }
 
 .random-18 {
   color: #222;
-  background-color: #dfab9f;
+  background-color: #d1df9f;
 }
 
 .random-19 {
   color: #222;
-  background-color: #9fc2df;
+  background-color: #df9fc5;
 }
 
 .random-20 {
   color: #222;
-  background-color: #b3df9f;
+  background-color: #ce9fdf;
 }
 
 .random-21 {
   color: #222;
-  background-color: #9fdfa8;
+  background-color: #addf9f;
 }
 
 .random-22 {
   color: #222;
-  background-color: #dfd29f;
+  background-color: #9fdfaf;
 }
 
 .random-23 {
   color: #222;
-  background-color: #9fdfd2;
+  background-color: #dfbe9f;
 }
 
 .random-24 {
   color: #222;
-  background-color: #9fdfc6;
+  background-color: #b79fdf;
 }
 
 .random-25 {
   color: #222;
-  background-color: #df9fdb;
+  background-color: #b5df9f;
 }
 
 /*# sourceMappingURL=styles.css.map */

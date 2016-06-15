@@ -138,7 +138,7 @@
 			</ul>
 		</fieldset>
 		
-		<fieldset class="form-fieldset">
+		<fieldset class="form-fieldset" data-for="fls-3" data-next="fls-4">
 			<legend class="form-legend">Payment</legend>
 			<ul>
 				<li class="form-li w50">
@@ -163,17 +163,16 @@
 				</li>
 				<li class="form-li form-nav">
 					<label for="fls-2" class="form-button form-nav-prev">Previous</label>
-					<label for="fls-4" class="form-button form-nav-next">Next</label>
+					<label for="fls-4" data-active="fls-3" class="form-button form-nav-next">Next</label>
 				</li>
 			</ul>
 		</fieldset>
 	
-		<fieldset class="form-fieldset">
+		<fieldset class="form-fieldset" data-for="fls-4">
 			<legend class="form-legend">Review Order</legend>
 			<ul>
 				<li class="form-li">
-					User Name<br />
-					Address
+					Lorem ipsum
 				</li>
 				<li class="form-li form-nav">
 					<label for="fls-3" class="form-button form-nav-prev">Previous</label>
@@ -186,14 +185,14 @@
 	<script src="../range/js/range.js"></script>
 	<script src="../../micro/fn.js"></script>
 	<script src="../../micro/frm.js"></script>
-<script>
-	var oSettings = 
-	{
-		formId : document.getElementById("frmId"),
-		useCache : true
-	}
-	frm.init(oSettings);
-</script>
+	<script>
+		var oSettings = 
+		{
+			formId : document.getElementById("frmId"),
+			useCache : true
+		}
+		frm.init(oSettings);
+	</script>
 
 </body>
 </html>	
