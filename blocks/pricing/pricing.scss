@@ -36,7 +36,6 @@
 		}	
 		
 		&-line {
-			
 			padding: .75em;
 			border-bottom: 1px dashed #ccc;
 			
@@ -58,6 +57,12 @@
 	&-header {
 		font-size: 2em;
 		margin: 0 0 1em 0;
+	}
+	
+	&-icon {
+		@include equal(2em);
+		margin: 0 0.5em 0 0;
+		vertical-align: middle;
 	}
 	
 	&-label:first-of-type > span  { 

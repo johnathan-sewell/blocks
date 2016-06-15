@@ -22,6 +22,7 @@ a[href^="tel:"]::before {
 }
 
 body { 
+	@extend %clearfix;
 	line-height: 1.6; 
 }
 
@@ -51,7 +52,6 @@ hr {
 
 img {
 	max-width: 100%;
-	min-height: 4rem;
 	height: auto;
 	&::before {  
 		content: "";
