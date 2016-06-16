@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Strength</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	
+	<style>
+		/* Sample styles for reCAPTCHA */
+		.g-recaptcha { float: right; }
+	</style>
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<h1 class="blocks-header">Strength</h1>
+	
+	<form class="form">
+		<fieldset class="form-fieldset">
+			<legend class="form-legend">Password Strength Meter</legend>
+			<ul>
+				<!-- Version -->
+				<li class="form-li" data-meter="true">
+					<label for="password" class="form-label" data-valid="true" data-invalid-text="">Enter password</label>
+					<input type="password" id="password" name="password" class="form-input" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!,@,#,$,%,^,&,*,?,_,~,-,(,)])(?=.*[A-Z]).{6,}" data-meter-strength="Weak,Better,Medium,Strong" data-meter-text="Minimum 6 alphanumeric characters in upper- and lowercase, minimum one number, and minimum one special char: !@#$%^&*?_~-()" required />
+				    <hr />
+				    <meter max="4" class="form-meter" value="0"></meter>
+					<p class="form-meter-text"></p>
+	    		</li>
+	    		<!-- /Version -->
+	    		
+	    		<!-- reCAPTCHA -->
+	    		<li class="form-li">
+	    			<div class="g-recaptcha" data-sitekey="6LeDtCITAAAAAD8Ld6W0VgUbxwZPI23RvjIWkjcV"></div>		
+	    		</li>
+	    		<!-- /reCAPTCHA -->
+	    		
+	    		<li class="form-li">
+					<button type="submit" class="form-button form-nav-next">Submit</button>
+				</li>
+	    	</ul>
+	    	
+		</fieldset>
+	</form>
+	
+	<script src="js/strength.js"></script>
+</body>
+</html>	

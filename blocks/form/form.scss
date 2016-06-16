@@ -284,6 +284,36 @@
 		&.w75 { width: 100%; @include for("tablet") { width: 75%; } }
 		
 	}
+	&-meter {
+		appearance: none;
+		width: 100%;
+		height: 0.5em;
+		margin: 0.5em auto 1em;
+		border-radius: 0.5em;
+
+		/* Applicable only to Firefox */
+		background: none;
+		background-color: rgba(0, 0, 0, 0.1);
+		
+		&::-webkit-meter-bar {
+			border-radius: 0.5em;
+			background: none;
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+		
+		/* Webkit based browsers */
+		&[value]::-webkit-meter-optimum-value { border-radius: 0.5em; }
+		&[value="1"]::-webkit-meter-optimum-value { background: #FF3300; }
+		&[value="2"]::-webkit-meter-optimum-value { background: #EEEE00; }
+		&[value="3"]::-webkit-meter-optimum-value { background: #FFAA00; }
+		&[value="4"]::-webkit-meter-optimum-value { background: #668014; }
+		
+		/* Gecko based browsers */
+		&[value="1"]::-moz-meter-bar { background: #FF3300; }
+		&[value="2"]::-moz-meter-bar { background: #EEEE00; }
+		&[value="3"]::-moz-meter-bar { background: #FFAA00; }
+		&[value="4"]::-moz-meter-bar { background: #668014; }
+	}
 	&-nav {
 		&-next {
 			float: right;
@@ -298,7 +328,7 @@
 		}
 		&-next, &-prev, &-submit {
 			width: 47.5%;
-			margin: 2.5% 0;	
+			margin: 2.5% 0 0 0;	
 			@include for("phablet") {
 				width: auto;
 				min-width: map-get($theme, "button-minwidth");
