@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Progress</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+	
+	<style>
+
+
+.progress {overflow:hidden;margin: 1em 0;list-style:none;counter-reset:li;cursor:pointer;}
+.progress li {position:relative;float:left;padding:1em 2em;color:#777;-webkit-user-select:none;-moz-user-select:none;user-select:none;text-shadow:.1em .1em .1em rgba(255,255,255,.75);white-space:nowrap;}
+.progress li:before {content:counter(li) ". ";counter-increment:li;}
+.progress li.c:before {content:"\2714\0020";font-size:1.5em;color:green;}
+
+/* Toolbar */
+.progress-bar {background:#eee;border:1px solid rgba(0,0,0,.25);border-radius:1em;width:49em;
+  background-image:-webkit-linear-gradient(top,#f9f9f9 0%,#eeeeee 45%,#e3e3e3 55%);
+  background-image:-moz-linear-gradient(top,#f9f9f9 0%,#eeeeee 45%,#e3e3e3 55%);
+  background-image:-ms-linear-gradient(top,#f9f9f9 0%,#eeeeee 45%,#e3e3e3 55%);
+}
+.progress-bar li.a:first-child {border-radius:1em 0 0 1em;}
+.progress-bar li.a:last-child {border-radius:0 1em 1em 0;}
+.progress-bar li {width:4em;height:1.5em;line-height:1.5em;border-right:1px solid rgba(255,255,255,.75);border-left:1px solid rgba(0,0,0,.25);}
+.progress-bar li:first-child {border-left:none;}
+.progress-bar li:last-child, .progress-bar li.a {border-right:none;}
+
+/* Numeric circle or square before */
+.progress-cir,.progress-squ {padding-left:1.3em;}
+.progress-cir li:before,.progress-squ li:before {position:absolute;left:-1.3em;top:50%;margin-top:-1.3em;background:#eee;height:2em;width:2em;line-height:2em;border:.3em solid transparent;text-align:center;font-weight:bold;}
+.progress-cir li:before {border-radius: 2em;}
+
+/* Tabs / Colors */
+.progress-col li {background:#4c4c4c;border-color:#4c4c4c;}
+.progress-col li:nth-child(-n+3) {color:#ddd;text-shadow:.1em .1em .1em rgba(0,0,0,.75);}
+.progress-col li:nth-child(2) {background:#6e6e6e;border-color:#6e6e6e;}
+.progress-col li:nth-child(3) {background:#929292;border-color:#929292;}
+.progress-col li:nth-child(4) {background:#b6b6b6;border-color:#b6b6b6;color:#333;}
+.progress-col li:nth-child(5) {background:#dadada;border-color:#dadada;color:#333;}
+.progress-col li:nth-child(6) {background:#ececec;border-color:#ececec;color:#333;}
+
+/* Arrows */
+.progress-arw li {margin-right:.25em;}
+.progress-arw li:before,.progress-arw li:after,.progress-arc li:before,.progress-arc li:after {content:" ";display:block;width:0;height:0;border-bottom:1.75em solid transparent;border-right:1em solid white;position:absolute;top:0;right:0;}
+.progress-arw li:after,.progress-arc li:after {border-top:1.75em solid transparent;top:1.75em;}
+.progress-arc li:nth-child(1):before,.progress-arc li:nth-child(1):after {border-right-color:#6e6e6e;}
+.progress-arc li:nth-child(2):before,.progress-arc li:nth-child(2):after {border-right-color:#929292;}
+.progress-arc li:nth-child(3):before,.progress-arc li:nth-child(3):after {border-right-color:#b6b6b6;}
+.progress-arc li:nth-child(4):before,.progress-arc li:nth-child(4):after {border-right-color:#dadada;}
+.progress-arc li:nth-child(5):before,.progress-arc li:nth-child(5):after {border-right-color:#ececec;}
+
+/* Cabinet, tabs */
+.progress-cab li:after {content:" ";display:block;width:0;height:0;border-bottom:1em solid transparent;border-right:1em solid white;position:absolute;top:0;right:0;}	
+.progress-tab li {border-radius:.5em .5em 0 0;}
+.progress-tab li,.progress-cab li {box-shadow:-.5em .5em .75em .25em rgba(0,0,0,0.15);}
+
+/* Triangle */
+.progress-tri {border-top:.2em solid #4c4c4c;}
+.progress-tri li {margin-top:1.5em;width:3em;}
+.progress-tri li:after {content:" ";display:block;width:0;height:0;border-left:1em solid transparent;border-right:1em solid transparent;border-top:2em solid rgba(76,76,76,.3);position:absolute;top:-1.5em;left:1.25em;}
+.progress-tri li.a:after {border-top-color:#87ceeb;}
+
+/* Small circle below */
+.progress-crd {
+  background-image:-webkit-linear-gradient(top,#fff 0%,#fff 36%,#4c4c4c 36%,#4c4c4c 38%,#fff 38%);
+  background-image:-moz-linear-gradient(top,#fff 0%,#fff 36%,#4c4c4c 36%,#4c4c4c 38%,#fff 38%);
+  background-image:-ms-linear-gradient(top,#fff 0%,#fff 36%,#4c4c4c 36%,#4c4c4c 38%,#fff 38%);
+}
+.progress-crd li:before {content:counter(li);display:block;width:2em;height:2em;margin-bottom:.5em;background:#fff;border:.25em solid #4c4c4c;border-radius:1.75em;text-align:center;line-height:2em;}
+
+/* Skewed buttons */
+.progress-skw li {margin:0 .5em .5em 0;border-radius:3em 1em 3em 1em;padding:.5em 2em;box-shadow:.1em .2em .1em rgba(0,0,0,.75);}
+
+/* Big numbers */
+.progress-big li {padding:.5em;height:1.75em;line-height:.75em;font-weight:bold;text-transform:uppercase;}
+.progress-big li:before {content:counter(li);font-size:5em;margin-right:.25em;}
+
+/* Comic balloons */
+.progress-bbl li {margin:1em .5em 3em;border-radius:.5em;}
+.progress-bbl li:after {content:"";position:absolute;bottom:-1.5em;left:2em;border-width:1.5em 0 0 1.5em;border-style:solid;border-top-color:inherit;border-left-color:transparent;}
+.progress-bbl li.a:after {border-top-color:#87ceeb;}
+
+/* Active */
+.progress li.a {font-weight:bold;color:#000;text-shadow:none;}
+.progress-arw li.a, .progress-bar li.a, .progress-bbl li.a, .progress-big li.a, .progress-cab li.a, .progress-tab li.a, .progress-skw li.a, .progress-cir li.a:before, .progress-squ li.a:before, .progress-crd li.a:before {background:#87ceeb;}
+.progress-arc li.a {font-weight:bold;text-transform:uppercase;}
+</style>
+
+	
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<h1 class="blocks-header">Progress &mdash;Work-In-Progress</h1><br />
+	
+<ul class="progress progress-cir">
+  <li class="a">Login</li>
+  <li>Address</li>
+  <li>Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>  
+</ul>
+
+<ul class="progress progress-squ">
+  <li>Login</li>
+  <li class="a">Address</li>
+  <li>Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>  
+</ul>
+
+<ul class="progress progress-bar">
+  <li class="c">Login</li>
+  <li class="c">Address</li>
+  <li class="a">Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>  
+</ul>
+
+<ul class="progress progress-col progress-tab">
+  <li>Login</li>
+  <li>Address</li>
+  <li class="a">Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+<ul class="progress progress-col progress-cab">
+  <li>Login</li>
+  <li class="a">Address</li>
+  <li>Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+<ul class="progress progress-col progress-arw">
+  <li>Login</li>
+  <li>Address</li>
+  <li>Shipping</li>
+  <li class="a">Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+<ul class="progress progress-col progress-arc">
+  <li>Login</li>
+  <li>Address</li>
+  <li>Shipping</li>
+  <li>Payment</li>
+  <li class="a">Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+<ul class="progress progress-col progress-skw">
+  <li>Login</li>
+  <li class="a">Address</li>
+  <li>Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+<ul class="progress progress-col progress-big">
+  <li>Login</li>
+  <li>Address</li>
+  <li class="a">Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+<ul class="progress progress-tri">
+  <li>Login</li>
+  <li>Address</li>
+  <li class="a">Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+<ul class="progress progress-crd">
+  <li>Login</li>
+  <li>Address</li>
+  <li>Shipping</li>
+  <li>Payment</li>
+  <li class="a">Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+<ul class="progress progress-col progress-bbl">
+  <li class="a">Login</li>
+  <li>Address</li>
+  <li>Shipping</li>
+  <li>Payment</li>
+  <li>Receipt</li>
+  <li>Finalize</li>
+</ul>
+
+</body>
+</html>	

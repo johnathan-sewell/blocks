@@ -33,6 +33,16 @@
 	}
 }
 
+/// - Extension to include user-select: none
+/// @name noselect
+/// @group extensions
+/// @example scss
+///    @extend %noselet;
+%noselect {
+	user-select: none; 
+	-webkit-user-select: none;
+}
+
 /// - Creates the correct aspect-ratio from pseudo-elements
 /// @name aspect-ratio
 /// @group mixins

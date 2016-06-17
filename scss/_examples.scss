@@ -108,6 +108,11 @@
 	@include infotab();
 }
 
+// list
+.list { 
+	@include list();
+}
+
 // menu
 .menu {
 	@include menu();

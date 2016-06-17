@@ -32,9 +32,8 @@ b, strong {
 
 button,
 label {
+	@extend %noselect;
 	cursor: pointer;
-	user-select: none; 
-	-webkit-user-select: none;
 	// NB! "touch-action" requires either "width=device-width" or "user-scalable=no" in meta
 	touch-action: manipulation;
 }

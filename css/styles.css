@@ -171,6 +171,14 @@ body::after, .grid::after, .product-list::after, .xray::after {
   background: currentColor;
 }
 
+button,
+label, .list-item {
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+}
+
 *,
 *:before,
 *:after {
@@ -205,10 +213,6 @@ b, strong {
 button,
 label {
   cursor: pointer;
-  -moz-user-select: none;
-   -ms-user-select: none;
-       user-select: none;
-  -webkit-user-select: none;
   -ms-touch-action: manipulation;
       touch-action: manipulation;
 }
@@ -4421,6 +4425,47 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
   opacity: 0;
 }
 
+.list {
+  width: 20em;
+  overflow: hidden;
+  padding: 1em 1.5em;
+  list-style-type: none;
+  background: #eee;
+  cursor: url("../img/cursor.png") 32 32, auto;
+  /* Counters for OL-tag */
+}
+.list-item {
+  counter-increment: item-counter;
+  font-size: 1.5em;
+  margin: 0.5em 0;
+  padding: 1em;
+  border: 0px solid rgba(123, 123, 123, 0.49804);
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+  transition: all .25s;
+  background: #fff;
+}
+.list-item * {
+  pointer-events: none;
+  /* Prevents dragging of sub-items */
+}
+.list-item.drag {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 16px 32px 0px;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+ol.list .list-item::before {
+  display: inline-block;
+  width: 1.5em;
+  margin: 0 0.25em 0 0;
+  content: counter(item-counter);
+  border-radius: 50%;
+  text-align: center;
+  color: #222;
+  background: #ccc;
+}
+
 .menu {
   /* Tablet / Desktop */
 }
@@ -6483,57 +6528,57 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-1 {
   color: #222;
-  background-color: #dfa29f;
+  background-color: #dfaf9f;
 }
 
 .random-2 {
   color: #222;
-  background-color: #9fdfcb;
+  background-color: #9fa0df;
 }
 
 .random-3 {
   color: #222;
-  background-color: #df9fde;
+  background-color: #dfb99f;
 }
 
 .random-4 {
   color: #222;
-  background-color: #df9fa3;
+  background-color: #9fdfb1;
 }
 
 .random-5 {
   color: #222;
-  background-color: #d6df9f;
+  background-color: #df9fa3;
 }
 
 .random-6 {
   color: #222;
-  background-color: #df9fdc;
+  background-color: #a0df9f;
 }
 
 .random-7 {
   color: #222;
-  background-color: #9faadf;
+  background-color: #dfcb9f;
 }
 
 .random-8 {
   color: #222;
-  background-color: #dfc09f;
+  background-color: #9fb5df;
 }
 
 .random-9 {
   color: #222;
-  background-color: #ad9fdf;
+  background-color: #9fdfaf;
 }
 
 .random-10 {
   color: #222;
-  background-color: #c0df9f;
+  background-color: #9fbadf;
 }
 
 .random-11 {
   color: #222;
-  background-color: #b3df9f;
+  background-color: #a9df9f;
 }
 
 .random-12 {
@@ -6543,67 +6588,67 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
 
 .random-13 {
   color: #222;
-  background-color: #df9fd5;
+  background-color: #9fdadf;
 }
 
 .random-14 {
   color: #222;
-  background-color: #9fa2df;
+  background-color: #df9fa5;
 }
 
 .random-15 {
   color: #222;
-  background-color: #9fc9df;
+  background-color: #9fdfbf;
 }
 
 .random-16 {
   color: #222;
-  background-color: #9faddf;
+  background-color: #da9fdf;
 }
 
 .random-17 {
   color: #222;
-  background-color: #9fdfa9;
+  background-color: #9fdfc1;
 }
 
 .random-18 {
   color: #222;
-  background-color: #df9fb4;
+  background-color: #d19fdf;
 }
 
 .random-19 {
   color: #222;
-  background-color: #9faedf;
+  background-color: #b5df9f;
 }
 
 .random-20 {
   color: #222;
-  background-color: #b49fdf;
+  background-color: #dfcc9f;
 }
 
 .random-21 {
   color: #222;
-  background-color: #dfdd9f;
+  background-color: #9fd0df;
 }
 
 .random-22 {
   color: #222;
-  background-color: #de9fdf;
+  background-color: #b8df9f;
 }
 
 .random-23 {
   color: #222;
-  background-color: #df9fd3;
+  background-color: #b5df9f;
 }
 
 .random-24 {
   color: #222;
-  background-color: #9fdfa0;
+  background-color: #df9fa7;
 }
 
 .random-25 {
   color: #222;
-  background-color: #d39fdf;
+  background-color: #9fcfdf;
 }
 
 /*# sourceMappingURL=styles.css.map */
