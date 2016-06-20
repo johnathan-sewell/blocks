@@ -14,7 +14,7 @@
 ///   .circle-basic( @include tactical(transparent, "Montserrat", #fff, 0 0 0 #fff); )
 
 @mixin tactical($fill, $font-family, $font-color, $shadow) {
-	filter: drop-shadow($shadow);
+	/*filter: drop-shadow($shadow);*/
 	fill: $fill;
 	font-family: $font-family;
 	text { fill: $font-color; }
