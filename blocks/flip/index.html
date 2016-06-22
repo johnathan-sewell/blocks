@@ -12,30 +12,59 @@
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
 	
-	<h1 class="blocks-header">Flip &mdash; Work-In-Progress</h1>
-	<p class="blocks-section">
-		Text &hellip;
-	</p>
+	<h1 class="blocks-header">Flip &mdash; Recipe</h1>
 	
-	<div class="flip-wrapper">
-		<input type="checkbox" class="state" id="flp1" />
-		
-		<div class="flip-content">
-			
+	<div class="flip-wrapper recipe-wrapper">
+		<input type="checkbox" class="state" id="flp1" aria-hidden="true" />
+		<div class="flip-content" itemscope itemtype="http://schema.org/Recipe">
 			<div class="flip-front">
-				<h2>Front</h2>
-				<label for="flp1" class="label-circle">
-					<svg class="icon icon-pictures">
-						<use xlink:href="svg/sprite.svg#icon-pictures"></use>
-					</svg>
-				</label>
+				<div class="recipe">
+					<img src="../../img/recipe.jpg" class="recipe-image" alt="" />
+					<meta itemprop="author" content="Mads Stoumann" />
+					
+					<div class="recipe-front">
+						<h2 class="recipe-header" itemprop="name">Tender steaks with potato-salad</h2>
+						<div itemscope itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating">
+							<meta itemprop="reviewCount" content="0" />
+							<meta itemprop="ratingValue" content="5" />
+							<span class="recipe-rating" data-rating="5"></span>
+						</div>
+						<div itemprop="nutrition" itemscope itemtype="http://schema.org/NutritionInformation">
+							<strong>Nutrition facts:</strong>
+							<span itemprop="calories">2400 calories</span>,
+							<span itemprop="fatContent">180 grams fat</span>
+						</div>
+					</div>
+					<label for="flp1" class="recipe-label"></label>	
+				</div>
 			</div>
-			
 			<div class="flip-back">
-				<h2>Back</h2>
-				<label for="flp1" class="label-circle">
-					<svg class="icon icon-pictures"><use xlink:href="svg/sprite.svg#icon-close"></use></svg>	
-				</label>
+				<div class="recipe">
+					<img src="../../img/recipe.jpg" class="recipe-image" alt="" itemprop="image" />
+					<div class="recipe-back">
+						<h2 class="recipe-header">Tender steaks with potato-salad</h2>
+						<div class="recipe-columns">
+							<em itemprop="description">Easy to prepare, juicy and delicious</em><br />
+							<p class="recipe-block">
+								<strong>Prep Time:</strong> <meta itemprop="prepTime" content="PT15M">15 minutes<br />
+								<strong>Cook time:</strong> <meta itemprop="cookTime" content="PT1H">1 hour
+							</p>
+							<p class="recipe-block">
+								<strong>Instructions:</strong><br />
+	  							<em itemprop="recipeInstructions">Just mix it all and eat it!</em>
+	  						</p>
+							<ul class="recipe-list">
+								<li itemprop="recipeIngredient">4 steaks</li>
+								<li itemprop="recipeIngredient">1 kg potatoes</li>
+								<li itemprop="recipeIngredient">2 bunches asparagus</li>
+								<li itemprop="recipeIngredient">10g roasted hazelnuts</li>
+								<li itemprop="recipeIngredient">4 radishes</li>
+								<li itemprop="recipeIngredient">4 teaspoons sherry vinegar</li>
+							</ul>
+						</div>
+					</div>
+					<label for="flp1" class="recipe-label"></label>	
+				</div>
 			</div>
 			
 		</div>

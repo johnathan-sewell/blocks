@@ -78,6 +78,11 @@
 	@include flexory();
 }
 
+// flip
+.flip { 
+	@include flip();
+}
+
 // flexory
 .foldout { 
 	@include foldout();
@@ -153,6 +158,11 @@
 	@include rating();
 }
 
+// recipe
+.recipe { 
+	@include recipe();
+}
+
 // search
 .search {
 	@include search();
@@ -167,6 +177,11 @@
 .select { 
 	@include select($select); 
 	&-label { font-weight: 400; &::after { font-weight: 300; } }
+}
+
+// sidepanel
+.sidepanel {
+	@include sidepanel();
 }
 
 // sitemap

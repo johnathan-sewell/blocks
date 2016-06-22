@@ -1,0 +1,86 @@
+/// recipe
+/// - Version 1.1.0
+/// - Date last edited: 2016-06-22
+/// @name recipe
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$recipe]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/flip/ Demo
+/// @example scss
+///   .recipe ( @include recipe(); )
+
+@mixin recipe($theme: $recipe) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	max-width: map-get($theme, "max-width");
+	position: relative;
+	
+	/* NB! Need work, move styles to theme-map etc. */
+	
+	&-back, &-front {
+		background: rgba(255, 255, 255, .8);
+		color: #222;
+		box-shadow: 4px 8px 4px -8px rgba(0,0,0,.75);
+	}
+	&-back {
+		@include absolute(top 1em left 1em);
+		width: calc(100% - 2em);
+		height: calc(100% - 2.5em);
+		overflow: hidden;
+		overflow-y: auto;
+		text-align: left;
+		border-radius: 1em;
+		padding: 0.5em 1em;
+	}
+	&-block {
+		margin: 0.5em 0;
+	}
+	&-columns {
+		margin: 1em 0 0 0;
+		column-count: 2;
+	}
+	&-front {
+		@include absolute(top 1em right 0);
+		padding: 0.5em 1em .5em 1em;
+	}
+	&-header {
+		padding: 0;
+		margin: 0;
+	}
+	&-image {
+		max-width: 100%;
+		border-radius: 1em;
+	}
+	&-label {
+		@include absolute(top 0 right 0 bottom 0 left 0);
+		display: inline-block;
+		backface-visibility: hidden;
+	}
+	&-list {
+		list-style-position: inside;
+	}
+    &-rating {
+    	font-size: 1.5em;
+    	text-shadow: 1px 2px rgba(0, 0, 0, .5);
+    	color: map-get($theme, "rating-color");
+    	&[data-rating="1"]::after { content: "\2605"; }
+    	&[data-rating="2"]::after { content: "\2605\2605"; }
+    	&[data-rating="3"]::after { content: "\2605\2605\2605"; }
+    	&[data-rating="4"]::after { content: "\2605\2605\2605\2605"; }
+    	&[data-rating="5"]::after { content: "\2605\2605\2605\2605\2605"; }
+    }
+    &-wrapper {
+    	max-width: map-get($theme, "max-width");
+    }	
+}
+
+/// Theme-map for recipe
+/// @name recipe
+/// @group settings
+
+$recipe: (
+	"font-map": 0,
+	"max-width": 600px,
+	"rating-color": gold
+);
