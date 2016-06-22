@@ -155,6 +155,14 @@
 			background: map-get($theme, "check-background");
 		}
 	}
+	&-color {
+		width: 100%;
+		height: 3em;
+		margin: map-get($theme, "input-margin");
+		padding: 0;
+		border: 1px solid map-get($theme, "input-border-color");
+		border-radius: map-get($theme, "input-border-radius");	
+	}
 	&-radio {
 		&:checked + label {
 			&::before { 

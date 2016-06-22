@@ -1,16 +1,18 @@
 ﻿(function() {
-	var aSelect = document.querySelectorAll(".select");
+	var 
+	aSelect = document.querySelectorAll(".select"),
+	n = aSelect.length,
+	oChecked;
 	
-	aSelect.forEach(function(oSelect, nIdx) {
-		var
-		oChecked = oSelect.querySelector(".select-panel .state:checked");
-		if (oChecked) oChecked = oSelect.querySelector("[for=\"" + oChecked.id + "\"]");
-		if (oChecked) setSelected(oSelect, oChecked.innerHTML);
+	while (n--) {
+		oChecked = aSelect[n].querySelector(".select-panel .state:checked");
+		if (oChecked) oChecked = aSelect[n].querySelector("[for=\"" + oChecked.id + "\"]");
+		if (oChecked) setSelected(aSelect[n], oChecked.innerHTML);
 		
-		oSelect.addEventListener("click", function(e) {
-			if (e.target.classList.contains("select-option")) setSelected(oSelect, e.target.innerText);
+		aSelect[n].addEventListener("click", function(e) {
+			if (e.target.classList.contains("select-option")) setSelected(this, e.target.innerText);
 		}, false);
-	});
+	}
 	
 	function setSelected(oSelect, sOptionText) {
 		var 

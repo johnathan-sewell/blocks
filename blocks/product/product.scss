@@ -1,12 +1,12 @@
 /// product
-/// - Version 1.7.0
-/// - Date last edited: 2016-06-02
+/// - Version 1.8.0
+/// - Date last edited: 2016-06-22
 /// @name product
 /// @group blocks
 /// @author Mads Stoumann
 /// @param {String} $theme [$product]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/product/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/product/ Demo
 /// @example scss
 ///   .product ( @include product(); )
 
@@ -25,43 +25,44 @@
 	}
 
 	&-availability {
-		&.in-stock { color: darken(#48cfad, 30); }
+		&.in-stock { 
+			color: map-get($theme, "in-stock-color");
+		}
 	}
-	
 	&-back {
 		position: absolute;
 		top: 0;
 		left: 0;
 		transform: rotateY(180deg);
 	}
-	
 	&-back, &-front {
 		width: 100%;
 		height: 100%;
 		backface-visibility: hidden;
 	}
-	
     &-buy {
-    	background-color: darken(#2980b9, 10);
-	    font-family: "Roboto", sans-serif;
-		font-weight: 300;
-	    font-size: 1.25rem;
+	    font: map-get($theme, "buy-font");
 	    width: 85%;
 	    margin: 5% auto 6% auto;
-	    padding: .75rem 1rem;
-	    color: #fff;
+	    padding: map-get($theme, "buy-padding");
+	    color: map-get($theme, "buy-color");
 	    border: 0;
-		&:hover {
-        	@include linear-gradient(to bottom, #3cb0fd, #3498db);
+	    background-color: map-get($theme, "buy-background");
+		@include hover {
+			color: map-get($theme, "buy-color-hover");
+			background: map-get($theme, "buy-background-hover");
         }
     }
-
     &-front {
     	z-index: 2;
 		transform: rotateY(0deg);
 		padding: 0 5%;
     }
-    
+    &-header {
+    	a {
+    		text-decoration: none;
+    	}
+    }
     &-image {
     	padding: 10% 0 2.5% 0;
     	max-width: 85%;
@@ -69,52 +70,52 @@
     		position: relative;
     	}	
     }
-    
+    &-info {
+    }
     &-inner {
     	position: relative;
     	transition: 0.6s;
 		transform-style: preserve-3d;
     }
-
 	&-list {
 		@extend %clearfix;
 		display: flex;
 		flex-flow: row wrap; /* Equal heights for product-cards */
-		padding: 1.5rem 1.5rem 0 1.5rem;
-		border: 1px solid #ccc;	
+		padding: 1.5em 1.5em 0 1.5em;
+		border: map-get($theme, "border");
 		text-align: center;
-		.product { margin-bottom: 1.5rem; } /* Percentage not working in IE/FF */
+		.product { margin-bottom: 1.5em; } /* Percentage not working in IE/FF */
 	}
-    
     &-price {
-    	line-height: 2rem;
-     	font-size: 1.45rem;
-    	color: #800000;
-    	
+    	line-height: 2em;
+     	font-size: 1.45em;
+    	color: map-get($theme, "price-color");
     	&-retail {
-    		font-size: .75rem;
+    		font-size: .875em;
     		&-price {
     			text-decoration: line-through;
     		}
     		&-save {
     			display: block;
-    			color: #d91f26;
+    			color: map-get($theme, "price-save-color");
     		}
     	}
     }
-    
     &-rating {
-    	line-height: 2rem;
-    	color: gold;
-    	text-shadow: 1px 2px rgba(0, 0, 0, .5);
+    	font-size: 1.5em;
+    	line-height: 2em;
+    	color: map-get($theme, "rating-color");
+    	
+    	&[data-rating-active] { 
+    		text-shadow: 1px 2px rgba(0, 0, 0, .5);
+    		color: map-get($theme, "rating-color-active");
+    	}
     	&[data-rating="1"]::after { content: "\2605"; }
     	&[data-rating="2"]::after { content: "\2605\2605"; }
     	&[data-rating="3"]::after { content: "\2605\2605\2605"; }
     	&[data-rating="4"]::after { content: "\2605\2605\2605\2605"; }
     	&[data-rating="5"]::after { content: "\2605\2605\2605\2605\2605"; }
     }
-
-
 	&-ribbon {
 		position: absolute;
 		top: 0;
@@ -127,7 +128,6 @@
 			left: -10.5%;
 		}
 	}
-	
    	&-spot {
 		position: absolute;
 		top: 5%;
@@ -136,20 +136,6 @@
 		height: 100px;
     }
 
-}
-
-/// Theme-map for product
-/// @name product
-/// @group settings
-
-$product: (
-	"background": linear-gradient(to bottom, #fff, #fefefe),
-	"border": 1px solid #ccc,
-	"box-shadow": 0 8px 8px -8px rgba(0,0,0,.75),
-	"font-map": 0
-);
-
-.product {
 	@include for("phablet") {
 		display: flex;
 		flex-flow: column nowrap;
@@ -160,7 +146,6 @@ $product: (
 			.product:nth-of-type(2n+1) { margin-left: 0; }
 		}
 	}
-	
 	@include for("tablet") {
 		width: 32%;
 		&-list {
@@ -172,7 +157,6 @@ $product: (
 			height: 40%;
 		}
 	}
-	
 	@include for("desktop") {
 		width: 23.5%; 
 		&-list {
@@ -180,12 +164,11 @@ $product: (
 			.product:nth-of-type(4n+1) { margin-left: 0; }
 		}
 	}
-    
     @include for("desktop-xlarge") {
         width: 15.83333333333334%;
         &-list {
-        	padding: 1rem 1rem 0 1rem;
-        	.product:nth-of-type(n) { margin: 0 0 1rem 1%; }
+        	padding: 1em 1em 0 1em;
+        	.product:nth-of-type(n) { margin: 0 0 1em 1%; }
         	.product:nth-of-type(6n+1) { margin-left: 0; }
 		}
 		&-spot {
@@ -194,3 +177,33 @@ $product: (
 		}
     }
 }
+
+/// Theme-map for product
+/// @name product
+/// @group settings
+
+$product: (
+	"background": linear-gradient(to bottom, #fff, #fefefe),
+	"border": 1px solid #ccc,
+	"box-shadow": 0 8px 8px -8px rgba(0,0,0,.75),
+	"buy-background": darken(#2980b9, 10),
+	"buy-background-hover": linear-gradient(to bottom, #3cb0fd, #3498db),
+	"buy-color": #fff,
+	"buy-color-hover": #fff,
+	"buy-font": #{300 1.25em "Roboto", sans-serif},
+	"buy-padding": .75em 1em,
+	"font-map": 
+	(
+		"phone"			: 18px,
+		"phablet"		: 14px,
+		"tablet"		: 15px,
+		"desktop"		: 16px,
+		"desktop-large"	: 17px,
+		"desktop-xlarge": 16px
+	),
+	"in-stock-color": darken(#48cfad, 30),
+	"price-color": #800000,
+	"price-save-color": #d91f26,
+	"rating-color": #eee,
+	"rating-color-active": gold
+);

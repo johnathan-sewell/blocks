@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Color Contrast Calculator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+
+	<h1 class="blocks-header">Color Contrast Calculator</h1>
+
+	<form class="form" id="frmColor" novalidate >
+		<fieldset class="form-fieldset">
+			<legend class="form-legend">Choose colors</legend>
+			<ul>
+				<li class="form-li">
+					<label for="color-1" class="form-label">Background Color</label>
+					<input type="color" id="color-1" class="form-color" oninput="calcColor()" value="#000000" />
+				</li>
+				<li class="form-li">
+					<label for="color-1" class="form-label">Foreground Color</label>
+					<input type="color" id="color-1" class="form-color" oninput="calcColor()" value="#FFFFFF" />
+				</li>
+				<li class="form-li">
+					<label for="color-1" class="form-label">Example</label>
+					<div id="color-result" class="form-input" style="background:black;height:10em;color:#fff">Lorem ipsum</div>
+				</li>
+			</ul>
+		</fieldset>	
+	</form>
+	
+	
+	<script>
+		function calcColor() {
+			console.log(this);	
+		}
+		
+	</script>
+</body>
+</html>

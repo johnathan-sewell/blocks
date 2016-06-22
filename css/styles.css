@@ -715,69 +715,6 @@ span[aria-hidden] {
   fill: white;
 }
 
-@media (min-width: 640px) {
-  .product {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-flow: column nowrap;
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: 49%;
-    margin: 0 0 0 2%;
-  }
-  .product-list .product:nth-of-type(2n+1) {
-    margin-left: 0;
-  }
-}
-@media (min-width: 768px) {
-  .product {
-    width: 32%;
-  }
-  .product-list .product:nth-of-type(2n+1) {
-    margin-left: 2%;
-  }
-  .product-list .product:nth-of-type(3n+1) {
-    margin-left: 0;
-  }
-  .product-spot {
-    width: 40%;
-    height: 40%;
-  }
-}
-@media (min-width: 1024px) {
-  .product {
-    width: 23.5%;
-  }
-  .product-list .product:nth-of-type(3n+1) {
-    margin-left: 2%;
-  }
-  .product-list .product:nth-of-type(4n+1) {
-    margin-left: 0;
-  }
-}
-@media (min-width: 1600px) {
-  .product {
-    width: 15.83333333333334%;
-  }
-  .product-list {
-    padding: 1rem 1rem 0 1rem;
-  }
-  .product-list .product:nth-of-type(n) {
-    margin: 0 0 1rem 1%;
-  }
-  .product-list .product:nth-of-type(6n+1) {
-    margin-left: 0;
-  }
-  .product-spot {
-    width: 45%;
-    height: 45%;
-  }
-}
-
 /*
 - Document  : radial.scss
 - Version   : 1.0.0
@@ -3095,6 +3032,14 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
   border-color: deepskyblue;
   background: deepskyblue;
 }
+.form-color {
+  width: 100%;
+  height: 3em;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #a8a8a8;
+  border-radius: 0.5rem;
+}
 .form-radio:checked + label::before {
   border-color: deepskyblue;
   background: deepskyblue;
@@ -3743,6 +3688,14 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
   color: #fff;
   border-color: #923222;
   background: #923222;
+}
+.material .form-color {
+  width: 100%;
+  height: 3em;
+  margin: 1rem 0 0 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 0;
 }
 .material .form-radio:checked + label::before {
   border-color: #923222;
@@ -4440,7 +4393,7 @@ input[data-filter="all"]:checked ~ .filter-content .filter-box {
   padding: 1em 1.5em;
   list-style-type: none;
   background: #eee;
-  cursor: url("../img/cursor.png") 32 32, auto;
+  cursor: move;
   /* Counters for OL-tag */
 }
 .list-item {
@@ -4927,7 +4880,7 @@ ol.list .list-item::before {
 }
 @media (min-width: 0) {
   .product {
-    font-size: 13px;
+    font-size: 18px;
   }
 }
 @media (min-width: 640px) {
@@ -4952,7 +4905,7 @@ ol.list .list-item::before {
 }
 @media (min-width: 1600px) {
   .product {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 .product .state:checked ~ .product-inner {
@@ -4976,25 +4929,28 @@ ol.list .list-item::before {
           backface-visibility: hidden;
 }
 .product-buy {
-  background-color: #20638f;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-size: 1.25rem;
+  font: 300 1.25em Roboto, sans-serif;
   width: 85%;
   margin: 5% auto 6% auto;
-  padding: .75rem 1rem;
+  padding: 0.75em 1em;
   color: #fff;
   border: 0;
+  background-color: #20638f;
 }
-.product-buy:hover {
-  background: #3cb0fd;
-  background: linear-gradient(to bottom, #3cb0fd, #3498db);
+@media (hover) {
+  .product-buy:hover {
+    color: #fff;
+    background: linear-gradient(to bottom, #3cb0fd, #3498db);
+  }
 }
 .product-front {
   z-index: 2;
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
   padding: 0 5%;
+}
+.product-header a {
+  text-decoration: none;
 }
 .product-image {
   padding: 10% 0 2.5% 0;
@@ -5017,21 +4973,21 @@ ol.list .list-item::before {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   /* Equal heights for product-cards */
-  padding: 1.5rem 1.5rem 0 1.5rem;
+  padding: 1.5em 1.5em 0 1.5em;
   border: 1px solid #ccc;
   text-align: center;
   /* Percentage not working in IE/FF */
 }
 .product-list .product {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5em;
 }
 .product-price {
-  line-height: 2rem;
-  font-size: 1.45rem;
+  line-height: 2em;
+  font-size: 1.45em;
   color: #800000;
 }
 .product-price-retail {
-  font-size: .75rem;
+  font-size: .875em;
 }
 .product-price-retail-price {
   text-decoration: line-through;
@@ -5041,9 +4997,13 @@ ol.list .list-item::before {
   color: #d91f26;
 }
 .product-rating {
-  line-height: 2rem;
-  color: gold;
+  font-size: 1.5em;
+  line-height: 2em;
+  color: #eee;
+}
+.product-rating[data-rating-active] {
   text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+  color: gold;
 }
 .product-rating[data-rating="1"]::after {
   content: "\2605";
@@ -5080,6 +5040,68 @@ ol.list .list-item::before {
   right: 2.5%;
   width: 100px;
   height: 100px;
+}
+@media (min-width: 640px) {
+  .product {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 49%;
+    margin: 0 0 0 2%;
+  }
+  .product-list .product:nth-of-type(2n+1) {
+    margin-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .product {
+    width: 32%;
+  }
+  .product-list .product:nth-of-type(2n+1) {
+    margin-left: 2%;
+  }
+  .product-list .product:nth-of-type(3n+1) {
+    margin-left: 0;
+  }
+  .product-spot {
+    width: 40%;
+    height: 40%;
+  }
+}
+@media (min-width: 1024px) {
+  .product {
+    width: 23.5%;
+  }
+  .product-list .product:nth-of-type(3n+1) {
+    margin-left: 2%;
+  }
+  .product-list .product:nth-of-type(4n+1) {
+    margin-left: 0;
+  }
+}
+@media (min-width: 1600px) {
+  .product {
+    width: 15.83333333333334%;
+  }
+  .product-list {
+    padding: 1em 1em 0 1em;
+  }
+  .product-list .product:nth-of-type(n) {
+    margin: 0 0 1em 1%;
+  }
+  .product-list .product:nth-of-type(6n+1) {
+    margin-left: 0;
+  }
+  .product-spot {
+    width: 45%;
+    height: 45%;
+  }
 }
 
 .radial-progress {
@@ -6525,127 +6547,127 @@ ol.list .list-item::before {
 
 .random-1 {
   color: #222;
-  background-color: #9fdedf;
+  background-color: #9fdfa6;
 }
 
 .random-2 {
   color: #222;
-  background-color: #9fdfc7;
+  background-color: #9fa7df;
 }
 
 .random-3 {
   color: #222;
-  background-color: #df9fd0;
+  background-color: #9fdfca;
 }
 
 .random-4 {
   color: #222;
-  background-color: #dfad9f;
+  background-color: #dfa39f;
 }
 
 .random-5 {
   color: #222;
-  background-color: #9fafdf;
+  background-color: #df9fa9;
 }
 
 .random-6 {
   color: #222;
-  background-color: #cb9fdf;
+  background-color: #c0df9f;
 }
 
 .random-7 {
   color: #222;
-  background-color: #df9fcd;
+  background-color: #9fd5df;
 }
 
 .random-8 {
   color: #222;
-  background-color: #df9fdd;
+  background-color: #b4df9f;
 }
 
 .random-9 {
   color: #222;
-  background-color: #c79fdf;
+  background-color: #df9fb0;
 }
 
 .random-10 {
   color: #222;
-  background-color: #df9fce;
+  background-color: #d2df9f;
 }
 
 .random-11 {
   color: #222;
-  background-color: #be9fdf;
+  background-color: #bedf9f;
 }
 
 .random-12 {
   color: #222;
-  background-color: #df9fa4;
+  background-color: #cbdf9f;
 }
 
 .random-13 {
   color: #222;
-  background-color: #9fdfab;
+  background-color: #9fdfb1;
 }
 
 .random-14 {
   color: #222;
-  background-color: #9fd6df;
+  background-color: #bedf9f;
 }
 
 .random-15 {
   color: #222;
-  background-color: #df9fb9;
+  background-color: #c5df9f;
 }
 
 .random-16 {
   color: #222;
-  background-color: #dfc59f;
+  background-color: #9fdfdf;
 }
 
 .random-17 {
   color: #222;
-  background-color: #cf9fdf;
+  background-color: #9fdfc6;
 }
 
 .random-18 {
   color: #222;
-  background-color: #d69fdf;
+  background-color: #c7df9f;
 }
 
 .random-19 {
   color: #222;
-  background-color: #9fdf9f;
+  background-color: #9fdfae;
 }
 
 .random-20 {
   color: #222;
-  background-color: #a99fdf;
+  background-color: #9fbedf;
 }
 
 .random-21 {
   color: #222;
-  background-color: #d8df9f;
+  background-color: #9fd6df;
 }
 
 .random-22 {
   color: #222;
-  background-color: #dfb89f;
+  background-color: #9faedf;
 }
 
 .random-23 {
   color: #222;
-  background-color: #9fa2df;
+  background-color: #df9fbe;
 }
 
 .random-24 {
   color: #222;
-  background-color: #9fdfb8;
+  background-color: #dfb09f;
 }
 
 .random-25 {
   color: #222;
-  background-color: #dfb89f;
+  background-color: #9fdfae;
 }
 
 /*# sourceMappingURL=styles.css.map */
