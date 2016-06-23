@@ -1,12 +1,65 @@
-﻿/*
-- Document  : spinner.scss
-- Version   : 1.0.0
-- Client    : Blocks!
-- Authors   : Mads Stoumann
-- Date edit : 2015-11-16
-*/
+﻿/// spinner-dots
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-23
+/// @name pricing
+/// @group blocks
+/// @author Jesper Thorning
+/// @param {String} $theme [$spinner-dots]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/spinners/ Demo
+/// @example scss
+///   .spinner-dots ( @include spinner-dots(); )
 
-@mixin spinner($size, $thickness, $color, $speed) {
+@mixin spinner-dots($theme: $spinner-dots) {
+	position: relative;
+	width: map-get($theme, "size");
+			
+	&-1st,
+	&-2nd,
+	&-3rd {
+		height: map-get($theme, "size");
+		width: map-get($theme, "size");
+		background-color: map-get($theme, "dot-color");
+		border-radius: 50%;
+		position: absolute;
+		animation: 1s bounce ease-in infinite;
+	}
+	&-1st {
+		left: (map-get($theme, "size") * 1.25);
+		animation-delay: .33s;
+	}
+	&-2nd {
+		animation-delay: .66s;
+	}
+	&-3rd {
+		right: (map-get($theme, "size") * 1.25);
+		animation-delay: 1s;
+	}
+	@keyframes bounce {
+		0%		{ transform: translateY(0em)}
+		50%		{ transform: translateY(-#{map-get($theme, "size")})}
+		100%	{ transform: translateY(0em)}
+	}
+}
+
+/// Theme-map for spinner-dots
+/// @name spinner-dots
+/// @group settings
+
+$spinner-dots: (
+	"dot-color": cornflowerblue,
+	"size": 1em
+);
+
+/// @name spinner-rotate
+/// @group mixins
+/// @author mads Stoumann
+/// @param {String} $size
+/// @param {String} $thickness
+/// @param {String} $color
+/// @param {String} $speed
+
+@mixin spinner-rotate($size, $thickness, $color, $speed) {
 	animation: spin $speed linear 0s infinite;
 	width: $size;
 	height: $size;

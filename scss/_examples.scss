@@ -200,12 +200,11 @@
 }
 
 // spinners
-.spinner-overlay {
-	@include spinner(60px, 8px, #aaa, 0.75s);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-left: -30px;
+.spinner-rotate {
+	@include spinner-rotate(60px, 8px, #aaa, 0.75s);
+}
+.spinner-dots {
+	@include spinner-dots($spinner-dots);	
 }
 
 // spot

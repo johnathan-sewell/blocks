@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*
 - Document  : styles.scss
-- Version   : 1.4.0
-- Date edit : 2016-06-07
+- Version   : 1.5.0
+- Date edit : 2016-06-22
 */
 /* Root */
 @import url(//fonts.googleapis.com/css?family=Roboto:400,300);
@@ -313,7 +313,7 @@ span[aria-hidden] {
 }
 .blocks-schema {
   font-size: small;
-  color: orange;
+  color: #805300;
   margin: 0 .5em;
 }
 .blocks-wcag {
@@ -325,7 +325,7 @@ span[aria-hidden] {
   margin-right: .25em;
 }
 .blocks-wcag-err {
-  color: #ff3b30;
+  color: #c90b00;
   margin-right: .25em;
 }
 
@@ -879,13 +879,6 @@ span[aria-hidden] {
   }
 }
 
-/*
-- Document  : spinner.scss
-- Version   : 1.0.0
-- Client    : Blocks!
-- Authors   : Mads Stoumann
-- Date edit : 2015-11-16
-*/
 /* SVG Tactical Text */
 .svg-text-micro {
   font-size: .675em;
@@ -2277,6 +2270,18 @@ span[aria-hidden] {
 .facet-list-select-label:last-of-type {
   border-radius: 0 0 0.5em 0.5em;
 }
+.facet-list.facet-tags {
+  position: static;
+  display: block;
+  overflow-y: initial;
+  padding: 0 0 0.5em 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+.facet-list.facet-tags .facet-list-label {
+  width: 8em;
+  margin: 0.5em 0.3em 0 0;
+}
 .facet-list-toggle {
   z-index: 0;
   width: 100%;
@@ -2489,6 +2494,18 @@ span[aria-hidden] {
 }
 .facet-select-label:last-of-type {
   border-radius: 0 0 0.5em 0.5em;
+}
+.facet.facet-tags {
+  position: static;
+  display: block;
+  overflow-y: initial;
+  padding: 0 0 0.5em 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+.facet.facet-tags .facet-label {
+  width: auto;
+  margin: 0.5em 0.3em 0 0;
 }
 .facet-toggle {
   z-index: 0;
@@ -4728,6 +4745,7 @@ ol.list .list-item::before {
   transition: transform .3s ease-in, opacity .3s linear;
   transition: transform .3s ease-in, opacity .3s linear, -webkit-transform .3s ease-in;
   transition-delay: .1s;
+  visibility: hidden;
   -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
@@ -4771,6 +4789,7 @@ ol.list .list-item::before {
   transition: opacity 0.3s linear;
 }
 .state:checked ~ .popup-content {
+  visibility: visible;
   opacity: 1;
   z-index: 901;
 }
@@ -5935,7 +5954,7 @@ ol.list .list-item::before {
   margin: 0 0.5em 0 0;
 }
 
-.spinner-overlay {
+.spinner-rotate {
   -webkit-animation: spin 0.75s linear 0s infinite;
           animation: spin 0.75s linear 0s infinite;
   width: 60px;
@@ -5944,12 +5963,63 @@ ol.list .list-item::before {
   border-right-color: transparent;
   border-radius: 50%;
   display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -30px;
 }
 
+.spinner-dots {
+  position: relative;
+  width: 1em;
+}
+.spinner-dots-1st, .spinner-dots-2nd, .spinner-dots-3rd {
+  height: 1em;
+  width: 1em;
+  background-color: cornflowerblue;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-animation: 1s bounce ease-in infinite;
+          animation: 1s bounce ease-in infinite;
+}
+.spinner-dots-1st {
+  left: 1.25em;
+  -webkit-animation-delay: .33s;
+          animation-delay: .33s;
+}
+.spinner-dots-2nd {
+  -webkit-animation-delay: .66s;
+          animation-delay: .66s;
+}
+.spinner-dots-3rd {
+  right: 1.25em;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em);
+  }
+  50% {
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em);
+  }
+  100% {
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em);
+  }
+}
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em);
+  }
+  50% {
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em);
+  }
+  100% {
+    -webkit-transform: translateY(0em);
+            transform: translateY(0em);
+  }
+}
 .spot {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6741,77 +6811,77 @@ ol.list .list-item::before {
 
 .random-2 {
   color: #222;
-  background-color: #9fbedf;
+  background-color: #dfd29f;
 }
 
 .random-3 {
   color: #222;
-  background-color: #9fdfd0;
+  background-color: #b09fdf;
 }
 
 .random-4 {
   color: #222;
-  background-color: #dfcf9f;
+  background-color: #bbdf9f;
 }
 
 .random-5 {
   color: #222;
-  background-color: #bedf9f;
+  background-color: #9fdfce;
 }
 
 .random-6 {
   color: #222;
-  background-color: #9fb8df;
+  background-color: #dfda9f;
 }
 
 .random-7 {
   color: #222;
-  background-color: #bd9fdf;
+  background-color: #bddf9f;
 }
 
 .random-8 {
   color: #222;
-  background-color: #dfdb9f;
+  background-color: #9fdfde;
 }
 
 .random-9 {
   color: #222;
-  background-color: #9fdfb3;
+  background-color: #df9fc4;
 }
 
 .random-10 {
   color: #222;
-  background-color: #9fd6df;
+  background-color: #a59fdf;
 }
 
 .random-11 {
   color: #222;
-  background-color: #9fdedf;
+  background-color: #c7df9f;
 }
 
 .random-12 {
   color: #222;
-  background-color: #dfb39f;
+  background-color: #c5df9f;
 }
 
 .random-13 {
   color: #222;
-  background-color: #9fdfcc;
+  background-color: #b59fdf;
 }
 
 .random-14 {
   color: #222;
-  background-color: #9fd2df;
+  background-color: #9fc9df;
 }
 
 .random-15 {
   color: #222;
-  background-color: #9fdadf;
+  background-color: #dfad9f;
 }
 
 .random-16 {
   color: #222;
-  background-color: #a0df9f;
+  background-color: #9fa6df;
 }
 
 .random-17 {
@@ -6821,42 +6891,42 @@ ol.list .list-item::before {
 
 .random-18 {
   color: #222;
-  background-color: #dd9fdf;
+  background-color: #d7df9f;
 }
 
 .random-19 {
   color: #222;
-  background-color: #a0df9f;
+  background-color: #9fdcdf;
 }
 
 .random-20 {
   color: #222;
-  background-color: #9fdddf;
+  background-color: #a59fdf;
 }
 
 .random-21 {
   color: #222;
-  background-color: #d89fdf;
+  background-color: #9fdfcf;
 }
 
 .random-22 {
   color: #222;
-  background-color: #df9fd1;
+  background-color: #ca9fdf;
 }
 
 .random-23 {
   color: #222;
-  background-color: #b69fdf;
+  background-color: #dfdf9f;
 }
 
 .random-24 {
   color: #222;
-  background-color: #c09fdf;
+  background-color: #9fdfb3;
 }
 
 .random-25 {
   color: #222;
-  background-color: #da9fdf;
+  background-color: #9fa4df;
 }
 
 /*# sourceMappingURL=styles.css.map */

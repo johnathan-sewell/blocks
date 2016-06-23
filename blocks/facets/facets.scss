@@ -1,6 +1,6 @@
 ﻿/// Facets
-/// - Version 1.3.1
-/// - Date last edited: 2016-05-31
+/// - Version 1.3.3
+/// - Date last edited: 2016-06-23
 /// @name facets
 /// @group blocks
 /// @author Mads Stoumann
@@ -141,6 +141,19 @@
 			}
 		}
 	}
+	&.facet-tags {
+		position: static;
+		display: block;
+		overflow-y: initial;
+		padding: map-get($theme, "facet-tags-padding");
+		border: map-get($theme, "facet-border");
+		border-radius: map-get($theme, "facet-border-radius");
+		
+		#{$root}-label {
+			width: map-get($theme, "label-width");
+			margin: map-get($theme, "facet-tags-label-margin");
+		}
+	}
 	&-toggle {
 		z-index: 0;
 		width: 100%;
@@ -189,6 +202,8 @@ $facets: (
 	"facet-border-radius": .5em,
 	"facet-padding-tablet": .5em,
 	"facet-padding-mobile": .5em .5em 4em .5em,
+	"facet-tags-padding": 0 0 0.5em 0.5em,
+	"facet-tags-label-margin": 0.5em 0.3em 0 0,
 	"font-map": (
 		"phone"			: 17px,
 		"phablet"		: 16px,

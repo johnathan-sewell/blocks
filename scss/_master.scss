@@ -127,7 +127,7 @@ span[aria-hidden] { display: none; }
 	}
 	&-schema {
 		font-size: small;
-		color: orange;
+		color: darken(orange, 25);
 		margin: 0 .5em;
 	}
 	&-wcag {
@@ -139,7 +139,7 @@ span[aria-hidden] { display: none; }
 		margin-right: .25em;
 	}
 	&-wcag-err {
-		color: #ff3b30;
+		color: darken(#ff3b30, 20);
 		margin-right: .25em;
 	}
 }

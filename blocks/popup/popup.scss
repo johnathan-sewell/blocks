@@ -1,6 +1,6 @@
 /// Returns a class-module for popup overlays
-/// - Version 1.2.6
-/// - Date last edited: 2016-04-05
+/// - Version 1.2.7
+/// - Date last edited: 2016-06-23
 /// @name popup
 /// @group blocks
 /// @author Mads Stoumann
@@ -39,6 +39,7 @@
 		padding: map-get($theme, "content-padding");
 		transition: transform .3s ease-in, opacity .3s linear;
 		transition-delay: .1s;
+		visibility: hidden;
 		
 		@if $left-translate == 50% { $left-translate: -50%; } @else { $left-translate: 0; }
 		@if $top-translate == 50% { $top-translate: -50%; } @else { $top-translate: 0; }
@@ -50,6 +51,7 @@
 		background: map-get($theme, "content-background");
 		background-clip: padding-box;
 		box-shadow: map-get($theme, "content-box-shadow");
+		
 		&:target {
 			z-index: z("popup");
 			opacity: 1;
@@ -73,7 +75,7 @@
 		opacity: 0;
 		transition: opacity 0.3s linear;
 	}
-	.state:checked ~ &-content { opacity: 1; z-index: z("popup")+1; }
+	.state:checked ~ &-content { visibility: visible; opacity: 1; z-index: z("popup")+1; }
 	.state:checked ~ &-overlay { opacity: 0.8; z-index: z("popup"); }
 }
 	
