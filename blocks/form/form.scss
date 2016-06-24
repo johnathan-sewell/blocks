@@ -73,8 +73,8 @@
 /// @param {String} $theme - The theme-map to use, defaults to $form
 /// @param {Length} $num-steps
 /// @output class-module
-/// version 1.6.0
-/// 2016-04-07
+/// version 1.6.1
+/// 2016-06-24
 
 /// @example scss
 /// .form { @include form(); }
@@ -111,7 +111,6 @@
 			width: 85%;
 			font-size: map-get($theme, "label-font-size");
 			font-weight: 400;
-			
 			
 			&::after {
 				position: absolute;

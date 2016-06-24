@@ -163,6 +163,11 @@
 	@include recipe();
 }
 
+// scrollblock
+.scrollblock { 
+	@include scrollblock();
+}
+
 // search
 .search {
 	@include search();

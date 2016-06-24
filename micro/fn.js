@@ -571,7 +571,7 @@ var fn = {
     	nFrom = bDirTop ? oElm.scrollTop : oElm.scrollLeft;
     	
     	if (nFrom === nDest) return;
-    	
+    	console.log(nDest)
     	function _min(a, b) { return a < b ? a : b; }
 
     	function _scroll() {
