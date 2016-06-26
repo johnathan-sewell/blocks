@@ -1,6 +1,6 @@
 ﻿/// Foldout
-/// - Version 1.2.5
-/// - Date last edited: 2016-06-15
+/// - Version 1.2.6
+/// - Date last edited: 2016-06-26
 /// @name foldout
 /// @group blocks
 /// @author Mads Stoumann
@@ -14,6 +14,17 @@
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 
+	&.use-target {
+		#{$root}-block:target {
+			max-height: 100em;
+	    	margin-bottom: map-get($theme, "gutter");
+	    	transition-duration: 0.7s;
+	    	#{$root}-block-close, 
+	    	#{$root}-block-video {
+	    		visibility: visible;
+	    	}	
+		}
+	}
 	&-block {
 	    overflow: hidden;
 	    width: 100%;
@@ -21,7 +32,7 @@
 	    margin: 0;
 	    transition: max-height 0.2s ease 0s;
 
-	    &:target {
+	    &-target {
 	    	max-height: 100em;
 	    	margin-bottom: map-get($theme, "gutter");
 	    	transition-duration: 0.7s;

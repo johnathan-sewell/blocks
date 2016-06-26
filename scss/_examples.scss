@@ -78,6 +78,11 @@
 	@include flexory();
 }
 
+// flexspot
+.flexspot { 
+	@include flexspot();
+}
+
 // flip
 .flip { 
 	@include flip();

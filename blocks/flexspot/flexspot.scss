@@ -1,0 +1,78 @@
+﻿/// Flexspot
+/// - Version 1.0.0
+/// - Date last edited: 2016-06-24
+/// @name flexspot
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$flexspot]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/flexspot/ Demo
+/// @example scss
+///   .flexspot( @include flexspot(); )
+
+@mixin flexspot($theme: $flexspot) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+	padding: map-get($theme, "gutter") map-get($theme, "gutter") 0 map-get($theme, "gutter");
+	background: cornflowerblue;
+	
+	&-header {
+		color: #fff;
+	}
+	&-inner {
+		padding-bottom: 0.01em;
+	}
+	&-item {
+		display: block;
+		width: 100%;
+		margin-bottom: map-get($theme, "gutter");	
+		background: #fff;
+		&-content {
+			padding: 1em;
+		}
+		&-header {
+			font-weight: bold !important;
+		}
+		&-image {
+			max-height: 15em;
+			width: 100%;
+			object-fit: cover;
+		}
+		&-link { 
+			display: block;
+			padding: 0 1em 1em 1em; 
+			text-align: right;	
+		}
+		&-text {
+			//text-align: justify;
+			& + &-text { 
+				padding-top: 1em; 
+			}
+		}
+	}
+	@include for("tablet") {
+		padding-right: 0;
+		&-inner {
+			display: flex;
+			flex-flow: row wrap;
+		}
+		&-item {
+			margin-right: map-get($theme, "gutter");
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			&-image {
+				max-height: 50%;
+			}
+		}
+	}
+}
+
+/// Theme-map for flexspot-block
+/// @name flexspot
+/// @group settings
+
+$flexspot: (
+	"font-map": 0,
+	"gutter": 1em,
+);

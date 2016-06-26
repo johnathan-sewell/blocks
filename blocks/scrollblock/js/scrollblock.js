@@ -15,7 +15,7 @@
 	* @param {Function} [fnEasing]
 	*/	
 	function scrollToElm(oElm, bDirTop, nDest, nDuration, fnEasing) {
-		oElm = (oElm ? oElm : document.documentElement.scrollTop ? document.documentElement : document.body);
+		oElm = (oElm ? oElm : document.documentElement ? document.documentElement : document.body);
     	fnEasing = fnEasing || function(t) { return t<0.5 ? 2*t*t : -1+(4-2*t)*t; };
     	var
     	/**	@type {number} */
@@ -33,13 +33,15 @@
 	        /**	@type {number} */
 	        nTime = _min(1, ((nCurTime - nStart) / nDuration)),
 	        /**	@type {number} */
-	        nEasedTime = fnEasing(nTime);
+	        nEasedTime = fnEasing(nTime),
+	        /**	@type {number} */
+	        nScroll = (nEasedTime * (nDest - nFrom)) + nFrom;
 
     		if (bDirTop) {
-    			oElm.scrollTop = (nEasedTime * (nDest - nFrom)) + nFrom;
+    			oElm.scrollTop = nScroll;
     		}
     		else {
-    			oElm.scrollLeft = (nEasedTime * (nDest - nFrom)) + nFrom;
+    			oElm.scrollLeft = nScroll;
     		}
 
     		if (nTime < 1) requestAnimationFrame(_scroll);
