@@ -1,8 +1,8 @@
 /**
-* @function foldoutVideo
-* @description Adds hashchange-listener and enabled video-playback
+* @function foldout
+* @description Adds hashchange-listener, replace history state, auto video-playback
 */ 
-(function foldoutVideo(){
+(function foldout(){
 	/*jshint bitwise: false*/
 
 	/**
@@ -54,13 +54,19 @@
 	* @param {Function} [fnEasing]
 	*/	
 	function scrollToElm(oElm, bDirTop, nDest, nDuration, fnEasing) {
-		oElm = (oElm ? oElm : document.documentElement ? document.documentElement : document.body);
     	fnEasing = fnEasing || function(t) { return t<0.5 ? 2*t*t : -1+(4-2*t)*t; };
     	var
     	/**	@type {number} */
    		nStart = Date.now(),
    		/**	@type {number} */
-    	nFrom = bDirTop ? oElm.scrollTop : oElm.scrollLeft;
+    	nFrom;
+    	
+    	if (oElm) {
+    		nFrom = (bDirTop ? oElm.scrollTop : oElm.scrollLeft);
+    	}
+    	else {
+    		nFrom = (bDirTop ? (document.body.scrollTop || (document.documentElement && document.documentElement.scrollTop)) : (document.body.scrollLeft || (document.documentElement && document.documentElement.scrollLeft)));
+    	}
     	
     	if (nFrom === nDest) return;
     	function _min(a, b) { return a < b ? a : b; }
@@ -75,12 +81,24 @@
 	        nEasedTime = fnEasing(nTime),
 	        /**	@type {number} */
 	        nScroll = (nEasedTime * (nDest - nFrom)) + nFrom;
-
+			
     		if (bDirTop) {
-    			oElm.scrollTop = nScroll;
+    			if (oElm) {
+    				oElm.scrollTop = nScroll;
+    			}
+    			else {
+    				document.body.scrollTop = nScroll;
+    				document.documentElement.scrollTop = nScroll;
+    			}
     		}
     		else {
-    			oElm.scrollLeft = nScroll;
+    			if (oElm) {
+    				oElm.scrollLeft = nScroll;
+    			}
+    			else {
+     				document.body.scrollLeft = nScroll;
+    				document.documentElement.scrollLeft = nScroll;   				
+    			}
     		}
     		if (nTime < 1) requestAnimationFrame(_scroll);
     	}
