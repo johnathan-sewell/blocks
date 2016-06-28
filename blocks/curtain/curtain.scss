@@ -3,14 +3,14 @@
 /// - Date last edited: 2016-06-05
 /// @name curtain
 /// @group blocks
-/// @author Mads Stoumann, inspired by Geoff Graham
-/// @param {String} $theme [$curtain]- The theme-map to use
+/// @author Mads Stoumann, inspired by Geoff Graham!
+/// @param {String} $theme [$curtain-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/curtain/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/curtain/ Demo
 /// @example scss
 ///   .curtain( @include curtain(); )
 
-@mixin curtain($theme: $curtain) {
+@mixin curtain($theme: $curtain-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -67,10 +67,10 @@
 }
 
 /// Theme-map for curtain
-/// @name curtain
+/// @name curtain-theme
 /// @group settings
 
-$curtain: (
+$curtain-theme: (
 	"content-background": #333,
 	"content-color": #fff,
 	"content-padding": 1em,

@@ -4,13 +4,13 @@
 /// @name cart
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$cart]- The theme-map to use
+/// @param {String} $theme [$cart-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/cart/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/cart/ Demo
 /// @example scss
 ///   .cart( @include cart(); )
 
-@mixin cart($theme: $cart) {
+@mixin cart($theme: $cart-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 
@@ -101,10 +101,10 @@
 }
 
 /// Theme-map for cart-block
-/// @name cart
+/// @name cart-theme
 /// @group settings
 
-$cart: (
+$cart-theme: (
 	"cell-padding": 0.75em 0.25em,
 	"cell-vertical-align": top,
 	"font-map": 0,

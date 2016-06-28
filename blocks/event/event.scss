@@ -4,13 +4,13 @@
 /// @name event
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$event]- The theme-map to use
+/// @param {String} $theme [$event-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/event/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/event/ Demo
 /// @example scss
 ///   .event ( @include event(); )
 
-@mixin event($theme: $event) {
+@mixin event($theme: $event-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -67,10 +67,10 @@
 }
 
 /// Theme-map for event
-/// @name event
+/// @name event-theme
 /// @group settings
 
-$event: (
+$event-theme: (
 	"background": linear-gradient(to bottom, #eee, #fff),
 	"border-radius": 0.25em,
 	"box-shadow": 0 0 .5em rgba(0, 0, 0, .5),

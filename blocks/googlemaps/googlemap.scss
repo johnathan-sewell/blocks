@@ -1,16 +1,16 @@
 /// Google Maps
 /// - Version 1.0.0
 /// - Date last edited: 2016-05-02
-/// @name Google Maps
+/// @name googlemap
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$googlemaps]- The theme-map to use
+/// @param {String} $theme [$googlemap-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/googlemaps/index.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/googlemaps/ Demo
 /// @example scss
 ///   .google-map ( @include googlemap(); )
 
-@mixin googlemap($theme: $googlemap) {
+@mixin googlemap($theme: $googlemap-theme) {
 	$root: &;
 	
 	&-content {
@@ -79,10 +79,10 @@
 }
 
 /// Theme-map for Google maps
-/// @name googlemap
+/// @name googlemap-theme
 /// @group settings
 
-$googlemap: (
+$googlemap-theme: (
 	"map-height": 450px,
 	"map-width": 100%
 );

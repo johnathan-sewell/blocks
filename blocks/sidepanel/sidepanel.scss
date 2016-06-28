@@ -4,13 +4,13 @@
 /// @name sidepanel
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$sidepanel]- The theme-map to use
+/// @param {String} $theme [$sidepanel-theme]- The theme-map to use
 /// @output class-module
 /// @link http://www.stoumann.dk/examples/blocks/sidepanel/ Demo
 /// @example scss
 ///   .sidepanel ( @include sidepanel(); )
 
-@mixin sidepanel($theme: $sidepanel) {
+@mixin sidepanel($theme: $sidepanel-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -53,10 +53,10 @@
 }
 
 /// Theme-map for sidepanel
-/// @name sidepanel
+/// @name sidepanel-theme
 /// @group settings
 
-$sidepanel: (
+$sidepanel-theme: (
 	"font-map": 0,
 	"panel-background": #444,
 	"panel-color": #fff,

@@ -4,13 +4,13 @@
 /// @name table
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$table] - The theme-map to use
+/// @param {String} $theme [$table-theme] - The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/table.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/table/ Demo
 /// @example scss
 ///   .table( @include table(); )
 
-@mixin table($theme: $table) {
+@mixin table($theme: $table-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -103,10 +103,10 @@
 }
 
 /// Theme-map for table-block
-/// @name table
+/// @name table-theme
 /// @group settings
 
-$table: (
+$table-theme: (
 	"font-map": 0,
 	"table-border-collapse": collapse,
 	"table-layout": auto,

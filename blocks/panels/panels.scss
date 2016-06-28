@@ -4,13 +4,13 @@
 /// @name app
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$app]- The theme-map to use
+/// @param {String} $theme [$app-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/app.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/app/ Demo
 /// @example scss
 ///   .app( @include app(); )
 
-@mixin app($theme: $app) {
+@mixin app($theme: $app-theme) {
 	$root: &;
     @include fixed(bottom 0 left 0);
     font-size: map-get($theme, "font-root");
@@ -73,10 +73,10 @@
 }
 
 /// Theme-map for app-block
-/// @name app
+/// @name app-theme
 /// @group settings
 
-$app: (
+$app-theme: (
 	"font-root": 1rem,
 	"nav-background": linear-gradient(#222, #444),
 	"nav-height": 4em,

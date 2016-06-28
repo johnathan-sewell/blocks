@@ -4,13 +4,13 @@
 /// @name pagination
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$pagination]- The theme-map to use
+/// @param {String} $theme [$pagination-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/pagination/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/pagination/ Demo
 /// @example scss
 ///   .pagination( @include pagination(); )
 
-@mixin pagination($theme: $pagination) {
+@mixin pagination($theme: $pagination-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -19,9 +19,9 @@
 }
 
 /// Theme-map for pagination-block
-/// @name pagination
+/// @name pagination-theme
 /// @group settings
 
-$pagination: (
+$pagination-theme: (
 	"font-map": 0,
 );

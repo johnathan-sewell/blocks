@@ -4,13 +4,13 @@
 /// @name pricing
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$pricing]- The theme-map to use
+/// @param {String} $theme [$pricing-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/pricing/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/pricing/ Demo
 /// @example scss
 ///   .pricing ( @include pricing(); )
 
-@mixin pricing($theme: $pricing) {
+@mixin pricing($theme: $pricing-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -92,10 +92,10 @@
 }
 
 /// Theme-map for pricing
-/// @name pricing
+/// @name pricing-theme
 /// @group settings
 
-$pricing: (
+$pricing-theme: (
 	"font-map": 0,
 	"num-items": 4
 );

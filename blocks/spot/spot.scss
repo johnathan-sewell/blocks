@@ -4,13 +4,13 @@
 /// @name spot
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$spot] - The theme-map to use
+/// @param {String} $theme [$spot-theme] - The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/spot.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/spot/ Demo
 /// @example scss
 ///   .spot( @include spot(); )
 
-@mixin spot($theme: $spot) {
+@mixin spot($theme: $spot-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -121,10 +121,10 @@
 }
 
 /// Theme-map for spot-block
-/// @name spot
+/// @name spot-theme
 /// @group settings
 
-$spot: (
+$spot-theme: (
 	"background": linear-gradient(#ddd, #fff),
 	"border": none,
 	"close-background": lightgrey,

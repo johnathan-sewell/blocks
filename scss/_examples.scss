@@ -185,7 +185,7 @@
 
 // select
 .select { 
-	@include select($select); 
+	@include select(); 
 	&-label { font-weight: 400; &::after { font-weight: 300; } }
 }
 
@@ -234,7 +234,7 @@
 
 // tabs
 .tabs {
-	@include tabs($tabs); 
+	@include tabs(); 
 	&-panel-header { 
 		padding-bottom: 1em;
 	}

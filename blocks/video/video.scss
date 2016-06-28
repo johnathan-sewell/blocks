@@ -4,13 +4,13 @@
 /// @name video
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$video]- The theme-map to use
+/// @param {String} $theme [$video-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/video.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/video/ Demo
 /// @example scss
 ///   .video( @include video(); )
 
-@mixin video($theme: $video) {
+@mixin video($theme: $video-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	@if type-of(map-get($theme, "font")) == list { @include get-font(map-get($theme, "font")...); }
@@ -61,10 +61,10 @@
 }
 
 /// Theme-map for video
-/// @name video
+/// @name video-theme
 /// @group settings
 
-$video: (
+$video-theme: (
 	"font": ($poster-type, "light"),
 	"font-map": 0,
 	"height": 400px,

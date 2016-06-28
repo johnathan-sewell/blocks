@@ -4,13 +4,13 @@
 /// @name recipe
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$recipe]- The theme-map to use
+/// @param {String} $theme [$recipe-theme]- The theme-map to use
 /// @output class-module
 /// @link http://www.stoumann.dk/examples/blocks/flip/ Demo
 /// @example scss
 ///   .recipe ( @include recipe(); )
 
-@mixin recipe($theme: $recipe) {
+@mixin recipe($theme: $recipe-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	max-width: map-get($theme, "max-width");
@@ -76,10 +76,10 @@
 }
 
 /// Theme-map for recipe
-/// @name recipe
+/// @name recipe-theme
 /// @group settings
 
-$recipe: (
+$recipe-theme: (
 	"font-map": 0,
 	"max-width": 600px,
 	"rating-color": gold

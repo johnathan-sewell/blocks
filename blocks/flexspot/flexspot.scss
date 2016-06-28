@@ -4,13 +4,13 @@
 /// @name flexspot
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$flexspot]- The theme-map to use
+/// @param {String} $theme [$flexspo-themet]- The theme-map to use
 /// @output class-module
 /// @link http://www.stoumann.dk/examples/blocks/flexspot/ Demo
 /// @example scss
 ///   .flexspot( @include flexspot(); )
 
-@mixin flexspot($theme: $flexspot) {
+@mixin flexspot($theme: $flexspot-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	padding: map-get($theme, "gutter") map-get($theme, "gutter") 0 map-get($theme, "gutter");
@@ -69,10 +69,10 @@
 }
 
 /// Theme-map for flexspot-block
-/// @name flexspot
+/// @name flexspot-theme
 /// @group settings
 
-$flexspot: (
+$flexspot-theme: (
 	"font-map": 0,
 	"gutter": 1em,
 );

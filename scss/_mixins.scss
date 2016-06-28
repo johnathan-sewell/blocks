@@ -90,7 +90,7 @@
 	height: $width;
 }
 
-/// Responsive root-fonts from a font-map
+/// - Responsive root-fonts from a font-map
 /// @name font-sizes
 /// @group mixins
 /// @author Mads Stoumann
@@ -123,7 +123,7 @@
 	}
 }
 
-/// Get font-family and weight from map
+/// - Get font-family and weight from map
 /// @name get-font
 /// @group mixins
 /// @author Mads Stoumann
@@ -319,6 +319,16 @@
 
 @mixin targetIE {
 	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+/// @name targetSafari
+/// @group mixins
+/// @author Mads Stoumann 
+
+@mixin targetSafari {
+	@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
 		@content;
 	}
 }

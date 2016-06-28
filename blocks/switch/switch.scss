@@ -4,13 +4,13 @@
 /// @name switch
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$switch] - The theme-map to use
+/// @param {String} $theme [$switch-theme] - The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/switch.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/switch/ Demo
 /// @example scss
 ///   .switch( @include switch(); )
 
-@mixin switch($theme: $switch) {
+@mixin switch($theme: $switch-theme) {
 	& + label {
 		display: inline-block;
 		position: relative;
@@ -56,10 +56,10 @@
 }
 
 /// Theme-map for switch-block
-/// @name switch
+/// @name switch-theme
 /// @group settings
 
-$switch: (
+$switch-theme: (
 	"background": #fff,
 	"background-selected": #1e90ff,
 	"border-color": #ccc,

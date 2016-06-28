@@ -4,13 +4,13 @@
 /// @name xray
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$xray]- The theme-map to use
+/// @param {String} $theme [$xray-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/xray/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/xray/ Demo
 /// @example scss
 ///   .xray ( @include xray(); )
 
-@mixin xray($theme: $xray) {
+@mixin xray($theme: $xray-theme) {
 	$root: &;
 	
 	@extend %clearfix;
@@ -41,10 +41,10 @@
 }
 
 /// Theme-map for xray-block
-/// @name xray
+/// @name xray-theme
 /// @group settings
 
-$xray: (
+$xray-theme: (
 	"border": 1px solid #555,
 	"divider-color":  deepskyblue,
 	"divider-width": 10px

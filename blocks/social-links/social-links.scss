@@ -4,13 +4,13 @@
 /// @name social-links
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$social-links]- The theme-map to use
+/// @param {String} $theme [$social-links-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/social-links/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/social-links/ Demo
 /// @example scss
 ///   .social-links ( @include social-links(); )
 
-@mixin social-links($theme: $social-links) {
+@mixin social-links($theme: $social-links-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -39,10 +39,10 @@
 .br-youtube { fill: #cd201f; @include hover { fill: darken(#cd201f, 10); } }
 
 /// Theme-map for social-links-block
-/// @name social-links
+/// @name social-links-theme
 /// @group settings
 
-$social-links: (
+$social-links-theme: (
 	"font-map": 0,
 	"icon-width": 2em,
 	"icon-height": 2em,

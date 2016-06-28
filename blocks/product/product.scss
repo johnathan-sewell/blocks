@@ -4,13 +4,13 @@
 /// @name product
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$product]- The theme-map to use
+/// @param {String} $theme [$product-theme]- The theme-map to use
 /// @output class-module
 /// @link http://www.stoumann.dk/examples/blocks/product/ Demo
 /// @example scss
 ///   .product ( @include product(); )
 
-@mixin product($theme: $product) {
+@mixin product($theme: $product-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -179,10 +179,10 @@
 }
 
 /// Theme-map for product
-/// @name product
+/// @name product-theme
 /// @group settings
 
-$product: (
+$product-theme: (
 	"background": linear-gradient(to bottom, #fff, #fefefe),
 	"border": 1px solid #ccc,
 	"box-shadow": 0 8px 8px -8px rgba(0,0,0,.75),

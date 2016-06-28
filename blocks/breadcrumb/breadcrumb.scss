@@ -4,13 +4,13 @@
 /// @name breadcrumb
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$breadcrumb]- The theme-map to use
+/// @param {String} $theme [$breadcrumb-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/breadcrumb.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/breadcrumb/ Demo
 /// @example scss
 ///   .breadcrumb( @include breadcrumb(); )
 
-@mixin breadcrumb($theme: $breadcrumb) {
+@mixin breadcrumb($theme: $breadcrumb-theme) {
 	@include font-sizes(map-get($theme, "font-map"));
 	
 	background: map-get($theme, "background");
@@ -48,10 +48,10 @@
 }
 
 /// Theme-map for breadcrumb
-/// @name breadcrumb
+/// @name breadcrumb-theme
 /// @group settings
 
-$breadcrumb: (
+$breadcrumb-theme: (
 	"background" : linear-gradient(to bottom, #f0f0f0, #fff),
 	"border-color": #ccc,
 	"border-style": solid,

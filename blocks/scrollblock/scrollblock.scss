@@ -4,13 +4,13 @@
 /// @name scrollblock
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$scrollblock] - The theme-map to use
+/// @param {String} $theme [$scrollblock-theme] - The theme-map to use
 /// @output class-module
 /// @link http://www.stoumann.dk/examples/blocks/scrollblock/ Demo
 /// @example scss
 ///   .scrollblock( @include scrollblock(); )
 
-@mixin scrollblock($theme: $scrollblock) {
+@mixin scrollblock($theme: $scrollblock-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	position: relative;
@@ -81,10 +81,10 @@
 }
 
 /// Theme-map for scrollblock-block
-/// @name scrollblock
+/// @name scrollblock-theme
 /// @group settings
 
-$scrollblock: (
+$scrollblock-theme: (
 	"font-map": 0,
 	"height": 12rem,
 	"item-width": 9rem,

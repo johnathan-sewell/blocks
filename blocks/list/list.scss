@@ -4,13 +4,13 @@
 /// @name sitemap
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$list]- The theme-map to use
+/// @param {String} $theme [$list-theme]- The theme-map to use
 /// @output class-module
 /// @link http://www.stoumann.dk/examples/blocks/list/ Demo
 /// @example scss
 ///   .list( @include list(); )
 
-@mixin list($theme: $list) {
+@mixin list($theme: $list-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -57,10 +57,10 @@
 }
 
 /// Theme-map for list-block
-/// @name list
+/// @name list-theme
 /// @group settings
 
-$list: (
+$list-theme: (
 	"counter-background": #ccc,
 	"counter-border-radius": 50%,
 	"counter-color": #222,

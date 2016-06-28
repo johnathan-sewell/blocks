@@ -4,13 +4,13 @@
 /// @name circular
 /// @group blocks
 /// @author Wassim Foad, Mads Stoumann
-/// @param {String} $theme [$circular]- The theme-map to use
+/// @param {String} $theme [$circular-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/circular.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/circular/ Demo
 /// @example scss
 ///   .circular( @include circular(); )
 
-@mixin circular($theme: $circular) {
+@mixin circular($theme: $circular-theme) {
 	$root: &;
 	$angle: (360 / map-get($theme, "num-items") - 0deg);
 	$off: ((8 - map-get($theme, "num-items")) * 45 / map-get($theme, "num-items"));
@@ -85,10 +85,10 @@
 }
 
 /// Theme-map for circular
-/// @name circular
+/// @name circular-theme
 /// @group settings
 
-$circular: (
+$circular-theme: (
     "animation-time": .333333s,
 	"arc": false,
 	"height": 20em,

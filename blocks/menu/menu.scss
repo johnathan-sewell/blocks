@@ -4,13 +4,13 @@
 /// @name menu
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$menu]- The theme-map to use
+/// @param {String} $theme [$menu-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/menu/ Demo
+/// @link http://www.stoumann.dkexamples//blocks/menu/ Demo
 /// @example scss
 ///   .menu ( @include menu(); )
 
-@mixin menu($theme: $menu) {
+@mixin menu($theme: $menu-theme) {
 	$root: &;
 	$mobile-width-offset: (0 - map-get($theme, "mobile-width"));
 	$mobile-width-rest: (100 - map-get($theme, "mobile-width"));
@@ -220,7 +220,7 @@
 /// @name menu-theme
 /// @group settings
 
-$menu: (
+$menu-theme: (
 	"button-background" : #2980b9,
 	
 	/* List-order: mobile, tablet, desktop */

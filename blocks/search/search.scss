@@ -4,13 +4,13 @@
 /// @name search
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$search]- The theme-map to use
+/// @param {String} $theme [$search-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/search/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/search/ Demo
 /// @example scss
 ///   .search ( @include search(); )
 
-@mixin search($theme: $search) {
+@mixin search($theme: $search-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	&-advanced {
@@ -51,10 +51,10 @@
 }
 
 /// Theme-map for search-block
-/// @name search
+/// @name search-theme
 /// @group settings
 
-$search: (
+$search-theme: (
 	"fieldset-background": #555,
 	"fieldset-border": 0,
 	"fieldset-border-radius": 0.5em,

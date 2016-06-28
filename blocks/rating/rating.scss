@@ -4,12 +4,13 @@
 /// @name rating
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$rating] - The theme-map to use
+/// @param {String} $theme [$rating-theme] - The theme-map to use
 /// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/rating/ Demo
 /// @example scss
 ///   .rating( @include rating(); )
 
-@mixin rating($theme: $rating) {
+@mixin rating($theme: $rating-theme) {
 	$root: &;
 	font-size: map-get($theme, "font-root");
 	position: relative;
@@ -53,10 +54,10 @@
 }
 
 /// Theme-map for rating-block
-/// @name rating
+/// @name rating-theme
 /// @group settings
 
-$rating: (
+$rating-theme: (
 	"font-root": 1rem,
 	"description-color": cornflowerblue,
 	"label-color": lightgrey,

@@ -4,13 +4,13 @@
 /// @name tabs
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme - The theme-map to use, default to $tabs
+/// @param {String} $theme [$tabs-theme]- The theme-map to use, default to $tabs
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/tabs.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/tabs/ Demo
 /// @example scss
 /// .tabs { @include tabs(); }
 
-@mixin tabs($theme: $tabs) {
+@mixin tabs($theme: $tabs-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	&-label {
@@ -65,10 +65,10 @@
 }
 
 /// Theme-map for tabs-block
-/// @name tabs
+/// @name tabs-theme
 /// @group settings
 
-$tabs: (
+$tabs-theme: (
 	"font-map": 0,
 	"height": 18em,
 	"label-background": #eee,

@@ -1,16 +1,16 @@
 /// Returns a masonry-like structure
 /// - Version 1.0.0
 /// - Date last edited: 2016-04-29
-/// @name circular
+/// @name flexory
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$flexory]- The theme-map to use
+/// @param {String} $theme [$flexory-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/flexory.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/flexory/ Demo
 /// @example scss
 ///   .flexory( @include flexory(); )
 
-@mixin flexory($theme: $flexory) {
+@mixin flexory($theme: $flexory-theme) {
 	$root: &;
 	column-count: 0;
 	column-gap: 0;
@@ -52,11 +52,11 @@
 }
 
 /// Theme-map for flexory
-/// @name flexory
+/// @name flexory-theme
 /// @group settings
 
-$flexory: (
+$flexory-theme: (
 	"gutter": 1em,
 	"item-border-radius": 1em,
 	"item-padding": 1em
-)
+);

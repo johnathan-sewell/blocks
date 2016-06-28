@@ -4,12 +4,12 @@
 /// @name popup
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$popup] - The theme-map to use
+/// @param {String} $theme [$popup-theme] - The theme-map to use
 /// @output class-module
 /// @example scss
 ///   .popup( @include popup(); )
 
-@mixin popup($theme: $popup) {
+@mixin popup($theme: $popup-theme) {
 	$left-translate: map-get($theme, "content-position-left");
 	$top-translate: map-get($theme, "content-position-top");
 	
@@ -80,10 +80,10 @@
 }
 	
 /// Theme-map for popup
-/// @name popup
+/// @name popup-theme
 /// @group settings
 
-$popup: (
+$popup-theme: (
 	"close-background": lightgrey,
 	"close-background-hover": #333,
 	"close-border-radius": 50%,

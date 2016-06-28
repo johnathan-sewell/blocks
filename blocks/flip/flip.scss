@@ -4,13 +4,13 @@
 /// @name product
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$flip]- The theme-map to use
+/// @param {String} $theme [$flip-theme]- The theme-map to use
 /// @output class-module
 /// @link http://www.stoumann.dk/examples/blocks/flip/ Demo
 /// @example scss
 ///   .flip ( @include flip(); )
 
-@mixin flip($theme: $flip) {
+@mixin flip($theme: $flip-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 
@@ -43,9 +43,9 @@
 }
 
 /// Theme-map for flip
-/// @name flip
+/// @name flip-theme
 /// @group settings
 
-$flip: (
+$flip-theme: (
 	"font-map": 0
 );

@@ -4,13 +4,13 @@
 /// @name contact
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$contact]- The theme-map to use
+/// @param {String} $theme [$contact-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/contact/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/contact/ Demo
 /// @example scss
 ///   .contact( @include contact(); )
 
-@mixin contact($theme: $contact) {
+@mixin contact($theme: $contact-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -52,10 +52,10 @@
 }
 
 /// Theme-map for contact-block
-/// @name contact
+/// @name contact-theme
 /// @group settings
 
-$contact: (
+$contact-theme: (
 	"font-map": 0,
 	"icon-size": 2em,
 	"image-size": 110px

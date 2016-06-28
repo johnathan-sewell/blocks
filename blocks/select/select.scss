@@ -4,13 +4,13 @@
 /// @name select
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$select]- The theme-map to use
+/// @param {String} $theme [$select-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/select.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/select/ Demo
 /// @example scss
 ///   .select ( @include select(); )
 
-@mixin select($theme: $select) {
+@mixin select($theme: $select-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -92,7 +92,7 @@
 /// @name select-theme
 /// @group settings
 
-$select: (
+$select-theme: (
 	"background": #eee,
 	"border-color": #aaa,
 	"border-radius": 0.25em,

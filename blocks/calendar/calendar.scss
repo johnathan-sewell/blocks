@@ -4,13 +4,13 @@
 /// @name calendar
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$calendar]- The theme-map to use
+/// @param {String} $theme [$calendar-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/calendar/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/calendar/ Demo
 /// @example scss
 ///   .calendar ( @include calendar(); )
 
-@mixin calendar($theme: $calendar) {
+@mixin calendar($theme: $calendar-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	border-collapse: collapse;
@@ -68,10 +68,10 @@
 }
 
 /// Theme-map for calendar
-/// @name calendar
+/// @name calendar-theme
 /// @group settings
 
-$calendar: (
+$calendar-theme: (
 	"cell-border-color": #ccc,
 	"cell-border-style": dashed,
 	"cell-border-width": 0 0 1px 0,

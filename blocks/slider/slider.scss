@@ -4,13 +4,13 @@
 /// @name slider
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$slider] - The theme-map to use
+/// @param {String} $theme [$slider-theme] - The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/slider.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/slider/ Demo
 /// @example scss
 ///   .slider( @include slider(); )
 
-@mixin slider($theme: $slider) {
+@mixin slider($theme: $slider-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	$max-img-count: 10;
@@ -101,10 +101,10 @@
 }
 
 /// Theme-map for slider-block
-/// @name slider
+/// @name slider-theme
 /// @group settings
 
-$slider: (
+$slider-theme: (
 	"caption-background": #555,
 	"caption-padding": .25em,
 	"caption-text-shadow": 1px 1px 1px rgba(0, 0, 0, 0.6),

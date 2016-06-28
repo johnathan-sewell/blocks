@@ -4,16 +4,19 @@
 /// @name facets
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$facets]- The theme-map to use
+/// @param {String} $theme [$facets-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/facets/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/facets/ Demo
 /// @example scss
 ///   .facets ( @include facets(); )
 
-@mixin facets($theme: $facets) {
+@mixin facets($theme: $facets-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
-	@if type-of(map-get($theme, "font")) == list { @include get-font(map-get($theme, "font")...); }
+	
+	// TODO: Error in list-merge when using font-map
+	// @if type-of(map-get($theme, "font")) == list { @include get-font(map-get($theme, "font")...); }
+	
 	
 	@include fixed(top 0 right 0 bottom 0 left 0);
 	display: none;
@@ -188,15 +191,14 @@
 }
 
 /// Theme-map for facets-block
-/// @name facets
+/// @name facets-theme
 /// @group settings
 
-$facets: (
+$facets-theme: (
 	"apply-cancel-background": #555,
 	"apply-cancel-color": #fff,
 	"apply-filter-background": darken(#4CAF50,15),
 	"apply-filter-color": #fff,
-	"font": ($poster-type, "light"),
 	"facet-background": #eee,
 	"facet-border": 1px solid #ccc,
 	"facet-border-radius": .5em,
@@ -204,6 +206,7 @@ $facets: (
 	"facet-padding-mobile": .5em .5em 4em .5em,
 	"facet-tags-padding": 0 0 0.5em 0.5em,
 	"facet-tags-label-margin": 0.5em 0.3em 0 0,
+	"font": ($poster-type, "light"),
 	"font-map": (
 		"phone"			: 17px,
 		"phablet"		: 16px,
@@ -239,7 +242,7 @@ $facets: (
 	"z-index": z("menu")
 );
 
-$facet-list: map-merge($facets, (
+$facet-list: map-merge($facets-theme, (
 	"label-border-radius-selected": .5em .5em 0 0,
 	"label-content": "\25B8",
 	"label-content-selected": "\25BE",

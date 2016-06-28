@@ -4,13 +4,13 @@
 /// @name accordion
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$accordion]- The theme-map to use
+/// @param {String} $theme [$accordion-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/accordion.html Demo
+/// @link http://www.stoumann.dk/examples/blocks/accordion/ Demo
 /// @example scss
 ///   .accordion ( @include accordion(); )
 
-@mixin accordion($theme: $accordion) {
+@mixin accordion($theme: $accordion-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
@@ -81,7 +81,7 @@
 /// @name accordion-theme
 /// @group settings
 
-$accordion: (
+$accordion-theme: (
 	"border-color": #aaa,
 	"font-map": 0,
 	"label-background": linear-gradient(to bottom, #ddd, #eee),

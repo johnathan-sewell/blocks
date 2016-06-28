@@ -67,17 +67,17 @@
 	}	
 }
 
+/// Form
+/// - Version 1.6.1
+/// - Date last edited: 2016-06-28
 /// @name form
 /// @group form
 /// @author Mads Stoumann
-/// @param {String} $theme - The theme-map to use, defaults to $form
-/// @param {Length} $num-steps
+/// @param {String} $theme [$form]- The theme-map to use
 /// @output class-module
-/// version 1.6.1
-/// 2016-06-24
-
+/// @link http://www.stoumann.dk/examples/blocks/form/ Demo
 /// @example scss
-/// .form { @include form(); }
+///   .form ( @include form(); )
 
 @mixin form($theme: $form, $num-steps: 10) {
 	$root: &;

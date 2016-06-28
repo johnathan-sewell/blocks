@@ -1,16 +1,16 @@
 ﻿/// Foldout
-/// - Version 1.2.6
-/// - Date last edited: 2016-06-26
+/// - Version 1.2.7
+/// - Date last edited: 2016-06-28
 /// @name foldout
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$foldout]- The theme-map to use
+/// @param {String} $theme [$foldout-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/foldout/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/foldout/ Demo
 /// @example scss
 ///   .foldout ( @include foldout(); )
 
-@mixin foldout($theme: $foldout) {
+@mixin foldout($theme: $foldout-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 
@@ -95,7 +95,9 @@
 		height: 100%;
 		padding: map-get($theme, "teaser-padding");
 		background: map-get($theme, "teaser-background");
-		flex: 1;
+		
+		/* Hack for Safari :-( */
+		@include targetSafari { flex: 1; }
 		
 		&-header {}
 		&-link {}
@@ -129,7 +131,7 @@
 /// @name foldout-theme
 /// @group settings
 
-$foldout: (
+$foldout-theme: (
 	"font-map": 0,
 	"gutter": 1em,
 	"teaser-background": lightgrey,

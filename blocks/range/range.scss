@@ -4,13 +4,13 @@
 /// @name range
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$range]- The theme-map to use
+/// @param {String} $theme [$range-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/range/
+/// @link http://www.stoumann.dk/examples/blocks/range/
 /// @example scss
 ///   .range ( @include range(); )
 
-@mixin range($theme: $range) {
+@mixin range($theme: $range-theme) {
 	position: relative;
 	outline: 0;
 	width: map-get($theme, "width");
@@ -108,10 +108,10 @@
 }
 
 /// Theme-map for range-block
-/// @name range
+/// @name range-theme
 /// @group settings
 
-$range: (
+$range-theme: (
 	"handle-color": darken(orange, 20),
 	"highlight-color": orange,
 	"label-color": #aaa,

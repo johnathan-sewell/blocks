@@ -4,13 +4,13 @@
 /// @name sitemap
 /// @group blocks
 /// @author Mads Stoumann
-/// @param {String} $theme [$sitemap]- The theme-map to use
+/// @param {String} $theme [$sitemap-theme]- The theme-map to use
 /// @output class-module
-/// @link http://www.stoumann.dk/blocks/sitemap/ Demo
+/// @link http://www.stoumann.dk/examples/blocks/sitemap/ Demo
 /// @example scss
 ///   .sitemap( @include sitemap(); )
 
-@mixin sitemap($theme: $sitemap) {
+@mixin sitemap($theme: $sitemap-theme) {
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 		
@@ -34,10 +34,10 @@
 }
 
 /// Theme-map for sitemap-block
-/// @name sitemap
+/// @name sitemap-theme
 /// @group settings
 
-$sitemap: (
+$sitemap-theme: (
 	"background": lightgrey,
 	"nav-background": transparent,
 	"nav-padding": 0 1em 0 0,
