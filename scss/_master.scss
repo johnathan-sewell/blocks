@@ -52,6 +52,7 @@ hr {
 img {
 	max-width: 100%;
 	height: auto;
+	/*
 	&::before {  
 		content: "";
 		display: block;
@@ -74,6 +75,7 @@ img {
 		width: 100%;
 		text-align: center;
 	}
+	*/
 }
 
 u {
@@ -190,7 +192,6 @@ span[aria-hidden] { display: none; }
 	transform: translateY(-50%);
 }
 
-
 [data-tooltip] {
 	position: relative;
 	z-index: z("tooltip");
@@ -222,17 +223,3 @@ span[aria-hidden] { display: none; }
 		content: "";
 	}
 }
-
-
-/* Dummy Text */
-@font-face {
-	font-family: "BLOKKNeue-Regular";
-	src: url("../webfonts/BLOKKNeue-Regular.eot");
-}
-
-@font-face {
-    font-family: "BLOKKNeue-Regular";
-    src: url("../webfonts/BLOKKNeue-Regular.woff") format("woff"),
-    url("../webfonts/BLOKKNeue-Regular.svg#BLOKKNeue-Regular") format("svg");
-}
-.dummy { font-family: "BLOKKNeue-Regular", serif; color: #888; }

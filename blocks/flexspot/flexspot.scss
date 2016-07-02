@@ -1,6 +1,6 @@
 ﻿/// Flexspot
-/// - Version 1.0.0
-/// - Date last edited: 2016-06-24
+/// - Version 1.1.0
+/// - Date last edited: 2016-06-29
 /// @name flexspot
 /// @group blocks
 /// @author Mads Stoumann
@@ -14,13 +14,26 @@
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	padding: map-get($theme, "gutter") map-get($theme, "gutter") 0 map-get($theme, "gutter");
-	background: cornflowerblue;
 	
 	&-header {
-		color: #fff;
+
 	}
 	&-inner {
 		padding-bottom: 0.01em;
+	}
+	&-img {
+		position: relative;
+		width: 100%;
+		margin-bottom: map-get($theme, "gutter");
+		&-header {
+			@include absolute(left 0 bottom 0);
+			font-size: 2em;
+			padding: 0.5em;
+		}
+		&-image {
+			object-fit: cover;
+			min-height: 20em;
+		}
 	}
 	&-item {
 		display: block;
@@ -44,7 +57,6 @@
 			text-align: right;	
 		}
 		&-text {
-			//text-align: justify;
 			& + &-text { 
 				padding-top: 1em; 
 			}
@@ -55,6 +67,10 @@
 		&-inner {
 			display: flex;
 			flex-flow: row wrap;
+		}
+		&-img {
+			margin-right: map-get($theme, "gutter");
+			flex: 1;
 		}
 		&-item {
 			margin-right: map-get($theme, "gutter");

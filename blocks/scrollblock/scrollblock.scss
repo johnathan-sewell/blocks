@@ -1,6 +1,6 @@
 ﻿/// CSS-driven scrollblock
-/// - Version 1.0.0
-/// - Date last edited: 2016-06-24
+/// - Version 1.1.0
+/// - Date last edited: 2016-06-29
 /// @name scrollblock
 /// @group blocks
 /// @author Mads Stoumann
@@ -64,20 +64,23 @@
 		right: auto;
 		background-image: url(map-get($theme, "nav-prev-image"));
 	}
+
+	// Scroll bar
 	::-webkit-scrollbar {
-	    width: 0.25em;
-	    height: 0.25em;
-	    &-thumb {
-		    border-radius: 0.5em;
-		    background: #ccc;
-		    &:window-inactive {
-				background: #fefefe;
-			} 
-		}
-	    &-track {
-		    border-radius: 0.5em;
-		}
-	}	
+	    @include equal(0.25em);
+	}
+	::-webkit-scrollbar-thumb {
+	    border-radius: 0.5em;
+	    background: #cccccc;
+	}
+	// Crashes Safari
+	//::-webkit-scrollbar-thumb:window-inactive {
+    // 	background: #fefefe; 
+	//}
+	::-webkit-scrollbar-track {
+	    border-radius: 0.5em;
+	}
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 /// Theme-map for scrollblock-block

@@ -82,6 +82,11 @@
 .flexspot { 
 	@include flexspot();
 }
+.flexspot-bg1 {
+	background: #e7e8e1;
+}
+.black-header { color: #222; }
+.white-header { color: #fefefe; text-shadow: 1px 1px 1px rgba(0, 0, 0, .9); }
 
 // flip
 .flip { 
@@ -101,8 +106,6 @@
 	}
 }
 
-.google-map { @include googlemap(); }
-
 // grid
 .grid {
 	@include grid(1rem, 22rem);
@@ -121,6 +124,11 @@
 // list
 .list { 
 	@include list();
+}
+
+// map
+.map { 
+	@include map();
 }
 
 // menu

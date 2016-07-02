@@ -1,6 +1,6 @@
 /// sidepanel
-/// - Version 1.0.0
-/// - Date last edited: 2016-06-22
+/// - Version 1.1.0
+/// - Date last edited: 2016-07-01
 /// @name sidepanel
 /// @group blocks
 /// @author Mads Stoumann
@@ -32,10 +32,10 @@
 		right: auto;
 	}
 	&-toggle {
-		@include equal(0.8em);
+		@include equal(map-get($theme, "toggle-size"));
 		@include absolute(top 50% right 0);
-		font-size: 4em;
-		line-height: 0.6em;
+		font-size: map-get($theme, "toggle-font-size");
+		line-height:  map-get($theme, "toggle-line-height");
 		display: block;
 		transform: translateY(-50%);
 		text-align: center;
@@ -64,6 +64,9 @@ $sidepanel-theme: (
 	"panel-z-index": z("sidepanel"),
 	"toggle-background": cornflowerblue,
 	"toggle-color": #fff,
+	"toggle-font-size": 50px,
+	"toggle-line-height": 35px,
+	"toggle-size": 45px,
 	"width-phone": 100%,
 	"width-tablet": 40%
 );
