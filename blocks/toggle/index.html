@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en" class="blocks">
 <head>
-	<title>Blocks! Toggle</title>
+	<title>Blocks! Accordion</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
 	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
@@ -12,51 +12,104 @@
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
 		
-	<h1 class="blocks-header">Toggle</h1>
-
-	<!-- Version 1.2.2 -->
-	<section class="accordion">
-		<h2	class="accordion-header">
-			Accordion header
-		</h2>
-		
-		<div itemscope itemtype="http://schema.org/Question">
-			<input type="checkbox" class="state" aria-hidden="true" id="id1" checked />
-			<label for="id1" class="accordion-label" itemprop="text" accesskey="n">
-				Question 1
-			</label>
-			<div class="accordion-panel" itemprop="suggestedAnswer acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
-				<div class="accordion-panel-text" itemprop="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non cursus mi, accumsan rhoncus orci. Vestibulum et augue risus. Maecenas vulputate porta felis at dapibus. Sed et imperdiet ipsum, sagittis rhoncus purus.</div>
-			</div>
-		</div>
-	
-		<div itemscope itemtype="http://schema.org/Question">
-			<input type="checkbox" class="state" aria-hidden="true" id="id2" />
-			<label for="id2" class="accordion-label" itemprop="text" accesskey="o">
-				Question 2
-			</label>
-			<div class="accordion-panel" itemprop="suggestedAnswer acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
-				<div class="accordion-panel-text" itemprop="text">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor lobortis maximus. Suspendisse bibendum commodo tempor. Curabitur egestas diam ut mi ultrices, quis ultrices quam tincidunt. Mauris eget urna vel tortor aliquet tincidunt. Nam tristique nunc ante, nec congue dui sodales eget. Nam suscipit mauris a ipsum convallis, ut laoreet lacus sagittis. Mauris vitae nisl tristique, egestas arcu sed, bibendum orci. Integer ut magna et magna malesuada bibendum. Etiam viverra rhoncus urna, ut mattis odio accumsan et. Ut posuere vel nulla eu laoreet. Nulla ut turpis rutrum, ultrices mauris at, tempor elit. Nam mollis ac nisi eget bibendum.</p>
-					<p>Etiam convallis, dolor in hendrerit elementum, purus urna iaculis mauris, vel rhoncus nisl tellus in est. Ut vestibulum varius quam, nec varius ex venenatis id. Suspendisse bibendum nisi eget lectus malesuada, vitae tincidunt orci congue. Aenean eget fermentum nunc. Vestibulum nisl purus, cursus mollis tincidunt et, lobortis dictum lectus. Suspendisse molestie urna ac libero dapibus efficitur. Nullam sodales, sapien id rhoncus tempus, sem lacus porttitor arcu, mollis porta metus risus vitae odio. Cras sed posuere purus, sed molestie mauris. Duis sagittis nisl tempus nulla gravida, vel semper sem aliquet. Praesent vitae purus risus. Mauris vel magna tincidunt, interdum erat sit amet, gravida mauris.</p>
-					<p>Aliquam eu mattis metus, eget gravida neque. Mauris arcu urna, accumsan et sodales ac, dictum lacinia nunc. Quisque pretium augue eget turpis aliquet consequat. Cras at sapien scelerisque, ornare ante eu, scelerisque lorem. Aenean vel enim non leo imperdiet condimentum at ac lectus. Nullam tempus velit vitae magna pellentesque, eu ultrices turpis ultrices. Duis non felis vitae lectus sagittis pulvinar. Integer semper, odio quis molestie convallis, metus odio cursus enim, eu aliquet velit eros in nulla. Suspendisse non posuere mi. Proin laoreet, mauris non ultrices pulvinar, sapien dolor placerat dolor, sed tincidunt lacus mauris ac lectus. Integer congue vitae lectus eget porttitor. Nunc dui urna, ultrices auctor risus condimentum, tincidunt consequat massa.</p>
+	<!-- Version -->
+	<template id="template-accordion">
+		<section class="accordion">
+			<h2	class="accordion__header"><!--#data.header--></h2>
+			<!--for(var i = 0; i < data.questions.length; i++) {-->
+			<!--var isChecked = data.questions[i].checked ? " checked" : "";-->
+			<div itemscope itemtype="http://schema.org/Question">
+				<input type="checkbox" class="state" id="<!--#data.questions[i].id-->" name="<!--#data.questions[i].group-->" aria-hidden="true" data-bool="<!--#isChecked-->" />
+				<label for="<!--#data.questions[i].id-->" class="accordion__label" itemprop="text" accesskey="<!--#data.questions[i].accesskey-->">
+					<span class="accordion__label__inner"><!--#data.questions[i].question--></span>
+				</label>
+				<div class="accordion__panel" itemprop="suggestedAnswer acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
+					<div class="accordion__panel__text" itemprop="text"><!--#data.questions[i].answer--></div>
 				</div>
 			</div>
-		</div>
+			<!--}-->
+		</section>
+	</template>
+	<!--/ Version -->
+			
+	<h1 class="blocks-header">Accordion &mdash; Toggle</h1>
+	<div id="wrapper-accordion"></div><br />
+	<div id="wrapper-accordion-custom" class="custom-accordion"></div>
 	
-		<div itemscope itemtype="http://schema.org/Question">
-			<input type="checkbox" class="state" aria-hidden="true" id="id3" />
-			<label for="id3" class="accordion-label" itemprop="text" accesskey="i">
-				Question 3
-			</label>
-			<div class="accordion-panel" itemprop="suggestedAnswer acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
-				<div class="accordion-panel-text" itemprop="text">Sed placerat sed urna ut euismod. Fusce interdum dignissim ex nec tincidunt. Nunc mollis enim dictum, viverra elit sit amet, bibendum nulla.</div>
-			</div>
-		</div>
-	</section>
-	<!-- / Version -->
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{
+			"header" : "Accordion Header",
+			"questions" : 
+			[
+				{
+					"id" : "question1",
+					"group" : "accordion",
+					"accesskey" : "n",
+					"checked" : true,
+					"question" : "Question 1",
+					"answer" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non cursus mi, accumsan rhoncus orci. Vestibulum et augue risus. Maecenas vulputate porta felis at dapibus. Sed et imperdiet ipsum, sagittis rhoncus purus." 	
+				},
+				{
+					"id" : "question2",
+					"group" : "accordion",
+					"accesskey" : "o",
+					"checked" : false,
+					"question" : "Question 2",
+					"answer" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor lobortis maximus. Suspendisse bibendum commodo tempor. Curabitur egestas diam ut mi ultrices, quis ultrices quam tincidunt. Mauris eget urna vel tortor aliquet tincidunt. Nam tristique nunc ante, nec congue dui sodales eget. Nam suscipit mauris a ipsum convallis, ut laoreet lacus sagittis. Mauris vitae nisl tristique, egestas arcu sed, bibendum orci. Integer ut magna et magna malesuada bibendum. Etiam viverra rhoncus urna, ut mattis odio accumsan et. Ut posuere vel nulla eu laoreet. Nulla ut turpis rutrum, ultrices mauris at, tempor elit. Nam mollis ac nisi eget bibendum.</p><p>Etiam convallis, dolor in hendrerit elementum, purus urna iaculis mauris, vel rhoncus nisl tellus in est. Ut vestibulum varius quam, nec varius ex venenatis id. Suspendisse bibendum nisi eget lectus malesuada, vitae tincidunt orci congue. Aenean eget fermentum nunc. Vestibulum nisl purus, cursus mollis tincidunt et, lobortis dictum lectus. Suspendisse molestie urna ac libero dapibus efficitur. Nullam sodales, sapien id rhoncus tempus, sem lacus porttitor arcu, mollis porta metus risus vitae odio. Cras sed posuere purus, sed molestie mauris. Duis sagittis nisl tempus nulla gravida, vel semper sem aliquet. Praesent vitae purus risus. Mauris vel magna tincidunt, interdum erat sit amet, gravida mauris.</p><p>Aliquam eu mattis metus, eget gravida neque. Mauris arcu urna, accumsan et sodales ac, dictum lacinia nunc. Quisque pretium augue eget turpis aliquet consequat. Cras at sapien scelerisque, ornare ante eu, scelerisque lorem. Aenean vel enim non leo imperdiet condimentum at ac lectus. Nullam tempus velit vitae magna pellentesque, eu ultrices turpis ultrices. Duis non felis vitae lectus sagittis pulvinar. Integer semper, odio quis molestie convallis, metus odio cursus enim, eu aliquet velit eros in nulla. Suspendisse non posuere mi. Proin laoreet, mauris non ultrices pulvinar, sapien dolor placerat dolor, sed tincidunt lacus mauris ac lectus. Integer congue vitae lectus eget porttitor. Nunc dui urna, ultrices auctor risus condimentum, tincidunt consequat massa.</p>"
+				},
+				{
+					"id" : "question3",
+					"group" : "accordion",
+					"accesskey" : "i",
+					"checked" : false,
+					"question" : "Question 3",
+					"answer" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non cursus mi, accumsan rhoncus orci. Vestibulum et augue risus. Maecenas vulputate porta felis at dapibus. Sed et imperdiet ipsum, sagittis rhoncus purus." 	
+				}				
+			]
+		},
+		oJSONCustom = 
+		{
+			"id" : "accordion",
+			"header" : "Custom Accordion Header",
+			"questions" : 
+			[
+				{
+					"id" : "question4",
+					"group" : "accordion2",
+					"accesskey" : "t",
+					"checked" : false,
+					"question" : "Question 1",
+					"answer" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non cursus mi, accumsan rhoncus orci. Vestibulum et augue risus. Maecenas vulputate porta felis at dapibus. Sed et imperdiet ipsum, sagittis rhoncus purus." 	
+				},
+				{
+					"id" : "question5",
+					"group" : "accordion2",
+					"accesskey" : "s",
+					"checked" : false,
+					"question" : "Question 2",
+					"answer" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor lobortis maximus. Suspendisse bibendum commodo tempor. Curabitur egestas diam ut mi ultrices, quis ultrices quam tincidunt. Mauris eget urna vel tortor aliquet tincidunt. Nam tristique nunc ante, nec congue dui sodales eget. Nam suscipit mauris a ipsum convallis, ut laoreet lacus sagittis. Mauris vitae nisl tristique, egestas arcu sed, bibendum orci. Integer ut magna et magna malesuada bibendum. Etiam viverra rhoncus urna, ut mattis odio accumsan et. Ut posuere vel nulla eu laoreet. Nulla ut turpis rutrum, ultrices mauris at, tempor elit. Nam mollis ac nisi eget bibendum.</p><p>Etiam convallis, dolor in hendrerit elementum, purus urna iaculis mauris, vel rhoncus nisl tellus in est. Ut vestibulum varius quam, nec varius ex venenatis id. Suspendisse bibendum nisi eget lectus malesuada, vitae tincidunt orci congue. Aenean eget fermentum nunc. Vestibulum nisl purus, cursus mollis tincidunt et, lobortis dictum lectus. Suspendisse molestie urna ac libero dapibus efficitur. Nullam sodales, sapien id rhoncus tempus, sem lacus porttitor arcu, mollis porta metus risus vitae odio. Cras sed posuere purus, sed molestie mauris. Duis sagittis nisl tempus nulla gravida, vel semper sem aliquet. Praesent vitae purus risus. Mauris vel magna tincidunt, interdum erat sit amet, gravida mauris.</p><p>Aliquam eu mattis metus, eget gravida neque. Mauris arcu urna, accumsan et sodales ac, dictum lacinia nunc. Quisque pretium augue eget turpis aliquet consequat. Cras at sapien scelerisque, ornare ante eu, scelerisque lorem. Aenean vel enim non leo imperdiet condimentum at ac lectus. Nullam tempus velit vitae magna pellentesque, eu ultrices turpis ultrices. Duis non felis vitae lectus sagittis pulvinar. Integer semper, odio quis molestie convallis, metus odio cursus enim, eu aliquet velit eros in nulla. Suspendisse non posuere mi. Proin laoreet, mauris non ultrices pulvinar, sapien dolor placerat dolor, sed tincidunt lacus mauris ac lectus. Integer congue vitae lectus eget porttitor. Nunc dui urna, ultrices auctor risus condimentum, tincidunt consequat massa.</p>"
+				},
+				{
+					"id" : "question6",
+					"group" : "accordion2",
+					"accesskey" : "u",
+					"checked" : false,
+					"question" : "Question 3",
+					"answer" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non cursus mi, accumsan rhoncus orci. Vestibulum et augue risus. Maecenas vulputate porta felis at dapibus. Sed et imperdiet ipsum, sagittis rhoncus purus." 	
+				}				
+			]
+		},
+		oTemplate = document.getElementById("template-accordion"),
+		oWrapper = document.getElementById("wrapper-accordion"),
+		oWrapperCustom = document.getElementById("wrapper-accordion-custom");
+		
+		fn.render(oJSON, oTemplate, oWrapper, 1);
+		fn.render(oJSONCustom, oTemplate, oWrapperCustom, 1);
+	</script>
+	<script src="../../js/setaccesskeys.js"></script>
 
-	<script src="../../js/setaccesskeys.js"></script>	
-	
 </body>
 </html>

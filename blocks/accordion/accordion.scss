@@ -1,6 +1,6 @@
-﻿/// Accordion-module, can either toggle (by using checkboxes in the HTML) or collapse (by using radio-buttons)
-/// - Version 1.2.5
-/// - Date last edited: 2016-04-07
+/// Accordion-module, can either toggle (by using checkboxes in the HTML) or collapse (by using radio-buttons)
+/// - Version 1.2.7
+/// - Date last edited: 2016-08-02
 /// @name accordion
 /// @group blocks
 /// @author Mads Stoumann
@@ -14,11 +14,11 @@
 	$root: &;
 	@include font-sizes(map-get($theme, "font-map"));
 	
-	&-header {
+	&__header {
 		padding: 1.75% 0;
 		font-weight: 300;
 	} 
-	&-label {
+	&__label {
 		position: relative;
 		font-size: map-get($theme, "label-font-size");
 		display: block;
@@ -27,7 +27,7 @@
 		color: map-get($theme, "label-color");
 		border: 1px solid map-get($theme, "border-color");
 		background: map-get($theme, "label-background");
-		&-inner { /* Optional inner div-element */
+		&__inner { /* Optional inner div-element */
 			max-width: 90%;
 		}
 		&::after {
@@ -43,29 +43,27 @@
 			&::after { left: -0.5em; }
 		}
 	}
-	&-panel {
+	&__panel {
 		position: relative;
 		overflow: hidden;
 		transition: max-height 0.2s ease 0s;
 		max-height: 0;
   		height: auto;
   		background: map-get($theme, "text-background");
-  		&-text {
+  		&__text {
   			padding: map-get($theme, "padding");
 			color: map-get($theme, "text-color");
 			border: 1px solid map-get($theme, "border-color");
 			border-top-color: transparent;
-			
 		}
 	}
 	
-	$root-string: str-replace(unquote("#{$root}"), " .", ".");
 	$root-class: str-split(unquote("#{$root}"), " .");
 	
 	@at-root {
-		#{$root-string} .state:checked + #{$root-class}-label {
+		#{$root} .state:checked + #{$root-class}__label {
 			&::after { content: map-get($theme, "toggle-contract"); }
-			+ #{$root}-panel { 
+			+ #{$root}__panel { 
 				max-height: map-get($theme, "panel-max-height");
 				transition-duration: 0.7s;
 				& > #{$root}-panel-text {

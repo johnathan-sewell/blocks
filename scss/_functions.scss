@@ -1,4 +1,48 @@
-﻿/// - Checks if $value is numeric
+﻿/// Asset URL builder
+/// @access private
+/// @param {String} $type - Asset type, matching folder name
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the asset
+
+@function asset($type, $file) {
+  @return url($asset-base-path + "/" + $type + "/" + $file);
+}
+
+/// Image asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+
+@function image($file) {
+  @return asset("images", $file);
+}
+
+/// SVG asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+
+@function svg($file) {
+  @return asset("svg", $file);
+}
+
+/// - Returns a dark or light color based on input (background) color
+/// @name forecolor
+/// @group functions
+/// @author Mads Stoumann
+/// @param {String} $color
+
+@function color($bgcolor, $color-dark : #111111, $color-light: #fefefe) {
+	@if (lightness($bgcolor) > 50) {
+		@return $color-dark;
+	} @else {
+		@return $color-light;
+	}
+}
+
+/// - Checks if $value is numeric
 /// @name is-valid-length
 /// @group functions
 /// @author Hugo Giraudel
@@ -7,20 +51,6 @@
 @function is-valid-length($value) {
 	@return (type-of($value) == "number" and not unitless($value)) 
     or (index(auto initial inherit 0, $value) != false);
-}
-
-/// - Returns a dark or light color based on input (background) color
-/// @name colorText
-/// @group functions
-/// @author Mads Stoumann
-/// @param {String} $color
-
-@function colorText($color) {
-	@if (lightness($color) > 50) {
-		@return #222;
-	} @else {
-		@return #eee;
-	}
 }
 
 /// - Returns a random color

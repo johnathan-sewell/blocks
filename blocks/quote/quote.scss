@@ -1,0 +1,43 @@
+﻿// - Version 1.0.0
+/// - Date last edited: 2016-08-14
+/// @name quote
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$quote-theme] - The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/angle/ Demo
+/// @example scss
+///   .quote( @include quote(); )
+
+@mixin quote($theme: $quote-theme) {
+	@include font-sizes(map-get($theme, "font-map"));
+	margin: 0 0 5%;
+	padding: 10% 2em;
+	text-align: center;
+	
+	&__cite {
+		display: block;
+		font-size: 1.25em;
+		color: inherit;
+	}
+	&__main {
+		font: map-get($theme, "main-font");
+		&::before {
+			color: inherit;
+			content: "\201C";
+			font-size: 4em;
+			line-height: 0.1em;
+			margin-right: 0.1em;
+			vertical-align: -0.4em;
+		}
+	}
+}
+
+/// Theme-map for quote-block
+/// @name quote-theme
+/// @group settings
+
+$quote-theme: (
+	"font-map": 0,
+	"main-font": #{2.25em "Georgia", serif}	
+);

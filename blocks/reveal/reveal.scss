@@ -1,0 +1,84 @@
+﻿// - Version 1.0.0
+/// - Date last edited: 2016-09-13
+/// @name reveal
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$reveal-theme] - The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/reveal/ Demo
+/// @example scss
+///   .reveal( @include reveal(); )
+
+@mixin reveal($theme: $reveal-theme) {
+	display: block;
+	text-align: center;
+	
+	&__label {
+		@include equal(map-get($theme, "icon-size"));
+		font-size: map-get($theme, "icon-fontsize");
+		position: relative;
+		display: inline-block;		
+		margin: map-get($theme, "icon-margin");
+		border-radius: 50%;
+		background: map-get($theme, "icon-background");
+		
+		&::after {
+			font-size: map-get($theme, "icon-fontsize") / 2;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			content: map-get($theme, "icon-expand");
+			transition: all 0.33s;
+			transform: translate(-50%, -50%) rotate(-135deg);
+			color: map-get($theme, "icon-color");
+		}
+	}
+	
+	&__panel {
+		overflow: hidden;
+		max-height: 0;
+		padding: 0;
+		opacity: 0;
+		color: map-get($theme, "panel-color");
+		background: map-get($theme, "panel-background");
+	}
+	
+	.state:checked + &__label {
+		top: map-get($theme, "icon-top");
+		transition: all 0.33s;
+		background: map-get($theme, "icon-background-selected");
+		&::after {
+			transform: translate(-50%, -50%) rotate(0deg);
+			color: map-get($theme, "icon-color-selected");
+		}
+	}
+	
+	.state:checked + &__label + &__panel {
+		max-height: 100vh;
+		margin: map-get($theme, "panel-margin");
+		padding: map-get($theme, "panel-padding");
+		transition: all 0.33s ease-in;
+		opacity: 1;
+	}
+}
+
+/// Theme-map for reveal-block
+/// @name reveal-theme
+/// @group settings
+
+$reveal-theme: (
+	"icon-background": cornflowerblue,
+	"icon-background-selected": orange,
+	"icon-color": #fff,
+	"icon-color-selected": #fff,
+	"icon-contract": "\2014",
+	"icon-expand": "\2715",
+	"icon-fontsize": 2em,
+	"icon-margin": 0 0 1em 0,
+	"icon-size": 2em,
+	"icon-top": 4em,
+	"panel-background": #fff,
+	"panel-color": #222,
+	"panel-margin": 1em 0,
+	"panel-padding": 6em 2em 2em 2em
+);

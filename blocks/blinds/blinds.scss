@@ -1,0 +1,97 @@
+﻿/// Blinds
+/// - Version 1.3.0
+/// - Date last edited: 2016-08-01
+/// @name blinds
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$blinds-theme] - The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/blinds/ Demo
+/// @example scss
+///   .blinds( @include blinds(); )
+
+@mixin blinds($theme: $blinds-theme) {
+	$root: &;
+	@include font-sizes(map-get($theme, "font-map"));
+
+	$c: map-get($theme, "background-colors");
+	$n: map-get($theme, "num-panels");
+		
+	&__panel {
+		display: block;
+		padding: map-get($theme, "panel-padding");
+		transition: width 0.5s, display 1.5s;
+		box-shadow: -0.25em 0 1em -0.5em rgba(0, 0, 0, 0.5);
+		
+		&__header {
+			font-size: 2em;
+			white-space: nowrap;
+		}
+		&__text { 
+			display: none; 
+		}
+	}
+	
+	// State
+	.state:checked + #{$root}__panel {
+		#{$root}__panel__text { 
+			display: block; 
+		}
+	}
+	
+	@for $i from 0 through ($n - 1) {
+		$args: append($c, $i * 100% / ($n - 1));
+		$background: mix($args...);
+		
+		#{$root}__panel:nth-of-type(#{$i + 1}) {
+			background: $background;
+			color: color($background);
+		}
+	}
+
+	// RWD
+	@include for("tablet") {
+		height: map-get($theme, "height");
+		overflow: hidden;
+		&__panel {
+			float: left;
+			height: 100%;
+		}
+		
+		// State
+		.state:checked + #{$root}__panel {
+			width: map-get($theme, "selected-width");
+		}
+		.state:not(:checked) + #{$root}__panel #{$root}__panel__header { 
+			font-size: 1.75em;
+			transform: rotate(90deg) translateY(50%);	
+			transform-origin: 1em 50%;
+		}
+	
+		$width : (100% - map-get($theme, "selected-width")) / ($n - 1);
+		@for $i from 0 through $n {
+			#{$root}__panel:nth-of-type(#{$i}) {
+				width: $width;
+			}
+		}
+	}
+	
+	@include for("desktop") {
+		.state:not(:checked) + #{$root}__panel #{$root}__panel__header { 
+			transform-origin: 1em 75%;
+		}		
+	}
+}
+
+/// Theme-map for blinds-block
+/// @name blinds-theme
+/// @group settings
+
+$blinds-theme: (
+	"font-map": 0,
+	"background-colors": #63a6c1 #1e3f57,
+	"height": 40em,
+	"num-panels": 5,
+	"panel-padding": 1.5em,
+	"selected-width": 70%
+);

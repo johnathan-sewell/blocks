@@ -1,6 +1,6 @@
 ﻿/// Breadcrumb-module
-/// - Version 1.2.5
-/// - Date last edited: 2016-04-05
+/// - Version 1.2.6
+/// - Date last edited: 2016-08-02
 /// @name breadcrumb
 /// @group blocks
 /// @author Mads Stoumann
@@ -13,19 +13,19 @@
 @mixin breadcrumb($theme: $breadcrumb-theme) {
 	@include font-sizes(map-get($theme, "font-map"));
 	
-	background: map-get($theme, "background");
+	max-width: 100%;
 	border-width: map-get($theme, "border-width");
 	border-style: map-get($theme, "border-style");
 	border-color: map-get($theme, "border-color");
-	max-width: 100%;
+	background: map-get($theme, "background");
 	
-	&-inner {
-		white-space: nowrap;
+	&__inner {
 		overflow: hidden;
-		text-overflow: ellipsis;
 		margin: 0;
 		padding: 0.75em 0;
-		& > a,
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		
 		& > [itemProp="itemListElement"]:first-of-type a { 
 			padding-left: 1em;
 			&::before {
@@ -37,12 +37,14 @@
 		font-weight: map-get($theme, "divider");
 		text-decoration: none;
 		&::before {
-			content: map-get($theme, "divider");
 			padding: 0 0.5em;
+			content: map-get($theme, "divider");
 		}
 		@include hover {
 			color: map-get($theme, "hover-color");
-			text-decoration: underline;
+			&::before { 
+				color: map-get($theme, "color");
+			}
 		}
 	}
 }

@@ -1,0 +1,158 @@
+/// Returns a class-module for *imagemap*
+/// - Version 1.0.0
+/// - Date last edited: 2016-08-25
+/// @name imagemap
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$imagemap-theme]- The theme-map to use, default to $tabs
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/imagemap/ Demo
+/// @example scss
+/// .imagemap { @include imagemap(); }
+
+@mixin imagemap($theme: $imagemap-theme) {
+	$root: &;
+	@extend %fontmap;
+	
+	width: 100%;
+	float: left;
+	position: relative;
+	margin: 0;
+	
+	&__link {
+		&--selected {
+			#{$root}__path {
+				@extend %selected;
+				opacity: map-get($theme, "path-selected-opacity");
+				stroke-dasharray: 0;
+				@include hover {
+					opacity: map-get($theme, "path-selected-opacity");
+					stroke-dasharray: 0;
+				}
+			}
+			#{$root}__line {
+				@include for("tablet") {
+					animation: dash 0.3s linear forwards;
+					stroke: map-get($theme, "radio-selected");
+					stroke-width: 2;
+					stroke-linecap: round;
+				}
+			}
+			#{$root}__radio {
+				fill: map-get($theme, "radio-selected");
+				animation: pulse 0.3s linear forwards;
+			}
+			#{$root}__radio--outer {
+				stroke: map-get($theme, "radio-selected");
+			}
+		}
+	}
+	
+	&__panel { 
+		margin: 0 0 1em 0;
+		padding: 1em;
+		border: map-get($theme, "panel-border");
+		border-radius: 0.5em;
+		background: map-get($theme, "panel-background");
+		animation: fadeIn 0.8s ease-in-out forwards;
+		&:target {
+			display: block;
+			background: map-get($theme, "panel-background-selected");
+			border-color: map-get($theme, "radio-selected");
+		}
+	}
+	
+	&__panels {
+		float: left;	
+	}
+	
+	&__path {
+		fill: map-get($theme, "path-fill");
+		opacity: 0;	
+		@include hover {
+            stroke-width: map-get($theme, "path-stroke-width");
+            stroke: map-get($theme, "path-stroke-selected");
+			opacity: map-get($theme, "path-hover-opacity");
+			stroke-dasharray: 5;
+			transition: opacity 0.2s ease-in;
+		}
+	}
+	
+	&__radio {
+		fill: map-get($theme, "radio-fill");
+		stroke-width: map-get($theme, "radio-stroke-width");
+		stroke: map-get($theme, "radio-inner-stroke");
+		transform-origin: center center;
+
+		&--outer {
+			fill: none;
+			stroke-width: map-get($theme, "radio-stroke-width");
+			stroke: map-get($theme, "radio-fill");
+		}
+	}
+	
+	//Extends
+	%selected {
+		stroke-width: map-get($theme, "path-stroke-width");
+		stroke: map-get($theme, "path-stroke-selected");
+	}
+	
+	// RWD
+	@include for("tablet") {
+		width: map-get($theme, "image-width");	
+		&__panel {
+			display: none;
+		}
+		&__panels {
+			width: map-get($theme, "panel-width");
+		}
+	}
+}
+
+/* Animations */
+@keyframes dash {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.5);
+		opacity: 0;
+	}
+	25% {
+		transform: scale(2.5);
+		opacity: 0.1;
+		
+	}
+	75% {
+		transform: scale(1);
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/// Theme-map for imagemap-block
+/// @name imagemap-theme
+/// @group settings
+
+$imagemap-theme: (
+	"image-width": 60%,
+	"panel-background": linear-gradient(45deg, #fefefe, #fff),
+	"panel-background-selected": linear-gradient(45deg, #eee, #fff),
+	"panel-border": 1px solid #ccc,
+	"panel-width": 40%,
+	"path-fill": #ffffff,
+	"path-hover-opacity": 0.4,
+	"path-selected-opacity": 0.6,
+	"path-stroke": deepskyblue,
+	"path-stroke-selected": darken(deepskyblue, 25),
+	"path-stroke-width": 3px,
+	"radio-fill": deepskyblue,
+	"radio-inner-stroke": #ffffff,
+	"radio-selected": darken(deepskyblue, 25),
+	"radio-stroke-width": 6px
+);

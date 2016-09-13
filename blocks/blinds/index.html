@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Blinds</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<!-- Version -->
+	<template id="template-blinds">
+		<section class="blinds">
+		<!--for(var i = 0; i < data.panels.length; i++) {-->
+		<!--var isChecked = data.panels[i].checked ? " checked" : "";-->
+			<input type="radio" id="<!--#data.panels[i].id-->" name="<!--#data.panels[i].group-->" class="state" aria-hidden="true" data-bool="<!--#isChecked-->" />
+			<label for="<!--#data.panels[i].id-->" class="blinds__panel" itemscope="" itemtype="http://schema.org/CreativeWork" accesskey="<!--#data.panels[i].accesskey-->">
+				<h3 class="blinds__panel__header" itemprop="headline"><!--#data.panels[i].header--></h3>
+				<div class="blinds__panel__text" itemprop="text"><!--#data.panels[i].text--></div>
+			</label>
+		<!--}-->
+		</section>
+	</template>
+	<!--/ Version -->
+	
+	<h1 class="blocks-header">Blinds</h1><br />
+	<div id="wrapper-blinds"></div>
+		
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{
+			"panels" : 
+			[
+				{
+					"id" : "blind1",
+					"group" : "blinds",
+					"accesskey" : "h",
+					"checked" : true,
+					"header" : "Header not too long",
+					"text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros.</p><p>Vestibulum imperdiet facilisis velit quis bibendum. Praesent faucibus urna quis metus faucibus consectetur. Etiam tincidunt sem in dui dignissim, sed facilisis neque consequat. Curabitur feugiat sollicitudin erat ut dignissim. Vestibulum a pretium sapien. Vestibulum tempus varius ligula quis vestibulum. Sed dictum volutpat est, at rhoncus nisi euismod sit amet. Duis porta sed libero at consectetur. Nam imperdiet est sed felis cursus tristique. Ut convallis mauris in nisl elementum, et tincidunt ligula venenatis.</p>" 	
+				},
+				{
+					"id" : "blind2",
+					"group" : "blinds",
+					"accesskey" : "s",
+					"checked" : false,
+					"header" : "A shorter header",
+					"text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros.</p><p>Vestibulum imperdiet facilisis velit quis bibendum. Praesent faucibus urna quis metus faucibus consectetur. Etiam tincidunt sem in dui dignissim, sed facilisis neque consequat. Curabitur feugiat sollicitudin erat ut dignissim. Vestibulum a pretium sapien. Vestibulum tempus varius ligula quis vestibulum. Sed dictum volutpat est, at rhoncus nisi euismod sit amet. Duis porta sed libero at consectetur. Nam imperdiet est sed felis cursus tristique. Ut convallis mauris in nisl elementum, et tincidunt ligula venenatis.</p>" 	
+				},
+				{
+					"id" : "blind3",
+					"group" : "blinds",
+					"accesskey" : "c",
+					"checked" : false,
+					"header" : "Contact",
+					"text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros.</p><p>Vestibulum imperdiet facilisis velit quis bibendum. Praesent faucibus urna quis metus faucibus consectetur. Etiam tincidunt sem in dui dignissim, sed facilisis neque consequat. Curabitur feugiat sollicitudin erat ut dignissim. Vestibulum a pretium sapien. Vestibulum tempus varius ligula quis vestibulum. Sed dictum volutpat est, at rhoncus nisi euismod sit amet. Duis porta sed libero at consectetur. Nam imperdiet est sed felis cursus tristique. Ut convallis mauris in nisl elementum, et tincidunt ligula venenatis.</p>" 	
+				},
+				{
+					"id" : "blind4",
+					"group" : "blinds",
+					"accesskey" : "u",
+					"checked" : false,
+					"header" : "About Us",
+					"text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros.</p><p>Vestibulum imperdiet facilisis velit quis bibendum. Praesent faucibus urna quis metus faucibus consectetur. Etiam tincidunt sem in dui dignissim, sed facilisis neque consequat. Curabitur feugiat sollicitudin erat ut dignissim. Vestibulum a pretium sapien. Vestibulum tempus varius ligula quis vestibulum. Sed dictum volutpat est, at rhoncus nisi euismod sit amet. Duis porta sed libero at consectetur. Nam imperdiet est sed felis cursus tristique. Ut convallis mauris in nisl elementum, et tincidunt ligula venenatis.</p>" 	
+				},
+				{
+					"id" : "blind5",
+					"group" : "blinds",
+					"accesskey" : "t",
+					"checked" : false,
+					"header" : "Terms & Conditions",
+					"text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros.</p><p>Vestibulum imperdiet facilisis velit quis bibendum. Praesent faucibus urna quis metus faucibus consectetur. Etiam tincidunt sem in dui dignissim, sed facilisis neque consequat. Curabitur feugiat sollicitudin erat ut dignissim. Vestibulum a pretium sapien. Vestibulum tempus varius ligula quis vestibulum. Sed dictum volutpat est, at rhoncus nisi euismod sit amet. Duis porta sed libero at consectetur. Nam imperdiet est sed felis cursus tristique. Ut convallis mauris in nisl elementum, et tincidunt ligula venenatis.</p>" 	
+				}
+			]
+		}, 
+		oTemplate = document.getElementById("template-blinds"),
+		oWrapper = document.getElementById("wrapper-blinds");
+		fn.render(oJSON, oTemplate, oWrapper, 1)
+	</script>
+</body>	
+</html>

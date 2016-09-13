@@ -3,6 +3,7 @@
 * @description Adds hashchange-listener, replace history state, auto video-playback
 */ 
 (function foldout(){
+    "use strcit";
 	/*jshint bitwise: false*/
 
 	/**

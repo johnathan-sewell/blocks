@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Imagemap</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+
+	<!-- Version -->
+	<template id="template-imagemap">
+	<figure class="imagemap">
+		<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 <!--#data.width--> <!--#data.height-->" preserveAspectRatio="xMinYMin meet">
+			<image width="100%" height="100%" xlink:href="<!--#data.image-->"></image>
+			<!--var i, nLen=data.panels.length;-->
+			<!--for(i=0; i<nLen; i++) {-->
+			<a xlink:href="#<!--#data.panels[i].id-->" class="imagemap__link" title="<!--#data.panels[i].panelheader-->">
+				<circle r="<!--#data.panels[i].r-->" cx="<!--#data.panels[i].x-->" cy="<!--#data.panels[i].y-->" class="imagemap__path"></circle>
+			</a>
+			<!--}-->
+		</svg>
+	</figure>
+	<section class="imagemap__panels">
+		<!--for(i=0; i<nLen; i++) {-->
+		<article class="imagemap__panel" id="<!--#data.panels[i].id-->">
+			<h2 class="imagemap__panel__header"><!--#data.panels[i].panelheader--></h2>
+			<div class="imagemap__panel__text"><!--#data.panels[i].paneltext--></div>
+		</article>
+		<!--}-->
+	</section>	
+	</template>
+	<!-- /Version -->
+
+	<h1 class="blocks-header">Imagemap &mdash; Circles</h1><br />
+	<div id="wrapper-imagemap"></div>
+		
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{
+			"image": "sensuramio.png",
+			"height": 1000,
+			"width": 1000,
+			"panels": 
+			[
+				{
+					"id": "map1",
+					"r": 150,
+					"x": 495,
+					"y": 265,
+					"panelheader": "Panel 1",
+					"paneltext": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. "
+				},
+				{
+					"id": "map2",
+					"r": 100,
+					"x": 380,
+					"y": 650,
+					"panelheader": "Panel 2",
+					"paneltext": "Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. "
+				},
+											{
+					"id": "map3",
+					"r": 100,
+					"x": 620,
+					"y": 650,
+					"panelheader": "Panel 3",
+					"paneltext": "Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. "
+				},
+				{
+					"id": "map4",
+					"r": 120,
+					"x": 530,
+					"y": 875,
+					"panelheader": "Panel 4",
+					"paneltext": "Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros."
+				}
+			]
+		}, 
+		oTemplate = document.getElementById("template-imagemap"),
+		oWrapper = document.getElementById("wrapper-imagemap");
+		fn.render(oJSON, oTemplate, oWrapper, 1)
+	</script>
+	<script src="js/imagemap.js"></script>
+</body>
+</html>

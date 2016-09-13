@@ -11,112 +11,173 @@
 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
-
-	<!-- Mobile Mega-Menu Toggle + Overlay -->
-	<input type="checkbox" class="state menu-toggle-mobile" aria-hidden="true" id="tgl-mobile" onclick="body.classList.toggle('hide-overflow', this.checked);" />
-	<label for="tgl-mobile" class="menu-overlay-mobile"></label>
-
-	<!-- Optional: Service Menu -->		
+	
+	<!-- Version -->
+	<template id="template-menu">
+	<!--var i, j, k, nLen=data.items.length;-->
+	<input type="checkbox" class="state menu__toggle--mobile" aria-hidden="true" id="<!--#data.tglMobileID-->" />
+	<label for="<!--#data.tglMobileID-->" class="menu__overlay--mobile"></label>
+	
 	<nav class="nav-service" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-		<label for="tgl-mobile" class="menu-toggle-mobile-icon">&#9776;</label>
+		<label for="<!--#data.tglMobileID-->" class="menu__toggle--mobile__icon">&#9776;</label>
 	</nav>
-
-	<div class="menu-wrapper">
-		<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-			
-			<!-- Desktop Overlay -->
-			<input id="tgl-overlay" name="mgm" type="radio" class="state menu-toggle" aria-hidden="true" checked>
-			<label for="tgl-overlay" class="menu-overlay"></label>
-			
-			<label class="menu-label no-panel"><a href="#home" itemprop="name">Home</a></label>
-			
-			<input id="nav-mg-1" name="mgm" type="radio" class="state" aria-hidden="true" accesskey="8" />
-			<label for="nav-mg-1" class="menu-label" itemprop="name">Categories</label>
-			<div class="menu-panel">
-				<nav class="menu-sub">
-					<strong>Therapeutic areas</strong>
-					<a href="#">Heart-failure in figures and a long link</a>
-					<a href="#">Neurology</a>
-					<a href="#">Ophthalmology</a>
-				</nav>
-				<nav class="menu-sub">
-					<strong>Cardiology</strong>
-					<a href="#">Heart-failure in figures and a long link</a>
-					<a href="#">Product area</a>
-					<a href="#">Product area</a>
-					<a href="#">Product area</a>
-				</nav>
+	
+	<div class="menu__wrapper <!--#data.useIcons-->">
+		<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">	
+			<input id="<!--#data.tglOverlayID-->" name="<!--#data.group-->" type="radio" class="state menu__toggle" aria-hidden="true" checked>
+			<label for="<!--#data.tglOverlayID-->" class="menu__overlay"></label>
+			<!--for(i=0; i<nLen; i++) {-->
+			<input id="<!--#data.items[i].id-->" name="<!--#data.group-->" type="radio" class="state" aria-hidden="true" />
+			<label for="<!--#data.items[i].id-->" class="menu__label" itemprop="name">
+				<!--if (data.useIcons) {-->
+				<svg class="menu__label__icon"><use xlink:href="<!--#data.items[i].icon-->"></use></svg>
+				<!--}-->
+				<span class="menu__label__text"><!--#data.items[i].label--></span>
+			</label>
+			<div class="menu__panel">
+				<!--for(j=0; j<data.items[i].panels.length; j++) {-->
+				<div class="menu__sub">
+					<input id="<!--#data.items[i].id+j-->" name="<!--#data.group-->_sub" type="radio" class="state" aria-hidden="true" />
+					<label for="<!--#data.items[i].id+j-->" class="menu__sub__label" itemprop="name">
+						<!--#data.items[i].panels[j].header-->
+					</label>
+					<nav class="menu__sub__panel">
+					<!--for(k=0; k<data.items[i].panels[j].links.length; k++) {-->
+						<a href="<!--#data.items[i].panels[j].links[k].url-->" class="menu__sub__panel__link"><!--#data.items[i].panels[j].links[k].label--></a>
+					<!--}-->
+					</nav>
+				</div>
+				<!--}-->
 			</div>
-			
-			<input id="nav-mg-2" name="mgm" type="radio" class="state" aria-hidden="true">
-			<label for="nav-mg-2" class="menu-label" itemprop="name">Products</label>
-			<div class="menu-panel">
-				<nav class="menu-sub">
-					<strong>Products</strong>
-				</nav>
-			</div>				
-			
-			<input id="nav-mg-3" name="mgm" type="radio" class="state" aria-hidden="true">
-			<label for="nav-mg-3" class="menu-label" itemprop="name">Services</label>
-			<div class="menu-panel">
-				<nav class="menu-sub">
-					<strong>Services</strong>
-				</nav>
-			</div>
-			
-			<input id="nav-mg-4" name="mgm" type="radio" class="state" aria-hidden="true">
-			<label for="nav-mg-4" class="menu-label" itemprop="name">Publications & Services</label>
-			<div class="menu-panel">
-				<nav class="menu-sub">
-					<strong>Publications</strong>
-				</nav>
-			</div>
-			
-			<input id="nav-mg-5" name="mgm" type="radio" class="state" aria-hidden="true">
-			<label for="nav-mg-5" class="menu-label" itemprop="name">Links</label>
-			<div class="menu-panel">
-				<nav class="menu-sub">
-					<strong>Links</strong>
-				</nav>
-			</div>
-			
-			<input id="nav-mg-6" name="mgm" type="radio" class="state" aria-hidden="true">
-			<label for="nav-mg-6" class="menu-label" itemprop="name">Events</label>
-			<div class="menu-panel">
-				<nav class="menu-sub">
-					<strong>Events</strong>
-				</nav>
-			</div>
-			
-			<input id="nav-mg-7" name="mgm" type="radio" class="state" aria-hidden="true">
-			<label for="nav-mg-7" class="menu-label" itemprop="name">Contact Us</label>
-			<div class="menu-panel">
-				<nav class="menu-sub">
-					<strong>Order Material</strong>
-					<a href="tel:99887766">Call us</a>
-				</nav>
-				<nav class="menu-sub">
-					<strong>Order Material</strong>
-					<a href="tel:99887766">Call us</a>
-				</nav>
-				<nav class="menu-sub">
-					<strong>Order Material</strong>
-					<a href="tel:99887766">Call us</a>
-				</nav>								
-			</div>
-			
-			<input id="nav-mg-8" name="mgm" type="radio" class="state" aria-hidden="true">
-			<label for="nav-mg-8" class="menu-label" itemprop="name">Register</label>
-			<div class="menu-panel">
-				<nav class="menu-sub">
-					<strong>Register</strong>
-				</nav>
-			</div>
+			<!--}-->
 		</nav>
-	</div>
-
-	<br />
-	<h1 class="blocks-header">Menu</h1>
-
+	</template>
+	<!-- / Version -->
+	
+	<div id="wrapper-menu"></div>
+	
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{
+			"tglMobileID": "tgl-mobile",
+			"tglOverlayID": "tgl-overlay",
+			"useIcons": "menu__wrapper--icons", /* Set to blank if no icons are used */
+			"group": "mega",
+			"items":
+			[
+				{
+					"id": "nav-mg-1",
+					"label": "Who We Are",
+					"icon": "menu.svg#whoweare",
+					"panels":
+					[
+						{
+							"header": "Company Information",
+							"links":
+							[
+								{
+									"label": "Company facts",
+									"url": "#facts"
+								},
+								{
+									"label": "History",
+									"url": "#facts"
+								},
+								{
+									"label": "Worldwide offices",
+									"url": "#facts"
+								},
+								{
+									"label": "Executive Leadership",
+									"url": "#facts"
+								},
+								{
+									"label": "Policies",
+									"url": "#facts"
+								},
+								{
+									"label": "From the CEO",
+									"url": "#facts"
+								},
+																{
+									"label": "Contact Us",
+									"url": "#facts"
+								}
+							]
+						},
+						{
+							"header": "More Information",
+							"links":
+							[
+								{
+									"label": "Company facts",
+									"url": "#facts"
+								}
+							]
+						}						
+					]
+				},
+				{
+					"id": "nav-mg-2",
+					"label": "What We Do",
+					"icon": "menu.svg#whatwedo",
+					"panels":
+					[
+						{
+							"header": "About this menu",
+							"links":
+							[
+								{
+									"label": "Another link",
+									"url": "#facts"
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "nav-mg-3",
+					"label": "Our Stories",
+					"icon": "menu.svg#ourstories",
+					"panels":
+					[
+						{
+							"header": "Mega-menus are really, really awesome",
+							"links":
+							[
+								{
+									"label": "I'm also a link",
+									"url": "#facts"
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "nav-mg-4",
+					"label": "Corporate Responsibility",
+					"icon": "menu.svg#responsibility",
+					"panels":
+					[
+						{
+							"header": "More information",
+							"links":
+							[
+								{
+									"label": "Company facts",
+									"url": "#facts"
+								}
+							]
+						}
+					]
+				}								
+			]
+		}, 
+		oTemplate = document.getElementById("template-menu"),
+		oWrapper = document.getElementById("wrapper-menu");
+		fn.render(oJSON, oTemplate, oWrapper, 1)
+	</script>	
 </body>
 </html>

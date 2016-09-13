@@ -1,8 +1,9 @@
-﻿/**
+/**
 * @function facetHelper
 * @description Resets facets, adds/removes class to Facet-reset-button
-*/ 
+*/
 (function facetHelper(){
+	"use strict";
 	var
 	/**	@type {NodeList} */
 	aStates = document.getElementsByName("facet"),

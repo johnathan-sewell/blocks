@@ -1,6 +1,6 @@
 ﻿/// Menu
-/// - Version 1.6.5
-/// - Date last edited: 2016-06-02
+/// - Version 1.8.0
+/// - Date last edited: 2016-09-12
 /// @name menu
 /// @group blocks
 /// @author Mads Stoumann
@@ -12,52 +12,72 @@
 
 @mixin menu($theme: $menu-theme) {
 	$root: &;
+	
 	$mobile-width-offset: (0 - map-get($theme, "mobile-width"));
 	$mobile-width-rest: (100 - map-get($theme, "mobile-width"));
+	
+	// Extends
+	%label-contract {
+		content: map-get($theme, "mobile-contract"); 
+		transform: rotate(0);		
+	}
+	
+	%label-expand {
+		content: map-get($theme, "mobile-expand");
+		transform: rotate(-45deg);
+		float: right;
+	}
 	
 	%menu-label {
 		color: map-get($theme, "label-color");
 		background: map-get($theme, "label-background");
 	}
 	
-	&-label {
+	%menu-item {
+		display: block;
+		padding: nth(map-get($theme, "label-padding"), 1);
+		text-align: left;
+	}
+	
+	&__label {
 		@extend %menu-label;
 		position: relative;
 		z-index: map-get($theme, "z-index")+3;
 		display: block;
 		margin: nth(map-get($theme, "label-margin"), 1);
 		padding: nth(map-get($theme, "label-padding"), 1);
-		border-bottom: 1px solid map-get($theme, "mobile-border");
 		text-align: left;
-		a  {
-			text-decoration: none;
+
+		&__icon {
+			@include equal(2em);
+			fill: map-get($theme, "icon-fill");
+			transition: fill 0.2s ease-in;
 		}
+		
 		&:not(.no-panel)::after { 
-			content: map-get($theme, "mobile-expand");
-			float: right;
+			@extend %label-expand;
 		}
+		
 		.state:checked + & {
 			z-index: map-get($theme, "z-index");
 			color: map-get($theme, "label-checked-color-mobile");
 			background: map-get($theme, "label-checked-background-mobile");
-			&::after { content: map-get($theme, "mobile-contract"); }
-			+ #{$root}-panel { 
+			
+			&::after { 
+				@extend %label-contract;
+			}
+
+			+ #{$root}__panel { 
 				position: relative;
 				z-index: map-get($theme, "z-index")+2;
 				display: block;
 				width: 100%;
 				animation: growX 0.4s ease-out forwards;
-				#{$root}-sub > * {
-					@extend %menu-label;
-					display: block;
-					padding: nth(map-get($theme, "label-padding"), 1);
-					border-bottom: 1px solid map-get($theme, "mobile-border");
-					text-align: left;
-				}
 			}
 		}
 	}
-	&-overlay {
+	
+	&__overlay {
 		@include overlay(transparent, map-get($theme, "z-index")+1);
 		@if map-get($theme, "mobile-direction") == "right" {
 			left: $mobile-width-rest;
@@ -65,37 +85,77 @@
 		@else {
 			right: $mobile-width-rest;
 		}
+		
 		display: none;
-		&-mobile {	
+		
+		&--mobile {	
 			@include overlay(rgba(0, 0, 0, 0.2), map-get($theme, "z-index")+1);	
 			display: none;
 		}
 	}	
-	&-panel {
+	
+	&__panel {
 		display: none;
 	}
-	&-toggle {
-		&:not(:checked) {
-			& + #{$root}-overlay { display: block; }
+	
+	&__sub {
+		&__label {
+			@extend %menu-item;
+			font-weight: 500;
+			color: map-get($theme, "subpanel-label-color");
+			border-bottom: 1px solid map-get($theme, "subpanel-label-border");
+			background: map-get($theme, "subpanel-label-background");
+
+			&::after { 
+				@extend %label-expand;
+			}
 		}
-		&-mobile {
+		
+		&__panel {
+			max-height: 0;
+			overflow: hidden;
+			
+			&__link {
+				@extend %menu-item;
+				border-bottom: 1px solid map-get($theme, "mobile-border");
+				text-decoration: none;
+			}
+		}
+		
+		.state:checked + &__label::after {
+			@extend %label-contract;
+		}
+		
+		.state:checked + &__label + &__panel {
+			max-height: 100vh;
+			transition: max-height 1s ease-in;
+		}
+	}
+	
+	&__toggle {
+		&:not(:checked) {
+			& + #{$root}__overlay { display: block; }
+		}
+		&--mobile {
 			display: none;
 			&:checked {
-				& ~ #{$root}-wrapper {
+				& ~ #{$root}__wrapper {
 					#{map-get($theme, "mobile-direction")}: 0;
 				}
-				& ~ #{$root}-overlay-mobile {
+				& ~ #{$root}__overlay--mobile {
 					display: block;
 					@include for("tablet") { display: none; }
 				}
 			}
-			&-icon {
-				font-size: 2em;
+			&__icon {
+				display: inline-block;
+				float: if(map-get($theme, "mobile-direction") == "right", left, right);
 				@include for("tablet") { display: none; }
 			}
 		}
 	}
-	&-wrapper {
+	
+	&__wrapper {
 		@include fixed(top map-get($theme, "service-menu-height-mobile") map-get($theme, "mobile-direction") $mobile-width-offset bottom 0);
 		font-size: nth(map-get($theme, "font-root"), 1);
 		z-index: map-get($theme, "z-index")+1;
@@ -103,12 +163,71 @@
 		width: map-get($theme, "mobile-width");
 		transition: all 0.3s ease;
 		background-color: map-get($theme, "mobile-background");
+		
+	/* Use Icon-based mobile menu */
+		&--icons {
+			@include max("tablet") {
+				background-color: transparent;
+				background-image: linear-gradient(to right, map-get($theme, "icon-background") 0, map-get($theme, "icon-background") 25vw, transparent 25vw, transparent 100%);
+				
+				#{$root}__label {
+					width: 25vw;
+					font-weight: 500;
+  					padding: 0.5em 0;
+  					text-align: center;
+  					
+  					&::after { 
+  						content: "" !important; 
+  					}
+				
+					&__text {
+						font-size: x-small;
+						display: block;
+						text-align: center;
+					}
+				}
+				
+				#{$root}__panel { 
+					@include absolute(top 0 left -100% bottom 0); 
+					
+				}
+				
+				& .state:checked + #{$root}__label {
+					background: map-get($theme, "icon-background-selected");
+					color: map-get($theme, "label-color");
+					z-index: map-get($theme, "z-index")+3;
+					
+					&::after {
+						content: "";
+						position: absolute;
+						top: 0;
+						right: -3px;
+						width: 3px;
+						height: 100%;
+						background: map-get($theme, "icon-line-selected");
+					}
+					
+					& > .menu__label__icon {
+						fill: map-get($theme, "icon-fill-selected")
+						
+					}
+					
+					+ #{$root}__panel { 
+						@include absolute(top 0 left 25vw bottom 0); 
+						font-size: 0.75em;
+						width: calc(100% - 25vw);
+						border-left: 3px solid  map-get($theme, "icon-line-background");
+						animation: none;
+						background: map-get($theme, "subpanel-background");
+					}
+				}
+			}
+		}
 	}
 
 /* Tablet / Desktop */	
 
 	@include for("tablet") {
-		
 		@if map-get($theme, "use-flex") == true {
 			display: flex;
   			justify-content: center;
@@ -120,7 +239,8 @@
 		height: map-get($theme, "menu-height");
 		margin: 0 auto;
 		text-align: center;
-		&-label {
+		
+		&__label {
 			@include hover { 
 				color: map-get($theme, "label-hover-color");
 				background: map-get($theme, "label-hover-background") ;
@@ -132,7 +252,12 @@
 			padding: nth(map-get($theme, "label-padding"), 2);
 			border-bottom: .2em solid transparent;
 			text-align: center; 
+			
 			&::after { display: none; }
+			
+			&__icon {
+				display: none;
+			}
 			
 			@if map-get($theme, "use-flex") == true {
 				display: flex;
@@ -145,23 +270,27 @@
   			@else { @include vertical-center; }
   			
 			.state:focus + & {
-				border-bottom-color: map-get($theme, "label-checked-border");
+				border-bottom-color: transparent; //map-get($theme, "label-checked-border");
 			}
+			
 			.state:checked + & {
 				@include hover { border-bottom-color: transparent; }
 				color: map-get($theme, "label-checked-color");
 				background: map-get($theme, "label-checked-background");
-				+ #{$root}-panel {
-					@include absolute(top map-get($theme, "menu-height") left 0);
+				
+				+ #{$root}__panel {
+					position: absolute;
+					top: calc(#{map-get($theme, "menu-height")} - 1px);
 					font-size: inherit;
 					min-height: map-get($theme, "panel-min-height");
 					padding: map-get($theme, "panel-padding");
 					text-align: left;
 					background: map-get($theme, "panel-background");
 					box-shadow: map-get($theme, "panel-box-shadow");
-					#{$root}-sub {
+					#{$root}__sub {
 						animation: growX 0.6s ease-out forwards;
 						float: left;
+						/*
 						& > * { 
 							padding: 0;
 							border-bottom: 0;
@@ -177,15 +306,32 @@
 								width: 33.333333%;
 							}
 						}
+						*/
 					}
 				}
 			}
 		}
-		&-overlay {
+		
+		&__overlay {
 			left: 0;
 			right: 0;
 		}
-		&-wrapper {
+		
+		&__sub {
+			&__label {
+				color: map-get($theme, "subpanel-label-color-desktop");
+				background: map-get($theme, "subpanel-label-background-desktop");
+				
+				&::after {
+					display: none;
+				}
+			}
+			&__panel {
+				max-height: none;
+			}
+		}
+		
+		&__wrapper {
 			position: nth(map-get($theme, "wrapper-position"), 1);
 			top: nth(map-get($theme, "wrapper-position"), 2);
 			right: nth(map-get($theme, "wrapper-position"), 3);
@@ -198,18 +344,21 @@
 			background: map-get($theme, "menu-background");
 		}
 	}
+	
 	@include for("desktop") {
-		&-label {
+		&__label {
 			font-size: 1.2em;
 			margin: nth(map-get($theme, "label-margin"), 3);
 			padding: nth(map-get($theme, "label-padding"), 3);
 		}
-		&-wrapper {
+		
+		&__wrapper {
 			font-size: nth(map-get($theme, "font-root"), 3);
 		}
 	}
+	
 	@include for("desktop-large") {
-		&-label {
+		&__label {
 			margin: nth(map-get($theme, "label-margin"), 4);
 			padding: nth(map-get($theme, "label-padding"), 4);
 		}
@@ -226,37 +375,52 @@ $menu-theme: (
 	/* List-order: mobile, tablet, desktop */
 	"font-root": (1rem, 1.65vw, 0.9rem),
 	
+	"icon-fill": #4a9bce,
+	"icon-fill-selected": #2c688d,
+	"icon-line-background": #cbe2f1,
+	"icon-line-selected": #fe0000,
+	"icon-background": #fff,
+	"icon-background-selected": #e5f0f8,
+	
 	"label-background": transparent,
 	"label-color": #222,
-	"label-checked-background": #fff,
+	"label-checked-background": #2c688d,
 	"label-checked-border": darken(deepskyblue, 20),
-	"label-checked-color": #222,
+	"label-checked-color": #fff,
 	"label-checked-background-mobile": deepskyblue,
 	"label-checked-color-mobile": #fff,
 	"label-hover-background": transparent,
-	"label-hover-border": deepskyblue,
+	"label-hover-border": #fe0000,
 	"label-hover-color": inherit,
 	
 	/* List-order: mobile, tablet, desktop, desktop-large */
 	"label-margin": (0, 0, 0 0.15em, 0 0.5em),
 	"label-padding": (.8em 1.3em, 0 0.6em, 0 0.6em, 0 0.8em),
 	
-	"menu-background": linear-gradient(to bottom, #ddd, #eee 75%, #ddd),
-	"menu-height": 4.5em,
+	"menu-background": linear-gradient(to right, #509ed0, #ebf4fa),
+	"menu-height": 6.5em,
 	"menu-inner-width": 1440px,
 	"mobile-background": #fff,
 	"mobile-border": #eee,
-	"mobile-contract": "\2212",
-	"mobile-direction": right,
-	"mobile-expand": "\002B",
-	"mobile-width": 75%,
-	"panel-background": #fff,
+	"mobile-contract": "\2014",
+	"mobile-direction": left,
+	"mobile-expand": "\2715",
+	"mobile-width": 80%,
+	"panel-background": #2c688d,
 	"panel-box-shadow": 0 .35em .5em 0 rgba(0, 0, 0, .35),
 	"panel-min-height": 10em,
 	"panel-padding": 1em 5em,
 	"panel-sub-auto-width": true,
 	"service-menu-height": 0,
 	"service-menu-height-mobile": 0,
+	
+	"subpanel-background": #fff,
+	"subpanel-label-background": #2c688d,
+	"subpanel-label-background-desktop": transparent,
+	"subpanel-label-border": #fff,
+	"subpanel-label-color": #fff,
+	"subpanel-label-color-desktop": #fff,
+	
 	"use-flex": true,
 	
 	/* List-order: position, top, right, bottom, left */

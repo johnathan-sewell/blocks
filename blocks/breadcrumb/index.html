@@ -12,49 +12,48 @@
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
 	
-	<h1 class="blocks-header">Breadcrumbs</h1>
-	<p class="blocks-section">
-		<strong>Using data-vocabulary.org/Breadcrumb:</strong> (View Source for structure)
-	</p>
-	
-	<nav itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="breadcrumb">
-		<div class="breadcrumb-inner">
-			<a href="http://www.example.com" itemprop="url">
-				<span itemprop="title">Home</span>
-			</a>
-			<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-				<a href="http://www.example.com/products" itemprop="url">
-					<span itemprop="title">Products and services</span>
-				</a>
-				<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-					<a href="http://www.example.com/products/item" itemprop="url">
-						<span itemprop="title">Browse our complete range</span>
-					</a>
+	<!-- Version -->
+	<template id="template-breadcrumb">
+		<nav itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb">
+			<div class="breadcrumb__inner">
+			<!--for(var i = 0; i < data.links.length; i++) {-->
+				<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+					<a itemprop="item" href="<!--#data.links[i].url-->"><span itemprop="name"><!--#data.links[i].name--></span></a>
+					<meta itemprop="position" content="<!--#(i+1)-->" />
 				</span>
-			</span>
-		</div>
-	</nav>
-
-	<p class="blocks-section">
-		<strong>Using schema.org/BreadcrumbList:</strong> (View source for structure)
-	</p>
+			<!--}-->
+			</div>
+		</nav>
+	</template>
+	<!--/ Version -->
 	
-	<nav itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb">
-		<div class="breadcrumb-inner">
-			<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				<a itemprop="item" href="https://example.com"><span itemprop="name">Home</span></a>
-				<meta itemprop="position" content="1" />
-			</span>
-			<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				<a itemprop="item" href="https://example.com/products"><span itemprop="name">Products</span></a>
-				<meta itemprop="position" content="2" />
-			</span>
-			<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				<a itemprop="item" href="https://example.com/products/item"><span itemprop="name">Item</span></a>
-				<meta itemprop="position" content="3" />
-			</span>
-		</div>
-	</nav>
+	<h1 class="blocks-header">Breadcrumbs</h1>
+	<div id="wrapper-breadcrumb"></div>
+
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{
+			"links" : 
+			[
+				{
+					"name" : "Home",
+					"url" : "#home"
+				},
+				{
+					"name" : "Products and services",
+					"url" : "#products"
+				},
+				{
+					"name" : "Browse our complete range",
+					"url" : "#browse"				}				
+			]
+		},
+		oTemplate = document.getElementById("template-breadcrumb"),
+		oWrapper = document.getElementById("wrapper-breadcrumb");
+		fn.render(oJSON, oTemplate, oWrapper, 1);		
+	</script>	
 
 </body>
 </html>

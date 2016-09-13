@@ -1,0 +1,50 @@
+﻿/// Details-module, checkbox-version of detaiils/summary
+/// - Version 1.0.0
+/// - Date last edited: 2016-09-04
+/// @name details
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$details-theme]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/details/ Demo
+/// @example scss
+///   .details ( @include details(); )
+
+@mixin details($theme: $details-theme) {
+	$root: &;
+	@extend %fontmap;
+	
+	display: block;
+	width: map-get($theme, "width");
+	
+	&__content { 
+		display: block;
+		overflow: hidden;
+		max-height: 0;
+		transition: all 0.3s linear;
+	}
+    
+    &__summary::before {
+		content: map-get($theme, "text-expand");
+      	margin: 0 0.5em 0 0;
+	}
+    
+	& > .state:checked ~ &__content {
+		max-height: map-get($theme, "height");
+	}
+	
+	& > .state:checked + &__summary::before {
+		content: map-get($theme, "text-contract");
+	}
+}
+
+/// Theme-map for details-block
+/// @name details-theme
+/// @group settings
+
+$details-theme: (
+	"height": 20em,
+	"width": 20em,
+	"text-contract": "\2212",
+	"text-expand": "\002B"
+);;

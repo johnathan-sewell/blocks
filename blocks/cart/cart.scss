@@ -1,6 +1,6 @@
 /// Cart
-/// - Version 1.1.1
-/// - Date last edited: 2016-06-10
+/// - Version 1.2.0
+/// - Date last edited: 2016-08-02
 /// @name cart
 /// @group blocks
 /// @author Mads Stoumann
@@ -17,7 +17,7 @@
 	width: 100%;
 	border-collapse: collapse;
 	
-	&-checkout {
+	&__checkout {
 		float: right;
 		margin: 1em 0;
 		width: 100%;
@@ -25,7 +25,7 @@
 			width: 33.333333%;	
 		}
 	}
-	&-foot {
+	&__footer {
 		td {
 			border-bottom: map-get($theme, "foot-lines-border");
 			&:last-of-type {	
@@ -36,12 +36,12 @@
 			border-bottom: map-get($theme, "foot-lines-total-border");
 		}
 	}
-	&-header {
+	&__header {
 		text-align: left;
 		font-size: 2em;
 	}	
-	&-item {
-		&-head {
+	&__item {
+		&__head {
 			th {
 				font-weight: 300;
 				text-align: right;
@@ -50,32 +50,35 @@
 				border-style: map-get($theme, "head-border-style");
 				border-width: map-get($theme, "head-border-width");
 				background: map-get($theme, "head-background");
+				&:first-of-type { 
+					text-align: left; 
+				}
 			}
 		}
-		&-image {
+		&__image {
 			min-width: map-get($theme, "img-width");
 			max-width: map-get($theme, "img-width");
 			img {
 				max-width: 100%;
 			}
 		}	
-		&-line td {
+		&__line td {
 			border-bottom: map-get($theme, "line-border-bottom");
 		}
-		&-name,
-		&-price {
+		&__name,
+		&__price {
 			font-size: 1.25em;
 		}
-		&-price { 
+		&__price { 
 			text-align: right;
 			color: map-get($theme, "price-color");
 		}
-		&-remove {
+		&__remove {
 			display: block;
 			font-size: 0.6875em;
 			color: map-get($theme, "remove-color");
 		}
-		&-qnt {
+		&__qnt {
 			text-align: right;
 			[type="number"] {
 				border: map-get($theme, "input-border");
@@ -84,9 +87,9 @@
 			}
 		}
 	}
-	&-total {
+	&__total {
 		font-weight: bold;
-		&-price { 
+		&__price { 
 			font-weight: bold;
 		}
 	}

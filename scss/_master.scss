@@ -147,6 +147,10 @@ span[aria-hidden] { display: none; }
 }
 
 /* Misc. global classes */
+%fontmap {
+	@include font-sizes(0);
+}
+
 .hide {
 	display: none;
 	&-overflow {

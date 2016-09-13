@@ -313,6 +313,25 @@
 	@media only print {	@content; }
 }
 
+// - Responsive attribute from a map
+/// @name rwd
+/// @group mixins
+/// @author Mads Stoumann
+/// @param {List} $rootsizes
+/// @param {String} $attribute
+
+@mixin rwd($rootsizes, $attribute) {
+	@each $rootsize in $rootsizes {
+		$breakpoint: nth($rootsize, 1);
+		
+		@if map-has-key($breakpoints, $breakpoint) {
+			@include min($breakpoint) {
+				#{$attribute} : nth($rootsize, 2);
+			}
+		}
+	}
+}
+
 /// @name targetIE
 /// @group mixins
 /// @author Mads Stoumann 

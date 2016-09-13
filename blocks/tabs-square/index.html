@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Tabs-Square</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+
+
+	<h1 class="blocks-header">Tabs Square</h1><br />
+	<div id="wrapper-tabs-square"></div>
+
+	<!-- Version -->
+	<template id="template-tabs-square">
+	<section class="tabs-square">
+		<!--var i, isChecked, nLen=data.tabs.length;-->
+		<!--for(i=0; i<nLen; i++) {-->
+		<!--isChecked = data.tabs[i].checked ? " checked" : "";-->
+			<input type="radio" name="<!--#data.tabs[i].group-->" id="tq_<!--#(data.offset+i)-->" class="state" data-tabs-square="<!--#(data.offset+i)-->" aria-hidden="true" data-bool="<!--#isChecked-->" />
+		<!--}-->		
+		<nav class="tabs-square__nav" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+		<!--for(i=0; i<nLen; i++) {-->
+			<label for="tq_<!--#(data.offset+i)-->" class="tabs-square__label" style="background-image:url('<!--#data.tabs[i].image-->');" data-tabs-square="<!--#(data.offset+i)-->">
+				<span class="tabs-square__label__text">
+					<span class="tabs-square__label__text__inner">
+						<!--#data.tabs[i].label-->
+					</span>
+				</span>
+			</label>
+		<!--}-->
+		</nav>
+		<!--for(i=0; i<nLen; i++) {-->	
+		<div class="tabs-square__panel" data-tabs-square="<!--#(data.offset+i)-->">
+			<h2 class="tabs-square__panel__header"><!--#data.tabs[i].panelheader--></h2>
+			<article class="tabs-square__panel__text">
+				<!--#data.tabs[i].paneltext-->
+			</article>
+		</div>
+		<!--}-->
+	</section>
+	</template>
+	<!-- /Version -->
+
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{
+			"offset": 1,
+			"tabs" : 
+			[
+
+				{
+					"group" : "tabs-square",
+					"checked" : false,
+					"image" : "../../img/g2.jpg",
+					"label" : "Spring Blooms",
+					"panelheader" : "Spring Blooms",
+					"paneltext" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros."
+				},
+				{
+					"group" : "tabs-square",
+					"checked" : false,
+					"image" : "../../img/g4.jpg",
+					"label" : "Summer Dreams",
+					"panelheader" : "Summer Dreams",
+					"paneltext" : "Lorem ipsum dolor sit amet."
+				},
+				{
+					"group" : "tabs-square",
+					"checked" : false,
+					"image" : "../../img/g1.jpg",
+					"label" : "Autumn Breeze",
+					"panelheader" : "Autumn Breeze",
+					"paneltext" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros."
+				},				
+				{
+					"group" : "tabs-square",
+					"checked" : false,
+					"image" : "../../img//g3.jpg",
+					"label" : "Winter Ends",
+					"panelheader" : "Winter Ends",
+					"paneltext" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus lorem a orci euismod, eget lobortis mi pharetra. Vivamus vitae nibh posuere dui hendrerit aliquet. Donec mattis ornare scelerisque. Etiam vel erat venenatis, convallis dolor ut, ornare diam. Mauris lacus felis, pretium ac arcu sit amet, aliquam ultricies turpis. Maecenas lacinia massa non dolor feugiat finibus. Proin volutpat erat ipsum, eget viverra nulla luctus eget. Phasellus lacus erat, iaculis ac erat non, dignissim tempus nibh. Ut iaculis diam ac tellus blandit, ut porta ante auctor. Duis magna quam, pulvinar ac tortor a, consectetur elementum nisl. Donec sollicitudin sed est fringilla pharetra. Aenean vitae dui eros."
+				}
+			]
+		}, 
+		oTemplate = document.getElementById("template-tabs-square"),
+		oWrapper = document.getElementById("wrapper-tabs-square");
+		fn.render(oJSON, oTemplate, oWrapper, 1)
+	</script>
+</body>
+</html>

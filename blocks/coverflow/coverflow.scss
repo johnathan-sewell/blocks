@@ -1,0 +1,89 @@
+﻿// - Version 1.0.0
+/// - Date last edited: 2016-08-12
+/// @name cflow
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$cflow-theme] - The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/cflow/ Demo
+/// @example scss
+///   .cflow( @include cflow(); )
+
+@mixin cflow($theme: $cflow-theme) {
+	$root: &;
+	position: relative;
+	overflow: hidden;
+	max-width: 100%;
+	height: map-get($theme, "height");
+	background-color: map-get($theme, "background");
+	-webkit-perspective: 600px;
+	
+	&--hide {
+		opacity: 0;
+	}
+	
+	&__caption {
+		@include absolute(map-get($theme, "caption-position"));
+		font-size: map-get($theme, "caption-fontsize");
+		padding: map-get($theme, "caption-padding");
+		color: map-get($theme, "caption-color");
+		background: map-get($theme, "caption-background");
+	}
+	
+	&__image {
+		max-height: map-get($theme, "image-maxheight");
+		-webkit-box-reflect: below 0 linear-gradient(rgba(#fff, 0), rgba(#fff, .3));
+		
+		&--active {
+			border: map-get($theme, "active-border");
+		}
+		&__wrapper {
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    display: block;
+		    margin: -90px 0 0 -90px;
+	    	transform-style: preserve-3d;
+	    	transition: all 300ms cubic-bezier(.28,.66,.68,.66);
+    	}
+	}
+	
+	&__next,
+	&__prev {
+		@include absolute(top 50% right 0);
+		@include equal(4em);
+		transition: opacity 0.7s;
+		background-color: rgba(255, 255, 255, 0.5);
+		background-image: url(map-get($theme, "nav-next-image"));
+		background-repeat: no-repeat;
+		background-size: 100% 75%;
+		background-position: center center;
+		transform: translateY(-50%);
+		@include hover {
+			background-color: rgba(255, 255, 255, 0.8);
+		}
+	}
+	&__prev {
+		left: 0;
+		right: auto;
+		background-image: url(map-get($theme, "nav-prev-image"));
+	}	
+}
+
+/// Theme-map for cflow-block
+/// @name cflow-theme
+/// @group settings
+
+$cflow-theme: (
+	"active-border": 1px solid rgba(255, 255, 255, 0.5),
+	"background": #222,
+	"caption-background": red,
+	"caption-color": #fff,
+	"caption-fontsize": 1em,
+	"caption-padding": 0.25em 0.5em,
+	"caption-position": top 0 left 0,
+	"height": 16em,
+	"image-maxheight": 10em,
+	"nav-next-image": "../svg/next.svg",
+	"nav-prev-image": "../svg/prev.svg"
+);

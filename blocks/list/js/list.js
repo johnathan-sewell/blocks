@@ -1,9 +1,10 @@
-﻿/**
+/**
 * @function listDrag
 * @description Adds drag-functionality to a list
 */ 
 
 (function listDrag(){
+	/*jslint browser: true*/
 	/*jshint -W069 */
 	/*jshint -W083 */
 	var

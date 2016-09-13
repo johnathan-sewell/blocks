@@ -1,0 +1,56 @@
+﻿/// Returns a class-module for *mood*
+/// - Version 1.0.0
+/// - Date last edited: 2016-08-29
+/// @name mood
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$mood-theme]- The theme-map to use, default to $tabs
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/mood/ Demo
+/// @example scss
+/// .mood { @include mood(); }
+
+@mixin mood($theme: $mood-theme) {
+	$root: &;
+	@extend %fontmap;
+
+	&__fieldset {
+		max-width: map-get($theme, "max-width");
+		text-align: center;
+	}
+		
+	&__label > svg {
+		@include equal(map-get($theme, "icon-size"));
+		transition: all 0.5s ease-in;
+		margin: 0 0.5em;
+	}
+	
+	@each $current-color in map-get($theme, "icon-fill") {
+	    $i: index(map-get($theme, "icon-fill"), $current-color);
+	    &__icon--#{$i} {
+	        fill: $current-color;
+	        stroke: nth(map-get($theme, "icon-stroke"), $i);
+	        color: nth(map-get($theme, "icon-color"), $i);
+	    }
+	    .state:checked + &__label > &__icon--#{$i} {
+	        fill: nth(map-get($theme, "icon-fill-selected"), $i);
+	        stroke: nth(map-get($theme, "icon-stroke-selected"), $i);
+	        color: nth(map-get($theme, "icon-color-selected"), $i);
+	    }
+	}
+}
+
+/// Theme-map for mood-block
+/// @name mood-theme
+/// @group settings
+
+$mood-theme: (
+	"icon-color": transparent transparent transparent transparent transparent,
+	"icon-color-selected": #00B16A #00D373 #F5AB35 #F2784B #EF4836,
+	"icon-fill": #0DB06A #4AB96F #F5AB35 #F1784B #F04A37,
+	"icon-fill-selected": #007B2C #009230 #D4650A #D03215 #CB0805,
+	"icon-stroke": #0DB06A #4AB96F #F5AB35 #F1784B #F04A37,
+	"icon-stroke-selected": #00B16A #00D373 #F5AB35 #F2784B #EF4836,
+	"icon-size": 6em,
+	"max-width": 37.5em
+);

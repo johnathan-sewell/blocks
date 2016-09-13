@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="blocks">
+<head>
+	<title>Blocks! Coverflow</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link href="../../css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
+	<!-- End Google Tag Manager -->
+	
+	<!-- Version -->
+	<template id="template-cflow">
+		<section class="cflow" itemscope itemtype="http://schema.org/ImageGallery">
+			<nav class="cflow__prev" aria-hidden="true"></nav>
+			<!--for(var i = 0; i < data.images.length; i++) {-->
+			<figure class="cflow__image__wrapper" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<img class="cflow__image" src="<!--#data.images[i].src-->" alt="<!--#data.images[i].alt-->" itemprop="contentUrl" />
+				<!--if(data.images[i].caption){-->
+				<figcaption class="cflow__caption"><!--#data.images[i].caption--></figcaption>
+				<!--}-->
+			</figure>
+			<!--}-->
+			<nav class="cflow__next" aria-hidden="true"></nav>
+		</section>
+	</template>
+	<!--/ Version -->
+	
+	<h1 class="blocks-header">Coverflow</h1><br />
+	<div id="wrapper-cflow"></div>
+	
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{
+			"images" : 
+			[
+				{
+					"alt" : "Pablo Honey",
+					"caption": "",
+					"src" : "img/01.jpg"
+				},
+				{
+					"alt" : "The Bends",
+					"caption": "",
+					"src" : "img/02.jpg"
+				},
+				{
+					"alt" : "OK Computer",
+					"caption": "Bestseller",
+					"src" : "img/03.jpg"
+				},
+				{
+					"alt" : "Kid A",
+					"caption": "",
+					"src" : "img/04.jpg"
+				},
+				{
+					"alt" : "Amnesiac",
+					"caption": "",
+					"src" : "img/05.jpg"
+				},
+				{
+					"alt" : "Hail to the Thief",
+					"caption": "",
+					"src" : "img/06.jpg"
+				},
+				{
+					"alt" : "In Rainbows",
+					"caption": "",
+					"src" : "img/07.jpg"
+				},
+				{
+					"alt" : "King of Limbs",
+					"caption": "",
+					"src" : "img/08.jpg"
+				},
+				{
+					"alt" : "A Moon Shaped Pool",
+					"caption": "NEW!",
+					"src" : "img/09.jpg"
+				}								
+			]
+		}, 
+		oTemplate = document.getElementById("template-cflow"),
+		oWrapper = document.getElementById("wrapper-cflow");
+		fn.render(oJSON, oTemplate, oWrapper, 1)
+	</script>	
+	<script src="js/coverflow.js"></script>
+</body>	
+</html>

@@ -1,0 +1,143 @@
+﻿/// Returns a class-module for *tabs-circle*
+/// - Version 1.3.0
+/// - Date last edited: 2016-08-19
+/// @name tabs-circle
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$tabs-circle-theme]- The theme-map to use, default to $tabs
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/tabs-circle/ Demo
+/// @example scss
+/// .tabs-circle { @include tabs-circle(); }
+
+@mixin tabs-circle($theme: $tabs-circle-theme) {
+	$root: &;
+	@extend %fontmap;
+	
+	// Elements
+	&__circle {
+		@include equal(map-get($theme, "circle-width"));
+		display: inline-block;
+		border: 1px solid map-get($theme, "circle-border-color");
+		border-radius: 50%;
+		background-color: map-get($theme, "circle-background");
+		
+		svg {
+			@include equal(map-get($theme, "circle-width") / 2);
+			margin-top: (map-get($theme, "circle-width") / 4);
+			fill: map-get($theme, "circle-svg-fill");
+			pointer-events: none;
+			transition: all .25s ease-in;
+		}
+	}
+	
+	&__fieldset--desktop {
+		@extend %fieldset;
+		display: none;
+		@include for("phablet") { display: flex; }
+	}
+	
+	&__fieldset--mobile {
+		@extend %fieldset;
+		display: flex;
+		@include for("phablet") { display: none; }
+	}
+	
+	&__item {
+		@extend %noselect;
+		position: relative;
+		margin-bottom: 2.5em;
+		flex: 1;
+	}
+
+	&__text {
+		padding: 4% 0 0 0;
+		display: block;
+		font-weight: 500;
+	}
+
+	&__panel {
+		@extend %fontmap;
+		display: none;
+		clear: both;
+		width: 100%;
+		margin: 0 0 5% 0;
+		border-top: 1px solid map-get($theme, "panel-border-color");
+		border-bottom: 1px solid map-get($theme, "panel-border-color");
+		background: map-get($theme, "panel-background");
+		animation: fadeIn 0.4s ease-in-out forwards;
+		
+		&__header {
+			display: block;
+		}
+	}
+	
+	// Extends
+	%circle-arrow {
+		z-index: 1;
+		position: absolute;
+		bottom: -4.5em;
+		left: calc(50% - 1.5em);
+		display: block;
+		width: 0;
+		height: 0;
+		content: "";
+		transform-origin: 0 0;
+		transform: rotate(-45deg);
+		border: 1em solid transparent;
+		border-color:  transparent #fff #fff;
+		box-shadow: -1px 1px 1px 0 map-get($theme, "panel-border-color");
+		animation: fadeIn 0.2s ease-in-out forwards;
+	}
+	
+	%circle-border {
+		border-color: map-get($theme, "circle-selected");
+	}
+
+	%circle-fill {
+		fill: map-get($theme, "circle-selected");
+	}
+		
+	%circle-nav {
+		display: block;
+	}
+
+	%fieldset {
+		border: 0;
+		text-align: center;
+		flex-flow: row wrap;
+		justify-content: space-around;
+	}
+		
+	// States
+	@for $i from 1 through 5 {
+		input[data-tabs-circle="#{$i}"]:checked {
+			& ~ #{$root}__fieldset #{$root}__item[data-tabs-circle="#{$i}"] {
+				&::after {
+					@extend %circle-arrow;
+				}
+				& > span {
+					@extend %circle-border;	
+					svg { @extend %circle-fill;	}
+				}
+			}
+			& ~ #{$root}__panel[data-tabs-circle="#{$i}"] {
+				display: block;
+			}
+		}
+	}
+}
+
+/// Theme-map for tabs-circle-block
+/// @name tabs-circle-theme
+/// @group settings
+
+$tabs-circle-theme: (
+	"circle-background": #eee,
+	"circle-border-color": #bbb,
+	"circle-selected": #00afc9,
+	"circle-svg-fill": #777,
+	"circle-width": 7em,
+	"panel-border-color": #bbb,
+	"panel-background": linear-gradient(to right, transparent, #eee, transparent)
+);

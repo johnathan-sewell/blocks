@@ -11,78 +11,87 @@
 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
-		
-	<h1 class="blocks-header">Circular</h1>
 	
-	<style>
-		.circular-icon { 
-			background: orange;
-			border-radius: 50%;
-			padding: 5%;
-		}
-	</style>
-
-	<!-- Version 1.3.0 -->
-	<nav class="circular" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+	<!-- Version -->
+	<template id="template-circular">
+		<nav class="circular" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 		<input type="checkbox" id="circular-toggle" class="state" aria-hidden="true" />
-		<label for="circular-toggle" class="circular-toggle">
-		    <svg class="circular-toggle-icon" viewBox="0 0 100 100">
-		        <circle cx="50" cy="50" r="50" class="circular-toggle-icon-background" />
-		        <path d="M51.92,34.87V49H65.48v3.6H51.92V66.78H48.08V52.57H34.52V49H48.08V34.87h3.84Z" class="circular-toggle-icon-color" />
+		<label for="circular-toggle" class="circular__toggle">
+		    <svg class="circular__toggle__icon" viewBox="0 0 100 100">
+		        <circle cx="50" cy="50" r="50" class="circular__toggle__icon__background" />
+		        <path d="M51.92,34.87V49H65.48v3.6H51.92V66.78H48.08V52.57H34.52V49H48.08V34.87h3.84Z" class="circular__toggle__icon__color" />
 		    </svg>
 		</label>
-		
-		<ul class="circular-sub">
-			<li class="circular-label">
-				<a href="#cir-1" itemprop="url" aria-hidden="true">
-					<meta itemprop="name" content="Facebook" />
-					<svg class="circular-icon"><use xlink:href="../../svg/social.svg#icon-facebook"></use></svg>
+		<ul class="circular__sub">
+			<!--var i, nLen=data.links.length;-->
+			<!--for(i=0; i<nLen; i++) {-->
+			<li class="circular__label">
+				<a href="<!--#data.links[i].href-->" itemprop="url" aria-hidden="true">
+					<meta itemprop="name" content="<!--#data.links[i].title-->" />
+					<svg class="circular__icon"><use xlink:href="<!--#data.links[i].icon-->"></use></svg>
 				</a>
 			</li>
-			<li class="circular-label">
-				<a href="#cir-2" itemprop="url" aria-hidden="true">
-					<meta itemprop="name" content="Twitter" />
-					<svg class="circular-icon"><use xlink:href="../../svg/social.svg#icon-twitter"></use></svg>
-				</a>
-			</li>
-			<li class="circular-label">				
-				<a href="#cir-3" itemprop="url" aria-hidden="true">
-					<meta itemprop="name" content="Google Plus" />
-					<svg class="circular-icon"><use xlink:href="../../svg/social.svg#icon-google-plus"></use></svg>
-				</a>
-			</li>
-			<li class="circular-label">				
-				<a href="#cir-4" itemprop="url" aria-hidden="true">
-					<meta itemprop="name" content="Instagram" />
-					<svg class="circular-icon"><use xlink:href="../../svg/social.svg#icon-instagram"></use></svg>
-				</a>
-			</li>
-			<li class="circular-label">								
-				<a href="#cir-5" itemprop="url" aria-hidden="true">
-					<meta itemprop="name" content="Pinterest" />
-					<svg class="circular-icon"><use xlink:href="../../svg/social.svg#icon-pinterest"></use></svg>
-				</a>
-			</li>
-			<li class="circular-label">								
-				<a href="#cir-6" itemprop="url" aria-hidden="true">
-					<meta itemprop="name" content="YouTube" />
-					<svg class="circular-icon"><use xlink:href="../../svg/social.svg#icon-youtube"></use></svg>
-				</a>
-			</li>
-			<li class="circular-label">								
-				<a href="#cir-7" itemprop="url" aria-hidden="true">
-					<meta itemprop="name" content="LinkedIn" />
-					<svg class="circular-icon"><use xlink:href="../../svg/social.svg#icon-linkedin"></use></svg>
-				</a>
-			</li>
-			<li class="circular-label">								
-				<a href="#cir-8" itemprop="url" aria-hidden="true">
-					<meta itemprop="name" content="Skype" />
-					<svg class="circular-icon"><use xlink:href="../../svg/social.svg#icon-skype"></use></svg>
-				</a>
-			</li>
+			<!--}-->
 		</ul>
     </nav>
+	</template>
 	<!-- /Version -->
+	
+	<h1 class="blocks-header">Circular</h1>
+	<div id="wrapper-circular"></div>
+	
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{
+			"links": 
+			[
+				{
+					"href": "#cir1",
+					"icon": "../../svg/social.svg#icon-facebook",
+					"title": "Facebook"
+				},							
+				{
+					"href": "#cir2",
+					"icon": "../../svg/social.svg#icon-twitter",
+					"title": "Twitter"
+				},
+				{
+					"href": "#cir3",
+					"icon": "../../svg/social.svg#icon-google-plus",
+					"title": "Google Plus"
+				},
+				{
+					"href": "#cir4",
+					"icon": "../../svg/social.svg#icon-instagram",
+					"title": "Instagram"
+				},
+				{
+					"href": "#cir5",
+					"icon": "../../svg/social.svg#icon-pinterest",
+					"title": "Pinterest"
+				},
+				{
+					"href": "#cir6",
+					"icon": "../../svg/social.svg#icon-youtube",
+					"title": "YouTube"
+				},
+				{
+					"href": "#cir7",
+					"icon": "../../svg/social.svg#icon-linkedin",
+					"title": "LinkedIn"
+				},
+				{
+					"href": "#cir8",
+					"icon": "../../svg/social.svg#icon-skype",
+					"title": "Skype"
+				}																			
+			]
+		}, 
+		oTemplate = document.getElementById("template-circular"),
+		oWrapper = document.getElementById("wrapper-circular");
+		fn.render(oJSON, oTemplate, oWrapper, 1)
+	</script>	
 </body>
 </html>

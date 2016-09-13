@@ -1,0 +1,99 @@
+﻿	<input type="checkbox" class="state menu-toggle-mobile" aria-hidden="true" id="tgl-mobile" onclick="body.classList.toggle('hide-overflow', this.checked);" />
+	<label for="tgl-mobile" class="menu-overlay-mobile"></label>
+
+	
+	<nav class="nav-service" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+		<label for="tgl-mobile" class="menu-toggle-mobile-icon">&#9776;</label>
+	</nav>
+
+	<div class="menu-wrapper">
+		<nav class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+			
+			
+			<input id="tgl-overlay" name="mgm" type="radio" class="state menu-toggle" aria-hidden="true" checked>
+			<label for="tgl-overlay" class="menu-overlay"></label>
+			
+			<input id="nav-mg-1" name="mgm" type="radio" class="state" aria-hidden="true" accesskey="8" />
+			<label for="nav-mg-1" class="menu-label" itemprop="name">Categories</label>
+			<div class="menu-panel">
+				<nav class="menu-sub">
+					<strong>Therapeutic areas</strong>
+					<a href="#">Heart-failure in figures and a long link</a>
+					<a href="#">Neurology</a>
+					<a href="#">Ophthalmology</a>
+				</nav>
+				<nav class="menu-sub">
+					<strong>Cardiology</strong>
+					<a href="#">Heart-failure in figures and a long link</a>
+					<a href="#">Product area</a>
+					<a href="#">Product area</a>
+					<a href="#">Product area</a>
+				</nav>
+			</div>
+			
+			<input id="nav-mg-2" name="mgm" type="radio" class="state" aria-hidden="true">
+			<label for="nav-mg-2" class="menu-label" itemprop="name">Products</label>
+			<div class="menu-panel">
+				<nav class="menu-sub">
+					<strong>Products</strong>
+				</nav>
+			</div>				
+			
+			<input id="nav-mg-3" name="mgm" type="radio" class="state" aria-hidden="true">
+			<label for="nav-mg-3" class="menu-label" itemprop="name">Services</label>
+			<div class="menu-panel">
+				<nav class="menu-sub">
+					<strong>Services</strong>
+				</nav>
+			</div>
+			
+			<input id="nav-mg-4" name="mgm" type="radio" class="state" aria-hidden="true">
+			<label for="nav-mg-4" class="menu-label" itemprop="name">Publications & Services</label>
+			<div class="menu-panel">
+				<nav class="menu-sub">
+					<strong>Publications</strong>
+				</nav>
+			</div>
+			
+			<input id="nav-mg-5" name="mgm" type="radio" class="state" aria-hidden="true">
+			<label for="nav-mg-5" class="menu-label" itemprop="name">Links</label>
+			<div class="menu-panel">
+				<nav class="menu-sub">
+					<strong>Links</strong>
+				</nav>
+			</div>
+			
+			<input id="nav-mg-6" name="mgm" type="radio" class="state" aria-hidden="true">
+			<label for="nav-mg-6" class="menu-label" itemprop="name">Events</label>
+			<div class="menu-panel">
+				<nav class="menu-sub">
+					<strong>Events</strong>
+				</nav>
+			</div>
+			
+			<input id="nav-mg-7" name="mgm" type="radio" class="state" aria-hidden="true">
+			<label for="nav-mg-7" class="menu-label" itemprop="name">Contact Us</label>
+			<div class="menu-panel">
+				<nav class="menu-sub">
+					<strong>Order Material</strong>
+					<a href="tel:99887766">Call us</a>
+				</nav>
+				<nav class="menu-sub">
+					<strong>Order Material</strong>
+					<a href="tel:99887766">Call us</a>
+				</nav>
+				<nav class="menu-sub">
+					<strong>Order Material</strong>
+					<a href="tel:99887766">Call us</a>
+				</nav>								
+			</div>
+			
+			<input id="nav-mg-8" name="mgm" type="radio" class="state" aria-hidden="true">
+			<label for="nav-mg-8" class="menu-label" itemprop="name">Register</label>
+			<div class="menu-panel">
+				<nav class="menu-sub">
+					<strong>Register</strong>
+				</nav>
+			</div>
+		</nav>
+	</div>

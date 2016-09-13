@@ -1,0 +1,123 @@
+/// Nav Link
+/// - Version 1.2.0
+/// - Date last edited: 2016-09-06
+/// @name navlink
+/// @group blocks
+/// @author Mads Stoumann
+/// @param {String} $theme [$navlink-theme]- The theme-map to use
+/// @output class-module
+/// @link http://www.stoumann.dk/examples/blocks/navlink/ Demo
+/// @example scss
+///   .navlink ( @include navlink(); )
+
+@mixin navlink($theme: $navlink-theme) {
+	$root: &;
+	@extend %fontmap;
+	
+	@include fixed(top 0 left 0);
+	width: 100%;
+	
+	&__content {
+		float: right;
+	}
+	
+	&__inner {
+		position: absolute;
+		overflow: hidden;
+		width: 100%;
+		padding: 0 2em;
+		max-height: 0;
+		transition: max-height 0.35s ease-out;
+		background: map-get($theme, "background");
+	}
+	
+	&__link {
+		display: block;
+		margin: 1em 0.5em;
+		text-decoration: none;
+		&--active {
+			border-right: 0.25em solid  map-get($theme, "active-item-border");
+			color: map-get($theme, "active-item-color");
+		}	
+	}
+	
+	&__section {
+		margin: 0 0 1em 0;
+		padding-top: map-get($theme, "section-padding-top");
+	}
+	
+	&__summary {
+		@extend %noselect;
+		font-size: 1.25em;
+		font-weight: 500;
+		display: block;
+		padding: 0.75em;
+		color: map-get($theme, "summary-color");
+		background: map-get($theme, "summary-background");
+		
+		&::after {
+			float: right;
+			content: "\2715";
+			transform: rotate(-135deg);
+			transition: all 0.33s ease-in-out;
+		}
+
+		&--open {
+			border: 0;
+			&::after {
+				transform: rotate(0);
+			}
+			& + #{$root}__inner {
+				max-height: 100vh;
+				transition: max-height 0.5s ease-in;
+				border-bottom: 1px solid map-get($theme, "border-color");
+			}
+		}
+	}
+	
+	// RWD
+	@include for("tablet") {
+		float: left;
+		position: relative;
+		width: map-get($theme, "width");
+		
+		&__content {
+			width: (100% - map-get($theme, "width"));
+		}
+		
+		&__inner {
+			max-height: none;
+			overflow: auto;
+			padding: 1em;
+			opacity: 1;
+			&--fixed {
+				position: fixed;
+				top: 2em;
+				max-width: calc(#{map-get($theme, "width")} - 0.75em);
+			}
+		}
+		
+		&__section {
+			padding-top: 0;
+		}
+		
+		&__summary {
+			display: none; 
+		}
+	}
+}
+
+/// Theme-map for navlink
+/// @name navlink-theme
+/// @group settings
+
+$navlink-theme: (
+	"active-item-border": cornflowerblue,
+	"active-item-color": cornflowerblue,
+	"background": #eee,
+	"border-color": #aaa,
+	"section-padding-top": 2em,
+	"summary-background": #555,
+	"summary-color": #fff,
+	"width": 25%
+);

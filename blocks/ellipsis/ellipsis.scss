@@ -14,7 +14,7 @@
 	height: $height;
 	background-color: $background-color;
 	
-	&:before {
+	&::before {
 		float: left;
 		width: 5px;
 		height: $height;
@@ -27,7 +27,7 @@
 		margin-left: -5px;
 	}
 	
-	&:after {
+	&::after {
 		box-sizing: content-box;
 		position: relative;
 	    top: -$line-height;

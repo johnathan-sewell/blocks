@@ -1,7 +1,7 @@
 ﻿/*
 - Document  : styles.scss
-- Version   : 1.5.1
-- Date edit : 2016-06-24
+- Version   : 1.5.5
+- Date edit : 2016-08-14
 */
 
 /* Root */
@@ -12,55 +12,71 @@
 @import "_master";
 
 /* Modules */
-@import "../blocks/accordion/accordion";
-@import "../blocks/breadcrumb/breadcrumb";
-@import "../blocks/calculator/calculator";
-@import "../blocks/calendar/calendar";
-@import "../blocks/carousel/carousel";
-@import "../blocks/cart/cart";
-@import "../blocks/circular/circular";
-@import "../blocks/contact/contact";
-@import "../blocks/curtain/curtain";
-@import "../blocks/editor/editor";
-@import "../blocks/ellipsis/ellipsis";
-@import "../blocks/event/event";
-@import "../blocks/facets/facets";
-@import "../blocks/filter/filter";
-@import "../blocks/flexory/flexory";
-@import "../blocks/flexspot/flexspot";
-@import "../blocks/flip/flip";
-@import "../blocks/flip/recipe";
-@import "../blocks/foldout/foldout";
-@import "../blocks/form/form";
-@import "../blocks/googlemaps/googlemap";
-@import "../blocks/grid/grid";
-@import "../blocks/infotab/infotab";
-@import "../blocks/list/list";
-@import "../blocks/menu/menu";
-@import "../blocks/pagination/pagination";
-@import "../blocks/panels/panels";
-@import "../blocks/popup/popup";
-@import "../blocks/pricing/pricing";
-@import "../blocks/product/product";
-@import "../blocks/radial/radial";
-@import "../blocks/range/range";
-@import "../blocks/rating/rating";
-@import "../blocks/rotate/rotate";
-@import "../blocks/search/search";
-@import "../blocks/select/select";
-@import "../blocks/sidepanel/sidepanel";
-@import "../blocks/sitemap/sitemap";
-@import "../blocks/slider/slider";
-@import "../blocks/social-links/social-links";
-@import "../blocks/scrollblock/scrollblock";
-@import "../blocks/spinners/spinners";
-@import "../blocks/spot/spot";
-@import "../blocks/switch/switch";
-@import "../blocks/table/table";
-@import "../blocks/tabs/tabs";
-@import "../blocks/tactical/tactical";
-@import "../blocks/video/video";
-@import "../blocks/xray/xray";
+@import "./../blocks/accordion/accordion";
+@import "./../blocks/angle/angle";
+@import "./../blocks/blinds/blinds";
+@import "./../blocks/breadcrumb/breadcrumb";
+@import "./../blocks/carousel/carousel";
+@import "./../blocks/cart/cart";
+@import "./../blocks/circular/circular";
+@import "./../blocks/contact/contact";
+@import "./../blocks/coverflow/coverflow";
+@import "./../blocks/curtain/curtain";
+@import "./../blocks/details/details";
+@import "./../blocks/ellipsis/ellipsis";
+@import "./../blocks/event/event";
+@import "./../blocks/facets/facets";
+@import "./../blocks/filter/filter";
+@import "./../blocks/flexory/flexory";
+@import "./../blocks/flexspot/flexspot";
+@import "./../blocks/flip/flip";
+@import "./../blocks/flip/recipe";
+@import "./../blocks/foldout/foldout";
+@import "./../blocks/form/form";
+@import "./../blocks/grid/grid";
+@import "./../blocks/hero/hero";
+@import "./../blocks/imagemap/imagemap";
+@import "./../blocks/infotab/infotab";
+@import "./../blocks/list/list";
+@import "./../blocks/menu/menu";
+@import "./../blocks/mood/mood";
+@import "./../blocks/navlink/navlink";
+@import "./../blocks/pagination/pagination";
+@import "./../blocks/panels/panels";
+@import "./../blocks/popup/popup";
+@import "./../blocks/pricing/pricing";
+@import "./../blocks/product/product";
+@import "./../blocks/quote/quote";
+@import "./../blocks/radial/radial";
+@import "./../blocks/range/range";
+@import "./../blocks/rating/rating";
+@import "./../blocks/reveal/reveal";
+@import "./../blocks/rotate/rotate";
+@import "./../blocks/search/search";
+@import "./../blocks/select/select";
+@import "./../blocks/sidepanel/sidepanel";
+@import "./../blocks/sitemap/sitemap";
+@import "./../blocks/slider/slider";
+@import "./../blocks/social-links/social-links";
+@import "./../blocks/scrollblock/scrollblock";
+@import "./../blocks/spinners/spinners";
+@import "./../blocks/spot/spot";
+@import "./../blocks/switch/switch";
+@import "./../blocks/table/table";
+@import "./../blocks/tabs/tabs";
+@import "./../blocks/tabs-circle/tabs-circle";
+@import "./../blocks/tabs-square/tabs-square";
+@import "./../blocks/tactical/tactical";
+@import "./../blocks/video/video";
+@import "./../blocks/xray/xray";
+
+/* Progress */
+
+@import "./../progress/calculator/calculator";
+@import "./../progress/calendar/calendar";
+@import "./../progress/editor/editor";
+@import "./../progress/googlemaps/googlemap";
+
 
 /* Examples */
 @import "_examples";

@@ -5,12 +5,44 @@
 	.custom-accordion & { @include accordion($accordion-custom); }
 }
 
+// angle + quote
+.angle {
+	&--berry {
+		@include angle(both);
+		color: #fff;
+		background: #b52b4a;	
+	}
+	&--blue {
+		@include angle(after, true);
+		color: #fff;
+		background: #41ade5;
+	}
+	&--green {
+		@include angle(both, true);
+		color: #fff;
+		background: #5e9b42;
+	}	
+	&--orange {
+		@include angle(before);
+		color: #fff;
+		background: #de6628;
+	}
+}
+.quote {
+	@include quote();
+}
+
 // app
 .app { 
 	@include app();
 	&-panel-header {
 		padding-bottom: .5em;
 	}
+}
+
+// blinds
+.blinds { 
+	@include blinds();
 }
 
 // breadcrumbs
@@ -33,9 +65,19 @@
 	@include cart();
 }
 
+// cflow
+.cflow {
+	@include cflow();
+}
+
 // circular
 .circular { 
 	@include circular();
+	&__icon { 
+		background: orange;
+		border-radius: 50%;
+		padding: 5%;
+	}
 }
 
 // contact
@@ -46,6 +88,11 @@
 // curtain
 .curtain { 
 	@include curtain();
+}
+
+// details
+.details { 
+	@include details();
 }
 
 // editor
@@ -116,6 +163,16 @@
 	}
 }
 
+// hero
+.hero { 
+	@include hero();
+}
+
+// imagemap
+.imagemap { 
+	@include imagemap();
+}
+
 // infotab
 .infotab { 
 	@include infotab();
@@ -134,6 +191,30 @@
 // menu
 .menu {
 	@include menu();
+	&__toggle--mobile__icon {
+		background: deepskyblue;
+		border-radius: 50%;
+		padding: 0.25em;
+		width: 2em;
+		height: 2em;
+		color: #fff;
+		text-align: center;
+	}
+}
+
+// mood
+.mood {
+	@include mood();
+}
+
+// navlink
+.navlink {
+	@include navlink();
+	&__content {
+		font-size: 1.5em;
+		line-height: 1.6;
+		padding: 0 1em;
+	}
 }
 
 // pagination
@@ -174,6 +255,11 @@
 // recipe
 .recipe { 
 	@include recipe();
+}
+
+// reveal
+.reveal {
+	@include reveal();
 }
 
 // scrollblock
@@ -248,6 +334,24 @@
 	}
 }
 .custom-tabs .tabs { @include tabs($tabs-custom); }
+
+// tabs-circle
+.tabs-circle {
+	@include tabs-circle();
+	&__panel__header {
+		padding: 1em;
+		font-size: 2em;
+		color: #444;
+	}
+	&__panel__text {
+		padding: 0 2em 2em 2em;
+	}
+}
+
+// tabs-square
+.tabs-square {
+	@include tabs-square();
+}
 
 // video
 .video {

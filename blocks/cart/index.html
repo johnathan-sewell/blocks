@@ -11,89 +11,122 @@
 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWC78X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWC78X');</script>
 	<!-- End Google Tag Manager -->
+
+	<!-- Version -->
+	<template id="template-cart">
+		<div class="cart__wrapper" itemscope itemtype="http://schema.org/Table">
+			<table class="cart">
+				<caption class="cart__header" itemprop="about"><!--#data.name--></caption>
+				<thead class="cart__item__head">
+					<tr>
+						<th colspan="2"><!--#data.label_item--></th>
+						<th><!--#data.label_price--></th>
+						<th><!--#data.label_qnt--></th>
+					</tr>				
+				</thead>
+				<tbody>
+				<!--for(var i = 0; i < data.products.length; i++) {-->	
+					<tr class="cart__item__line" itemscope itemtype="http://schema.org/Product">
+						<td class="cart__item__image">
+							<img itemprop="image" src="<!--#data.products[i].image-->" alt="<!--#data.products[i].name-->" />
+						</td>
+						<td class="cart__item__name">
+							<meta itemprop="productID" content="<!--#data.products[i].id-->" />
+							<a href="#prod1" itemprop="name"><!--#data.products[i].name--></a>
+							<span class="cart__item__remove">&#215; <!--#data.label_remove--></span>
+						</td>
+						<td class="cart__item__price"><!--#formatNum(data.products[i].price)--></td>
+						<td class="cart__item__qnt">
+							<label for="<!--#data.products[i].id-->" aria-hidden="true">Quantity</label>
+							<input id="<!--#data.products[i].id-->" type="number" size="2" min="1" max="99" value="<!--#data.products[i].qnt-->" />
+						</td>
+					</tr>
+				<!--}-->	
+				</tbody>
+				<tfoot class="cart__footer">
+					<tr>
+						<td class="cart__subtotal"><!--#data.sub.name--></td>
+						<td colspan="3" class="cart__subtotal__price"><!--#formatNum(data.sub.value)--></td>
+					</tr>
+					<tr>
+						<td class="cart__shipping"><!--#data.shipping.name--></td>
+						<td colspan="3" class="cart__shipping__price"><!--#formatNum(data.shipping.value)--></td>
+					</tr>
+					<tr>
+						<td class="cart__tax"><!--#data.tax.name--></td>
+						<td colspan="3" class="cart__tax__price"><!--#formatNum(data.tax.value)--></td>
+					</tr>
+					<tr>
+						<td class="cart__total"><!--#data.total.name--></td>
+						<td colspan="3" class="cart__total__price"><!--#formatNum(data.total.value)--></td>
+					</tr>
+				</tfoot>
+			</table>
+			<button class="form-button cart__checkout"><!--#data.label_checkout--></button>
+		</div>
+	</template>
+	<!--/ Version -->
 	
 	<h1 class="blocks-header">Cart</h1>
-	
-	<!-- Version -->
-	<div class="cart-wrapper" itemscope itemtype="http://schema.org/Table">
-		<table class="cart">
-			<caption class="cart-header" itemprop="about">Your basket</caption>
-			<thead class="cart-item-head">
-				<tr>
-					<th colspan="2"></th>
-					<th>Price</th>
-					<th>Quantity</th>
-				</tr>				
-			</thead>
-			<tbody>
-				<tr class="cart-item-line" itemscope itemtype="http://schema.org/Product">
-					<td class="cart-item-image">
-						<img itemprop="image" src="../../img/prod1_front.jpg" alt="Tintin: Den bl&aring; Lotus" />
-					</td>
-					<td class="cart-item-name">
-						<meta itemprop="productID" content="987654321" />
-						<a href="#prod1" itemprop="name">Tintin: Den bl&aring; Lotus</a>
-						<span class="cart-item-remove">&#215; Remove</span>
-					</td>
-					<td class="cart-item-price">128,00</td>
-					<td class="cart-item-qnt">
-						<label for="qnt1" aria-hidden="true">Quantity</label>
-						<input id="qnt1" type="number" size="2" min="1" max="99" value="1" />
-					</td>
-				</tr>
-				<tr class="cart-item-line" itemscope itemtype="http://schema.org/Product">
-					<td class="cart-item-image">
-						<img itemprop="image" src="../../img/prod2_front.jpg" alt="Tintin: Castafoires juveler" />
-					</td>
-					<td class="cart-item-name">
-						<meta itemprop="productID" content="987654322" />
-						<a href="#prod2" itemprop="name">Tintin: Castafoires juveler</a>
-						<span class="cart-item-remove">&#215; Remove</span>
-					</td>
-					<td class="cart-item-price">128,00</td>
-					<td class="cart-item-qnt">
-						<label for="qnt2" aria-hidden="true">Quantity</label>
-						<input id="qnt2" type="number" size="2" min="1" max="99" value="1" />
-					</td>
-				</tr>
-				<tr class="cart-item-line" itemscope itemtype="http://schema.org/Product">
-					<td class="cart-item-image">
-						<img itemprop="image" src="../../img/prod3_front.jpg" alt="Tintin: De f&oslash;rste skridt p&aring; M&aring;nen" />
-					</td>
-					<td class="cart-item-name">
-						<meta itemprop="productID" content="987654323" />
-						<a href="#prod3" itemprop="name">Tintin: De f&oslash;rste skridt p&aring; M&aring;nen</a>
-						<span class="cart-item-remove">&#215; Remove</span>
-					</td>
-					<td class="cart-item-price">128,00</td>
-					<td class="cart-item-qnt">
-						<label for="qnt3" aria-hidden="true">Quantity</label>
-						<input id="qnt3" type="number" size="2" min="1" max="99" value="1" />
-					</td>
-				</tr>
-			</tbody>
-			<tfoot class="cart-foot">
-				<tr>
-					<td class="cart-subtotal">Subotal</td>
-					<td colspan="3" class="cart-subtotal-price">384,00</td>
-				</tr>
-				<tr>
-					<td class="cart-shipping">Shipping</td>
-					<td colspan="3" class="cart-shipping-price">39,00</td>
-				</tr>
-				<tr>
-					<td class="cart-tax">Tax</td>
-					<td colspan="3" class="cart-tax-price">84,60</td>
-				</tr>
-				<tr>
-					<td class="cart-total">Total</td>
-					<td colspan="3" class="cart-total-price">423,00</td>
-				</tr>
-			</tfoot>
-		</table>
-		<button class="form-button cart-checkout">Checkout</button>
-	</div>
-	<!-- /Version -->
-	
+	<div id="wrapper-cart"></div>
+
+	<script src="../../micro/fn.js"></script>
+	<script>
+		var 
+		oJSON = 
+		{	
+			"label_checkout": "Checkout",
+			"label_item": "Item",
+			"label_price": "Price",
+			"label_qnt": "Quantity",
+			"label_remove": "Remove",
+			"name": "Your basket",
+			"products": 
+			[
+				{
+					"id": "987654321",
+					"name" : "Tintin: Den bl&aring; Lotus",
+					"price" : 128.00,
+					"image": "../../img/prod1_front.jpg",
+					"qnt": 1
+				},
+				{
+					"id": "987654322",
+					"name" : "Tintin: Castafoires juveler",
+					"price" : 128.00,
+					"image": "../../img/prod2_front.jpg",
+					"qnt": 1
+				},
+				{
+					"id": "987654323",
+					"name" : "Tintin: De f&oslash;rste skridt p&aring; M&aring;nen",
+					"price" : 128.00,
+					"image": "../../img/prod3_front.jpg",
+					"qnt": 1
+				}				
+			],
+			"shipping": {
+				"name": "Shipping",
+				"value": 39
+			},
+			"sub": {
+				"name": "Subtotal",
+				"value": 384
+			},
+			"tax": {
+				"name": "Tax",
+				"value": 84.60
+			},
+			"total": {
+				"name": "Total",
+				"value": 423
+			}
+		},
+		oTemplate = document.getElementById("template-cart"),
+		oWrapper = document.getElementById("wrapper-cart");
+		fn.render(oJSON, oTemplate, oWrapper, 1);
+		
+		function formatNum(n){return parseFloat(Math.round(n * 100) / 100).toFixed(2);}
+	</script>		
 </body>
 </html>
